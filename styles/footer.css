@@ -1,0 +1,28 @@
+@media only screen and (max-width: 1023px) {
+  .footer-section {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .footer-section-article{
+    white-space: rap;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .footer-section {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+  }
+}
+
+footer {
+  display: flex;
+  background-color: var(--negro);
+}
+
+.footer-section-article {
+  padding: 25px;
+  color: var(--blanco);
+}

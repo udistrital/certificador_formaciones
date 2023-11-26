@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles/header.css" />
+    <link rel="stylesheet" href="styles/informes.css" />
+    <link rel="stylesheet" href="styles/navegacion.css" />
+    <link rel="stylesheet" href="styles/table.css" />
+    <link rel="stylesheet" href="styles/footer.css" />
     <link rel="stylesheet" href="index.css" />
     <link
       rel="stylesheet"
@@ -21,7 +25,7 @@
             id="nav-logo"
           />
         </figure>
-        <ul id="nav-lista" class="nav-lista">
+        <ul id="nav-lista" class="nav-lista nav-lista-disable">
           <li class="nav-lista-item">
             <span class="material-symbols-outlined"> feed </span>Informes
           </li>
@@ -55,9 +59,19 @@
           </li>
         </ul>
       </nav>
-      <div class="header-div-sesion" id="header-div-sesion">
-        sesion
-        <ul  id="nav-item-sublista-sesion" class="nav-item-sublista nav-item-sublista-disable">
+      <div class="header-div-sesion">
+        <div id="sesion-div-controles">
+          <span id="sesion-img-icon">JP</span>
+          <div id="sesion-controles-div-text">
+            <span id="sesion-nombreu">nombre usuario</span>
+            <span id="sesion-rol">rol</span>
+          </div>
+          <span class="material-symbols-outlined dowm"> expand_more </span>
+        </div>
+        <ul
+          id="nav-item-sublista-sesion"
+          class="nav-item-sublista nav-item-sublista-disable"
+        >
           <li>
             <a href="#"
               ><span class="material-symbols-outlined"> password </span>Cambio
@@ -73,13 +87,114 @@
         </ul>
       </div>
     </header>
-    <main>
-      <section>
-        <article></article>
+    <!--  -->
+    <!--  -->
+    <main class="main main-contenido-informes">
+      <section class="section section-historial-nav">
+        <article class="historial-nav-article">historial /</article>
+      </section>
+      <section class="section section-buscador-informes">
+        <article class="buscador-informes-article">
+          <label
+            for="input-buscador-informes"
+            class="label label-buscador-informes"
+          >
+            <span class="material-symbols-outlined"> search </span>
+          </label>
+          <input
+            type="text"
+            name=""
+            id="input-buscador-informes"
+            placeholder="buscar"
+          />
+        </article>
+      </section>
+      <section class="section section-nav">
+        <article class="nav-article">
+          <ul class="nav-article-ul">
+            <li>Generales</li>
+            <li>Cursos con tutor</li>
+            <li>Cursos Autodirigidos (MOOC)</li>
+            <li>Capacitaciones y/o talleres</li>
+            <li>Diplomado</li>
+            <li>Eventos</li>
+          </ul>
+        </article>
+      </section>
+      <section class="section section-table">
+        <table>
+          <caption class="table-descripcion">
+            Informes Generales
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Tipo</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Cohorte</th>
+              <th scope="col">año</th>
+              <th scope="col">Fecha inicial</th>
+              <th scope="col">Fecha final</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Producto 1</td>
+              <td>$19.99</td>
+              <td>Disponible</td>
+              <td>1</td>
+              <td>Producto 1</td>
+              <td>$19.99</td>
+              <td class="td-acciones">
+                <span class="material-symbols-outlined"> link </span>
+                <span class="material-symbols-outlined"> fact_check </span>
+                <span class="material-symbols-outlined">
+                  workspace_premium
+                </span>
+                <span class="material-symbols-outlined"> settings </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </section>
     </main>
-    <aside></aside>
-    <footer></footer>
+    <footer>
+      <section class="section footer-section">
+        <article class="footer-section-article">
+          <p>Universidad Distrital Francisco José de Caldas</p>
+          <p>NIT. 899.999.230-7</p>
+
+          <br />
+          <p>Institución de Educación Superior sujeta a inspección</p>
+          <p>y vigilancia por el Ministerio de Educación Nacional</p>
+          <br />
+          <p>Acuerdo de creación N° 10 de 1948 del Concejo de Bogotá</p>
+
+          <br />
+          <p>Acreditación Institucional de Alta Calidad - Resolución</p>
+          <p>N° 23096 del 15 de diciembre del 2016</p>
+        </article>
+        <article class="footer-section-article">
+          <p>Contáctenos</p>
+
+          <br />
+          <p>Coordinador</p>
+          <p>Carlos Enrique Montenegro Marín</p>
+          <p>cemontenegrom@udistrital.edu.co</p>
+
+          <br />
+          <p>Cl. 13 #31-75</p>
+          <p>Bogotá D.C. Republica de Colombia</p>
+
+          <br />
+          <p>323 9300 ext: 6368</p>
+          <p>planesticud@udistrital.edu.co</p>
+          <p>Lunes a viernes de 8 a.m. a 5 p.m</p>
+        </article>
+      </section>
+    </footer>
     <button id="nav-menu-hamburguer">
       <span class="material-symbols-outlined"> menu </span>
     </button>

@@ -1,0 +1,32 @@
+.section-nav{
+    background-color: var(--rojoprincipal);
+    height: 80px;
+}
+
+.nav-article{
+    width: 100%;
+    height: 100%;
+}
+
+.nav-article-ul{
+    display: flex;
+    justify-content: space-around;
+    color: var(--blanco);
+    height: 100%;
+}
+
+.nav-article-ul li{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+}
+
+.nav-article-ul li:hover{
+    background-color: var(--negro);
+    cursor: pointer;
+
+}

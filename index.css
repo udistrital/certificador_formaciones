@@ -1,13 +1,14 @@
 @charset "UTF-8";
 /* Aquí definimos las Custom properties */
 :root {
-  --negro: #4a4a4a;
+  --negro: #3B3B3B;
   --blanco: rgb(255, 255, 255);
   --grisclaro: #C9C9C9;
   --rojoprincipal: #8B1919;
   /* Tipografía */
   --tipo-principal: Helvetica, Arial, sans-serif;
   --tipo-secundaria: Verdana;
+  --gris: grey;
 }
 
 /* Reseteamos los margin y paddings de todas las etiquetas */
@@ -94,11 +95,11 @@ q:after {
 
 /* Configuramos el texto que seleccionamos */
 ::-moz-selection {
-  background-color: var(--negro);
+  background-color: var(--gris);
   color: var(--blanco);
 }
 ::selection {
-  background-color: var(--negro);
+  background-color: var(--gris);
   color: var(--blanco);
 }
 
@@ -161,6 +162,9 @@ body {
   -webkit-font-smoothing: antialiased;
   /* opcional */
   -moz-osx-font-smoothing: grayscale;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: space-between; */
 }
 
 h1 {
@@ -205,4 +209,15 @@ h6 {
   background-color: var(--grisclaro);
   color: #8B1919;
   outline: 1px solid var(--rojoprincipal);
+}
+
+/* .section{
+  background-color: red;
+} */
+
+.main{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
 }

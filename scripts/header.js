@@ -5,7 +5,7 @@ $btnHamNav.addEventListener("click", (e) => {
   $navlista.classList.toggle("nav-lista-disable");
 });
 
-const $headerSesionBtn = document.getElementById("header-div-sesion");
+const $headerSesionBtn = document.getElementById("sesion-div-controles");
 const $itemSesion = document.getElementById("nav-item-sublista-sesion");
 
 $headerSesionBtn.addEventListener("click", (e) => {

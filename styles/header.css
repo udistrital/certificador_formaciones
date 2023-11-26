@@ -17,7 +17,7 @@
 
 @media only screen and (max-width: 1023px) {
   .header {
-    min-height: 100vh;
+    /* min-height: 100vh; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,7 +38,7 @@
     justify-content: center;
     align-items: center;
     background-color: var(--blanco);
-    padding: 25px;
+    padding: 25px 0;
     font-size: 30px;
   }
 
@@ -70,6 +70,12 @@
 
   .nav-figure {
     width: 50%;
+    height: 50px;
+  }
+
+  #nav-logo {
+    height: 100%;
+    object-fit: contain;
   }
 
   .nav-lista-item {
@@ -111,6 +117,7 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
+    cursor: pointer;
   }
 
   .nav-item-sublista {
@@ -137,8 +144,30 @@
     display: none;
   }
 
-  .nis-tf, .nis-f{
+  .nis-tf,
+  .nis-f {
     display: none;
+  }
+
+  #sesion-div-controles {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+  }
+
+  #sesion-controles-div-text {
+    gap: 16px;
+  }
+
+  #nav-item-sublista-sesion {
+    border-top: 1px solid var(--negro);
+  }
+
+  .header-div-sesion {
+    border-bottom: 1px solid var(--rojoprincipal);
   }
 }
 
@@ -222,6 +251,7 @@
 
   .nav-lista-item ul li {
     display: block;
+    background-color: var(--blanco);
   }
 
   .header-div-sesion {
@@ -242,9 +272,46 @@
 
   .header-div-sesion ul li {
     display: block;
+    background-color: var(--blanco);
   }
 
   #nav-menu-hamburguer {
     display: none;
   }
+
+  #sesion-div-controles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+}
+
+.header-div-sesion:hover {
+  /* background-color: var(--negro); */
+  /* color: var(--blanco); */
+  border-bottom: 3px solid var(--rojoprincipal);
+}
+
+#sesion-controles-div-text {
+  display: flex;
+  flex-direction: column;
+  text-decoration: underline;
+}
+
+#sesion-img-icon {
+  padding: 16px;
+  border-radius: 50%;
+  outline: 1px solid var(--blanco);
+  background-color: var(--rojoprincipal);
+  color: var(--blanco);
+}
+
+.dowm {
+  background-color: var(--rojoprincipal);
+  color: white;
+  border-radius: 50%;
 }
