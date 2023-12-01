@@ -1,0 +1,26 @@
+.add-span{
+    background-color: var(--rojoprincipal);
+    width: fit-content;
+    height: fit-content;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--blanco);
+    font-size: 50px;
+}
+
+.add-span:hover{
+    outline: 1px solid var(--rojoprincipal);
+    color: var(--rojoprincipal);
+background-color: var(--blanco);
+cursor: pointer;
+user-select: none;
+
+}
+
+.historial-article{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--azul);
+}

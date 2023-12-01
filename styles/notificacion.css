@@ -1,0 +1,20 @@
+.notificacion {
+    display: flex;
+    justify-content: space-between;
+    color: var(--blanco);
+    font-size: 25px;
+    padding: 16px;
+    margin-top: 16px;
+}
+
+.notificacion-verde{
+    background-color: var(--verde);
+}
+
+.notificacion-roja{
+    background-color: var(--rojoError);
+}
+
+.notificacion-disabled{
+    display: none;
+}

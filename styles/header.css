@@ -38,7 +38,6 @@
     justify-content: center;
     align-items: center;
     background-color: var(--blanco);
-    padding: 25px 0;
     font-size: 30px;
   }
 
@@ -156,6 +155,7 @@
     justify-content: center;
     align-items: center;
     gap: 16px;
+    padding: 25px 0;
   }
 
   #sesion-controles-div-text {
@@ -304,6 +304,7 @@
 
 #sesion-img-icon {
   padding: 16px;
+  line-height: 1;
   border-radius: 50%;
   outline: 1px solid var(--blanco);
   background-color: var(--rojoprincipal);
@@ -314,4 +315,13 @@
   background-color: var(--rojoprincipal);
   color: white;
   border-radius: 50%;
+}
+
+.header-a-informes{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }

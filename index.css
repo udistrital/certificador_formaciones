@@ -1,14 +1,18 @@
 @charset "UTF-8";
 /* Aquí definimos las Custom properties */
 :root {
-  --negro: #3B3B3B;
+  --negro: #3b3b3b;
+  --negroModal: #3b3b3b7c;
   --blanco: rgb(255, 255, 255);
-  --grisclaro: #C9C9C9;
-  --rojoprincipal: #8B1919;
+  --grisclaro: #c9c9c9;
+  --rojoprincipal: #8b1919;
   /* Tipografía */
   --tipo-principal: Helvetica, Arial, sans-serif;
   --tipo-secundaria: Verdana;
-  --gris: grey;
+  --gris: rgb(124, 124, 124);
+  --azul: rgb(0, 0, 255);
+  --verde: #8BC34A;
+  --rojoError:#BB2D3B;
 }
 
 /* Reseteamos los margin y paddings de todas las etiquetas */
@@ -191,13 +195,13 @@ h6 {
   font-size: 14px;
 }
 
-.btn{
+.btn {
   padding: 16px;
   font-size: 26px;
   width: fit-content;
 }
 
-.btn-rojo{
+.btn-rojo {
   background-color: var(--rojoprincipal);
   color: var(--blanco);
   border-radius: 10px;
@@ -205,9 +209,9 @@ h6 {
   cursor: pointer;
 }
 
-.btn-rojo:hover{
+.btn-rojo:hover {
   background-color: var(--grisclaro);
-  color: #8B1919;
+  color: #8b1919;
   outline: 1px solid var(--rojoprincipal);
 }
 
@@ -215,9 +219,14 @@ h6 {
   background-color: red;
 } */
 
-.main{
+.main {
   display: flex;
   flex-direction: column;
   gap: 16px;
   padding: 16px;
+}
+
+@media only screen and (max-width: 1023px) {
+}
+@media only screen and (min-width: 1024px) {
 }
