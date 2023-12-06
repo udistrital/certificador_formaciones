@@ -11,8 +11,9 @@
   --tipo-secundaria: Verdana;
   --gris: rgb(124, 124, 124);
   --azul: rgb(0, 0, 255);
-  --verde: #8BC34A;
-  --rojoError:#BB2D3B;
+  --azulClaro: #0d6efd;
+  --verde: #8bc34a;
+  --rojo: #bb2d3b;
 }
 
 /* Reseteamos los margin y paddings de todas las etiquetas */
@@ -224,6 +225,28 @@ h6 {
   flex-direction: column;
   gap: 16px;
   padding: 16px;
+}
+
+.section-buscador-informes {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+#check-gen-certificados {
+  outline: 1px solid var(--rojoprincipal);
+  border-radius: 50%;
+  padding: 10px;
+}
+
+#check-gen-certificados:checked{
+  background-color: var(--rojoprincipal);
+}
+
+#label-check-gen-certificados{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media only screen and (max-width: 1023px) {

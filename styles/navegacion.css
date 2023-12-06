@@ -1,19 +1,11 @@
 .section-nav{
     background-color: var(--rojoprincipal);
-    height: 80px;
 }
 
 .nav-article{
     width: 100%;
-    height: 100%;
 }
 
-.nav-article-ul{
-    display: flex;
-    justify-content: space-around;
-    color: var(--blanco);
-    height: 100%;
-}
 
 .nav-article-ul li{
     display: flex;
@@ -23,10 +15,34 @@
     justify-content: center;
     align-items: center;
     user-select: none;
+    padding: 16px;
 }
 
 .nav-article-ul li:hover{
     background-color: var(--negro);
     cursor: pointer;
+    
+}
 
+.nav-li-a-certificados{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+@media only screen and (max-width: 1023px) {
+    .nav-article-ul{
+        flex-direction: column;
+        height: fit-content;
+        color: var(--blanco);
+    }
+}
+@media only screen and (min-width: 1024px) {
+    .nav-article-ul{
+        display: flex;
+        justify-content: space-around;
+        color: var(--blanco);
+    }
 }

@@ -5,11 +5,12 @@ const $closeModalNuevaFormacion = d.getElementById(
 const $modalNuevaFormacion = d.getElementById("modal-nueva-formacion");
 const $openModalNuevaFormacion = d.getElementById("add-nueva-formacion");
 
-const $closeModalNuevaCohorte = d.getElementById(
-  "close-modal-nueva-cohorte"
-);
+const $closeModalNuevaCohorte = d.getElementById("close-modal-nueva-cohorte");
 const $modalNuevaCohorte = d.getElementById("modal-nueva-cohorte");
 const $openModalNuevaCohorte = d.getElementById("add-nueva-cohorte");
+
+const $closeModalInfoCohorte = d.getElementById("close-modal-info-cohorte");
+const $modalinfoCohorte = d.getElementById("modal-info-cohorte");
 
 d.addEventListener("click", (e) => {
   if (
@@ -18,20 +19,31 @@ d.addEventListener("click", (e) => {
   ) {
     $modalNuevaFormacion.classList.toggle("modal-disabled");
   }
-
   if (e.target === $openModalNuevaFormacion) {
     $modalNuevaFormacion.classList.toggle("modal-disabled");
   }
-  if (
-    e.target === $closeModalNuevaCohorte ||
-    e.target === $modalNuevaCohorte
-  ) {
+
+  if (e.target === $closeModalNuevaCohorte || e.target === $modalNuevaCohorte) {
     $modalNuevaCohorte.classList.toggle("modal-disabled");
   }
-
   if (e.target === $openModalNuevaCohorte) {
     $modalNuevaCohorte.classList.toggle("modal-disabled");
   }
+  if (e.target === $closeModalInfoCohorte || e.target === $modalinfoCohorte) {
+    $modalinfoCohorte.classList.toggle("modal-disabled");
+  }
+});
+
+/** modal de informacion de una cohorte */
+const $openModalInfoCohorte = d.getElementsByClassName("show-info-cohorte");
+
+Array.from($openModalInfoCohorte).forEach((e, i) => {
+  e.addEventListener("click", (event) => {
+    if (event.target === e) {
+      console.log(i);
+      $modalinfoCohorte.classList.toggle("modal-disabled");
+    }
+  });
 });
 
 d.addEventListener("submit", (e) => {
@@ -46,39 +58,39 @@ d.addEventListener("submit", (e) => {
     if (1 === a) {
       const $notificacionVerde = document.getElementById(
         "notificacion-verde-formacion"
-        );
+      );
+      $notificacionVerde.classList.toggle("notificacion-disabled");
+      setTimeout(() => {
         $notificacionVerde.classList.toggle("notificacion-disabled");
-        setTimeout(() => {
-          $notificacionVerde.classList.toggle("notificacion-disabled");
-          window.location.reload();
-        }, 1000);
-      } else if (0 === a) {
-        const $notificacionRoja = document.getElementById(
-          "notificacion-roja-formacion"
-          );
-          $notificacionRoja.classList.toggle("notificacion-disabled");
+        window.location.reload();
+      }, 1000);
+    } else if (0 === a) {
+      const $notificacionRoja = document.getElementById(
+        "notificacion-roja-formacion"
+      );
+      $notificacionRoja.classList.toggle("notificacion-disabled");
       setTimeout(() => {
         $notificacionRoja.classList.toggle("notificacion-disabled");
         window.location.reload();
       }, 1000);
     }
-  }else if (e.target === $btnNuevaCohorte) {
+  } else if (e.target === $btnNuevaCohorte) {
     $modalNuevaCohorte.classList.toggle("modal-disabled");
     let a = 0;
     if (1 === a) {
       const $notificacionVerde = document.getElementById(
         "notificacion-verde-formacion"
-        );
+      );
+      $notificacionVerde.classList.toggle("notificacion-disabled");
+      setTimeout(() => {
         $notificacionVerde.classList.toggle("notificacion-disabled");
-        setTimeout(() => {
-          $notificacionVerde.classList.toggle("notificacion-disabled");
-          window.location.reload();
-        }, 1000);
-      } else if (0 === a) {
-        const $notificacionRoja = document.getElementById(
-          "notificacion-roja-formacion"
-          );
-          $notificacionRoja.classList.toggle("notificacion-disabled");
+        window.location.reload();
+      }, 1000);
+    } else if (0 === a) {
+      const $notificacionRoja = document.getElementById(
+        "notificacion-roja-formacion"
+      );
+      $notificacionRoja.classList.toggle("notificacion-disabled");
       setTimeout(() => {
         $notificacionRoja.classList.toggle("notificacion-disabled");
         window.location.reload();

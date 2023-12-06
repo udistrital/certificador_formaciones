@@ -100,3 +100,33 @@
 .modal-contenido-form-input-check:checked{
     background-color: var(--rojoprincipal);
 }
+
+.modal-data-cohorte{
+    padding: 25px;
+    
+}
+
+.on-info-cohorte{
+    color: var(--verde);
+}
+.off-info-cohorte{
+    color: var(--rojo);
+}
+
+.share-info-cohorte{
+    color: var(--azulClaro);
+    cursor: pointer;
+    user-select: none;
+}
+
+.data-cohorte-linkCon{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 16px 0;
+    color: var(--azulClaro);
+    cursor: pointer;
+    gap: 16px;
+    user-select: none;
+    width: fit-content;
+}

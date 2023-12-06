@@ -19,13 +19,16 @@
   <body>
     <header class="header">
       <nav class="header-nav">
-        <figure class="nav-figure">
-          <img
-            src="../images/imgheader.png"
-            alt="PlanesTIC y Universidad Distrital Francisco José de Caldas"
-            id="nav-logo"
-          />
-        </figure>
+        <a href="../index.html" class="header-figure-link-index">
+          <figure class="nav-figure">
+            <img
+              src="../images/UD-PlanEsTIC.svg"
+              alt="PlanesTIC y Universidad Distrital Francisco José de Caldas"
+              id="nav-logo"
+              height="90"
+            />
+          </figure>
+        </a>
         <ul id="nav-lista" class="nav-lista nav-lista-disable">
           <li class="nav-lista-item">
             <a href="../index.html" class="header-a-informes">
@@ -319,6 +322,100 @@
             </form>
           </div>
         </article>
+        <article class="article-modal modal-disabled" id="modal-info-cohorte">
+          <div class="modal-contenido">
+            <div class="modal-header">
+              <span></span>
+              <span class="modal-title">Información cohorte</span>
+              <span
+                class="material-symbols-outlined material-google-icon"
+                id="close-modal-info-cohorte"
+              >
+                cancel
+              </span>
+            </div>
+            <div class="modal-data-cohorte">
+              <h2>Cohorte [#]</h2>
+              <p class="data-cohorte-linkCon" title="Copiar link de conexión">
+                <span class="material-symbols-outlined"> share </span>
+                Link de conexión
+              </p>
+              <section class="section section-table">
+                <table class="table-info-cohorte">
+                  <caption class="table-descripcion">
+                    Información
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Formulario</th>
+                      <th scope="col">Rango</th>
+                      <th scope="col">Estado</th>
+                      <th scope="col">Link</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Inscripción:</td>
+                      <td>2023/08/03 1am - 2023/08/03 3pm</td>
+                      <td>
+                        <div class="modal-data-cohorte-estado">
+                          <span
+                            class="material-symbols-outlined on-info-cohorte"
+                            title="Habilitada"
+                          >
+                            check_circle
+                          </span>
+                          <span
+                            class="material-symbols-outlined off-info-cohorte"
+                            title="Deshabilitada"
+                          >
+                            cancel
+                          </span>
+                        </div>
+                      </td>
+                      <td>
+                        <span
+                          class="material-symbols-outlined share-info-cohorte"
+                          title="Copiar link de inscripción"
+                        >
+                          share
+                        </span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Asistencia</td>
+                      <td>2023/08/03 1am - 2023/08/03 3pm</td>
+                      <td>
+                        <div class="modal-data-cohorte-estado">
+                          <span
+                            class="material-symbols-outlined on-info-cohorte"
+                            title="Habilitada"
+                          >
+                            check_circle
+                          </span>
+                          <span
+                            class="material-symbols-outlined off-info-cohorte"
+                            title="Deshabilitada"
+                          >
+                            cancel
+                          </span>
+                        </div>
+                      </td>
+                      <td>
+                        <span
+                          class="material-symbols-outlined share-info-cohorte"
+                          title="Copiar link de asistencia"
+                        >
+                          share
+                        </span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </section>
+            </div>
+          </div>
+        </article>
         <article class="article-notificacion">
           <div
             class="notificacion notificacion-verde notificacion-disabled"
@@ -359,7 +456,58 @@
               <td>$19.99</td>
               <td>$19.99</td>
               <td class="td-acciones">
-                <span class="material-symbols-outlined" title="Ver link">
+                <span
+                  class="material-symbols-outlined show-info-cohorte"
+                  title="Ver link"
+                >
+                  link
+                </span>
+                <span class="material-symbols-outlined" title="Asistencia">
+                  <a href="../pages/AsistenciasPage.html"> fact_check </a>
+                </span>
+                <span class="material-symbols-outlined" title="Certificaciones">
+                  <a href="../pages/CertificadosEmitidosPage.html">
+                    workspace_premium
+                  </a>
+                </span>
+                <span class="material-symbols-outlined" title="Configurarción">
+                  settings
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Producto 1</td>
+              <td>$19.99</td>
+              <td>$19.99</td>
+              <td class="td-acciones">
+                <span
+                  class="material-symbols-outlined show-info-cohorte"
+                  title="Ver link"
+                >
+                  link
+                </span>
+                <span class="material-symbols-outlined" title="Asistencia">
+                  fact_check
+                </span>
+                <span class="material-symbols-outlined" title="Certificaciones">
+                  workspace_premium
+                </span>
+                <span class="material-symbols-outlined" title="Configurarción">
+                  settings
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Producto 1</td>
+              <td>$19.99</td>
+              <td>$19.99</td>
+              <td class="td-acciones">
+                <span
+                  class="material-symbols-outlined show-info-cohorte"
+                  title="Ver link"
+                >
                   link
                 </span>
                 <span class="material-symbols-outlined" title="Asistencia">
