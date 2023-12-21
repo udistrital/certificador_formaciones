@@ -96,8 +96,11 @@
       </div>
     </header>
     <main class="main main-contenido">
-      <section class="section-cursoTutor">
-        <article class="historial-article">historial /</article>
+      <template id="template-historial-enlace">
+        <a href="#" target="_blank">Enlace dinámico</a>
+      </template>
+      <section class="section section-historial-nav">
+        <article class="historial-nav-article"></article>
       </section>
       <section class="section section-table">
         <button class="asistencias-boton-exportar btn">
@@ -118,7 +121,12 @@
               <th scope="col">Acciones</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="tbody-table-asistencia">
+            <template id="template-renglon-asistencia">
+              <tr></tr>
+            </template>
+          </tbody>
+          <!-- <tbody>
             <tr>
               <td>Juan Ramirez Perez</td>
               <td>CC</td>
@@ -133,7 +141,7 @@
                 >
               </td>
             </tr>
-          </tbody>
+          </tbody> -->
         </table>
       </section>
     </main>
@@ -175,7 +183,13 @@
     <button id="nav-menu-hamburguer">
       <span class="material-symbols-outlined"> menu </span>
     </button>
+    <button id="nav-menu-top">
+      <span class="material-symbols-outlined"> arrow_upward </span>
+    </button>
   </body>
   <script src="../scripts/header.js" type="module"></script>
   <script src="../scripts/modals.js" type="module"></script>
+  <script src="../scripts/navegacion.js" type="module"></script>
+  <script src="../scripts/asistencias.js" type="module"></script>
+  <script src="../scripts/irTop.js" type="module"></script>
 </html>

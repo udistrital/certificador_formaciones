@@ -97,8 +97,11 @@
     <!--  -->
     <!--  -->
     <main class="main main-contenido-informes">
+      <template id="template-historial-enlace">
+        <a href="#" target="_blank">Enlace dinámico</a>
+      </template>
       <section class="section section-historial-nav">
-        <article class="historial-nav-article">historial /</article>
+        <article class="historial-nav-article"></article>
       </section>
       <section class="section section-nav">
         <article class="nav-article">
@@ -106,20 +109,38 @@
             <li>
               <a
                 href="../pages/CertificadosEmitidosPage.html"
-                class="nav-li-a-certificados"
+                class="nav-article-ul-li-a"
                 >Certificados emitidos</a
               >
             </li>
             <li>
               <a
                 href="../pages/GenerarCertificadosPage.html"
-                class="nav-li-a-certificados"
+                class="nav-article-ul-li-a"
                 >Generación de Certificados</a
               >
             </li>
-            <li>Configuracion Certificado</li>
-            <li>Emitir un certificado de prueba</li>
-            <li>Inscritos</li>
+            <li>
+              <a
+                href="../pages/CertificadosEmitidosPage.html"
+                class="nav-article-ul-li-a"
+                >Configuracion Certificado</a
+              >
+            </li>
+            <li>
+              <a
+                href="../pages/CertificadosEmitidosPage.html"
+                class="nav-article-ul-li-a"
+                >Emitir un certificado de prueba</a
+              >
+            </li>
+            <li>
+              <a
+                href="../pages/CertificadosEmitidosPage.html"
+                class="nav-article-ul-li-a"
+                >Inscritos</a
+              >
+            </li>
           </ul>
         </article>
       </section>
@@ -225,6 +246,11 @@
     <button id="nav-menu-hamburguer">
       <span class="material-symbols-outlined"> menu </span>
     </button>
+    <button id="nav-menu-top">
+      <span class="material-symbols-outlined"> arrow_upward </span>
+    </button>
   </body>
   <script src="../scripts/header.js" type="module"></script>
+  <script src="../scripts/navegacion.js" type="module"></script>
+  <script src="../scripts/irTop.js" type="module"></script>
 </html>

@@ -12,7 +12,7 @@
 }
 
 .notificacion-roja{
-    background-color: var(--rojoError);
+    background-color: var(--rojo);
 }
 
 .notificacion-disabled{

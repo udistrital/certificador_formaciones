@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styles/navegacion.css" />
     <link rel="stylesheet" href="styles/table.css" />
     <link rel="stylesheet" href="styles/footer.css" />
+    <link rel="stylesheet" href="styles/modal.css" />
     <link rel="stylesheet" href="index.css" />
     <link
       rel="stylesheet"
@@ -96,10 +97,109 @@
     </header>
     <!--  -->
     <!--  -->
+    <template id="template-historial-enlace">
+      <a href="#" target="_blank">Enlace dinámico</a>
+    </template>
     <main class="main main-contenido-informes">
       <section class="section section-historial-nav">
-        <article class="historial-nav-article">historial /</article>
+        <article class="historial-nav-article"></article>
       </section>
+
+      <article class="article-modal modal-disabled" id="modal-info-cohorte">
+        <div class="modal-contenido">
+          <div class="modal-header">
+            <span></span>
+            <span class="modal-title">Información cohorte</span>
+            <span
+              class="material-symbols-outlined material-google-icon"
+              id="close-modal-info-cohorte"
+            >
+              cancel
+            </span>
+          </div>
+          <div class="modal-data-cohorte">
+            <h2>Cohorte [#]</h2>
+            <p class="data-cohorte-linkCon" title="Copiar link de conexión">
+              <span class="material-symbols-outlined"> share </span>
+              Link de conexión
+            </p>
+            <section class="section section-table">
+              <table class="table-info-cohorte">
+                <caption class="table-descripcion">
+                  Información
+                </caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Formulario</th>
+                    <th scope="col">Rango</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Link</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Inscripción:</td>
+                    <td>2023/08/03 1am - 2023/08/03 3pm</td>
+                    <td>
+                      <div class="modal-data-cohorte-estado">
+                        <span
+                          class="material-symbols-outlined on-info-cohorte"
+                          title="Habilitada"
+                        >
+                          check_circle
+                        </span>
+                        <span
+                          class="material-symbols-outlined off-info-cohorte"
+                          title="Deshabilitada"
+                        >
+                          cancel
+                        </span>
+                      </div>
+                    </td>
+                    <td>
+                      <span
+                        class="material-symbols-outlined share-info-cohorte"
+                        title="Copiar link de inscripción"
+                      >
+                        share
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Asistencia</td>
+                    <td>2023/08/03 1am - 2023/08/03 3pm</td>
+                    <td>
+                      <div class="modal-data-cohorte-estado">
+                        <span
+                          class="material-symbols-outlined on-info-cohorte"
+                          title="Habilitada"
+                        >
+                          check_circle
+                        </span>
+                        <span
+                          class="material-symbols-outlined off-info-cohorte"
+                          title="Deshabilitada"
+                        >
+                          cancel
+                        </span>
+                      </div>
+                    </td>
+                    <td>
+                      <span
+                        class="material-symbols-outlined share-info-cohorte"
+                        title="Copiar link de asistencia"
+                      >
+                        share
+                      </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+          </div>
+        </div>
+      </article>
+
       <section class="section section-buscador-informes">
         <article class="buscador-informes-article">
           <label
@@ -119,12 +219,48 @@
       <section class="section section-nav">
         <article class="nav-article">
           <ul class="nav-article-ul">
-            <li>Generales</li>
-            <li>Cursos con tutor</li>
-            <li>Cursos Autodirigidos (MOOC)</li>
-            <li>Capacitaciones y/o talleres</li>
-            <li>Diplomado</li>
-            <li>Eventos</li>
+            <li>
+              <a
+                href="../pages/CertificadosEmitidosPage.html"
+                class="nav-article-ul-li-a"
+                >Generales</a
+              >
+            </li>
+            <li>
+              <a
+                href="../pages/CertificadosEmitidosPage.html"
+                class="nav-article-ul-li-a"
+                >Cursos con tutor</a
+              >
+            </li>
+            <li>
+              <a
+                href="../pages/CertificadosEmitidosPage.html"
+                class="nav-article-ul-li-a"
+                >Cursos Autodirigidos (MOOC)</a
+              >
+            </li>
+            <li>
+              <a
+                href="../pages/CertificadosEmitidosPage.html"
+                class="nav-article-ul-li-a"
+                >Capacitaciones y/o talleres</a
+              >
+            </li>
+            <li>
+              <a
+                href="../pages/CertificadosEmitidosPage.html"
+                class="nav-article-ul-li-a"
+                >Diplomado</a
+              >
+            </li>
+            <li>
+              <a
+                href="../pages/CertificadosEmitidosPage.html"
+                class="nav-article-ul-li-a"
+                >Eventos</a
+              >
+            </li>
           </ul>
         </article>
       </section>
@@ -145,8 +281,11 @@
               <th scope="col">Acciones</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
+          <tbody id="tbody-table-formaciones-generales">
+            <template id="template-renglon-formaciones-generales">
+              <tr></tr>
+            </template>
+            <!-- <tr>
               <td>1</td>
               <td>Curso con tutor</td>
               <td>Investigacion</td>
@@ -168,7 +307,7 @@
                   settings
                 </span>
               </td>
-            </tr>
+            </tr> -->
           </tbody>
         </table>
       </section>
@@ -211,6 +350,13 @@
     <button id="nav-menu-hamburguer">
       <span class="material-symbols-outlined"> menu </span>
     </button>
+    <button id="nav-menu-top">
+      <span class="material-symbols-outlined"> arrow_upward </span>
+    </button>
   </body>
   <script src="./scripts/header.js" type="module"></script>
+  <script src="./scripts/navegacion.js" type="module"></script>
+  <script src="./scripts/tablasContenidoInfGeneral.js" type="module"></script>
+  <script src="./scripts/modals.js" type="module"></script>
+  <script src="./scripts/irTop.js" type="module"></script>
 </html>

@@ -96,9 +96,13 @@
       </div>
     </header>
     <main class="main main-contenido">
+      <template id="template-historial-enlace">
+        <a href="#" target="_blank">Enlace dinámico</a>
+      </template>
       <section class="section-cursoTutor">
-        <article class="historial-article">
-          historial /
+        <article class="historial-nav-article"></article>
+
+        <article class="add-article">
           <span
             class="material-symbols-outlined add-span"
             id="add-nueva-formacion"
@@ -192,19 +196,10 @@
               <th scope="col">Acción</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>Producto 1</td>
-              <td>$19.99</td>
-              <td class="td-acciones">
-                <span class="material-symbols-outlined" title="Ver cohortes">
-                  <a href="../pages/CursoConTutorCohortesPage.html"
-                    >visibility</a
-                  ></span
-                >
-              </td>
-            </tr>
+          <tbody id="tbody-table-cursos-tutor">
+            <template id="template-renglon-cursos-tutor">
+              <tr></tr>
+            </template>
           </tbody>
         </table>
       </section>
@@ -247,7 +242,13 @@
     <button id="nav-menu-hamburguer">
       <span class="material-symbols-outlined"> menu </span>
     </button>
+    <button id="nav-menu-top">
+      <span class="material-symbols-outlined"> arrow_upward </span>
+    </button>
   </body>
   <script src="../scripts/header.js" type="module"></script>
   <script src="../scripts/modals.js" type="module"></script>
+  <script src="../scripts/navegacion.js" type="module"></script>
+  <script src="../scripts/cursoTutor.js" type="module"></script>
+  <script src="../scripts/irTop.js" type="module"></script>
 </html>

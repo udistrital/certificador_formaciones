@@ -1,0 +1,73 @@
+export const modeloAsistencias = [
+    {
+      nombreEstudiante: 'Juan Ramirez Perez',
+      tipoDoc: 'CC',
+      documento: '123456789',
+      numeroAsistencias: '2',
+      ultimaAsistencia: '2023-07-19 11:54:54',
+    },
+    {
+      nombreEstudiante: 'María González López',
+      tipoDoc: 'CC',
+      documento: '987654321',
+      numeroAsistencias: '5',
+      ultimaAsistencia: '2023-08-15 09:23:41',
+    },
+    {
+      nombreEstudiante: 'Carlos Martínez Rodríguez',
+      tipoDoc: 'CC',
+      documento: '456789123',
+      numeroAsistencias: '7',
+      ultimaAsistencia: '2023-09-02 14:37:22',
+    },
+    {
+      nombreEstudiante: 'Ana Fernández García',
+      tipoDoc: 'CC',
+      documento: '789123456',
+      numeroAsistencias: '3',
+      ultimaAsistencia: '2023-09-18 10:45:19',
+    },
+    {
+      nombreEstudiante: 'Luisa Pérez Gómez',
+      tipoDoc: 'CC',
+      documento: '321654987',
+      numeroAsistencias: '6',
+      ultimaAsistencia: '2023-10-05 13:20:55',
+    },
+    {
+      nombreEstudiante: 'Pedro Sánchez Martín',
+      tipoDoc: 'CC',
+      documento: '654987321',
+      numeroAsistencias: '4',
+      ultimaAsistencia: '2023-10-21 08:12:37',
+    },
+    {
+      nombreEstudiante: 'Laura Rodríguez Hernández',
+      tipoDoc: 'CC',
+      documento: '234567891',
+      numeroAsistencias: '8',
+      ultimaAsistencia: '2023-11-07 12:30:44',
+    },
+    {
+      nombreEstudiante: 'Diego Gómez Fernández',
+      tipoDoc: 'CC',
+      documento: '567891234',
+      numeroAsistencias: '9',
+      ultimaAsistencia: '2023-11-24 15:18:29',
+    },
+    {
+      nombreEstudiante: 'Sofía Hernández Pérez',
+      tipoDoc: 'CC',
+      documento: '891234567',
+      numeroAsistencias: '1',
+      ultimaAsistencia: '2023-12-10 09:55:07',
+    },
+    {
+      nombreEstudiante: 'Elena Martínez Rodríguez',
+      tipoDoc: 'CC',
+      documento: '678912345',
+      numeroAsistencias: '10',
+      ultimaAsistencia: '2023-12-27 16:42:13',
+    },
+  ];
+  

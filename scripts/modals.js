@@ -35,8 +35,9 @@ d.addEventListener("click", (e) => {
 });
 
 /** modal de informacion de una cohorte */
-const $openModalInfoCohorte = d.getElementsByClassName("show-info-cohorte");
 
+const $openModalInfoCohorte = d.getElementsByClassName("show-info-cohorte");
+console.log($openModalInfoCohorte);
 Array.from($openModalInfoCohorte).forEach((e, i) => {
   e.addEventListener("click", (event) => {
     if (event.target === e) {
@@ -48,13 +49,17 @@ Array.from($openModalInfoCohorte).forEach((e, i) => {
 
 d.addEventListener("submit", (e) => {
   e.preventDefault();
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth", // Esto hace que el desplazamiento sea suave
+  });
   // CON EL SIGUIENTE CODIGO SE HARA LA PETICION AL SERVIDOR PARA ALMACENAR UNA NUEVA FORMACION,
   // UNA VEZ REALIZADO DEPENDE DEL MENSAJE DEL SERVIDOR SE MOSTRARA UNA NOTIFICACION
   const $btnNuevaFormacion = document.getElementById("modal-form-formacion");
   const $btnNuevaCohorte = document.getElementById("modal-form-cohorte");
   if (e.target === $btnNuevaFormacion) {
     $modalNuevaFormacion.classList.toggle("modal-disabled");
-    let a = 1;
+    let a = 0;
     if (1 === a) {
       const $notificacionVerde = document.getElementById(
         "notificacion-verde-formacion"
@@ -75,11 +80,12 @@ d.addEventListener("submit", (e) => {
       }, 1000);
     }
   } else if (e.target === $btnNuevaCohorte) {
+    console.log("fshjfhjdhsjkfhdjsdfahjkfadshkj");
     $modalNuevaCohorte.classList.toggle("modal-disabled");
     let a = 0;
     if (1 === a) {
       const $notificacionVerde = document.getElementById(
-        "notificacion-verde-formacion"
+        "notificacion-verde-cohorte"
       );
       $notificacionVerde.classList.toggle("notificacion-disabled");
       setTimeout(() => {
@@ -87,8 +93,9 @@ d.addEventListener("submit", (e) => {
         window.location.reload();
       }, 1000);
     } else if (0 === a) {
+      console.log("rojo");
       const $notificacionRoja = document.getElementById(
-        "notificacion-roja-formacion"
+        "notificacion-roja-cohorte"
       );
       $notificacionRoja.classList.toggle("notificacion-disabled");
       setTimeout(() => {

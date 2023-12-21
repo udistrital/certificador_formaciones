@@ -249,6 +249,56 @@ h6 {
   align-items: center;
 }
 
+.contenedor-btn-generar-certificados{
+  display: flex;
+  justify-content: right;
+}
+
+.btn-generar-certificados{
+  outline: 1px solid var(--rojoprincipal);
+  background-color: var(--rojoprincipal);
+  padding: 16px !important;
+  font-size: 16px !important;
+  color: var(--blanco);
+  transition: all ease 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-generar-certificados:hover{
+  cursor: pointer;
+  background-color: var(--blanco);
+  color: var(--rojoprincipal);
+}
+
+.historial-nav-article{
+  display: flex;
+  justify-content: left;
+  gap: 5px;
+  align-items: center;
+  color: var(--azul);
+}
+
+#nav-menu-top{
+  background-color: var(--blanco);
+  color: var(--rojoprincipal);
+  line-height: 1;
+  border-radius: 50%;
+  padding: 16px;
+  transition: all ease 0.3s;
+  cursor: pointer;
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  outline: 1px solid var(--rojoprincipal);
+}
+
+#nav-menu-top:hover{
+  outline: 3px solid var(--rojoprincipal);
+}
+
+
 @media only screen and (max-width: 1023px) {
 }
 @media only screen and (min-width: 1024px) {

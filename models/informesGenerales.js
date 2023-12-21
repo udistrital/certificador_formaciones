@@ -1,3 +1,95 @@
-export const listaInformesGenerales = [{
-    
+export let listaInformesGenerales = [{
+    id:1,
+    tipoFormacion:'Curso con tutor',
+    nombreFormacion:'Investigacion 1',
+    numCohorte:1,
+    anioCohorte:'2023',
+    fechaInicialCohorte:'1/12/2023',
+    fechaFinalCohorte:'1/12/2024',
+},{
+    id:2,
+    tipoFormacion:'Curso MOOC',
+    nombreFormacion:'Investigacion 2',
+    numCohorte:1,
+    anioCohorte:'2023',
+    fechaInicialCohorte:'1/12/2023',
+    fechaFinalCohorte:'1/12/2024',
+},{
+    id:3,
+    tipoFormacion:'Curso con tutor',
+    nombreFormacion:'Investigacion 3',
+    numCohorte:1,
+    anioCohorte:'2023',
+    fechaInicialCohorte:'1/12/2023',
+    fechaFinalCohorte:'1/12/2024',
+},{
+    id:4,
+    tipoFormacion:'Curso con tutor',
+    nombreFormacion:'Investigacion 4',
+    numCohorte:1,
+    anioCohorte:'2023',
+    fechaInicialCohorte:'1/12/2023',
+    fechaFinalCohorte:'1/12/2024',
 }]
+
+export let listaCohortesCurso = [{
+    idFormacion:1,
+    idCohorte:1,
+    anioCohorte:'2023',
+    fechaInicialCohorte:'1/12/2023',
+    fechaFinalCohorte:'1/12/2024',
+},{
+    idFormacion:1,
+    idCohorte:2,
+    anioCohorte:'2023',
+    fechaInicialCohorte:'1/12/2023',
+    fechaFinalCohorte:'1/12/2024',
+},{
+    idFormacion:1,
+    idCohorte:3,
+    anioCohorte:'2023',
+    fechaInicialCohorte:'1/12/2023',
+    fechaFinalCohorte:'1/12/2024',
+},{
+    idFormacion:1,
+    idCohorte:4,
+    anioCohorte:'2023',
+    fechaInicialCohorte:'1/12/2023',
+    fechaFinalCohorte:'1/12/2024',
+},{
+    idFormacion:1,
+    idCohorte:5,
+    anioCohorte:'2023',
+    fechaInicialCohorte:'1/12/2023',
+    fechaFinalCohorte:'1/12/2024',
+},{
+    idFormacion:3,
+    idCohorte:1,
+    anioCohorte:'2023',
+    fechaInicialCohorte:'1/12/2023',
+    fechaFinalCohorte:'1/12/2024',
+},{
+    idFormacion:3,
+    idCohorte:2,
+    anioCohorte:'2023',
+    fechaInicialCohorte:'1/12/2023',
+    fechaFinalCohorte:'1/12/2024',
+},{
+    idFormacion:3,
+    idCohorte:3,
+    anioCohorte:'2023',
+    fechaInicialCohorte:'1/12/2023',
+    fechaFinalCohorte:'1/12/2024',
+},{
+    idFormacion:3,
+    idCohorte:4,
+    anioCohorte:'2023',
+    fechaInicialCohorte:'1/12/2023',
+    fechaFinalCohorte:'1/12/2024',
+},{
+    idFormacion:3,
+    idCohorte:5,
+    anioCohorte:'2023',
+    fechaInicialCohorte:'1/12/2023',
+    fechaFinalCohorte:'1/12/2024',
+},]
