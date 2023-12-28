@@ -36,48 +36,50 @@ d.addEventListener("click", (e) => {
 
 /** modal de informacion de una cohorte */
 
-const $openModalInfoCohorte = d.getElementsByClassName("show-info-cohorte");
-console.log($openModalInfoCohorte);
-Array.from($openModalInfoCohorte).forEach((e, i) => {
-  e.addEventListener("click", (event) => {
-    if (event.target === e) {
-      console.log(i);
-      $modalinfoCohorte.classList.toggle("modal-disabled");
-    }
+export const mostrarInfoCorhorte = () => {
+  // debugger;
+  const $openModalInfoCohorte = d.getElementsByClassName("show-info-cohorte");
+  // console.log($openModalInfoCohorte);
+  Array.from($openModalInfoCohorte).forEach((e, i) => {
+    e.addEventListener("click", (event) => {
+      console.log('echoi');
+      if (event.target === e) {
+        console.log(i);
+        $modalinfoCohorte.classList.toggle("modal-disabled");
+      }
+    });
   });
-});
+};
+
+mostrarInfoCorhorte();
 
 d.addEventListener("submit", (e) => {
   e.preventDefault();
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth", // Esto hace que el desplazamiento sea suave
-  });
   // CON EL SIGUIENTE CODIGO SE HARA LA PETICION AL SERVIDOR PARA ALMACENAR UNA NUEVA FORMACION,
   // UNA VEZ REALIZADO DEPENDE DEL MENSAJE DEL SERVIDOR SE MOSTRARA UNA NOTIFICACION
   const $btnNuevaFormacion = document.getElementById("modal-form-formacion");
   const $btnNuevaCohorte = document.getElementById("modal-form-cohorte");
   if (e.target === $btnNuevaFormacion) {
     $modalNuevaFormacion.classList.toggle("modal-disabled");
-    let a = 0;
+    let a = 1;
     if (1 === a) {
       const $notificacionVerde = document.getElementById(
         "notificacion-verde-formacion"
       );
       $notificacionVerde.classList.toggle("notificacion-disabled");
-      setTimeout(() => {
-        $notificacionVerde.classList.toggle("notificacion-disabled");
-        window.location.reload();
-      }, 1000);
+      // setTimeout(() => {
+      //   $notificacionVerde.classList.toggle("notificacion-disabled");
+      //   window.location.reload();
+      // }, 1000);
     } else if (0 === a) {
       const $notificacionRoja = document.getElementById(
         "notificacion-roja-formacion"
       );
       $notificacionRoja.classList.toggle("notificacion-disabled");
-      setTimeout(() => {
-        $notificacionRoja.classList.toggle("notificacion-disabled");
-        window.location.reload();
-      }, 1000);
+      // setTimeout(() => {
+      //   $notificacionRoja.classList.toggle("notificacion-disabled");
+      //   window.location.reload();
+      // }, 1000);
     }
   } else if (e.target === $btnNuevaCohorte) {
     console.log("fshjfhjdhsjkfhdjsdfahjkfadshkj");
@@ -87,21 +89,25 @@ d.addEventListener("submit", (e) => {
       const $notificacionVerde = document.getElementById(
         "notificacion-verde-cohorte"
       );
-      $notificacionVerde.classList.toggle("notificacion-disabled");
-      setTimeout(() => {
-        $notificacionVerde.classList.toggle("notificacion-disabled");
-        window.location.reload();
-      }, 1000);
+      $notificacionVerde.classList.remove("notificacion-disabled");
+      // setTimeout(() => {
+      //   $notificacionVerde.classList.toggle("notificacion-disabled");
+      //   window.location.reload();
+      // }, 1000);
     } else if (0 === a) {
       console.log("rojo");
       const $notificacionRoja = document.getElementById(
         "notificacion-roja-cohorte"
       );
-      $notificacionRoja.classList.toggle("notificacion-disabled");
-      setTimeout(() => {
-        $notificacionRoja.classList.toggle("notificacion-disabled");
-        window.location.reload();
-      }, 1000);
+      $notificacionRoja.classList.remove("notificacion-disabled");
+      // setTimeout(() => {
+      //   $notificacionRoja.classList.toggle("notificacion-disabled");
+      //   window.location.reload();
+      // }, 1000);
     }
   }
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth", // Esto hace que el desplazamiento sea suave
+  });
 });

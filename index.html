@@ -206,22 +206,21 @@
             for="input-buscador-informes"
             class="label label-buscador-informes"
           >
-            <span class="material-symbols-outlined"> search </span>
           </label>
           <input
             type="text"
-            name=""
+            name="input-buscador-informes"
             id="input-buscador-informes"
-            placeholder="buscar"
+            placeholder="buscar..."
           />
         </article>
       </section>
-      <section class="section section-nav">
+      <!-- <section class="section section-nav">
         <article class="nav-article">
           <ul class="nav-article-ul">
             <li>
               <a
-                href="../pages/CertificadosEmitidosPage.html"
+                href="./index.html"
                 class="nav-article-ul-li-a"
                 >Generales</a
               >
@@ -263,7 +262,7 @@
             </li>
           </ul>
         </article>
-      </section>
+      </section> -->
       <section class="section section-table">
         <table>
           <caption class="table-descripcion">
@@ -271,20 +270,50 @@
           </caption>
           <thead>
             <tr>
-              <th scope="col">ID</th>
-              <th scope="col">Tipo</th>
-              <th scope="col">Nombre</th>
+              <th scope="col">
+                <div class="table-sort" id="index-sort-id">
+                  ID<span class="material-symbols-outlined">
+                    arrow_drop_down
+                  </span>
+                </div>
+              </th>
+              <th scope="col">
+                <div class="table-sort" id="index-sort-tipo">
+                  Tipo<span class="material-symbols-outlined">
+                    arrow_drop_down
+                  </span>
+                </div>
+              </th>
+              <th scope="col">
+                <div class="table-sort" id="index-sort-nombre">
+                  Nombre<span class="material-symbols-outlined">
+                    arrow_drop_down
+                  </span>
+                </div>
+              </th>
               <th scope="col">Cohorte</th>
               <th scope="col">año</th>
-              <th scope="col">Fecha inicial</th>
-              <th scope="col">Fecha final</th>
+              <th scope="col">
+                <div class="table-sort" id="index-sort-fechaInicial">
+                  Fecha inicial<span class="material-symbols-outlined">
+                    arrow_drop_down
+                  </span>
+                </div>
+              </th>
+              <th scope="col">
+                <div class="table-sort" id="index-sort-fechaFinal">
+                  Fecha final<span class="material-symbols-outlined">
+                    arrow_drop_down
+                  </span>
+                </div>
+              </th>
               <th scope="col">Acciones</th>
             </tr>
           </thead>
+          <template id="template-renglon-formaciones-generales">
+            <tr></tr>
+          </template>
           <tbody id="tbody-table-formaciones-generales">
-            <template id="template-renglon-formaciones-generales">
-              <tr></tr>
-            </template>
             <!-- <tr>
               <td>1</td>
               <td>Curso con tutor</td>
@@ -357,6 +386,7 @@
   <script src="./scripts/header.js" type="module"></script>
   <script src="./scripts/navegacion.js" type="module"></script>
   <script src="./scripts/tablasContenidoInfGeneral.js" type="module"></script>
-  <script src="./scripts/modals.js" type="module"></script>
   <script src="./scripts/irTop.js" type="module"></script>
-</html>
+  <script src="./scripts/modals.js" type="module"></script>
+  <script src="./scripts/cohortesGenerales.js" type="module"></script>
+  </html>

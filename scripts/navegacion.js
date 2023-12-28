@@ -4,7 +4,7 @@ export function registrarNavegacion() {
     location.href === "http://127.0.0.5:5500/index.html" ||
     location.href === "http://127.0.0.5:5500/"
   ) {
-    console.log("es");
+    // console.log("es");
     linksVisitados = ["http://127.0.0.5:5500/index.html"];
     localStorage.setItem("linksVisitados", JSON.stringify(linksVisitados));
   }
@@ -12,10 +12,10 @@ export function registrarNavegacion() {
   linksVisitados = JSON.parse(localStorage.getItem("linksVisitados")) || [
     window.location.href,
   ];
-  console.log(localStorage);
+  // console.log(localStorage);
   if (localStorage.getItem("linksVisitados")) {
-    console.log("existe");
-    console.log(linksVisitados);
+    // console.log("existe");
+    // console.log(linksVisitados);
   }
 
   if (!linksVisitados.includes(window.location.href)) {
@@ -34,7 +34,7 @@ const llenarHistorial = () => {
   const $artHistorial = document.getElementsByClassName(
     "historial-nav-article"
   );
-  console.log($artHistorial);
+  // console.log($artHistorial);
   linksVisitados.forEach((link) => {
     $template.querySelector("a").setAttribute("href", link);
     $template.querySelector("a").setAttribute("target", "_blank");

@@ -5,7 +5,6 @@ import { modelCohorteInfo } from "../models/cohorteModel.js";
 const copiarLinks = () => {
   console.log("entra copia");
   document.addEventListener("click", (e) => {
-    
     let input = document.createElement("input"),
       textoACopiar = "";
     if (
@@ -26,7 +25,7 @@ const copiarLinks = () => {
       console.log(textoACopiar);
     }
     input.setAttribute("value", textoACopiar);
-    input.style.display = 'none';
+    input.style.display = "none";
     document.body.appendChild(input);
     input.select();
     document.execCommand("copy");
@@ -48,10 +47,8 @@ const mostarInforCohorte = (listaCohortes) => {
     ).content,
     $tableInfoCohorte = document.getElementById("table-info-cohorte");
   $template.querySelector("tbody").innerHTML = `<tr>
-  <td>Inscripción:</td>
-  <td>${modelCohorteInfo.fechaInicioInscripcion} - ${
-    modelCohorteInfo.fechaFinalInscripcion
-  }</td>
+  <td>Inscripción</td>
+  <td>${modelCohorteInfo.fechaInicioInscripcion.getFullYear()}/${modelCohorteInfo.fechaInicioInscripcion.getMonth()}/${modelCohorteInfo.fechaInicioInscripcion.getDate()} - ${modelCohorteInfo.fechaFinalInscripcion.getFullYear()}/${modelCohorteInfo.fechaFinalInscripcion.getMonth()}/${modelCohorteInfo.fechaFinalInscripcion.getDate()}</td>
   <td>
     <div class="modal-data-cohorte-estado">
     ${
@@ -73,9 +70,7 @@ const mostarInforCohorte = (listaCohortes) => {
 </tr>
 <tr>
   <td>Asistencia</td>
-  <td>${modelCohorteInfo.fechaInicialAsistencia} - ${
-    modelCohorteInfo.fechaFinalAsistencia
-  }</td>
+  <td>${modelCohorteInfo.fechaInicialAsistencia.getFullYear()}/${modelCohorteInfo.fechaInicialAsistencia.getMonth()}/${modelCohorteInfo.fechaInicialAsistencia.getDate()} - ${modelCohorteInfo.fechaFinalAsistencia.getFullYear()}/${modelCohorteInfo.fechaFinalAsistencia.getMonth()}/${modelCohorteInfo.fechaFinalAsistencia.getDate()}</td>
   <td>
     <div class="modal-data-cohorte-estado">
     ${
@@ -115,8 +110,8 @@ const listarCohorterFormacion = (listaCohortes) => {
     $template.querySelector("tr").innerHTML = `
                 <td>${cohorte.idCohorte}</td>
                 <td>${cohorte.anioCohorte}</td>
-                <td>${cohorte.fechaInicialCohorte}</td>
-                <td>${cohorte.fechaFinalCohorte}</td>
+                <td>${cohorte.fechaInicialCohorte.getFullYear()}/${cohorte.fechaInicialCohorte.getMonth()}/${cohorte.fechaInicialCohorte.getDate()}</td>
+                <td>${cohorte.fechaFinalCohorte.getFullYear()}/${cohorte.fechaFinalCohorte.getMonth()}/${cohorte.fechaFinalCohorte.getDate()}</td>
                 <td class="td-acciones">
                 <span
                   class="material-symbols-outlined show-info-cohorte"

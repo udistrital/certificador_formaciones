@@ -64,3 +64,10 @@ tr:hover{
   background-color: var(--blanco);
   color: var(--rojoprincipal);
 }
+
+.table-sort{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}

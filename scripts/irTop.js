@@ -1,3 +1,4 @@
+document.getElementById("nav-menu-top").style.display = "none";
 window.addEventListener("scroll", function () {
   if (window.scrollY >= 10) {
     document.getElementById("nav-menu-top").style.display = "block";

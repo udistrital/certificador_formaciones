@@ -298,6 +298,17 @@ h6 {
   outline: 3px solid var(--rojoprincipal);
 }
 
+#info-cohorte-copia-link-inscripcion:hover{
+  transform: scale(1.2);
+}
+
+#info-cohorte-copia-link-asistencia:hover{
+  transform: scale(1.2);
+}
+
+.data-cohorte-linkCon:hover{
+  transform: scale(1.2);
+}
 
 @media only screen and (max-width: 1023px) {
 }
