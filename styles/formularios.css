@@ -1,0 +1,143 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: center;
+}
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 16px;
+}
+
+#form {
+  display: flex;
+  justify-content: left;
+  align-items: centers;
+  flex-direction: column;
+  flex-direction: column;
+  gap: 16px;
+}
+
+
+
+.form-input {
+  width: 100%;
+  padding: 16px;
+  outline: 1px solid var(--gris);
+  border-radius: 10px;
+}
+
+.form-input:focus {
+  outline: 3px solid var(--rojoprincipal);
+}
+
+#form-terminos {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  outline: 1px solid var(--rojoprincipal);
+  margin-right: 10px;
+}
+
+#form-terminos:checked {
+  background-color: var(--rojoprincipal);
+}
+
+input:disabled{
+  background-color: var(--rojoprincipal);
+  outline: 2px solid var(--gris);
+  color: var(--blanco);
+}
+
+a{
+  color: var(--azul);
+  margin: 0 7px;
+}
+
+a:hover{
+  transform: scale(1.05);
+}
+
+@media only screen and (max-width: 1023px) {
+  .header-banner {
+    display: flex;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  #header-banner-img {
+    object-fit: fill;
+  }
+  .main {
+    width: 90%;
+  }
+
+  .form-div-join {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-direction: column;
+  }
+
+  .form-label {
+    width: 100%;
+  }
+
+  .form-label-check {
+    font-size: 10px;
+  }
+
+  #terminos-text{
+    display: flex;
+    overflow: scroll;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .header-banner {
+    display: block;
+    height: 100%;
+    width: 60%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .main {
+    width: 60%;
+  }
+
+  .form-label {
+    flex: 1;
+  }
+
+  .form-div-join {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .form-label-check {
+    display: flex;
+  }
+}
+
+footer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 0 16px 0;
+}

@@ -239,22 +239,22 @@ h6 {
   padding: 10px;
 }
 
-#check-gen-certificados:checked{
+#check-gen-certificados:checked {
   background-color: var(--rojoprincipal);
 }
 
-#label-check-gen-certificados{
+#label-check-gen-certificados {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.contenedor-btn-generar-certificados{
+.contenedor-btn-generar-certificados {
   display: flex;
   justify-content: right;
 }
 
-.btn-generar-certificados{
+.btn-generar-certificados {
   outline: 1px solid var(--rojoprincipal);
   background-color: var(--rojoprincipal);
   padding: 16px !important;
@@ -266,13 +266,13 @@ h6 {
   gap: 10px;
 }
 
-.btn-generar-certificados:hover{
+.btn-generar-certificados:hover {
   cursor: pointer;
   background-color: var(--blanco);
   color: var(--rojoprincipal);
 }
 
-.historial-nav-article{
+.historial-nav-article {
   display: flex;
   justify-content: left;
   gap: 5px;
@@ -280,7 +280,7 @@ h6 {
   color: var(--azul);
 }
 
-#nav-menu-top{
+#nav-menu-top {
   background-color: var(--blanco);
   color: var(--rojoprincipal);
   line-height: 1;
@@ -294,20 +294,35 @@ h6 {
   outline: 1px solid var(--rojoprincipal);
 }
 
-#nav-menu-top:hover{
+#nav-menu-top:hover {
   outline: 3px solid var(--rojoprincipal);
 }
 
-#info-cohorte-copia-link-inscripcion:hover{
+#info-cohorte-copia-link-inscripcion:hover {
   transform: scale(1.2);
 }
 
-#info-cohorte-copia-link-asistencia:hover{
+#info-cohorte-copia-link-asistencia:hover {
   transform: scale(1.2);
 }
 
-.data-cohorte-linkCon:hover{
+.data-cohorte-linkCon:hover {
   transform: scale(1.2);
+}
+
+.button {
+  width: 100%;
+  background-color: var(--rojoprincipal);
+  color: var(--blanco);
+  padding: 16px;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  cursor: pointer;
+  background-color: var(--blanco);
+  color: var(--rojoprincipal);
+  outline: 1px solid var(--rojoprincipal);
 }
 
 @media only screen and (max-width: 1023px) {

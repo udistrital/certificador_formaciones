@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fomulario 1</title>
+    <link rel="stylesheet" href="../../index.css" />
+    <link rel="stylesheet" href="../../styles/formularios.css" />
+  </head>
+  <body>
+    <header class="header">
+      <figure class="header-banner">
+        <img
+          src="../../images/Banner_formulario_vinotinto.jpg"
+          alt="Banner formulario"
+          id="header-banner-img"
+        />
+      </figure>
+      <h1 class="header-title">Formulario</h1>
+    </header>
+    <main class="main">
+      <form action="" class="contenido-form" id="form">
+        <label class="form-label" for="form-nombreFormacion">
+          <input
+            type="text"
+            name="nombreFormacion"
+            id="form-nombreFormacion"
+            disabled
+            value="Prueba Diplomado A"
+            class="form-input"
+          />
+        </label>
+        <div class="form-div-join">
+          <label class="form-label" for="form-tipoFormacion">
+            <input
+              type="text"
+              name="tipoFormacion"
+              id="form-tipoFormacion"
+              class="form-input"
+              value="Diplomado"
+              disabled
+            />
+          </label>
+          <label class="form-label" for="form-anioFormacion">
+            <input
+              type="number"
+              name="anioFormacion"
+              id="form-anioFormacion"
+              class="form-input"
+              value="2024"
+              min="1900"
+              max="2100"
+              disabled
+            />
+          </label>
+          <label class="form-label" for="form-numeroCohorte">
+            <input
+              type="number"
+              name="numeroCohorte"
+              id="form-numeroCohorte"
+              placeholder="Numero de cohorte"
+              class="form-input"
+              value="2"
+              disabled
+            />
+          </label>
+        </div>
+        <div class="form-div-join">
+          <label class="form-label" for="form-nombresPonente">
+            <input
+              type="text"
+              name="nombresPonente"
+              id="form-nombresPonente"
+              placeholder="Jass Alf"
+              class="form-input"
+            />
+          </label>
+          <label class="form-label" for="form-apellidosPonente">
+            <input
+              type="text"
+              name="apellidosPonente"
+              id="form-apellidosPonente"
+              placeholder="Sua San"
+              class="form-input"
+            />
+          </label>
+        </div>
+        <label class="form-label" for="form-tipoDocumentoPonente">
+          <select
+            name="tipoDocumentoPonente"
+            id="form-tipoDocumentoPonente"
+            required
+            class="form-input"
+          >
+            <option value="cc">Cedula de ciudadania</option>
+            <option value="cc">Pasaporte</option>
+            <option value="cc">Cedula de extranjeria</option>
+          </select>
+        </label>
+        <div class="form-div-join">
+          <label class="form-label" for="form-numDocumentoPonente">
+            <input
+              type="number"
+              name="numDocumentoPonente"
+              id="form-numDocumentoPonente"
+              placeholder="101258988"
+              class="form-input"
+              required
+            />
+          </label>
+          <label class="form-label" for="form-numDocumentoPonenteRepetir">
+            <input
+              type="number"
+              name="numDocumentoPonenteRepetir"
+              id="form-numDocumentoPonenteRepetir"
+              placeholder="101258988"
+              class="form-input"
+              required
+            />
+          </label>
+        </div>
+        <div class="form-div-join">
+          <label class="form-label" for="form-correoPonente">
+            <input
+              type="email"
+              name="correoPonente"
+              id="form-correoPonente"
+              placeholder="jesus@udistrital.edu.co"
+              class="form-input"
+              required
+            />
+          </label>
+          <label class="form-label" for="form-correoPonenteRepetir">
+            <input
+              type="email"
+              name="correoPonenteRepetir"
+              id="form-correoPonenteRepetir"
+              placeholder="jesus@udistrital.edu.co"
+              class="form-input"
+              required
+            />
+          </label>
+        </div>
+        <div class="form-div-join">
+          <label class="form-label" for="form-telefonoPonente">
+            <input
+              type="number"
+              name="telefonoPonente"
+              id="form-telefonoPonente"
+              placeholder="3013840229"
+              class="form-input"
+              required
+            />
+          </label>
+          <label class="form-label" for="form-telefonoPonenteRepetir">
+            <input
+              type="number"
+              name="telefonoPonenteRepetir"
+              id="form-telefonoPonenteRepetir"
+              placeholder="3013840229"
+              class="form-input"
+              required
+            />
+          </label>
+        </div>
+
+        <label class="form-label" for="form-dependenciaPonente">
+          <select
+            name="dependenciaPonente"
+            id="form-dependenciaPonente"
+            class="form-input"
+            required
+          >
+            <option value="contratista">Contratista</option>
+            <option value="administrativo">Administrativo</option>
+            <option value="planta">Planta</option>
+          </select>
+        </label>
+
+        <label class="form-label" for="form-areaPonente">
+          <select
+            name="areaPonente"
+            id="form-areaPonente"
+            class="form-input"
+            required
+          >
+            <option value="opt1">Plan estrategico ......</option>
+          </select>
+        </label>
+
+        <label class="form-label-check" for="form-terminos"
+          ><input
+            type="checkbox"
+            name="form-terminos"
+            id="form-terminos"
+          />
+          Acepto <a href="#"> terminos y condiciones</a> para tratar estos datos
+          y confirmo que los mismos son veridicos
+        </label>
+
+        <input
+          type="submit"
+          value="Enviar"
+          class="button"
+          id="btn-submit-nuevaFormacion"
+        />
+      </form>
+    </main>
+    <footer>
+      <p>Plan estratégico de Tecnologías de la Información y las Comunicaciones</p>
+      <p>PlanEsTIC-UD</p>
+      <p>Copyright &copy; 2024</p>
+    </footer>
+  </body>
+</html>
