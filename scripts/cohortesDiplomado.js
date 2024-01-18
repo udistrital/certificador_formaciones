@@ -1,4 +1,4 @@
-import { listaCohortesCurso } from "../models/informesGenerales.js";
+import { listaCohortesDiplomado } from "../models/informesGenerales.js";
 import { modelCohorteInfo } from "../models/cohorteModel.js";
 
 //informacion para copiar, se podria enviar el idde la cohorte
@@ -148,7 +148,7 @@ const listarCohorterFormacion = (listaCohortes) => {
 };
 
 const filtrarCohortesPorFormacion = (idFormacion) => {
-  let listaCohortesFormacion = listaCohortesCurso.filter((cohorte) => {
+  let listaCohortesFormacion = listaCohortesDiplomado.filter((cohorte) => {
     return cohorte.idFormacion === idFormacion;
   });
   listarCohorterFormacion(listaCohortesFormacion);
@@ -242,4 +242,4 @@ const obtenerIdCohorte = (li) => {
   });
 };
 
-obtenerIdCohorte(listaCohortesCurso);
+obtenerIdCohorte(listaCohortesDiplomado);

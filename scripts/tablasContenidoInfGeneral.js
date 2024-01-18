@@ -1,3 +1,4 @@
+import { modelCohorteInfo } from "../models/cohorteModel.js";
 import { listaInformesGenerales } from "../models/informesGenerales.js";
 import { mostrarInfoCorhorte } from "./modals.js";
 
@@ -31,15 +32,13 @@ const llenarTablaInformesGenerales = (li) => {
       >
       link
       </span>
-      <span class="material-symbols-outlined" title="Asistencia">
-      <a href="../pages/AsistenciasPage.html"> fact_check </a>
+      <span class="material-symbols-outlined index-asistencias" title="Asistencia">
+      fact_check
       </span>
-      <span class="material-symbols-outlined" title="Certificaciones">
-      <a href="../pages/CertificadosEmitidosPage.html">
+      <span class="material-symbols-outlined index-certificados" title="Certificaciones">
       workspace_premium
-      </a>
       </span>
-      <span class="material-symbols-outlined" title="Configurarción">
+      <span class="material-symbols-outlined index-configuracion" title="Configurarción">
       settings
       </span>
       </td>`;
@@ -177,15 +176,112 @@ document
     obtenerIdCohorte(filtrado);
   });
 
+const redireccionarAsistencias = (idCohorte, idFormacion) => {
+  location.href = `../pages/AsistenciasPage.html?idFormacion=${idFormacion}&idCohorte=${idCohorte}`;
+};
+const redireccionarCertificaciones = (idCohorte, idFormacion) => {
+  location.href = `../pages/CertificadosEmitidosPage.html?idFormacion=${idFormacion}&idCohorte=${idCohorte}`;
+};
+const redireccionarConfiguraciones = (idCohorte, idFormacion) => {
+  location.href = `../index.html?idFormacion=${idFormacion}&idCohorte=${idCohorte}`;
+};
+
 const obtenerIdCohorte = (li) => {
   llenarTablaInformesGenerales(li);
   let listaInfos = d.querySelectorAll(".index-info-cohorte");
   listaInfos.forEach((formacion, id) => {
     formacion.addEventListener("click", (e) => {
       //ACA SE CAPTURA EL ID DE LA FORMACION SELECCIONADA
+      console.log(id, "id", li[id].id, li[id]);
+      llenarModalInfoCohorteSeleccionada(li[id]);
+    });
+  });
+
+  let listaAsistencias = d.querySelectorAll(".index-asistencias");
+  listaAsistencias.forEach((asistencia, id) => {
+    asistencia.addEventListener("click", (e) => {
       console.log(id, "id", li[id].id);
+      redireccionarAsistencias(li[id].numCohorte, li[id].id);
+    });
+  });
+
+  let listaCertificados = d.querySelectorAll(".index-certificados");
+  listaCertificados.forEach((certificados, id) => {
+    certificados.addEventListener("click", (e) => {
+      console.log(id, "id", li[id].id);
+      redireccionarCertificaciones(li[id].numCohorte, li[id].id);
+    });
+  });
+
+  let listaConfiguraciones = d.querySelectorAll(".index-configuracion");
+  listaConfiguraciones.forEach((configuracion, id) => {
+    configuracion.addEventListener("click", (e) => {
+      console.log(id, "id", li[id].id);
+      redireccionarConfiguraciones(li[id].numCohorte, li[id].id);
     });
   });
 };
 
 obtenerIdCohorte(listaInformesGenerales);
+
+const llenarModalInfoCohorteSeleccionada = (inforCohorte) => {
+  const $numCohorteVisual = document.getElementById(
+    "informacion-cohorte-numeral"
+  );
+  $numCohorteVisual.textContent = `${inforCohorte.tipoFormacion} - ${inforCohorte.nombreFormacion} - Cohorte [${inforCohorte.numCohorte}]`;
+  console.log(inforCohorte);
+  const $fargmento = document.createDocumentFragment(),
+    $template = document.getElementById(
+      "template-renglon-cohortes-info"
+    ).content,
+    $tableInfoCohorte = document.getElementById("table-info-cohorte");
+  $template.querySelector("tbody").innerHTML = `<tr>
+  <td>Inscripción</td>
+  <td>${modelCohorteInfo.fechaInicioInscripcion.getFullYear()}/${modelCohorteInfo.fechaInicioInscripcion.getMonth()}/${modelCohorteInfo.fechaInicioInscripcion.getDate()} - ${modelCohorteInfo.fechaFinalInscripcion.getFullYear()}/${modelCohorteInfo.fechaFinalInscripcion.getMonth()}/${modelCohorteInfo.fechaFinalInscripcion.getDate()}</td>
+  <td>
+    <div class="modal-data-cohorte-estado">
+    ${
+      modelCohorteInfo.estadoInscripcion === "activo"
+        ? '<span class="material-symbols-outlined on-info-cohorte" title="Habilitada" > check_circle </span>'
+        : '<span class="material-symbols-outlined off-info-cohorte" title="Deshabilitada"> cancel </span>'
+    } 
+    </div>
+  </td>
+  <td>
+    <span
+      class="material-symbols-outlined share-info-cohorte"
+      title="Copiar link de inscripción"
+      id="info-cohorte-copia-link-inscripcion"
+    >
+      share
+    </span>
+  </td>
+</tr>
+<tr>
+  <td>Asistencia</td>
+  <td>${modelCohorteInfo.fechaInicialAsistencia.getFullYear()}/${modelCohorteInfo.fechaInicialAsistencia.getMonth()}/${modelCohorteInfo.fechaInicialAsistencia.getDate()} - ${modelCohorteInfo.fechaFinalAsistencia.getFullYear()}/${modelCohorteInfo.fechaFinalAsistencia.getMonth()}/${modelCohorteInfo.fechaFinalAsistencia.getDate()}</td>
+  <td>
+    <div class="modal-data-cohorte-estado">
+    ${
+      modelCohorteInfo.estadoAsistencia === "activo"
+        ? '<span class="material-symbols-outlined on-info-cohorte" title="Habilitada" > check_circle </span>'
+        : '<span class="material-symbols-outlined off-info-cohorte" title="Deshabilitada"> cancel </span>'
+    }
+    </div>
+  </td>
+  <td>
+    <span
+      class="material-symbols-outlined share-info-cohorte"
+      title="Copiar link de asistencia"
+      id="info-cohorte-copia-link-asistencia"
+    >
+      share
+    </span>
+  </td>
+</tr>`;
+  let clone = document.importNode($template, true);
+
+  $fargmento.appendChild(clone);
+
+  $tableInfoCohorte.appendChild($fargmento);
+};

@@ -44,7 +44,7 @@
               </li>
               <li><a href="#">Curso MOOC</a></li>
               <li><a href="#">Capacitación o Taller</a></li>
-              <li><a href="#">Diplomado</a></li>
+              <li><a href="../pages/diplomadosPage.html">Diplomado</a></li>
               <li><a href="#">Evento</a></li>
             </ul>
           </li>
@@ -110,10 +110,7 @@
         </button>
         <section class="section section-buscador-informes">
           <article class="buscador-informes-article">
-            <label
-              for="input-buscador-asistencia"
-            >
-            </label>
+            <label for="input-buscador-asistencia"> </label>
             <input
               type="text"
               name="input-buscador-asistencia"
@@ -128,19 +125,51 @@
           </caption>
           <thead>
             <tr>
-              <th scope="col">Nombre completo</th>
-              <th scope="col">Tipo de Documento</th>
-              <th scope="col">Documento</th>
-              <th scope="col">Número de asistencias</th>
-              <th scope="col">Última asistencia</th>
-              <th scope="col">Acciones</th>
+              <th scope="col">
+                <div class="table-sort" id="asistencia-nombreE-sort">
+                  Nombre completo<span class="material-symbols-outlined">
+                    arrow_drop_down
+                  </span>
+                </div>
+              </th>
+              <th scope="col">
+                <div class="table-sort" id="asistencia-tipo-sort">
+                  Tipo de Documento<span class="material-symbols-outlined">
+                    arrow_drop_down
+                  </span>
+                </div>
+              </th>
+              <th scope="col">
+                <div class="table-sort" id="asistencia-numdoc-sort">
+                  Documento<span class="material-symbols-outlined">
+                    arrow_drop_down
+                  </span>
+                </div>
+              </th>
+              <th scope="col">
+                <div class="table-sort" id="asistencia-numasis-sort">
+                  Número de asistencias<span class="material-symbols-outlined">
+                    arrow_drop_down
+                  </span>
+                </div>
+              </th>
+              <th scope="col">
+                <div class="table-sort" id="asistencia-ultasis-sort">
+                  Última asistencia<span class="material-symbols-outlined">
+                    arrow_drop_down
+                  </span>
+                </div>
+              </th>
+              <th scope="col">
+                  Acciones
+                </div>
+              </th>
             </tr>
           </thead>
-          <tbody id="tbody-table-asistencia">
-            <template id="template-renglon-asistencia">
-              <tr></tr>
-            </template>
-          </tbody>
+          <template id="template-renglon-asistencia">
+            <tr></tr>
+          </template>
+          <tbody id="tbody-table-asistencia"></tbody>
           <!-- <tbody>
             <tr>
               <td>Juan Ramirez Perez</td>

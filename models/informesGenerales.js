@@ -127,3 +127,77 @@ export let listaCohortesCurso = [
     fechaFinalCohorte: new Date("2023-12-05"),
   },
 ];
+
+
+export let listaCohortesDiplomado = [
+  {
+    idFormacion: 1,
+    idCohorte: 1,
+    anioCohorte: "2023",
+    fechaInicialCohorte: new Date("2023-12-05"),
+    fechaFinalCohorte: new Date("2023-12-05"),
+  },
+  {
+    idFormacion: 1,
+    idCohorte: 2,
+    anioCohorte: "2023",
+    fechaInicialCohorte: new Date("2023-12-05"),
+    fechaFinalCohorte: new Date("2023-12-05"),
+  },
+  {
+    idFormacion: 1,
+    idCohorte: 3,
+    anioCohorte: "2023",
+    fechaInicialCohorte: new Date("2023-12-05"),
+    fechaFinalCohorte: new Date("2023-12-05"),
+  },
+  {
+    idFormacion: 1,
+    idCohorte: 4,
+    anioCohorte: "2023",
+    fechaInicialCohorte: new Date("2023-12-05"),
+    fechaFinalCohorte: new Date("2023-12-05"),
+  },
+  {
+    idFormacion: 1,
+    idCohorte: 5,
+    anioCohorte: "2023",
+    fechaInicialCohorte: new Date("2023-12-05"),
+    fechaFinalCohorte: new Date("2023-12-05"),
+  },
+  {
+    idFormacion: 3,
+    idCohorte: 1,
+    anioCohorte: "2023",
+    fechaInicialCohorte: new Date("2023-12-05"),
+    fechaFinalCohorte: new Date("2023-12-05"),
+  },
+  {
+    idFormacion: 3,
+    idCohorte: 2,
+    anioCohorte: "2023",
+    fechaInicialCohorte: new Date("2023-12-05"),
+    fechaFinalCohorte: new Date("2023-12-05"),
+  },
+  {
+    idFormacion: 3,
+    idCohorte: 3,
+    anioCohorte: "2023",
+    fechaInicialCohorte: new Date("2023-12-05"),
+    fechaFinalCohorte: new Date("2023-12-05"),
+  },
+  {
+    idFormacion: 3,
+    idCohorte: 4,
+    anioCohorte: "2023",
+    fechaInicialCohorte: new Date("2023-12-05"),
+    fechaFinalCohorte: new Date("2023-12-05"),
+  },
+  {
+    idFormacion: 3,
+    idCohorte: 5,
+    anioCohorte: "2023",
+    fechaInicialCohorte: new Date("2023-12-05"),
+    fechaFinalCohorte: new Date("2023-12-05"),
+  },
+];

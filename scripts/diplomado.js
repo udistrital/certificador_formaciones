@@ -1,23 +1,24 @@
-import { modeloCursoConTutor } from "../models/cursoConTutorModel.js";
+import { modeloDiplomado } from "../models/diplomadoModel.js";
 
-let listaCursosTutor = [];
+let listaDiplimados = [];
 const llenarTablaCursosTutor = () => {
   const $fargmento = document.createDocumentFragment(),
     $template = document.getElementById(
       "template-renglon-cursos-tutor"
     ).content,
     $tbody = document.getElementById("tbody-table-cursos-tutor");
-  listaCursosTutor = modeloCursoConTutor.filter(
-    (curso) => curso.tipoFormacion === "Curso con tutor"
+  listaDiplimados = modeloDiplomado.filter(
+    (curso) => curso.tipoFormacion === "Diplomado"
   );
 
-  listaCursosTutor.forEach((formacion) => {
+  listaDiplimados.forEach((formacion) => {
     $template.querySelector("tr").innerHTML = `
                 <td>${formacion.id}</td>
                 <td>${formacion.nombreFormacion}</td>
                 <td>${formacion.tipoFormacion}</td>
                 <td class="td-acciones">
                 <span class="material-symbols-outlined accion-ver-cohorte" title="Ver cohortes">visibility</span>
+                <span class="material-symbols-outlined">stacks</span>
                 </td>`;
 
     let clone = document.importNode($template, true);
@@ -26,7 +27,7 @@ const llenarTablaCursosTutor = () => {
   });
 
   $tbody.appendChild($fargmento);
-  console.log(listaCursosTutor);
+  console.log(listaDiplimados);
 };
 
 llenarTablaCursosTutor();
@@ -36,8 +37,8 @@ function verCohorte() {
   $accionVerCohorte.forEach((formacion, id) => {
     formacion.addEventListener("click", (e) => {
       //aca se captura el id de la formacion que se selecciona para observas las cohortes
-      console.log(formacion, id, listaCursosTutor[id].id);
-      location.href = `../pages/CursoConTutorCohortesPage.html?idFormacion=${listaCursosTutor[id].id}&nombreFormacion=${listaCursosTutor[id].nombreFormacion}&tipoFormacion=${listaCursosTutor[id].tipoFormacion}`;
+      console.log(formacion, id, listaDiplimados[id].id);
+      location.href = `../pages/diplomadoCohortesPage.html?idFormacion=${listaDiplimados[id].id}&nombreFormacion=${listaDiplimados[id].nombreFormacion}&tipoFormacion=${listaDiplimados[id].tipoFormacion}`;
     });
   });
 }
@@ -48,7 +49,7 @@ const asignarTipoFormacionAFormulario = () => {
     "form-curso-tutor-input-tipo-formacion"
   );
 
-  $inputTipoFormacion.setAttribute("value", "Curso con tutor");
+  $inputTipoFormacion.setAttribute("value", "Diplomado");
 };
 
 asignarTipoFormacionAFormulario();
