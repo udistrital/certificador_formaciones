@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fomulario postulación</title>
+    <link rel="stylesheet" href="../../index.css" />
+    <link rel="stylesheet" href="../../styles/formularios.css" />
+  </head>
+  <body>
+    <header class="header">
+      <figure class="header-banner">
+        <img
+          src="../../images/Banner_formulario_vinotinto.jpg"
+          alt="Banner formulario"
+          id="header-banner-img"
+        />
+      </figure>
+      <h1 class="header-title">
+        Por favor revise que sus datos sean correctos antes de enviarlos
+      </h1>
+    </header>
+    <main class="main">
+      <form action="" class="contenido-form" id="form">
+        <label class="form-label" for="form-nombreEvento">
+          <input
+            type="text"
+            name="nombreEvento"
+            id="form-nombreEvento"
+            disabled
+            value="Prueba Evento"
+            class="form-input"
+          />
+        </label>
+        <div class="form-div-join">
+          <label class="form-label" for="form-tipoEvento">
+            <input
+              type="text"
+              name="tipoEvento"
+              id="form-tipoEvento"
+              class="form-input"
+              value="Evento"
+              disabled
+            />
+          </label>
+          <label class="form-label" for="form-anioEvento">
+            <input
+              type="number"
+              name="anioEvento"
+              id="form-anioEvento"
+              class="form-input"
+              value="2024"
+              min="1900"
+              max="2100"
+              disabled
+            />
+          </label>
+          <label class="form-label" for="form-numeroEvento">
+            <input
+              type="number"
+              name="numeroEvento"
+              id="form-numeroEvento"
+              class="form-input"
+              value="2"
+              disabled
+            />
+          </label>
+        </div>
+        <label class="form-label" for="form-tipoDocumentoPostulante">
+          <select
+            name="tipoDocumentoPostulante"
+            id="form-tipoDocumentoPostulante"
+            required
+            class="form-input"
+          >
+            <option value="cc">Cedula de ciudadania</option>
+            <option value="cc">Pasaporte</option>
+            <option value="cc">Cedula de extranjeria</option>
+          </select>
+        </label>
+        <div class="form-div-join">
+          <label class="form-label" for="form-numDocumentoPostulante">
+            <input
+              type="number"
+              name="numDocumentoPostulante"
+              id="form-numDocumentoPostulante"
+              placeholder="101258988"
+              class="form-input"
+              required
+            />
+          </label>
+          <label class="form-label" for="form-numDocumentoPostulanteRepetir">
+            <input
+              type="number"
+              name="numDocumentoPostulanteRepetir"
+              id="form-numDocumentoPostulanteRepetir"
+              placeholder="101258988"
+              class="form-input"
+              required
+            />
+          </label>
+        </div>
+        <label class="form-label" for="form-memoriaPonencia">
+          Propuesta de ponencia
+          <input
+            type="file"
+            name="memoriaPonencia"
+            id="form-memoriaPonencia"
+            class="form-input"
+            required
+          />
+          <p>
+            <span>Nota:</span>el archivo debe tener un tamaño máximo de 40 MB.
+          </p>
+        </label>
+
+        <input
+          type="submit"
+          value="Guardar registro"
+          class="button"
+          id="btn-submit-nuevaFormacion"
+        />
+      </form>
+    </main>
+    <footer>
+      <p>
+        Plan estratégico de Tecnologías de la Información y las Comunicaciones
+      </p>
+      <p>PlanEsTIC-UD</p>
+      <p>Copyright &copy; 2024</p>
+    </footer>
+  </body>
+</html>
