@@ -5,6 +5,7 @@ import { modelCohorteInfo } from "../models/cohorteModel.js";
 const copiarLinks = () => {
   console.log("entra copia");
   document.addEventListener("click", (e) => {
+    console.log(e.target);
     let textoACopiar = "";
     if (
       e.target === document.getElementById("info-cohorte-copia-link-conexion")

@@ -13,6 +13,7 @@ const $closeModalInfoCohorte = d.getElementById("close-modal-info-cohorte");
 const $modalinfoCohorte = d.getElementById("modal-info-cohorte");
 
 d.addEventListener("click", (e) => {
+  console.log(e.target);
   if (
     e.target === $closeModalNuevaFormacion ||
     e.target === $modalNuevaFormacion

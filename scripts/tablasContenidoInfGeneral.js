@@ -58,6 +58,7 @@ let d = document;
 let orderBool = false;
 
 d.addEventListener("click", (e) => {
+  console.log(e.target);
   if (e.target === d.getElementById("index-sort-id")) {
     console.log("id");
     orderBool = !orderBool;
