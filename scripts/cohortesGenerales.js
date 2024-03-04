@@ -9,38 +9,26 @@ const copiarLinks = () => {
     ) {
       textoACopiar = modelCohorteInfo.linkConexion;
       console.log(textoACopiar);
-      let input = document.createElement("input");
-      input.setAttribute("value", textoACopiar);
-      // input.style.display = "none";
-      document.body.appendChild(input);
-      input.select();
-      document.execCommand("copy");
-      document.body.removeChild(input);
+      navigator.clipboard.writeText(textoACopiar).then(() => {
+        alert("Se ha copidado el link");
+      });
     } else if (
       e.target ===
       document.getElementById("info-cohorte-copia-link-inscripcion")
     ) {
       textoACopiar = modelCohorteInfo.linkInscripcion;
       console.log(textoACopiar);
-      let input = document.createElement("input");
-      input.setAttribute("value", textoACopiar);
-      // input.style.display = "none";
-      document.body.appendChild(input);
-      input.select();
-      document.execCommand("copy");
-      document.body.removeChild(input);
+      navigator.clipboard.writeText(textoACopiar).then(() => {
+        alert("Se ha copidado el link");
+      });
     } else if (
       e.target === document.getElementById("info-cohorte-copia-link-asistencia")
     ) {
       textoACopiar = modelCohorteInfo.linkAsistencia;
       console.log(textoACopiar);
-      let input = document.createElement("input");
-      input.setAttribute("value", textoACopiar);
-      // input.style.display = "none";
-      document.body.appendChild(input);
-      input.select();
-      document.execCommand("copy");
-      document.body.removeChild(input);
+      navigator.clipboard.writeText(textoACopiar).then(() => {
+        alert("Se ha copidado el link");
+      });
     }
   });
 };
