@@ -1,21 +1,44 @@
-import { modeloCursoConTutor } from "../models/cursoConTutorModel.js";
+// import { modeloCursoConTutor } from "../models/cursoConTutorModel.js";
 
-let listaCursosTutor = [];
-const llenarTablaCursosTutor = () => {
+var modeloCursoConTutor = [];
+
+const listarCursosTutorFetch = async () => {
+  await fetch("https://65e896cb4bb72f0a9c4fdadd.mockapi.io/api/cursostutor")
+    .then((response) => {
+      // Verificar si la respuesta es exitosa (código de estado HTTP 200-299)
+      if (!response.ok) {
+        throw new Error("La solicitud no fue exitosa");
+      }
+      // Parsear la respuesta como JSON
+      return response.json();
+    })
+    .then((data) => {
+      // Hacer algo con los datos recibidos
+      console.log(data);
+      modeloCursoConTutor = data;
+      llenarTablaCursosTutor(modeloCursoConTutor);
+      verCohorte(modeloCursoConTutor);
+    })
+    .catch((error) => {
+      // Capturar y manejar cualquier error
+      console.error("Error:", error);
+    });
+};
+
+listarCursosTutorFetch();
+
+const llenarTablaCursosTutor = (data) => {
   const $fargmento = document.createDocumentFragment(),
     $template = document.getElementById(
       "template-renglon-cursos-tutor"
     ).content,
     $tbody = document.getElementById("tbody-table-cursos-tutor");
-  listaCursosTutor = modeloCursoConTutor.filter(
-    (curso) => curso.tipoFormacion === "Curso con tutor"
-  );
 
-  listaCursosTutor.forEach((formacion) => {
+  data.forEach((formacion) => {
     $template.querySelector("tr").innerHTML = `
                 <td>${formacion.id}</td>
-                <td>${formacion.nombreFormacion}</td>
-                <td>${formacion.tipoFormacion}</td>
+                <td>${formacion.nombre}</td>
+                <td>${formacion.tipoproceso}</td>
                 <td class="td-acciones">
                 <span class="material-symbols-outlined accion-ver-cohorte" title="Ver cohortes">visibility</span>
                 </td>`;
@@ -26,22 +49,26 @@ const llenarTablaCursosTutor = () => {
   });
 
   $tbody.appendChild($fargmento);
-  console.log(listaCursosTutor);
+  console.log(data);
 };
 
-llenarTablaCursosTutor();
-
-function verCohorte() {
+function verCohorte(data) {
+  console.log(data);
   const $accionVerCohorte = document.querySelectorAll(".accion-ver-cohorte");
   $accionVerCohorte.forEach((formacion, id) => {
     formacion.addEventListener("click", (e) => {
       //aca se captura el id de la formacion que se selecciona para observas las cohortes
-      console.log(formacion, id, listaCursosTutor[id].id);
-      location.href = `../pages/CursoConTutorCohortesPage.html?idFormacion=${listaCursosTutor[id].id}&nombreFormacion=${listaCursosTutor[id].nombreFormacion}&tipoFormacion=${listaCursosTutor[id].tipoFormacion}`;
+      console.log(
+        formacion,
+        id,
+        data[id].id,
+        data[id].nombre,
+        data[id].tipoproceso
+      );
+      location.href = `../pages/CursoConTutorCohortesPage.html?idFormacion=${data[id].id}&nombreFormacion=${data[id].nombre}&tipoFormacion=${data[id].tipoproceso}`;
     });
   });
 }
-verCohorte();
 
 const asignarTipoFormacionAFormulario = () => {
   const $inputTipoFormacion = document.getElementById(

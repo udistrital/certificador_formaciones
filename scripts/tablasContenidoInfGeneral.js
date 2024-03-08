@@ -1,8 +1,36 @@
 import { modelCohorteInfo } from "../models/cohorteModel.js";
-import { listaInformesGenerales } from "../models/informesGenerales.js";
+// import { listaInformesGenerales } from "../models/informesGenerales.js";
 import { mostrarInfoCorhorte } from "./modals.js";
 
+let listaInformesGenerales = [];
+const listarGeneralesFetch = async () => {
+  await fetch("https://65e896cb4bb72f0a9c4fdadd.mockapi.io/api/generales")
+    .then((response) => {
+      // Verificar si la respuesta es exitosa (código de estado HTTP 200-299)
+      if (!response.ok) {
+        throw new Error("La solicitud no fue exitosa");
+      }
+      // Parsear la respuesta como JSON
+      return response.json();
+    })
+    .then((data) => {
+      // Hacer algo con los datos recibidos
+      listaInformesGenerales = data;
+      console.log(data);
+      llenarTablaInformesGenerales(listaInformesGenerales);
+      obtenerIdCohorte(listaInformesGenerales);
+      ordenamientos(listaInformesGenerales);
+    })
+    .catch((error) => {
+      // Capturar y manejar cualquier error
+      console.error("Error:", error);
+    });
+};
+
+listarGeneralesFetch();
+
 const llenarTablaInformesGenerales = (li) => {
+  console.log(li);
   // debugger;
   const $fargmento = document.createDocumentFragment(),
     $template = document.getElementById(
@@ -15,16 +43,16 @@ const llenarTablaInformesGenerales = (li) => {
   li.forEach((formacion) => {
     $template.querySelector("tr").innerHTML = `
       <td>${formacion.id}</td>
-      <td>${formacion.tipoFormacion}</td>
-      <td>${formacion.nombreFormacion}</td>
+      <td>${formacion.tipo}</td>
+      <td>${formacion.nombre}</td>
       <td>${formacion.numCohorte}</td>
-      <td>${formacion.anioCohorte}</td>
-      <td>${formacion.fechaInicialCohorte.getFullYear()}/${
-      formacion.fechaInicialCohorte.getMonth() + 1
-    }/${formacion.fechaInicialCohorte.getDate()}</td>
-      <td>${formacion.fechaInicialCohorte.getFullYear()}/${
-      formacion.fechaInicialCohorte.getMonth() + 1
-    }/${formacion.fechaInicialCohorte.getDate()}</td>
+      <td>${formacion.anio}</td>
+      <td>${new Date(formacion.fechaI).getFullYear()}/${
+      new Date(formacion.fechaI).getMonth() + 1
+    }/${new Date(formacion.fechaI).getDate()}</td>
+      <td>${new Date(formacion.fechaF).getFullYear()}/${
+      new Date(formacion.fechaF).getMonth() + 1
+    }/${new Date(formacion.fechaF).getDate()}</td>
       <td class="td-acciones">
       <span
       class="material-symbols-outlined show-info-cohorte index-info-cohorte"
@@ -52,112 +80,112 @@ const llenarTablaInformesGenerales = (li) => {
   mostrarInfoCorhorte();
 };
 
-llenarTablaInformesGenerales(listaInformesGenerales);
-
 let d = document;
-let orderBool = false;
+const ordenamientos = () => {
+  let orderBool = false;
 
-d.addEventListener("click", (e) => {
-  console.log(e.target);
-  if (e.target === d.getElementById("index-sort-id")) {
-    console.log("id");
-    orderBool = !orderBool;
-    //ORDENAMIENTO DE MAYOR A MENOR
-    if (orderBool) {
-      listaInformesGenerales.sort((a, b) => b.id - a.id);
-    } else {
-      //ORDENAMIENTO DE MENOR A MAYOR
-      listaInformesGenerales.sort((a, b) => a.id - b.id);
-    }
-    obtenerIdCohorte(listaInformesGenerales);
-  } else if (e.target === d.getElementById("index-sort-tipo")) {
-    console.log("tipo");
-    orderBool = !orderBool;
+  d.addEventListener("click", (e) => {
+    console.log(e.target);
+    if (e.target === d.getElementById("index-sort-id")) {
+      console.log("id");
+      orderBool = !orderBool;
+      //ORDENAMIENTO DE MAYOR A MENOR
+      if (orderBool) {
+        listaInformesGenerales.sort((a, b) => b.id - a.id);
+      } else {
+        //ORDENAMIENTO DE MENOR A MAYOR
+        listaInformesGenerales.sort((a, b) => a.id - b.id);
+      }
+      obtenerIdCohorte(listaInformesGenerales);
+    } else if (e.target === d.getElementById("index-sort-tipo")) {
+      console.log("tipo");
+      orderBool = !orderBool;
 
-    //ORDENAMIENTO DE z A a
-    if (orderBool) {
-      listaInformesGenerales.sort((a, b) => {
-        if (a.tipoFormacion < b.tipoFormacion) {
-          return 1;
-        } else if (a.tipoFormacion > b.tipoFormacion) {
-          return -1;
-        } else {
-          return 0;
-        }
-      });
-    } else {
-      //ORDENAMIENTO DE a A z
-      listaInformesGenerales.sort((a, b) => {
-        if (a.tipoFormacion > b.tipoFormacion) {
-          return 1;
-        } else if (a.tipoFormacion < b.tipoFormacion) {
-          return -1;
-        } else {
-          return 0;
-        }
-      });
-    }
-    obtenerIdCohorte(listaInformesGenerales);
-  } else if (e.target === d.getElementById("index-sort-nombre")) {
-    console.log("nombre");
-    orderBool = !orderBool;
+      //ORDENAMIENTO DE z A a
+      if (orderBool) {
+        listaInformesGenerales.sort((a, b) => {
+          if (a.tipo < b.tipo) {
+            return 1;
+          } else if (a.tipo > b.tipo) {
+            return -1;
+          } else {
+            return 0;
+          }
+        });
+      } else {
+        //ORDENAMIENTO DE a A z
+        listaInformesGenerales.sort((a, b) => {
+          if (a.tipo > b.tipo) {
+            return 1;
+          } else if (a.tipo < b.tipo) {
+            return -1;
+          } else {
+            return 0;
+          }
+        });
+      }
+      obtenerIdCohorte(listaInformesGenerales);
+    } else if (e.target === d.getElementById("index-sort-nombre")) {
+      console.log("nombre");
+      orderBool = !orderBool;
 
-    //ORDENAMIENTO DE z A a
-    if (orderBool) {
-      listaInformesGenerales.sort((a, b) => {
-        if (a.nombreFormacion < b.nombreFormacion) {
-          return 1;
-        } else if (a.nombreFormacion > b.nombreFormacion) {
-          return -1;
-        } else {
-          return 0;
-        }
-      });
-    } else {
-      //ORDENAMIENTO DE a A z
-      listaInformesGenerales.sort((a, b) => {
-        if (a.nombreFormacion > b.nombreFormacion) {
-          return 1;
-        } else if (a.nombreFormacion < b.nombreFormacion) {
-          return -1;
-        } else {
-          return 0;
-        }
-      });
+      //ORDENAMIENTO DE z A a
+      if (orderBool) {
+        listaInformesGenerales.sort((a, b) => {
+          if (a.nombreFormacion < b.nombreFormacion) {
+            return 1;
+          } else if (a.nombreFormacion > b.nombreFormacion) {
+            return -1;
+          } else {
+            return 0;
+          }
+        });
+      } else {
+        //ORDENAMIENTO DE a A z
+        listaInformesGenerales.sort((a, b) => {
+          if (a.nombreFormacion > b.nombreFormacion) {
+            return 1;
+          } else if (a.nombreFormacion < b.nombreFormacion) {
+            return -1;
+          } else {
+            return 0;
+          }
+        });
+      }
+      obtenerIdCohorte(listaInformesGenerales);
+    } else if (e.target === d.getElementById("index-sort-fechaInicial")) {
+      console.log("finicial");
+      orderBool = !orderBool;
+      //ORDENAMIENTO DE MAYOR A MENOR
+      if (orderBool) {
+        listaInformesGenerales.sort(
+          (a, b) => b.fechaInicialCohorte - a.fechaInicialCohorte
+        );
+      } else {
+        //ORDENAMIENTO DE MENOR A MAYOR
+        listaInformesGenerales.sort(
+          (a, b) => a.fechaInicialCohorte - b.fechaInicialCohorte
+        );
+      }
+      obtenerIdCohorte(listaInformesGenerales);
+    } else if (e.target === d.getElementById("index-sort-fechaFinal")) {
+      console.log("ffinal");
+      orderBool = !orderBool;
+      //ORDENAMIENTO DE MAYOR A MENOR
+      if (orderBool) {
+        listaInformesGenerales.sort(
+          (a, b) => b.fechaFinalCohorte - a.fechaFinalCohorte
+        );
+      } else {
+        //ORDENAMIENTO DE MENOR A MAYOR
+        listaInformesGenerales.sort(
+          (a, b) => a.fechaFinalCohorte - b.fechaFinalCohorte
+        );
+      }
+      obtenerIdCohorte(listaInformesGenerales);
     }
-    obtenerIdCohorte(listaInformesGenerales);
-  } else if (e.target === d.getElementById("index-sort-fechaInicial")) {
-    console.log("finicial");
-    orderBool = !orderBool;
-    //ORDENAMIENTO DE MAYOR A MENOR
-    if (orderBool) {
-      listaInformesGenerales.sort(
-        (a, b) => b.fechaInicialCohorte - a.fechaInicialCohorte
-      );
-    } else {
-      //ORDENAMIENTO DE MENOR A MAYOR
-      listaInformesGenerales.sort(
-        (a, b) => a.fechaInicialCohorte - b.fechaInicialCohorte
-      );
-    }
-    obtenerIdCohorte(listaInformesGenerales);
-  } else if (e.target === d.getElementById("index-sort-fechaFinal")) {
-    console.log("ffinal");
-    orderBool = !orderBool;
-    //ORDENAMIENTO DE MAYOR A MENOR
-    if (orderBool) {
-      listaInformesGenerales.sort(
-        (a, b) => b.fechaFinalCohorte - a.fechaFinalCohorte
-      );
-    } else {
-      //ORDENAMIENTO DE MENOR A MAYOR
-      listaInformesGenerales.sort(
-        (a, b) => a.fechaFinalCohorte - b.fechaFinalCohorte
-      );
-    }
-    obtenerIdCohorte(listaInformesGenerales);
-  }
-});
+  });
+};
 
 document
   .getElementById("input-buscador-informes")
@@ -166,11 +194,11 @@ document
     console.log(filtro);
     let filtrado = listaInformesGenerales.filter((formacion) => {
       return (
-        formacion.nombreFormacion.toLowerCase().includes(filtro) ||
-        formacion.tipoFormacion.toLowerCase().includes(filtro) ||
+        formacion.nombre.toLowerCase().includes(filtro) ||
+        formacion.tipo.toLowerCase().includes(filtro) ||
         formacion.id.toString().toLowerCase().includes(filtro) ||
         formacion.numCohorte.toString().toLowerCase().includes(filtro) ||
-        formacion.anioCohorte.toString().toLowerCase().includes(filtro)
+        formacion.anio.toString().toLowerCase().includes(filtro)
       );
     });
     console.log(filtrado);
@@ -223,66 +251,126 @@ const obtenerIdCohorte = (li) => {
   });
 };
 
-obtenerIdCohorte(listaInformesGenerales);
-
 const llenarModalInfoCohorteSeleccionada = (inforCohorte) => {
   const $numCohorteVisual = document.getElementById(
     "informacion-cohorte-numeral"
   );
-  $numCohorteVisual.textContent = `${inforCohorte.tipoFormacion} - ${inforCohorte.nombreFormacion} - Cohorte [${inforCohorte.numCohorte}]`;
-  console.log(inforCohorte);
+  $numCohorteVisual.textContent = `${inforCohorte.tipo} - ${inforCohorte.nombre} - Cohorte [${inforCohorte.numCohorte}]`;
   const $fargmento = document.createDocumentFragment(),
     $template = document.getElementById(
       "template-renglon-cohortes-info"
     ).content,
     $tableInfoCohorte = document.getElementById("table-info-cohorte");
-  $template.querySelector("tbody").innerHTML = `<tr>
-  <td>Inscripción</td>
-  <td>${modelCohorteInfo.fechaInicioInscripcion.getFullYear()}/${modelCohorteInfo.fechaInicioInscripcion.getMonth()}/${modelCohorteInfo.fechaInicioInscripcion.getDate()} - ${modelCohorteInfo.fechaFinalInscripcion.getFullYear()}/${modelCohorteInfo.fechaFinalInscripcion.getMonth()}/${modelCohorteInfo.fechaFinalInscripcion.getDate()}</td>
-  <td>
-    <div class="modal-data-cohorte-estado">
-    ${
-      modelCohorteInfo.estadoInscripcion === "activo"
-        ? '<span class="material-symbols-outlined on-info-cohorte" title="Habilitada" > check_circle </span>'
-        : '<span class="material-symbols-outlined off-info-cohorte" title="Deshabilitada"> cancel </span>'
-    } 
-    </div>
-  </td>
-  <td>
-    <span
-      class="material-symbols-outlined share-info-cohorte"
-      title="Copiar link de inscripción"
-      id="info-cohorte-copia-link-inscripcion"
-    >
-      share
-    </span>
-  </td>
-</tr>
-<tr>
-  <td>Asistencia</td>
-  <td>${modelCohorteInfo.fechaInicialAsistencia.getFullYear()}/${modelCohorteInfo.fechaInicialAsistencia.getMonth()}/${modelCohorteInfo.fechaInicialAsistencia.getDate()} - ${modelCohorteInfo.fechaFinalAsistencia.getFullYear()}/${modelCohorteInfo.fechaFinalAsistencia.getMonth()}/${modelCohorteInfo.fechaFinalAsistencia.getDate()}</td>
-  <td>
-    <div class="modal-data-cohorte-estado">
-    ${
-      modelCohorteInfo.estadoAsistencia === "activo"
-        ? '<span class="material-symbols-outlined on-info-cohorte" title="Habilitada" > check_circle </span>'
-        : '<span class="material-symbols-outlined off-info-cohorte" title="Deshabilitada"> cancel </span>'
-    }
-    </div>
-  </td>
-  <td>
-    <span
-      class="material-symbols-outlined share-info-cohorte"
-      title="Copiar link de asistencia"
-      id="info-cohorte-copia-link-asistencia"
-    >
-      share
-    </span>
-  </td>
-</tr>`;
+
+  try {
+    let list = document.querySelectorAll(".tr-modal-infocohorte");
+
+    Array.from(list).forEach((element) => {
+      element.remove();
+    });
+  } catch (error) {}
+
+  $template.querySelector("tbody").innerHTML = "";
   let clone = document.importNode($template, true);
 
   $fargmento.appendChild(clone);
 
   $tableInfoCohorte.appendChild($fargmento);
+  $template.querySelector("tbody").innerHTML = `
+  <tr class="tr-modal-infocohorte">
+    <td>Inscripción</td>
+    <td>${new Date(inforCohorte.fIInscripcion).getFullYear()}/${
+    new Date(inforCohorte.fIInscripcion).getMonth() + 1
+  }/${new Date(inforCohorte.fIInscripcion).getDate()} - ${new Date(
+    inforCohorte.fFInscripcion
+  ).getFullYear()}/${new Date(
+    inforCohorte.fFInscripcion
+  ).getMonth()}/${new Date(inforCohorte.fFInscripcion).getDate()}</td>
+    <td>
+      <div class="modal-data-cohorte-estado">
+      ${
+        modelCohorteInfo.estadoInscripcion === "activo"
+          ? '<span class="material-symbols-outlined on-info-cohorte" title="Habilitada" > check_circle </span>'
+          : '<span class="material-symbols-outlined off-info-cohorte" title="Deshabilitada"> cancel </span>'
+      } 
+      </div>
+    </td>
+    <td>
+      <span
+        class="material-symbols-outlined share-info-cohorte"
+        title="Copiar link de inscripción"
+        id="info-cohorte-copia-link-inscripcion"
+      >
+        share
+      </span>
+    </td>
+  </tr>
+  <tr class="tr-modal-infocohorte">
+    <td>Asistencia</td>
+    <td>${new Date(inforCohorte.fIAsistencia).getFullYear()}/${
+    new Date(inforCohorte.fIAsistencia).getMonth() + 1
+  }/${new Date(inforCohorte.fIAsistencia).getDate()} - ${new Date(
+    inforCohorte.fFAsistencia
+  ).getFullYear()}/${new Date(inforCohorte.fFAsistencia).getMonth()}/${new Date(
+    inforCohorte.fFAsistencia
+  ).getDate()}</td>
+    <td>
+      <div class="modal-data-cohorte-estado">
+      ${
+        modelCohorteInfo.estadoAsistencia === "activo"
+          ? '<span class="material-symbols-outlined on-info-cohorte" title="Habilitada" > check_circle </span>'
+          : '<span class="material-symbols-outlined off-info-cohorte" title="Deshabilitada"> cancel </span>'
+      }
+      </div>
+    </td>
+    <td>
+      <span
+        class="material-symbols-outlined share-info-cohorte"
+        title="Copiar link de asistencia"
+        id="info-cohorte-copia-link-asistencia"
+      >
+        share
+      </span>
+    </td>
+  </tr>`;
+  clone = document.importNode($template, true);
+
+  $fargmento.appendChild(clone);
+
+  $tableInfoCohorte.appendChild($fargmento);
+
+  copiarLinks(inforCohorte);
+};
+
+const copiarLinks = (inforCohorte) => {
+  console.log("entra copia");
+  document.addEventListener("click", (e) => {
+    let textoACopiar = "";
+    if (
+      e.target === document.getElementById("info-cohorte-copia-link-conexion")
+    ) {
+      console.log(textoACopiar);
+      textoACopiar = inforCohorte.linkConexion;
+      navigator.clipboard.writeText(textoACopiar).then(() => {
+        alert("Se ha copidado el link");
+      });
+    } else if (
+      e.target ===
+      document.getElementById("info-cohorte-copia-link-inscripcion")
+    ) {
+      textoACopiar = inforCohorte.linkInscripcion;
+      console.log(textoACopiar);
+      navigator.clipboard.writeText(textoACopiar).then(() => {
+        alert("Se ha copidado el link");
+      });
+    } else if (
+      e.target === document.getElementById("info-cohorte-copia-link-asistencia")
+    ) {
+      textoACopiar = inforCohorte.linkAsistencia;
+      console.log(textoACopiar);
+      navigator.clipboard.writeText(textoACopiar).then(() => {
+        alert("Se ha copidado el link");
+      });
+    }
+  });
 };

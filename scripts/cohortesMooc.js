@@ -1,37 +1,40 @@
-import { listaCohortesDiplomado } from "../models/informesGenerales.js";
+import { listaCohortesCurso } from "../models/informesGenerales.js";
 import { modelCohorteInfo } from "../models/cohorteModel.js";
 
 //informacion para copiar, se podria enviar el idde la cohorte
 const copiarLinks = () => {
   console.log("entra copia");
   document.addEventListener("click", (e) => {
+    console.log(e.target);
     let textoACopiar = "";
     if (
       e.target === document.getElementById("info-cohorte-copia-link-conexion")
     ) {
       textoACopiar = modelCohorteInfo.linkConexion;
       console.log(textoACopiar);
-      navigator.clipboard.writeText(textoACopiar).then(() => {
-        alert("Se ha copidado el link");
-      });
+      navigator.clipboard.writeText(textoACopiar).then(()=>{
+        alert("Se ha copidado el link")
+      })
     } else if (
       e.target ===
       document.getElementById("info-cohorte-copia-link-inscripcion")
     ) {
       textoACopiar = modelCohorteInfo.linkInscripcion;
       console.log(textoACopiar);
-      navigator.clipboard.writeText(textoACopiar).then(() => {
-        alert("Se ha copidado el link");
-      });
+      navigator.clipboard.writeText(textoACopiar).then(()=>{
+        alert("Se ha copidado el link")
+      })
     } else if (
       e.target === document.getElementById("info-cohorte-copia-link-asistencia")
     ) {
       textoACopiar = modelCohorteInfo.linkAsistencia;
       console.log(textoACopiar);
-      navigator.clipboard.writeText(textoACopiar).then(() => {
-        alert("Se ha copidado el link");
-      });
+      navigator.clipboard.writeText(textoACopiar).then(()=>{
+        alert("Se ha copidado el link")
+      })
     }
+
+    
 
     // let input = document.createElement("input");
     // input.setAttribute("value", textoACopiar);
@@ -140,7 +143,6 @@ const listarCohorterFormacion = (listaCohortes) => {
                 <span class="material-symbols-outlined index-certificados" title="Certificaciones">
                     workspace_premium
                 </span>
-                <span class="material-symbols-outlined index-modulos" title="Modulos">stacks</span>
                 <span class="material-symbols-outlined index-configuracion" title="Configurarción">
                   settings
                 </span>
@@ -158,9 +160,13 @@ const listarCohorterFormacion = (listaCohortes) => {
 };
 
 const filtrarCohortesPorFormacion = (idFormacion) => {
-  let listaCohortesFormacion = listaCohortesDiplomado.filter((cohorte) => {
-    return cohorte.idFormacion === idFormacion;
+  console.log(typeof(idFormacion)+"FORMACION URL");
+  let listaCohortesFormacion = listaCohortesCurso.filter((cohorte) => {
+    console.log(cohorte.idFormacion, " ", idFormacion, " ", cohorte.idFormacion === (idFormacion));
+    return cohorte.idFormacion === (idFormacion);
   });
+
+  console.log(listaCohortesFormacion);
   listarCohorterFormacion(listaCohortesFormacion);
 };
 
@@ -191,7 +197,7 @@ const obtenerIdFormacionURL = () => {
     "tipoFormacion"
   );
 
-  console.log(nombreFormacion, tipoFormacion, idFormacion);
+  console.log("CAMBIO DIRECCION:"+nombreFormacion, tipoFormacion, idFormacion);
   filtrarCohortesPorFormacion(idFormacion);
   insertarInfoParaCreacionCohorte(idFormacion, nombreFormacion, tipoFormacion);
 };
@@ -208,10 +214,6 @@ const redireccionarConfiguraciones = (idCohorte, idFormacion) => {
   location.href = `../pages/CursoConTutorCohortesPage.html?idFormacion=${idFormacion}&idCohorte=${idCohorte}`;
 };
 
-const redireccionarModulos = (idCohorte, idFormacion) =>{
-  location.href = `../pages/CursosModulos.html?idFormacion=${idFormacion}&idCohorte=${idCohorte}`;
-}
-
 const obtenerIdCohorte = (li) => {
   let listaAsistencias = document.querySelectorAll(".index-asistencias");
   listaAsistencias.forEach((asistencia, id) => {
@@ -223,7 +225,7 @@ const obtenerIdCohorte = (li) => {
         "id cohorte:",
         li[id].idCohorte
       );
-      redireccionarAsistencias(li[id].idCohorte, li[id].idFormacion);
+      // redireccionarAsistencias(li[id].idCohorte, li[id].idFormacion);
     });
   });
 
@@ -238,20 +240,6 @@ const obtenerIdCohorte = (li) => {
         li[id].idCohorte
       );
       redireccionarCertificaciones(li[id].idCohorte, li[id].idFormacion);
-    });
-  });
-
-  let listaModulos = document.querySelectorAll(".index-modulos");
-  listaModulos.forEach((asistencia, id) => {
-    asistencia.addEventListener("click", (e) => {
-      console.log(
-        id,
-        "id formacion",
-        li[id].idFormacion,
-        "id cohorte:",
-        li[id].idCohorte
-      );
-      redireccionarModulos(li[id].idCohorte, li[id].idFormacion);
     });
   });
 
@@ -270,4 +258,4 @@ const obtenerIdCohorte = (li) => {
   });
 };
 
-obtenerIdCohorte(listaCohortesDiplomado);
+obtenerIdCohorte(listaCohortesCurso);

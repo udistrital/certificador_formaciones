@@ -1,56 +1,47 @@
-export const modeloCursoConTutor = [
+[
   {
-    id: 1,
-    tipoFormacion: "Curso con tutor",
-    nombreFormacion: "Investigacion 1",
-    numCohorte: 1,
-    anioCohorte: "2023",
-    fechaInicialCohorte: new Date("2023-12-05"),
-    fechaFinalCohorte: new Date("2023-12-05"),
+  "nombre": "Sleek Concrete Sausages",
+  "tipoproceso": "Engineer",
+  "id": "1"
   },
   {
-    id: 2,
-    tipoFormacion: "Curso MOOC",
-    nombreFormacion: "Investigacion 2",
-    numCohorte: 1,
-    anioCohorte: "2023",
-    fechaInicialCohorte: new Date("2023-12-05"),
-    fechaFinalCohorte: new Date("2023-8-05"),
+  "nombre": "Sleek Rubber Salad",
+  "tipoproceso": "Producer",
+  "id": "2"
   },
   {
-    id: 3,
-    tipoFormacion: "Curso con tutor",
-    nombreFormacion: "Investigacion 3",
-    numCohorte: 1,
-    anioCohorte: "2023",
-    fechaInicialCohorte: new Date("2023-11-05"),
-    fechaFinalCohorte: new Date("2023-1-05"),
+  "nombre": "Luxurious Fresh Chicken",
+  "tipoproceso": "Facilitator",
+  "id": "3"
   },
   {
-    id: 4,
-    tipoFormacion: "Curso con tutor",
-    nombreFormacion: "Investigacion 4",
-    numCohorte: 1,
-    anioCohorte: "2023",
-    fechaInicialCohorte: new Date("2023-10-05"),
-    fechaFinalCohorte: new Date("2023-2-05"),
+  "nombre": "Luxurious Cotton Keyboard",
+  "tipoproceso": "Designer",
+  "id": "4"
   },
   {
-    id: 5,
-    tipoFormacion: "aCurso con tutor",
-    nombreFormacion: "aInvestigacion 4",
-    numCohorte: 1,
-    anioCohorte: "2023",
-    fechaInicialCohorte: new Date("2023-01-05"),
-    fechaFinalCohorte: new Date("2023-4-05"),
+  "nombre": "Licensed Metal Shoes",
+  "tipoproceso": "Facilitator",
+  "id": "5"
   },
   {
-    id: 6,
-    tipoFormacion: "aCurso con tutor",
-    nombreFormacion: "aInvestigacion 4",
-    numCohorte: 5,
-    anioCohorte: "2026",
-    fechaInicialCohorte: new Date("2023-01-05"),
-    fechaFinalCohorte: new Date("2023-4-05"),
+  "nombre": "Luxurious Bronze Car",
+  "tipoproceso": "Representative",
+  "id": "6"
   },
-];
+  {
+  "nombre": "Small Steel Chips",
+  "tipoproceso": "Officer",
+  "id": "7"
+  },
+  {
+  "nombre": "Incredible Steel Ball",
+  "tipoproceso": "Coordinator",
+  "id": "8"
+  },
+  {
+  "nombre": "Incredible Frozen Computer",
+  "tipoproceso": "Manager",
+  "id": "9"
+  }
+  ]

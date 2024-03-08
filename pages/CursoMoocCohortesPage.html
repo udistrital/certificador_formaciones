@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/header.css" />
+    <link rel="stylesheet" href="../styles/table.css" />
+    <link rel="stylesheet" href="../styles/footer.css" />
+    <link rel="stylesheet" href="../styles/modal.css" />
+    <link rel="stylesheet" href="../index.css" />
+    <link rel="stylesheet" href="../styles/notificacion.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+    <link rel="stylesheet" href="../styles/agregarButton.css" />
+    <title>Curso MOOC cohortes</title>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="header-nav">
+        <a href="../index.html" class="header-figure-link-index">
+          <figure class="nav-figure">
+            <img
+              src="../images/UD-PlanEsTIC.svg"
+              alt="PlanesTIC y Universidad Distrital Francisco José de Caldas"
+              id="nav-logo"
+              height="90"
+            />
+          </figure>
+        </a>
+        <ul id="nav-lista" class="nav-lista nav-lista-disable">
+          <li class="nav-lista-item">
+            <a href="../index.html" class="header-a-informes">
+              <span class="material-symbols-outlined"> feed </span>Informes
+            </a>
+          </li>
+          <li class="nav-lista-item nli-tf">
+            <span class="material-symbols-outlined"> edit </span>Tipo formación
+            <ul id="nis-tf" class="nav-item-sublista nis-tf">
+              <li>
+                <a href="../pages/CursoConTutorPage.html">Curso con tutor</a>
+              </li>
+              <li><a href="../pages/CursoMoocPage.html">Curso MOOC</a></li>
+              <li><a href="#">Capacitación o Taller</a></li>
+              <li><a href="../pages/diplomadosPage.html">Diplomado</a></li>
+              <li><a href="#">Evento</a></li>
+            </ul>
+          </li>
+          <li class="nav-lista-item nli-f">
+            <span class="material-symbols-outlined"> assignment </span>
+            Formularios
+            <ul id="nis-f" class="nav-item-sublista nis-f">
+              <li><a href="#">Formularios de inscripción</a></li>
+              <li><a href="#">Formularios de ponentes</a></li>
+              <li><a href="#">Formularios de documentación</a></li>
+              <li><a href="#">Formularios de memorias/evidencias</a></li>
+              <li><a href="#">Formularios de ponentes</a></li>
+            </ul>
+          </li>
+          <li class="nav-lista-item">
+            <span class="material-symbols-outlined"> search </span>Consulta
+          </li>
+          <li class="nav-lista-item">
+            <span class="material-symbols-outlined"> monitoring </span
+            >Estadisticas
+          </li>
+        </ul>
+      </nav>
+      <div class="header-div-sesion">
+        <div id="sesion-div-controles">
+          <span id="sesion-img-icon">JP</span>
+          <div id="sesion-controles-div-text">
+            <span id="sesion-nombreu">nombre usuario</span>
+            <span id="sesion-rol">rol</span>
+          </div>
+          <span class="material-symbols-outlined dowm"> expand_more </span>
+        </div>
+        <ul
+          id="nav-item-sublista-sesion"
+          class="nav-item-sublista nav-item-sublista-disable"
+        >
+          <li>
+            <a href="#"
+              ><span class="material-symbols-outlined"> password </span>Cambio
+              de clave</a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><span class="material-symbols-outlined"> logout </span>Cerrar
+              sesión
+            </a>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main class="main main-contenido">
+      <template id="template-historial-enlace">
+        <a href="#" target="_blank">Enlace dinámico</a>
+      </template>
+      <section class="section section-historial-nav"></section>
+      <section class="section-cursoTutor">
+        <article class="historial-nav-article"></article>
+        <article class="add-article">
+          <span
+            class="material-symbols-outlined add-span"
+            id="add-nueva-cohorte"
+            title="Agregar nueva cohorte"
+          >
+            add
+          </span>
+        </article>
+        <article class="article-modal modal-disabled" id="modal-nueva-cohorte">
+          <div class="modal-contenido">
+            <div class="modal-header">
+              <span></span>
+              <span class="modal-title">Nueva cohorte</span>
+              <span
+                class="material-symbols-outlined material-google-icon"
+                id="close-modal-nueva-cohorte"
+              >
+                cancel
+              </span>
+            </div>
+
+            <form
+              action=""
+              class="modal-contenido-form"
+              id="modal-form-cohorte"
+            >
+              <div
+                class="modal-contenido-form-div modal-contenido-form-div-lleno"
+              >
+                <label for="">Tipo de Formación:</label>
+                <input
+                  type="text"
+                  name=""
+                  id="cursoConTutorFormTipoFormacion"
+                  disabled
+                  value=" [Tipo]"
+                />
+              </div>
+              <div
+                class="modal-contenido-form-div modal-contenido-form-div-lleno"
+              >
+                <label for="nombreProceso">Nombre de formación: </label>
+                <input
+                  type="text"
+                  name=""
+                  id="cursoConTutorFormNombreFormacion"
+                  disabled
+                  value=" [Tipo]"
+                />
+              </div>
+              <div class="modal-contenido-form-div-join">
+                <div class="modal-contenido-form-div">
+                  <label for="numCohorte">Cohorte</label>
+                  <input
+                    type="number"
+                    name="numCohorte"
+                    id="numCohorte"
+                    placeholder="Numero de cohorte"
+                    class="modal-contenido-form-input"
+                    value="2"
+                  />
+                </div>
+              </div>
+              <div class="modal-contenido-form-div">
+                <label for="nombreProceso"></label>
+                <input
+                  type="number"
+                  name="anioCohorte"
+                  id="anioCohorte"
+                  placeholder="Año de cohorte"
+                  class="modal-contenido-form-input"
+                  min="1900"
+                  max="2100"
+                  step="1"
+                />
+              </div>
+              <div class="modal-contenido-form-div">
+                <label for="nombreProceso"></label>
+                <input
+                  type="number"
+                  name="intensidadHoraria"
+                  id="intensidadHoraria"
+                  placeholder="Intensidad horaria"
+                  class="modal-contenido-form-input"
+                />
+              </div>
+              <p class="texto-title-form-region">Rango de la cohorte</p>
+              <div class="modal-contenido-form-div-join">
+                <div class="modal-contenido-form-div">
+                  <label for="nombreProceso">Fecha inicial</label>
+                  <input
+                    type="date"
+                    name="fechaInicialCohorte"
+                    id="fechaInicialCohorte"
+                    placeholder="Fecha inicial"
+                    class="modal-contenido-form-input"
+                  />
+                </div>
+                <div class="modal-contenido-form-div">
+                  <label for="nombreProceso">Fecha final</label>
+                  <input
+                    type="date"
+                    name="fechaFinalCohorte"
+                    id="fechaFinalCohorte"
+                    placeholder="Fecha final"
+                    class="modal-contenido-form-input"
+                  />
+                </div>
+              </div>
+              <p class="texto-title-form-region">Formulario de inscripción</p>
+              <div class="modal-contenido-form-div-join">
+                <div class="modal-contenido-form-div">
+                  <label for="nombreProceso">Fecha inicial</label>
+                  <input
+                    type="date"
+                    name="fechaInicialCohorteFormInscripcion"
+                    id="fechaInicialCohorteFormInscripcion"
+                    placeholder="Fecha inicial"
+                    class="modal-contenido-form-input"
+                  />
+                </div>
+                <div class="modal-contenido-form-div">
+                  <label for="nombreProceso"
+                    >Fecha fechaFinalAsistenciaCohorte</label
+                  >
+                  <input
+                    type="date"
+                    name="fechaFinalCohorteFormInscripcion"
+                    id="fechaFinalCohorteFormInscripcion"
+                    placeholder="Fecha final"
+                    class="modal-contenido-form-input"
+                  />
+                </div>
+              </div>
+              <div class="modal-contenido-form-div">
+                <label for="nombreProceso"></label>
+                <input
+                  type="text"
+                  name="linkCursoOConexion"
+                  id="linkCursoOConexion"
+                  placeholder="Link de conexion / curso"
+                  class="modal-contenido-form-input"
+                />
+              </div>
+              <div class="modal-contenido-form-div-join">
+                <div class="modal-contenido-form-div">
+                  <label for="nombreProceso">Fecha de conexión</label>
+                  <input
+                    type="date"
+                    name="fechaConexion"
+                    id="fechaConexion"
+                    placeholder="Fecha de conexión"
+                    class="modal-contenido-form-input"
+                  />
+                </div>
+                <div class="modal-contenido-form-div">
+                  <label for="nombreProceso">Hora de conexion</label>
+                  <input
+                    type="time"
+                    name="horaConexion"
+                    id="horaConexion"
+                    placeholder="Hora de conexión"
+                    class="modal-contenido-form-input"
+                  />
+                </div>
+              </div>
+              <p class="texto-title-form-region">Formulario de asistencia</p>
+              <div class="modal-contenido-form-div-join">
+                <div class="modal-contenido-form-div">
+                  <label for="nombreProceso">Fecha inicial</label>
+                  <input
+                    type="date"
+                    name="fechaInicialAsistenciaCohorte"
+                    id="fechaInicialAsistenciaCohorte"
+                    placeholder="Fecha inicial"
+                    class="modal-contenido-form-input"
+                  />
+                </div>
+                <div class="modal-contenido-form-div">
+                  <label for="nombreProceso">Hora inicial</label>
+                  <input
+                    type="time"
+                    name="horaInicialAsistenciaCohorte"
+                    id="horaInicialAsistenciaCohorte"
+                    placeholder="Hora inicial"
+                    class="modal-contenido-form-input"
+                  />
+                </div>
+              </div>
+              <div class="modal-contenido-form-div-join">
+                <div class="modal-contenido-form-div">
+                  <label for="nombreProceso">Fecha final</label>
+                  <input
+                    type="date"
+                    name="fechaFinalAsistenciaCohorte"
+                    id="fechaFinalAsistenciaCohorte"
+                    placeholder="Fecha final"
+                    class="modal-contenido-form-input"
+                  />
+                </div>
+                <div class="modal-contenido-form-div">
+                  <label for="nombreProceso">Hora final</label>
+                  <input
+                    type="time"
+                    name="horiaFinalAsistenciaCohorte"
+                    id="horiaFinalAsistenciaCohorte"
+                    placeholder="Hora final"
+                    class="modal-contenido-form-input"
+                  />
+                </div>
+              </div>
+              <p class="texto-title-form-region">Certificado</p>
+              <div
+                class="modal-contenido-form-div modal-contenido-form-div-check"
+              >
+                <label for="incluirIntensidadHoraria"
+                  >Incluir intensidad horaria</label
+                >
+                <input
+                  type="checkbox"
+                  name="incluirIntensidadHoraria"
+                  id="incluirIntensidadHoraria"
+                  checked
+                  class="modal-contenido-form-input-check"
+                />
+              </div>
+              <div
+                class="modal-contenido-form-div modal-contenido-form-div-check"
+              >
+                <label for="incluirIntensidadFechaInicial"
+                  >Incluir fecha inicial</label
+                >
+                <input
+                  type="checkbox"
+                  name="incluirIntensidadFechaInicial"
+                  id="incluirIntensidadFechaInicial"
+                  checked
+                  class="modal-contenido-form-input-check"
+                />
+              </div>
+              <div
+                class="modal-contenido-form-div modal-contenido-form-div-check"
+              >
+                <label for="incluirIntensidadFechaFinal"
+                  >Incluir fecha final</label
+                >
+                <input
+                  type="checkbox"
+                  name="incluirIntensidadFechaFinal"
+                  id="incluirIntensidadFechaFinal"
+                  class="modal-contenido-form-input-check"
+                  checked
+                />
+              </div>
+              <input
+                type="submit"
+                value="Crear proceso"
+                class="modal-contenido-button"
+                id="btn-submit-nuevaCohorte"
+              />
+            </form>
+          </div>
+        </article>
+        <article class="article-modal modal-disabled" id="modal-info-cohorte">
+          <div class="modal-contenido">
+            <div class="modal-header">
+              <span></span>
+              <span class="modal-title">Información cohorte</span>
+              <span
+                class="material-symbols-outlined material-google-icon"
+                id="close-modal-info-cohorte"
+              >
+                cancel
+              </span>
+            </div>
+            <div class="modal-data-cohorte">
+              <h2 id="informacion-cohorte-numeral">Cohorte [#]</h2>
+
+              <p
+                class="data-cohorte-linkCon"
+                title="Copiar link de conexión"
+                id="info-cohorte-copia-link-conexion"
+              >
+                <span class="material-symbols-outlined"> share </span>
+                Link de conexión
+              </p>
+              <section class="section section-table">
+                <table class="table-info-cohorte" id="table-info-cohorte">
+                  <caption class="table-descripcion">
+                    Información
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Formulario</th>
+                      <th scope="col">Rango</th>
+                      <th scope="col">Estado</th>
+                      <th scope="col">Link</th>
+                    </tr>
+                  </thead>
+                  <template id="template-renglon-cursos-tutor-cohortes-info">
+                    <tbody></tbody>
+                  </template>
+                  <tbody></tbody>
+                </table>
+              </section>
+            </div>
+          </div>
+        </article>
+        <article class="article-notificacion">
+          <div
+            class="notificacion notificacion-verde notificacion-disabled"
+            id="notificacion-verde-cohorte"
+          >
+            <span class="material-symbols-outlined"> check_circle </span>
+            <p>Se ha creado la cohorte correctamente</p>
+            <span></span>
+          </div>
+          <div
+            class="notificacion notificacion-roja notificacion-disabled"
+            id="notificacion-roja-cohorte"
+          >
+            <span class="material-symbols-outlined"> error </span>
+            <p>No se ha podido crear la cohorte</p>
+            <span></span>
+          </div>
+        </article>
+      </section>
+      <section class="section section-table">
+        <table>
+          <caption class="table-descripcion">
+            Cohortes
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">ID cohorte</th>
+              <th scope="col">Año</th>
+              <th scope="col">Fecha inicial</th>
+              <th scope="col">Fecha final</th>
+              <th scope="col">Acción</th>
+            </tr>
+          </thead>
+          <tbody id="tbody-table-cursos-tutor-cohortes">
+            <template id="template-renglon-cursos-tutor-cohortes">
+              <tr></tr>
+            </template>
+          </tbody>
+          <!-- <tbody>
+            <tr>
+              <td>1</td>
+              <td>Producto 1</td>
+              <td>$19.99</td>
+              <td>$19.99</td>
+              <td class="td-acciones">
+                <span
+                  class="material-symbols-outlined show-info-cohorte"
+                  title="Ver link"
+                >
+                  link
+                </span>
+                <span class="material-symbols-outlined" title="Asistencia">
+                  <a href="../pages/AsistenciasPage.html"> fact_check </a>
+                </span>
+                <span class="material-symbols-outlined" title="Certificaciones">
+                  <a href="../pages/CertificadosEmitidosPage.html">
+                    workspace_premium
+                  </a>
+                </span>
+                <span class="material-symbols-outlined" title="Configurarción">
+                  settings
+                </span>
+              </td>
+            </tr>
+          </tbody> -->
+        </table>
+      </section>
+    </main>
+    <footer>
+      <section class="section footer-section">
+        <article class="footer-section-article">
+          <p>Universidad Distrital Francisco José de Caldas</p>
+          <p>NIT. 899.999.230-7</p>
+
+          <br />
+          <p>Institución de Educación Superior sujeta a inspección</p>
+          <p>y vigilancia por el Ministerio de Educación Nacional</p>
+          <br />
+          <p>Acuerdo de creación N° 10 de 1948 del Concejo de Bogotá</p>
+
+          <br />
+          <p>Acreditación Institucional de Alta Calidad - Resolución</p>
+          <p>N° 23096 del 15 de diciembre del 2016</p>
+        </article>
+        <article class="footer-section-article">
+          <p>Contáctenos</p>
+
+          <br />
+          <p>Coordinador</p>
+          <p>Carlos Enrique Montenegro Marín</p>
+          <p>cemontenegrom@udistrital.edu.co</p>
+
+          <br />
+          <p>Cl. 13 #31-75</p>
+          <p>Bogotá D.C. Republica de Colombia</p>
+
+          <br />
+          <p>323 9300 ext: 6368</p>
+          <p>planesticud@udistrital.edu.co</p>
+          <p>Lunes a viernes de 8 a.m. a 5 p.m</p>
+        </article>
+      </section>
+    </footer>
+    <button id="nav-menu-hamburguer">
+      <span class="material-symbols-outlined"> menu </span>
+    </button>
+    <button id="nav-menu-top">
+      <span class="material-symbols-outlined"> arrow_upward </span>
+    </button>
+  </body>
+  <script src="../scripts/header.js" type="module"></script>
+  <script src="../scripts/cohortesMooc.js" type="module"></script>
+  <script src="../scripts/modals.js" type="module"></script>
+  <script src="../scripts/navegacion.js" type="module"></script>
+  <script src="../scripts/irTop.js" type="module"></script>
+</html>

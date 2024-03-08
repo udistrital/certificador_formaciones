@@ -1,17 +1,17 @@
-import { modeloDiplomado } from "../models/diplomadoModel.js";
+import { modeloCursoConTutor } from "../models/cursoConTutorModel.js";
 
-let listaDiplimados = [];
+let listaCursosTutor = [];
 const llenarTablaCursosTutor = () => {
   const $fargmento = document.createDocumentFragment(),
     $template = document.getElementById(
       "template-renglon-cursos-tutor"
     ).content,
     $tbody = document.getElementById("tbody-table-cursos-tutor");
-  listaDiplimados = modeloDiplomado.filter(
-    (curso) => curso.tipoFormacion === "Diplomado"
+  listaCursosTutor = modeloCursoConTutor.filter(
+    (curso) => curso.tipoFormacion === "Curso MOOC"
   );
 
-  listaDiplimados.forEach((formacion) => {
+  listaCursosTutor.forEach((formacion) => {
     $template.querySelector("tr").innerHTML = `
                 <td>${formacion.id}</td>
                 <td>${formacion.nombreFormacion}</td>
@@ -26,7 +26,7 @@ const llenarTablaCursosTutor = () => {
   });
 
   $tbody.appendChild($fargmento);
-  console.log(listaDiplimados);
+  console.log(listaCursosTutor);
 };
 
 llenarTablaCursosTutor();
@@ -36,8 +36,8 @@ function verCohorte() {
   $accionVerCohorte.forEach((formacion, id) => {
     formacion.addEventListener("click", (e) => {
       //aca se captura el id de la formacion que se selecciona para observas las cohortes
-      console.log(formacion, id, listaDiplimados[id].id);
-      location.href = `../pages/diplomadoCohortesPage.html?idFormacion=${listaDiplimados[id].id}&nombreFormacion=${listaDiplimados[id].nombreFormacion}&tipoFormacion=${listaDiplimados[id].tipoFormacion}`;
+      console.log(formacion, id, listaCursosTutor[id].id);
+      location.href = `../pages/CursoMoocCohortesPage.html?idFormacion=${listaCursosTutor[id].id}&nombreFormacion=${listaCursosTutor[id].nombreFormacion}&tipoFormacion=${listaCursosTutor[id].tipoFormacion}`;
     });
   });
 }
@@ -48,7 +48,7 @@ const asignarTipoFormacionAFormulario = () => {
     "form-curso-tutor-input-tipo-formacion"
   );
 
-  $inputTipoFormacion.setAttribute("value", "Diplomado");
+  $inputTipoFormacion.setAttribute("value", "Curso MOOC");
 };
 
 asignarTipoFormacionAFormulario();
