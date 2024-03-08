@@ -1,4 +1,4 @@
-[
+export let modelCT = [
   {
   "nombre": "Sleek Concrete Sausages",
   "tipoproceso": "Engineer",

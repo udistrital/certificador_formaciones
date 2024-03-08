@@ -1,4 +1,4 @@
-// import { modeloCursoConTutor } from "../models/cursoConTutorModel.js";
+import { modelCT } from "../models/cursoConTutorModel.js";
 
 var modeloCursoConTutor = [];
 
@@ -22,6 +22,10 @@ const listarCursosTutorFetch = async () => {
     .catch((error) => {
       // Capturar y manejar cualquier error
       console.error("Error:", error);
+      modeloCursoConTutor = modelCT;
+      llenarTablaCursosTutor(modeloCursoConTutor);
+      verCohorte(modeloCursoConTutor);
+
     });
 };
 

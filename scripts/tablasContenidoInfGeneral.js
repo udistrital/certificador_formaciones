@@ -1,5 +1,5 @@
 import { modelCohorteInfo } from "../models/cohorteModel.js";
-// import { listaInformesGenerales } from "../models/informesGenerales.js";
+import { cusosCohortesGenerales } from "../models/informesGenerales.js";
 import { mostrarInfoCorhorte } from "./modals.js";
 
 let listaInformesGenerales = [];
@@ -24,6 +24,9 @@ const listarGeneralesFetch = async () => {
     .catch((error) => {
       // Capturar y manejar cualquier error
       console.error("Error:", error);
+      llenarTablaInformesGenerales(cusosCohortesGenerales);
+      obtenerIdCohorte(cusosCohortesGenerales);
+      ordenamientos(cusosCohortesGenerales);
     });
 };
 
@@ -222,6 +225,7 @@ const obtenerIdCohorte = (li) => {
     formacion.addEventListener("click", (e) => {
       //ACA SE CAPTURA EL ID DE LA FORMACION SELECCIONADA
       console.log(id, "id", li[id].id, li[id]);
+      console.log("INFORMACION PASADA:" + li[id]);
       llenarModalInfoCohorteSeleccionada(li[id]);
     });
   });
@@ -252,6 +256,7 @@ const obtenerIdCohorte = (li) => {
 };
 
 const llenarModalInfoCohorteSeleccionada = (inforCohorte) => {
+  console.log("INFORMACION DE LA COHORTE MODAL:" + inforCohorte.id);
   const $numCohorteVisual = document.getElementById(
     "informacion-cohorte-numeral"
   );
@@ -279,17 +284,17 @@ const llenarModalInfoCohorteSeleccionada = (inforCohorte) => {
   $template.querySelector("tbody").innerHTML = `
   <tr class="tr-modal-infocohorte">
     <td>Inscripción</td>
-    <td>${new Date(inforCohorte.fIInscripcion).getFullYear()}/${
-    new Date(inforCohorte.fIInscripcion).getMonth() + 1
-  }/${new Date(inforCohorte.fIInscripcion).getDate()} - ${new Date(
-    inforCohorte.fFInscripcion
-  ).getFullYear()}/${new Date(
-    inforCohorte.fFInscripcion
-  ).getMonth()}/${new Date(inforCohorte.fFInscripcion).getDate()}</td>
+    <td>${new Date(inforCohorte.fechaIIns).getFullYear()}/${
+    new Date(inforCohorte.fechaIIns).getMonth() + 1
+  }/${new Date(inforCohorte.fechaIIns).getDate()} - ${new Date(
+    inforCohorte.fechaFIns
+  ).getFullYear()}/${new Date(inforCohorte.fechaFIns).getMonth()}/${new Date(
+    inforCohorte.fechaFIns
+  ).getDate()}</td>
     <td>
       <div class="modal-data-cohorte-estado">
       ${
-        modelCohorteInfo.estadoInscripcion === "activo"
+        new Date(inforCohorte.fechaFIns).getTime() >= new Date().getTime()
           ? '<span class="material-symbols-outlined on-info-cohorte" title="Habilitada" > check_circle </span>'
           : '<span class="material-symbols-outlined off-info-cohorte" title="Deshabilitada"> cancel </span>'
       } 
@@ -307,17 +312,17 @@ const llenarModalInfoCohorteSeleccionada = (inforCohorte) => {
   </tr>
   <tr class="tr-modal-infocohorte">
     <td>Asistencia</td>
-    <td>${new Date(inforCohorte.fIAsistencia).getFullYear()}/${
-    new Date(inforCohorte.fIAsistencia).getMonth() + 1
-  }/${new Date(inforCohorte.fIAsistencia).getDate()} - ${new Date(
-    inforCohorte.fFAsistencia
-  ).getFullYear()}/${new Date(inforCohorte.fFAsistencia).getMonth()}/${new Date(
-    inforCohorte.fFAsistencia
+    <td>${new Date(inforCohorte.fechaIAsis).getFullYear()}/${
+    new Date(inforCohorte.fechaIAsis).getMonth() + 1
+  }/${new Date(inforCohorte.fechaIAsis).getDate()} - ${new Date(
+    inforCohorte.fechaFAsis
+  ).getFullYear()}/${new Date(inforCohorte.fechaFAsis).getMonth()}/${new Date(
+    inforCohorte.fechaFAsis
   ).getDate()}</td>
     <td>
       <div class="modal-data-cohorte-estado">
       ${
-        modelCohorteInfo.estadoAsistencia === "activo"
+        new Date(inforCohorte.fechaFAsis).getTime() >= new Date().getTime()
           ? '<span class="material-symbols-outlined on-info-cohorte" title="Habilitada" > check_circle </span>'
           : '<span class="material-symbols-outlined off-info-cohorte" title="Deshabilitada"> cancel </span>'
       }
@@ -358,7 +363,7 @@ const copiarLinks = (inforCohorte) => {
       e.target ===
       document.getElementById("info-cohorte-copia-link-inscripcion")
     ) {
-      textoACopiar = inforCohorte.linkInscripcion;
+      textoACopiar = inforCohorte.linkIns;
       console.log(textoACopiar);
       navigator.clipboard.writeText(textoACopiar).then(() => {
         alert("Se ha copidado el link");
@@ -366,7 +371,7 @@ const copiarLinks = (inforCohorte) => {
     } else if (
       e.target === document.getElementById("info-cohorte-copia-link-asistencia")
     ) {
-      textoACopiar = inforCohorte.linkAsistencia;
+      textoACopiar = inforCohorte.linkAsis;
       console.log(textoACopiar);
       navigator.clipboard.writeText(textoACopiar).then(() => {
         alert("Se ha copidado el link");
