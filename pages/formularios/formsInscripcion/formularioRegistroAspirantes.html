@@ -4,14 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fomulario 1</title>
-    <link rel="stylesheet" href="../../index.css" />
-    <link rel="stylesheet" href="../../styles/formularios.css" />
+    <link rel="stylesheet" href="../../../index.css" />
+    <link rel="stylesheet" href="../../../styles/formularios.css" />
   </head>
   <body>
     <header class="header">
       <figure class="header-banner">
         <img
-          src="../../images/Banner_formulario_vinotinto.jpg"
+          src="../../../images/Banner_formulario_vinotinto.jpg"
           alt="Banner formulario"
           id="header-banner-img"
         />
@@ -65,6 +65,26 @@
             />
           </label>
         </div>
+        <div class="form-div-join">
+          <label class="form-label" for="form-nombresPonente">
+            <input
+              type="text"
+              name="nombresPonente"
+              id="form-nombresPonente"
+              placeholder="Jass Alf"
+              class="form-input"
+            />
+          </label>
+          <label class="form-label" for="form-apellidosPonente">
+            <input
+              type="text"
+              name="apellidosPonente"
+              id="form-apellidosPonente"
+              placeholder="Sua San"
+              class="form-input"
+            />
+          </label>
+        </div>
         <label class="form-label" for="form-tipoDocumentoPonente">
           <select
             name="tipoDocumentoPonente"
@@ -99,14 +119,68 @@
             />
           </label>
         </div>
+        <div class="form-div-join">
+          <label class="form-label" for="form-correoPonente">
+            <input
+              type="email"
+              name="correoPonente"
+              id="form-correoPonente"
+              placeholder="jesus@udistrital.edu.co"
+              class="form-input"
+              required
+            />
+          </label>
+          <label class="form-label" for="form-correoPonenteRepetir">
+            <input
+              type="email"
+              name="correoPonenteRepetir"
+              id="form-correoPonenteRepetir"
+              placeholder="jesus@udistrital.edu.co"
+              class="form-input"
+              required
+            />
+          </label>
+        </div>
+        <div class="form-div-join">
+          <label class="form-label" for="form-telefonoPonente">
+            <input
+              type="number"
+              name="telefonoPonente"
+              id="form-telefonoPonente"
+              placeholder="3013840229"
+              class="form-input"
+              required
+            />
+          </label>
+          <label class="form-label" for="form-telefonoPonenteRepetir">
+            <input
+              type="number"
+              name="telefonoPonenteRepetir"
+              id="form-telefonoPonenteRepetir"
+              placeholder="3013840229"
+              class="form-input"
+              required
+            />
+          </label>
+        </div>
+
+        <label class="form-label" for="form-dependenciaPonente">
+          <select
+            name="dependenciaPonente"
+            id="form-dependenciaPonente"
+            class="form-input"
+            required
+          >
+            <option value="contratista">Contratista</option>
+            <option value="administrativo">Administrativo</option>
+            <option value="planta">Planta</option>
+          </select>
+        </label>
 
         <label class="form-label-check" for="form-terminos"
-          ><input
-            type="checkbox"
-            name="form-terminos"
-            id="form-terminos"
-          />
-          Confirmo mi asistencia a la sesión de hoy
+          ><input type="checkbox" name="form-terminos" id="form-terminos" />
+          Acepto <a href="#"> terminos y condiciones</a> para tratar estos datos
+          y confirmo que los mismos son veridicos
         </label>
 
         <input
@@ -118,7 +192,9 @@
       </form>
     </main>
     <footer>
-      <p>Plan estratégico de Tecnologías de la Información y las Comunicaciones</p>
+      <p>
+        Plan estratégico de Tecnologías de la Información y las Comunicaciones
+      </p>
       <p>PlanEsTIC-UD</p>
       <p>Copyright &copy; 2024</p>
     </footer>
