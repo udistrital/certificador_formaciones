@@ -14,6 +14,13 @@
   --azulClaro: #0d6efd;
   --verde: #8bc34a;
   --rojo: #bb2d3b;
+  --rojo-transparente:#8b191931;
+
+
+  /* nueva linea grafica */
+  --gris-oscuro:#373435;
+  --gris-claro:#4F4D4D;
+  --rojo-principal-claro: #8b1919ec;
 }
 
 /* Reseteamos los margin y paddings de todas las etiquetas */

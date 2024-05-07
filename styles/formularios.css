@@ -50,9 +50,9 @@ body {
 }
 
 input:disabled{
-  background-color: var(--rojoprincipal);
+  background-color: var(--rojo-transparente);
   outline: 2px solid var(--gris);
-  color: var(--blanco);
+  color: black;
 }
 
 a{

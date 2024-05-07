@@ -1,23 +1,95 @@
 .header {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+}
+
+.header__sesion {
+  color: var(--blanco);
+  display: flex;
+  cursor: pointer;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  right: 0;
+}
+
+.sesion__controles {
   background-color: var(--rojoprincipal);
+  padding: 2px 0;
+  padding-left: 4.0625rem;
+  padding-right: 0.625rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3125rem;
+  clip-path: polygon(25% 0, 100% 0%, 100% 100%, 0% 100%);
+
+}
+
+.sesion__controles > * {
+  height: fit-content;
+}
+
+.controles__dowm {
+  line-height: 1;
+  border-radius: 50%;
+  outline: 1px solid var(--blanco);
+  background-color: var(--rojoprincipal);
+  color: var(--blanco);
+}
+
+.controles__icono {
+  padding: 16px;
+  line-height: 1;
+  border-radius: 50%;
+  outline: 1px solid var(--blanco);
+  background-color: var(--rojoprincipal);
+  color: var(--blanco);
+  margin-top: 1px;
+}
+
+.sesion__acciones {
+  color: red;
+}
+
+.controles__dowm {
+  transform: rotate(0deg);
+  transition: transform 0.3s;
+}
+
+.header__sesion:hover .controles__dowm {
+  transform: rotate(180deg);
+}
+
+@media only screen and (max-width: 1023px) {
+}
+
+@media only screen and (min-width: 1024px) {
+}
+
+/* .header {
+  background-color: var(--blanco);
+  position: relative;
 }
 
 .header-div-sesion {
-  color: var(--rojoprincipal);
+  
 }
 
 .header-nav {
+  background-color: var(--gris-oscuro);
   color: var(--blanco);
 }
 
 .nav-lista-item:hover {
-  background-color: var(--negro);
+  background-color: var(--gris-claro);
   cursor: pointer;
 }
 
+
 @media only screen and (max-width: 1023px) {
   .header {
-    /* min-height: 100vh; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,7 +110,6 @@
     justify-content: center;
     align-items: center;
     background-color: var(--blanco);
-    font-size: 30px;
   }
 
   .nav-lista {
@@ -69,7 +140,7 @@
 
   .nav-figure {
     width: 100%;
-    height: 100px;
+    height: 120px;
   }
 
   #nav-logo {
@@ -177,16 +248,13 @@
 
 @media only screen and (min-width: 1024px) {
   .header {
-    height:130px;
+    height:100px;
     display: flex;
     justify-content: space-between;
   }
 
   .header-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 75%;
+    width: 100%;
   }
   .nav-lista {
     display: flex;
@@ -199,10 +267,10 @@
 
   .header-div-sesion {
     display: flex;
-    background-color: var(--blanco);
     justify-content: center;
     align-items: center;
-    width: 25%;
+    width: fit-content;
+    height: 55%;
   }
   .nav-figure {
     display: flex;
@@ -220,8 +288,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
+    flex-direction: row;
+    gap: 5px;
     position: relative;
+    padding: 16px;
   }
 
   .nav-item-sublista li a {
@@ -256,16 +326,13 @@
     background-color: var(--blanco);
   }
 
-  .header-div-sesion {
-    position: relative;
-  }
-
   .header-div-sesion ul {
     width: 100%;
-    display: none;
+    color: var(--rojoprincipal);
     position: absolute;
-    top: 100%;
     left: 0;
+    top: 100%;
+    background-color: aqua;
   }
   .header-div-sesion:hover > ul {
     display: flex;
@@ -283,19 +350,17 @@
 
   #sesion-div-controles {
     display: flex;
-    justify-content: center;
+    justify-content: right;
     align-items: center;
     gap: 16px;
     width: 100%;
-    height: 100%;
     cursor: pointer;
+    margin-left: 25px;
   }
 }
 
 .header-div-sesion:hover {
-  /* background-color: var(--negro); */
-  /* color: var(--blanco); */
-  border-bottom: 3px solid var(--rojoprincipal);
+  background-color: var(--rojo-principal-claro);
 }
 
 #sesion-controles-div-text {
@@ -325,7 +390,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
+  gap: 5px;
 }
 .header-figure-link-index {
   height: 100%;
@@ -333,3 +399,5 @@
   justify-content: center;
   align-items: center;
 }
+
+ */
