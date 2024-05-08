@@ -1,31 +1,20 @@
 .header {
   display: flex;
-  position: relative;
-  justify-content: space-between;
 }
 
 .header__sesion {
   color: var(--blanco);
   display: flex;
   cursor: pointer;
-  flex-direction: column;
-  position: absolute;
-  top: 50%;
-  right: 0;
 }
 
 .sesion__controles {
   background-color: var(--rojoprincipal);
-  padding: 5px 0;
-  padding-left: 4.0625rem;
-  padding-right: 0.625rem;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 0.3125rem;
-  clip-path: polygon(25% 0, 100% 0%, 100% 100%, 0% 100%);
   user-select: none;
-
 }
 
 .sesion__controles > * {
@@ -40,16 +29,15 @@
   color: var(--blanco);
 }
 
-.controles__text{
+.controles__text {
   display: flex;
   flex-direction: column;
 }
 
-.controles__text>span{
+.controles__text > span {
   border-bottom: 1px solid var(--blanco);
   width: fit-content;
 }
-
 
 .controles__icono {
   padding: 16px;
@@ -64,39 +52,148 @@
 .sesion__acciones {
   outline: 1px solid var(--rojoprincipal);
   color: var(--rojoprincipal);
-
+  border-top: 1px solid var(--blanco);
+  transition: display 1s ease;
 }
 
-.sesion__acciones>li{
+.sesion__acciones > li {
   display: flex;
-  justify-content: left;
   padding: 16px;
   align-items: center;
   outline: 1px solid var(--rojoprincipal);
+  background-color: var(--blanco);
 }
 
-.sesion__acciones>li:hover{
+.sesion__acciones > li >a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sesion__acciones > li:hover {
   background-color: var(--rojoprincipal);
+  outline: 1px solid var(--blanco);
   color: var(--blanco);
 }
 
-.sesion__acciones--disabled{
+.sesion__acciones--disabled {
   display: none;
 }
 
-.controles__dowm {
-  transform: rotate(0deg);
-  transition: transform 0.3s;
+/* BARRA DE NAVEGACION */
+
+.nav {
+  display: flex;
+  background-color: var(--gris-oscuro);
+  color: var(--blanco);
 }
 
-.header__sesion:hover .controles__dowm {
-  transform: rotate(180deg);
+.nav__ul {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
+.ul__li {
+  position: relative; /* Para asegurar el posicionamiento relativo para el efecto */
+  padding: 10px;
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.li__a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.ul__li:hover {
+  background-color: var(--gris-claro);
+}
+
+.li__ul {
+  display: none; /* Oculto por defecto */
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  position: absolute; /* Posicionamiento para la sublista */
+  top: 100%; /* Coloca la sublista justo debajo del elemento padre */
+  left: 0;
+  background: var(--gris-oscuro); /* Ajusta el color de fondo si es necesario */
+  outline: 1px solid var(--rojoprincipal); /* Bordes para mejor visibilidad */
+  z-index: 0;
+}
+
+.ul__li:hover .li__ul {
+  display: block; /* Muestra la sublista cuando el mouse está sobre el elemento padre */
+}
+
+.li__ul > li {
+  background-color: var(--gris-oscuro);
+  padding: 16px;
+  outline: 1px solid var(--gris-claro);
+}
+
+.li__ul > li:hover {
+  background-color: var(--gris-claro);
+}
 @media only screen and (max-width: 1023px) {
+  .header {
+    flex-direction: column;
+  }
+
+  .header__sesion {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .sesion__controles {
+    width: 100%;
+    padding: 16px;
+    gap: 20px;
+  }
+
+  .figure__img {
+    object-fit: contain;
+  }
+
+  .sesion__acciones > li {
+    justify-content: center;
+  }
 }
 
 @media only screen and (min-width: 1024px) {
+  .header {
+    position: relative;
+    justify-content: space-between;
+  }
+  .header__sesion {
+    flex-direction: column;
+    position: absolute;
+    top: 26%;
+    right: 0;
+    z-index: 100;
+  }
+  .sesion__controles {
+    padding: 5px 0;
+    padding-left: 4.0625rem;
+    padding-right: 0.625rem;
+    clip-path: polygon(25% 0, 100% 0%, 100% 100%, 0% 100%);
+  }
+
+  .sesion__controles > * {
+    height: fit-content;
+  }
+
+  .sesion__acciones > li {
+    justify-content: left;
+  }
+
 }
 
 /* .header {

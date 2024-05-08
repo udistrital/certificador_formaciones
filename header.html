@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="wclassth=device-wclassth, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="wclassth=device-wclassth, initial-scale=1.0"
+    />
     <link rel="stylesheet" href="styles/header.css" />
     <link rel="stylesheet" href="styles/informes.css" />
     <link rel="stylesheet" href="styles/navegacion.css" />
@@ -36,7 +39,9 @@
             <span class="texto_nombreusuario">nombre usuario</span>
             <span class="texto_rol">rol</span>
           </div>
-          <span class="material-symbols-outlined dowm controles__dowm"> expand_more </span>
+          <span class="material-symbols-outlined dowm controles__dowm">
+            expand_more
+          </span>
         </div>
         <ul class="sesion__acciones sesion__acciones--disabled">
           <li>
@@ -54,12 +59,52 @@
         </ul>
       </div>
     </header>
-
-    
+    <nav class="nav">
+      <ul class="nav__ul">
+        <li class="ul__li">
+          <a href="../index.html" class="li__a">
+            <span class="material-symbols-outlined"> feed </span>Informes
+          </a>
+        </li>
+        <li class="ul__li">
+          <span class="material-symbols-outlined"> edit </span>Tipo formación
+          <ul class="li__ul">
+            <li>
+              <a href="../pages/CursoConTutorPage.html">Curso con tutor</a>
+            </li>
+            <li><a href="#">Curso MOOC</a></li>
+            <li><a href="#">Capacitación o Taller</a></li>
+            <li><a href="../pages/diplomadosPage.html">Diplomado</a></li>
+            <li><a href="#">Evento</a></li>
+          </ul>
+        </li>
+        <li class="ul__li">
+          <span class="material-symbols-outlined"> assignment </span>
+          Formularios
+          <ul class="li__ul">
+            <li><a href="#">Formularios de inscripción</a></li>
+            <li><a href="#">Formularios de ponentes</a></li>
+            <li><a href="#">Formularios de documentación</a></li>
+            <li><a href="#">Formularios de memorias/evidencias</a></li>
+            <li><a href="#">Formularios de ponentes</a></li>
+          </ul>
+        </li>
+        <li class="ul__li"><span class="material-symbols-outlined">
+          search
+          </span>Consulta</li>
+        <li class="ul__li">
+          <span class="material-symbols-outlined"> monitoring </span
+          >Estadisticas
+        </li>
+      </ul>
+    </nav>
   </body>
   <script src="./scripts/header.js" type="module"></script>
   <script src="./scripts/navegacion.js" type="module"></script>
-  <script src="./scripts/tablasContenclassoInfGeneral.js" type="module"></script>
+  <script
+    src="./scripts/tablasContenclassoInfGeneral.js"
+    type="module"
+  ></script>
   <script src="./scripts/irTop.js" type="module"></script>
   <script src="./scripts/modals.js" type="module"></script>
   <script src="./index.js" type="module"></script>
