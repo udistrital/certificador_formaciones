@@ -59,15 +59,17 @@
         </ul>
       </div>
     </header>
-    <nav class="nav">
+    <nav class="nav nav--disabled">
       <ul class="nav__ul">
         <li class="ul__li">
           <a href="../index.html" class="li__a">
-            <span class="material-symbols-outlined"> feed </span>Informes
+            <span class="li__span"><span class="material-symbols-outlined"> feed </span>Informes</span>
           </a>
         </li>
         <li class="ul__li">
+          <span class="li__span">
           <span class="material-symbols-outlined"> edit </span>Tipo formación
+        </span>
           <ul class="li__ul">
             <li>
               <a href="../pages/CursoConTutorPage.html">Curso con tutor</a>
@@ -98,6 +100,9 @@
         </li>
       </ul>
     </nav>
+    <button class="nav__menu">
+      <span class="material-symbols-outlined menu__icon"> menu </span>
+    </button>
   </body>
   <script src="./scripts/header.js" type="module"></script>
   <script src="./scripts/navegacion.js" type="module"></script>
