@@ -209,11 +209,11 @@ const redireccionarCertificaciones = (idCohorte, idFormacion) => {
   location.href = `../pages/Certificados/CertificadosEmitidosPage.html?idFormacion=${idFormacion}&idCohorte=${idCohorte}`;
 };
 const redireccionarConfiguraciones = (idCohorte, idFormacion) => {
-  location.href = `DiplomadoCohortesPage.html?idFormacion=${idFormacion}&idCohorte=${idCohorte}`;
+  location.href = `EventosCohortesPage.html?idFormacion=${idFormacion}&idCohorte=${idCohorte}`;
 };
 
 const redireccionarModulos = (idCohorte, idFormacion) => {
-  location.href = `CursosModulos.html?idFormacion=${idFormacion}&idCohorte=${idCohorte}`;
+  location.href = `EventosModulos.html?idFormacion=${idFormacion}&idCohorte=${idCohorte}`;
 };
 
 const obtenerIdCohorte = (li) => {

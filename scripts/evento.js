@@ -37,7 +37,7 @@ function verCohorte() {
     formacion.addEventListener("click", (e) => {
       //aca se captura el id de la formacion que se selecciona para observas las cohortes
       console.log(formacion, id, listaDiplimados[id].id);
-      location.href = `DiplomadoCohortesPage.html?idFormacion=${listaDiplimados[id].id}&nombreFormacion=${listaDiplimados[id].nombreFormacion}&tipoFormacion=${listaDiplimados[id].tipoFormacion}`;
+      location.href = `EventosCohortesPage.html?idFormacion=${listaDiplimados[id].id}&nombreFormacion=${listaDiplimados[id].nombreFormacion}&tipoFormacion=${listaDiplimados[id].tipoFormacion}`;
     });
   });
 }
