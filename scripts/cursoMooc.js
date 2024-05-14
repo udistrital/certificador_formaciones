@@ -1,35 +1,6 @@
 import { modelCT } from "../models/cursoConTutorModel.js";
 
-var modeloCursoConTutor = [];
-
-const listarCursosTutorFetch = async () => {
-  await fetch("https://65e896cb4bb72f0a9c4fdadd.mockapi.io/api/cursostutor")
-    .then((response) => {
-      // Verificar si la respuesta es exitosa (código de estado HTTP 200-299)
-      if (!response.ok) {
-        throw new Error("La solicitud no fue exitosa");
-      }
-      // Parsear la respuesta como JSON
-      return response.json();
-    })
-    .then((data) => {
-      // Hacer algo con los datos recibidos
-      console.log(data);
-      modeloCursoConTutor = data;
-      llenarTablaCursosTutor(modeloCursoConTutor);
-      verCohorte(modeloCursoConTutor);
-    })
-    .catch((error) => {
-      // Capturar y manejar cualquier error
-      console.error("Error:", error);
-      modeloCursoConTutor = modelCT;
-      llenarTablaCursosTutor(modeloCursoConTutor);
-      verCohorte(modeloCursoConTutor);
-
-    });
-};
-
-listarCursosTutorFetch();
+var modeloCursoConTutor = [...modelCT];
 
 const llenarTablaCursosTutor = (data) => {
   const $fargmento = document.createDocumentFragment(),
@@ -69,7 +40,7 @@ function verCohorte(data) {
         data[id].nombre,
         data[id].tipoproceso
       );
-      location.href = `../pages/CursoMoocCohortesPage.html?idFormacion=${data[id].id}&nombreFormacion=${data[id].nombre}&tipoFormacion=${data[id].tipoproceso}`;
+      location.href = `CursoMoocCohortesPage.html?idFormacion=${data[id].id}&nombreFormacion=${data[id].nombre}&tipoFormacion=${data[id].tipoproceso}`;
     });
   });
 }
@@ -79,7 +50,15 @@ const asignarTipoFormacionAFormulario = () => {
     "form-curso-tutor-input-tipo-formacion"
   );
 
-  $inputTipoFormacion.setAttribute("value", "Curso con tutor");
+  $inputTipoFormacion.setAttribute("value", "Curso Mooc");
 };
 
 asignarTipoFormacionAFormulario();
+
+const listarCursosTutorFetch = async () => {
+  modeloCursoConTutor = modelCT;
+  llenarTablaCursosTutor(modeloCursoConTutor);
+  verCohorte(modeloCursoConTutor);
+};
+
+listarCursosTutorFetch();
