@@ -40,7 +40,7 @@ function verCohorte(data) {
         data[id].nombre,
         data[id].tipoproceso
       );
-      location.href = `../pages/CursoConTutorCohortesPage.html?idFormacion=${data[id].id}&nombreFormacion=${data[id].nombre}&tipoFormacion=${data[id].tipoproceso}`;
+      location.href = `CursoConTutorCohortesPage.html?idFormacion=${data[id].id}&nombreFormacion=${data[id].nombre}&tipoFormacion=${data[id].tipoproceso}`;
     });
   });
 }

@@ -1,7 +1,6 @@
 import { cusosCohortesGenerales } from "../models/informesGenerales.js";
 import { modelCohorteInfo } from "../models/cohorteModel.js";
 
-
 const listaCohortesCurso = cusosCohortesGenerales;
 
 //informacion para copiar, se podria enviar el idde la cohorte
@@ -15,29 +14,27 @@ const copiarLinks = () => {
     ) {
       textoACopiar = modelCohorteInfo.linkConexion;
       console.log(textoACopiar);
-      navigator.clipboard.writeText(textoACopiar).then(()=>{
-        alert("Se ha copidado el link")
-      })
+      navigator.clipboard.writeText(textoACopiar).then(() => {
+        alert("Se ha copidado el link");
+      });
     } else if (
       e.target ===
       document.getElementById("info-cohorte-copia-link-inscripcion")
     ) {
       textoACopiar = modelCohorteInfo.linkInscripcion;
       console.log(textoACopiar);
-      navigator.clipboard.writeText(textoACopiar).then(()=>{
-        alert("Se ha copidado el link")
-      })
+      navigator.clipboard.writeText(textoACopiar).then(() => {
+        alert("Se ha copidado el link");
+      });
     } else if (
       e.target === document.getElementById("info-cohorte-copia-link-asistencia")
     ) {
       textoACopiar = modelCohorteInfo.linkAsistencia;
       console.log(textoACopiar);
-      navigator.clipboard.writeText(textoACopiar).then(()=>{
-        alert("Se ha copidado el link")
-      })
+      navigator.clipboard.writeText(textoACopiar).then(() => {
+        alert("Se ha copidado el link");
+      });
     }
-
-    
 
     // let input = document.createElement("input");
     // input.setAttribute("value", textoACopiar);
@@ -54,8 +51,8 @@ const mostarInforCohorte = (listaCohortes) => {
   listaLinks.forEach((cohorte, index) => {
     cohorte.addEventListener("click", () => {
       //se captura el id del cohorte del cual se desea saber la informacion
-      let idCohorteInfoMostrar = listaCohortes[index].idCohorte;
-      console.log("hola muno", listaCohortes[index], idCohorteInfoMostrar);
+      let idCohorteInfoMostrar = listaCohortes[index].numCohorte;
+      console.log("hola mundo", listaCohortes[index], idCohorteInfoMostrar);
       const $numCohorteVisual = document.getElementById(
         "informacion-cohorte-numeral"
       );
@@ -127,12 +124,14 @@ const listarCohorterFormacion = (listaCohortes) => {
     ).content,
     $tbody = document.getElementById("tbody-table-cursos-tutor-cohortes");
 
+    console.log(listaCohortes);
+
   listaCohortes.forEach((cohorte) => {
     $template.querySelector("tr").innerHTML = `
-                <td>${cohorte.idCohorte}</td>
-                <td>${cohorte.anioCohorte}</td>
-                <td>${cohorte.fechaInicialCohorte.getFullYear()}/${cohorte.fechaInicialCohorte.getMonth()}/${cohorte.fechaInicialCohorte.getDate()}</td>
-                <td>${cohorte.fechaFinalCohorte.getFullYear()}/${cohorte.fechaFinalCohorte.getMonth()}/${cohorte.fechaFinalCohorte.getDate()}</td>
+                <td>${cohorte.numCohorte}</td>
+                <td>${cohorte.anio}</td>
+                <td>${new Date(cohorte.fechaI).getFullYear()}/${ new Date(cohorte.fechaI).getMonth()}/${new Date(cohorte.fechaI).getDate()}</td>
+                <td>${new Date(cohorte.fechaF).getFullYear()}/${new Date(cohorte.fechaF).getMonth()}/${new Date(cohorte.fechaF).getDate()}</td>
                 <td class="td-acciones">
                 <span
                   class="material-symbols-outlined show-info-cohorte"
@@ -158,16 +157,17 @@ const listarCohorterFormacion = (listaCohortes) => {
 
   $tbody.appendChild($fargmento);
 
-  console.log(listaCohortes);
   mostarInforCohorte(listaCohortes);
 };
 
 const filtrarCohortesPorFormacion = (idFormacion) => {
-
+  console.log(
+    "Id formacion que llega" + idFormacion + " de tipo" + typeof idFormacion
+  );
   let listaCohortesFormacion = listaCohortesCurso.filter((cohorte) => {
-    return cohorte.idFormacion === idFormacion;
+    return cohorte.id === idFormacion.toString();
   });
-  console.log(listaCohortesFormacion);
+
   listarCohorterFormacion(listaCohortesFormacion);
 };
 
@@ -198,7 +198,11 @@ const obtenerIdFormacionURL = () => {
     "tipoFormacion"
   );
 
-  console.log(nombreFormacion, tipoFormacion, idFormacion);
+  console.log(
+    "Obtener info url: " + nombreFormacion,
+    tipoFormacion,
+    idFormacion
+  );
   filtrarCohortesPorFormacion(idFormacion);
   insertarInfoParaCreacionCohorte(idFormacion, nombreFormacion, tipoFormacion);
 };
