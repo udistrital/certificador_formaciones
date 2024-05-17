@@ -11,6 +11,7 @@ export let listaCohortesMooc = [
     linkasistencia: "Oganesson",
     linkconexion: "pressure",
     id: "1",
+    numCohorte:"1"
   },
   {
     anio: 1831,
@@ -24,6 +25,7 @@ export let listaCohortesMooc = [
     linkasistencia: "West",
     linkconexion: "West",
     id: "2",
+    numCohorte:"1"
   },
   {
     anio: 23248,
@@ -37,6 +39,7 @@ export let listaCohortesMooc = [
     linkasistencia: "Central",
     linkconexion: "late",
     id: "3",
+    numCohorte:"1"
   },
   {
     anio: 97662,
@@ -50,6 +53,7 @@ export let listaCohortesMooc = [
     linkasistencia: "Copper",
     linkconexion: "Research",
     id: "4",
+    numCohorte:"1"
   },
   {
     anio: 29742,
@@ -63,6 +67,7 @@ export let listaCohortesMooc = [
     linkasistencia: "payment",
     linkconexion: "overriding",
     id: "5",
+    numCohorte:"1"
   },
   {
     anio: 46780,
@@ -76,6 +81,7 @@ export let listaCohortesMooc = [
     linkasistencia: "arcade",
     linkconexion: "consequuntur",
     id: "6",
+    numCohorte:"1"
   },
   {
     anio: 61752,
@@ -89,7 +95,9 @@ export let listaCohortesMooc = [
     linkasistencia: "tan",
     linkconexion: "Lowell",
     id: "7",
+    numCohorte:"1"
   },
+
   {
     anio: 33379,
     finicial: "2092-05-24T09:48:43.684Z",
@@ -102,6 +110,7 @@ export let listaCohortesMooc = [
     linkasistencia: "whoever",
     linkconexion: "Hyundai",
     id: "8",
+    numCohorte:"1"
   },
   {
     anio: 47889,
@@ -115,6 +124,7 @@ export let listaCohortesMooc = [
     linkasistencia: "Communications",
     linkconexion: "Hong",
     id: "9",
+    numCohorte:"1"
   },
   {
     anio: 72037,
@@ -128,6 +138,7 @@ export let listaCohortesMooc = [
     linkasistencia: "curio",
     linkconexion: "pimp",
     id: "10",
+    numCohorte:"1"
   },
   {
     anio: 72520,
@@ -141,6 +152,7 @@ export let listaCohortesMooc = [
     linkasistencia: "Mouse",
     linkconexion: "Account",
     id: "11",
+    numCohorte:"1"
   },
   {
     anio: 59595,
@@ -154,5 +166,6 @@ export let listaCohortesMooc = [
     linkasistencia: "since",
     linkconexion: "up",
     id: "12",
+    numCohorte:"1"
   },
 ];

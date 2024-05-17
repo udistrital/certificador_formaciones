@@ -220,7 +220,7 @@ const redireccionarCertificaciones = (idCohorte, idFormacion) => {
   location.href = `../Certificados/CertificadosEmitidosPage.html?idFormacion=${idFormacion}&idCohorte=${idCohorte}`;
 };
 const redireccionarConfiguraciones = (idCohorte, idFormacion) => {
-  location.href = `CursoConTutorCohortesPage.html?idFormacion=${idFormacion}&idCohorte=${idCohorte}`;
+  location.href = `CapacitacionTaller.html?idFormacion=${idFormacion}&idCohorte=${idCohorte}`;
 };
 
 const obtenerIdCohorte = (li) => {

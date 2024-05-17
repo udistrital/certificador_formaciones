@@ -39,6 +39,7 @@ tr:hover{
   background-color: var(--grisclaro);
 }
 
+
 .td-acciones span:hover {
   color: var(--rojoprincipal);
   scale: 1.3;

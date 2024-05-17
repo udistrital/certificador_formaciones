@@ -159,7 +159,7 @@ const obtenerIdCohorte = (li) => {
         "id cohorte:",
         li[id].idCohorte
       );
-      redireccionarAsistencias(li[id].idCohorte, li[id].idFormacion);
+      redireccionarAsistencias(li[id].numCohorte, li[id].id);
     });
   });
 
@@ -173,7 +173,7 @@ const obtenerIdCohorte = (li) => {
         "id cohorte:",
         li[id].idCohorte
       );
-      redireccionarCertificaciones(li[id].idCohorte, li[id].idFormacion);
+      redireccionarCertificaciones(li[id].numCohorte, li[id].id);
     });
   });
 
@@ -187,7 +187,7 @@ const obtenerIdCohorte = (li) => {
         "id cohorte:",
         li[id].idCohorte
       );
-      redireccionarConfiguraciones(li[id].idCohorte, li[id].idFormacion);
+      redireccionarConfiguraciones(li[id].numCohorte, li[id].id);
     });
   });
 };
@@ -278,10 +278,10 @@ const obtenerIdFormacionURL = () => {
 obtenerIdFormacionURL();
 
 const redireccionarAsistencias = (idCohorte, idFormacion) => {
-  location.href = `../pages/AsistenciasPage.html?idFormacion=${idFormacion}&idCohorte=${idCohorte}`;
+  location.href = `../AsistenciasPage.html?idFormacion=${idFormacion}&idCohorte=${idCohorte}`;
 };
 const redireccionarCertificaciones = (idCohorte, idFormacion) => {
-  location.href = `../pages/Certificados/CertificadosEmitidosPage.html?idFormacion=${idFormacion}&idCohorte=${idCohorte}`;
+  location.href = `../Certificados/CertificadosEmitidosPage.html?idFormacion=${idFormacion}&idCohorte=${idCohorte}`;
 };
 const redireccionarConfiguraciones = (idCohorte, idFormacion) => {
   location.href = `CursoMoocCohortesPage.html?idFormacion=${idFormacion}&idCohorte=${idCohorte}`;
