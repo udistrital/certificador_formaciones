@@ -73,8 +73,22 @@ const llenarHistorial = () => {
         : link.includes("EventosCohortesPage")
         ? "Cohortes eventos"
         : link.includes("EventosCohortesPage")
-        ?"Eventos"
-        :""
+        ? "Eventos"
+        : link.includes("PageFormsAsistencias")
+        ? "Formularios asistencias"
+        : link.includes("PageFormsDocumentacion")
+        ? "Formularios documentación"
+        : link.includes("PageFormsInscripciones")
+        ? "Formularios de inscripción"
+        : link.includes("PageFormsPostulaciones")
+        ? "Formularios de inscripcion ponentes"
+        : link.includes("PageFormsEvidencias")
+        ? "Formularios de evidencias"
+        : link.includes("EventosPage")
+        ? "Eventos"
+        : link.includes()
+        ? ""
+        : ""
     }`;
     let clone = document.importNode($template, true);
 

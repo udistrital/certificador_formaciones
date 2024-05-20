@@ -1,34 +1,6 @@
 import { cusosCohortesGenerales } from "../models/informesGenerales.js";
 
-let listaInformesGenerales = [];
-const listarGeneralesFetch = async () => {
-  await fetch("https://65e896cb4bb72f0a9c4fdadd.mockapi.io/api/generales")
-    .then((response) => {
-      // Verificar si la respuesta es exitosa (código de estado HTTP 200-299)
-      if (!response.ok) {
-        throw new Error("La solicitud no fue exitosa");
-      }
-      // Parsear la respuesta como JSON
-      return response.json();
-    })
-    .then((data) => {
-      // Hacer algo con los datos recibidos
-      listaInformesGenerales = data;
-      console.log(data);
-      llenarTablaInformesGenerales(listaInformesGenerales);
-      obtenerIdCohorte(listaInformesGenerales);
-      ordenamientos(listaInformesGenerales);
-    })
-    .catch((error) => {
-      // Capturar y manejar cualquier error
-      console.error("Error:", error);
-      llenarTablaInformesGenerales(cusosCohortesGenerales);
-      obtenerIdCohorte(cusosCohortesGenerales);
-      ordenamientos(cusosCohortesGenerales);
-    });
-};
-
-listarGeneralesFetch();
+let listaInformesGenerales = cusosCohortesGenerales;
 
 const llenarTablaInformesGenerales = (li) => {
   console.log(li);
@@ -212,3 +184,11 @@ const obtenerIdCohorte = (li) => {
     });
   });
 };
+
+const listarGeneralesFetch = async () => {
+  llenarTablaInformesGenerales(cusosCohortesGenerales);
+  obtenerIdCohorte(cusosCohortesGenerales);
+  ordenamientos(cusosCohortesGenerales);
+};
+
+listarGeneralesFetch();

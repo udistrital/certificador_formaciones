@@ -197,7 +197,7 @@ document
   });
 
 const redireccionarAsistencia = (idCohorte, idFormacion) => {
-  location.href = `formularioDocumentos.html?idFormacion=${idFormacion}&idCohorte=${idCohorte}`;
+  location.href = `formularioEvidencias.html?idFormacion=${idFormacion}&idCohorte=${idCohorte}`;
 };
 
 const obtenerIdCohorte = (li) => {
