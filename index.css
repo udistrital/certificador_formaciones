@@ -287,7 +287,7 @@ h6 {
   color: var(--rojo-principal-claro);
 }
 
-#nav-menu-top {
+/* #nav-menu-top {
   background-color: var(--blanco);
   color: var(--rojoprincipal);
   line-height: 1;
@@ -297,7 +297,7 @@ h6 {
   cursor: pointer;
   position: fixed;
   bottom: 10px;
-  left: 10px;
+  right: 10px;
   outline: 1px solid var(--rojoprincipal);
 }
 
@@ -307,7 +307,7 @@ h6 {
 
 .nav-menu-top .material-symbols-outlined {
   margin-right: 0;
-}
+} */
 
 #info-cohorte-copia-link-inscripcion:hover {
   transform: scale(1.2);
