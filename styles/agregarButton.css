@@ -12,6 +12,7 @@
   border-radius: 50%;
   color: var(--blanco);
   font-size: 50px;
+  transition: .5s;
 }
 
 .add-span:hover {

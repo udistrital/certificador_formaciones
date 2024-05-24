@@ -231,7 +231,7 @@ h6 {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding: 16px;
+  padding: 30px 100px;
 }
 
 .section-buscador-informes {
@@ -284,7 +284,7 @@ h6 {
   justify-content: left;
   gap: 5px;
   align-items: center;
-  color: var(--azul);
+  color: var(--rojo-principal-claro);
 }
 
 #nav-menu-top {
@@ -305,6 +305,10 @@ h6 {
   outline: 3px solid var(--rojoprincipal);
 }
 
+.nav-menu-top .material-symbols-outlined {
+  margin-right: 0;
+}
+
 #info-cohorte-copia-link-inscripcion:hover {
   transform: scale(1.2);
 }
@@ -314,7 +318,8 @@ h6 {
 }
 
 .data-cohorte-linkCon:hover {
-  transform: scale(1.2);
+  /*transform: scale(1.2);*/
+  background-color: #f4f4f4;
 }
 
 .button {
@@ -335,4 +340,9 @@ h6 {
 @media only screen and (max-width: 1023px) {
 }
 @media only screen and (min-width: 1024px) {
+}
+@media screen and (max-width: 768px){
+  .main {
+    padding: 30px 30px;
+  }
 }

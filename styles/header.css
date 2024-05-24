@@ -32,10 +32,11 @@
 .controles__text {
   display: flex;
   flex-direction: column;
+  margin: 0 8px;
 }
 
 .controles__text > span {
-  border-bottom: 1px solid var(--blanco);
+  /*border-bottom: 1px solid var(--blanco);*/
   width: fit-content;
 }
 
@@ -94,17 +95,19 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  font-size: 1rem;
 }
 
 .ul__li {
   position: relative; /* Para asegurar el posicionamiento relativo para el efecto */
-  padding: 10px;
+  padding: 15px;
   cursor: pointer;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 5px;
+  transition: .5s;
 }
 
 .li__a {
@@ -126,16 +129,33 @@
 
 .ul__li:hover .li__ul {
   display: block; /* Muestra la sublista cuando el mouse está sobre el elemento padre */
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.08);
 }
 
 .li__ul > li {
-  background-color: var(--gris-oscuro);
-  padding: 16px;
-  outline: 1px solid var(--gris-claro);
+  background-color: var(--gris-claro);
+  padding: 8px 16px;
+  /*outline: 1px solid var(--gris-claro);*/
+  font-size: 14px;
+  transition: .5s;
+}
+
+.li__ul > li:nth-child(1){
+  padding-top: 16px;
+}
+
+.li__ul > li:nth-last-child(1){
+  padding-bottom: 16px;
 }
 
 .li__ul > li:hover {
-  background-color: var(--gris-claro);
+  /*background-color: var(--gris-claro);*/
+  background-color: #3b3b3b;
+}
+
+.material-symbols-outlined {
+  margin-right: 8px;
+  transition: .3s;
 }
 
 @keyframes vibrar {
@@ -242,6 +262,10 @@
     color: var(--gris-claro);
     outline: 1px solid var(--gris-claro);
   }
+  
+  .nav__menu .material-symbols-outlined {
+    margin-right: 0;
+  }
 
   /* ANIMATION */
 
@@ -291,9 +315,10 @@
     background: var(
       --gris-oscuro
     ); /* Ajusta el color de fondo si es necesario */
-    outline: 1px solid var(--rojoprincipal); /* Bordes para mejor visibilidad */
+    /*outline: 1px solid var(--rojoprincipal);*/ /* Bordes para mejor visibilidad */
     z-index: 10;
     width: 100%;
+    border-top: 1px solid black;
   }
 
   .nav__menu {

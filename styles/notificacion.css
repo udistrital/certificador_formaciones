@@ -1,8 +1,8 @@
 .notificacion {
     display: flex;
-    justify-content: space-between;
+    /*justify-content: space-between;*/
     color: var(--blanco);
-    font-size: 25px;
+    font-size: 20px;
     padding: 16px;
     margin-top: 16px;
 }
