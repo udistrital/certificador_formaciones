@@ -106,6 +106,7 @@ const llenarHistorial = () => {
     $fargmento.appendChild(clone);
   });
 
+
   $artHistorial[0].appendChild($fargmento);
 };
 

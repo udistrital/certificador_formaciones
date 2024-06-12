@@ -10,6 +10,10 @@ console.log($btn_ham);
 
 $btn_ham.addEventListener("click", (e) => {
   document.querySelector(".nav").classList.toggle("nav--disabled");
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth", // Esto hace que el desplazamiento sea suave
+  });
 });
 
 const identificarUsuario = async () => {

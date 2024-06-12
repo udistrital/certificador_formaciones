@@ -40,6 +40,8 @@ td {
 
 tr {
   transition: .5s;
+  outline: 1px solid var(--grisclaro);
+  vertical-align: middle;
 }
 
 tr:nth-child(odd){
@@ -58,7 +60,6 @@ tr:hover{
 }
 
 .asistencias-boton-exportar{
-  outline: 1px solid var(--rojoprincipal);
   font-size: 16px !important;
   padding: 10px !important;
   background-color: var(--rojoprincipal);
@@ -66,14 +67,16 @@ tr:hover{
   display: flex ;
   align-items: center;
   justify-content: center;
-  /*gap: 10px;*/
+  gap: 8px;
   transition: all ease 0.3s;
+  margin: 2px;
 }
 
 .asistencias-boton-exportar:hover{
   cursor: pointer;
   background-color: var(--blanco);
   color: var(--rojoprincipal);
+  outline: 1px solid var(--rojoprincipal);
 }
 
 .table-sort{
@@ -81,4 +84,15 @@ tr:hover{
   justify-content: center;
   align-items: center;
   cursor: pointer;
+}
+
+.td-acciones{
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0;
+  outline: none;
 }

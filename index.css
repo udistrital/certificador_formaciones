@@ -15,6 +15,7 @@
   --verde: #8bc34a;
   --rojo: #bb2d3b;
   --rojo-transparente:#8b191931;
+  --gris-historial-inicio: #7c7c7c;
 
 
   /* nueva linea grafica */
@@ -207,6 +208,7 @@ h6 {
   padding: 16px;
   font-size: 26px;
   width: fit-content;
+  margin: 2px;
 }
 
 .btn-rojo {
@@ -238,6 +240,7 @@ h6 {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  padding: 0 0 0 5px;
 }
 
 #check-gen-certificados {
@@ -270,7 +273,7 @@ h6 {
   transition: all ease 0.3s;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
 .btn-generar-certificados:hover {

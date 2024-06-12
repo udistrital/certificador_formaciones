@@ -3,7 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="/images/iconos/pt-favicon-32x32.png" sizes="32x32">
+    <link
+      rel="icon"
+      type="image/png"
+      href="/images/iconos/pt-favicon-32x32.png"
+      sizes="32x32"
+    />
     <link rel="stylesheet" href="../../styles/header.css" />
     <link rel="stylesheet" href="../../styles/informes.css" />
     <link rel="stylesheet" href="../../styles/navegacion.css" />
@@ -75,7 +80,11 @@
               <a href="../Tutor/CursoConTutorPage.html">Curso con tutor</a>
             </li>
             <li><a href="../Mooc/CursoMoocPage.html">Curso MOOC</a></li>
-            <li><a href="../CapacitacionTaller/CapacitacionTaller.html">Capacitación o Taller</a></li>
+            <li>
+              <a href="../CapacitacionTaller/CapacitacionTaller.html"
+                >Capacitación o Taller</a
+              >
+            </li>
             <li><a href="../Diplomado/DiplomadosPage.html">Diplomado</a></li>
             <li><a href="../Eventos/EventosPage.html">Evento</a></li>
           </ul>
@@ -84,11 +93,35 @@
           <span class="material-symbols-outlined"> assignment </span>
           Formularios
           <ul class="li__ul">
-            <li><a href="../formularios/formsInscripcion/PageFormsInscripciones.html">Formularios de inscripción</a></li>
-            <li><a href="../formularios/formsPostulaciones/PageFormsPostulaciones.html">Formularios de ponentes</a></li>
-            <li><a href="../formularios/formsDocumentacion/PageFormsDocumentacion.html">Formularios de documentación</a></li>
-            <li><a href="../formularios/formsEvidencias/PageFormsEvidencias.html">Formularios de memorias/evidencias</a></li>
-            <li><a href="../formularios/formsAsistencias/PageFormsAsistencias.html">Formularios de asistencias</a></li>
+            <li>
+              <a
+                href="../formularios/formsInscripcion/PageFormsInscripciones.html"
+                >Formularios de inscripción</a
+              >
+            </li>
+            <li>
+              <a
+                href="../formularios/formsPostulaciones/PageFormsPostulaciones.html"
+                >Formularios de ponentes</a
+              >
+            </li>
+            <li>
+              <a
+                href="../formularios/formsDocumentacion/PageFormsDocumentacion.html"
+                >Formularios de documentación</a
+              >
+            </li>
+            <li>
+              <a href="../formularios/formsEvidencias/PageFormsEvidencias.html"
+                >Formularios de memorias/evidencias</a
+              >
+            </li>
+            <li>
+              <a
+                href="../formularios/formsAsistencias/PageFormsAsistencias.html"
+                >Formularios de asistencias</a
+              >
+            </li>
           </ul>
         </li>
         <li class="ul__li">
@@ -110,7 +143,9 @@
         <a href="#" target="_blank">Enlace dinámico</a>
       </template>
       <section class="section section-historial-nav">
-        <article class="historial-nav-article"></article>
+        <article class="historial-nav-article">
+          <span style="color: var(--gris-historial-inicio)">historial</span>
+        </article>
       </section>
       <section class="section section-nav">
         <article class="nav-article">
@@ -123,9 +158,7 @@
               >
             </li>
             <li>
-              <a
-                href="GenerarCertificadosPage.html"
-                class="nav-article-ul-li-a"
+              <a href="GenerarCertificadosPage.html" class="nav-article-ul-li-a"
                 >Generación de Certificados</a
               >
             </li>
@@ -139,28 +172,27 @@
           </ul>
         </article>
       </section>
-      <section class="section section-buscador-informes">
+      <section class="section-buscador-informes">
         <article class="buscador-informes-article">
           <label
             for="input-buscador-informes"
             class="label label-buscador-informes"
           >
-            <span class="material-symbols-outlined"> search </span>
+            <input
+              type="text"
+              name="input-buscador-informes"
+              id="input-buscador-informes"
+              placeholder="buscar..."
+            />
           </label>
-          <input
-            type="text"
-            name=""
-            id="input-buscador-informes"
-            placeholder="buscar"
-          />
-        </article>
-        <article>
-          <button class="asistencias-boton-exportar btn">
-            <span class="material-symbols-outlined"> system_update_alt </span
-            >Exportar
-          </button>
         </article>
       </section>
+      <article>
+        <button class="asistencias-boton-exportar btn">
+          <span class="material-symbols-outlined"> system_update_alt </span
+          >Exportar
+        </button>
+      </article>
       <section class="section section-table">
         <table>
           <caption class="table-descripcion">
