@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cambiar contraseña</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="/images/iconos/pt-favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link rel="stylesheet" href="../../../index.css" />
+    <link rel="stylesheet" href="../../../styles/formularios.css" />
+  </head>
+  <body>
+    <header class="header">
+      <figure class="header-banner">
+        <img
+          src="../../../images/Banner_formulario_vinotinto.jpg"
+          alt="Banner formulario"
+          id="header-banner-img"
+        />
+      </figure>
+      <h1 class="header-title">Formulario cambio de contraseña</h1>
+    </header>
+    <main class="main">
+      <form action="" class="contenido-form" id="form">
+        <label class="form-label" for="form-nombreCompleto">
+          Nombre completo:
+          <input
+            type="text"
+            name="nombreCompleto"
+            id="form-nombreCompleto"
+            disabled
+            value="###########"
+            class="form-input"
+            disabled
+          />
+        </label>
+        <div class="form-div-join">
+          <div class="form-div-join">
+            <label class="form-label" for="form-nombreUsuario">
+              Nombre de usuario:
+              <input
+                type="text"
+                name="nombreUsuario"
+                id="form-nombreUsuario"
+                class="form-input"
+                value="########"
+                disabled
+              />
+            </label>
+            <label class="form-label" for="form-correoUsuario">
+              Correo electrónico:
+              <input
+                type="email"
+                name="correoUsuario"
+                id="form-correoUsuario"
+                class="form-input"
+                disabled
+              />
+            </label>
+          </div>
+          <div class="form-div-join">
+            <label class="form-label" for="form-rol">
+              <input
+                type="text"
+                name="rol"
+                id="form-rol"
+                placeholder="usuario"
+                class="form-input"
+                disabled
+              />
+            </label>
+            <label class="form-label" for="form-estado">
+              <input
+                type="text"
+                name="estado"
+                id="form-estado"
+                placeholder="activo"
+                class="form-input"
+                disabled
+              />
+            </label>
+          </div>
+        </div>
+        <input
+          type="submit"
+          value="Enviar"
+          class="button"
+          id="btn-submit-nuevaFormacion"
+        />
+      </form>
+    </main>
+    <footer>
+      <p>
+        Plan estratégico de Tecnologías de la Información y las Comunicaciones
+      </p>
+      <p>PlanEsTIC-UD</p>
+      <p>Copyright &copy; 2024</p>
+    </footer>
+  </body>
+</html>

@@ -132,12 +132,6 @@ const listarCohorterFormacion = (listaCohortes) => {
       cohorte.fechaF
     ).getMonth()}/${new Date(cohorte.fechaF).getDate()}</td>
                 <td class="td-acciones">
-                <span
-                  class="material-symbols-outlined show-info-cohorte"
-                  title="Ver link"
-                >
-                  link
-                </span>
                 <span class="material-symbols-outlined index-asistencias" title="Asistencia">
                   fact_check
                 </span>

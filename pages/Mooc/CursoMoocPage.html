@@ -3,7 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="/images/iconos/pt-favicon-32x32.png" sizes="32x32">
+    <link
+      rel="icon"
+      type="image/png"
+      href="/images/iconos/pt-favicon-32x32.png"
+      sizes="32x32"
+    />
 
     <link rel="stylesheet" href="../../styles/header.css" />
     <link rel="stylesheet" href="../../styles/table.css" />
@@ -44,7 +49,7 @@
         </div>
         <ul class="sesion__acciones sesion__acciones--disabled">
           <li>
-            <a href="#"
+            <a href="../formularios/formCambioClave.html"
               ><span class="material-symbols-outlined"> password </span>Cambio
               de clave</a
             >
@@ -77,7 +82,11 @@
               <a href="../Tutor/CursoConTutorPage.html">Curso con tutor</a>
             </li>
             <li><a href="CursoMoocPage.html">Curso MOOC</a></li>
-            <li><a href="../CapacitacionTaller/CapacitacionTaller.html">Capacitación o Taller</a></li>
+            <li>
+              <a href="../CapacitacionTaller/CapacitacionTaller.html"
+                >Capacitación o Taller</a
+              >
+            </li>
             <li><a href="../Diplomado/DiplomadosPage.html">Diplomado</a></li>
             <li><a href="../Eventos/EventosPage.html">Evento</a></li>
           </ul>
@@ -86,11 +95,35 @@
           <span class="material-symbols-outlined"> assignment </span>
           Formularios
           <ul class="li__ul">
-            <li><a href="../formularios/formsInscripcion/PageFormsInscripciones.html">Formularios de inscripción</a></li>
-            <li><a href="../formularios/formsPostulaciones/PageFormsPostulaciones.html">Formularios de ponentes</a></li>
-            <li><a href="../formularios/formsDocumentacion/PageFormsDocumentacion.html">Formularios de documentación</a></li>
-            <li><a href="../formularios/formsEvidencias/PageFormsEvidencias.html">Formularios de memorias/evidencias</a></li>
-            <li><a href="../formularios/formsAsistencias/PageFormsAsistencias.html">Formularios de asistencias</a></li>
+            <li>
+              <a
+                href="../formularios/formsInscripcion/PageFormsInscripciones.html"
+                >Formularios de inscripción</a
+              >
+            </li>
+            <li>
+              <a
+                href="../formularios/formsPostulaciones/PageFormsPostulaciones.html"
+                >Formularios de ponentes</a
+              >
+            </li>
+            <li>
+              <a
+                href="../formularios/formsDocumentacion/PageFormsDocumentacion.html"
+                >Formularios de documentación</a
+              >
+            </li>
+            <li>
+              <a href="../formularios/formsEvidencias/PageFormsEvidencias.html"
+                >Formularios de memorias/evidencias</a
+              >
+            </li>
+            <li>
+              <a
+                href="../formularios/formsAsistencias/PageFormsAsistencias.html"
+                >Formularios de asistencias</a
+              >
+            </li>
           </ul>
         </li>
         <li class="ul__li">
@@ -107,13 +140,15 @@
     </button>
     <!--  -->
     <!--  -->
-    
+
     <main class="main main-contenido">
       <template id="template-historial-enlace">
         <a href="#" target="_blank">Enlace dinámico</a>
       </template>
       <section class="section-cursoTutor">
-        <article class="historial-nav-article"><span style="color: var(--gris-historial-inicio);">historial</span></article>
+        <article class="historial-nav-article">
+          <span style="color: var(--gris-historial-inicio)">historial</span>
+        </article>
 
         <article class="add-article">
           <span
@@ -143,11 +178,22 @@
               class="modal-contenido-form"
               id="modal-form-formacion"
             >
-              <div class="modal-contenido-form-div modal-contenido-form-div-lleno">
-                <label for="">Tipo de Formación:</label>
-                <input type="text" name="" id="form-curso-tutor-input-tipo-formacion" disabled value=" [Tipo]" />
+              <div
+                class="modal-contenido-form-div modal-contenido-form-div-lleno"
+              >
+                <label for=""
+                  >Tipo de Formación:
+                  <input
+                    type="text"
+                    name=""
+                    id="form-curso-tutor-input-tipo-formacion"
+                    disabled
+                    value=" [Tipo]"
+                /></label>
               </div>
-              <div class="modal-contenido-form-div modal-contenido-form-div--new-formacion">
+              <div
+                class="modal-contenido-form-div modal-contenido-form-div--new-formacion"
+              >
                 <label for="nombreProceso"></label>
                 <input
                   type="text"

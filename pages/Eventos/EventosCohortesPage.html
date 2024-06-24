@@ -3,7 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="/images/iconos/pt-favicon-32x32.png" sizes="32x32">
+    <link
+      rel="icon"
+      type="image/png"
+      href="/images/iconos/pt-favicon-32x32.png"
+      sizes="32x32"
+    />
     <link rel="stylesheet" href="../../styles/header.css" />
     <link rel="stylesheet" href="../../styles/table.css" />
     <link rel="stylesheet" href="../../styles/footer.css" />
@@ -43,7 +48,7 @@
         </div>
         <ul class="sesion__acciones sesion__acciones--disabled">
           <li>
-            <a href="#"
+            <a href="../formularios/formCambioClave.html"
               ><span class="material-symbols-outlined"> password </span>Cambio
               de clave</a
             >
@@ -76,7 +81,11 @@
               <a href="CursoConTutorPage.html">Curso con tutor</a>
             </li>
             <li><a href="../Mooc/CursoMoocPage.html">Curso MOOC</a></li>
-            <li><a href="../CapacitacionTaller/CapacitacionTaller.html">Capacitación o Taller</a></li>
+            <li>
+              <a href="../CapacitacionTaller/CapacitacionTaller.html"
+                >Capacitación o Taller</a
+              >
+            </li>
             <li><a href="../Diplomado/DiplomadosPage.html">Diplomado</a></li>
             <li><a href="../Eventos/EventosPage.html">Evento</a></li>
           </ul>
@@ -85,11 +94,35 @@
           <span class="material-symbols-outlined"> assignment </span>
           Formularios
           <ul class="li__ul">
-            <li><a href="../formularios/formsInscripcion/PageFormsInscripciones.html">Formularios de inscripción</a></li>
-            <li><a href="../formularios/formsPostulaciones/PageFormsPostulaciones.html">Formularios de ponentes</a></li>
-            <li><a href="../formularios/formsDocumentacion/PageFormsDocumentacion.html">Formularios de documentación</a></li>
-            <li><a href="../formularios/formsEvidencias/PageFormsEvidencias.html">Formularios de memorias/evidencias</a></li>
-            <li><a href="../formularios/formsAsistencias/PageFormsAsistencias.html">Formularios de asistencias</a></li>
+            <li>
+              <a
+                href="../formularios/formsInscripcion/PageFormsInscripciones.html"
+                >Formularios de inscripción</a
+              >
+            </li>
+            <li>
+              <a
+                href="../formularios/formsPostulaciones/PageFormsPostulaciones.html"
+                >Formularios de ponentes</a
+              >
+            </li>
+            <li>
+              <a
+                href="../formularios/formsDocumentacion/PageFormsDocumentacion.html"
+                >Formularios de documentación</a
+              >
+            </li>
+            <li>
+              <a href="../formularios/formsEvidencias/PageFormsEvidencias.html"
+                >Formularios de memorias/evidencias</a
+              >
+            </li>
+            <li>
+              <a
+                href="../formularios/formsAsistencias/PageFormsAsistencias.html"
+                >Formularios de asistencias</a
+              >
+            </li>
           </ul>
         </li>
         <li class="ul__li">
@@ -112,7 +145,9 @@
       </template>
       <section class="section section-historial-nav"></section>
       <section class="section-cursoTutor">
-        <article class="historial-nav-article"><span style="color: var(--gris-historial-inicio);">historial</span></article>
+        <article class="historial-nav-article">
+          <span style="color: var(--gris-historial-inicio)">historial</span>
+        </article>
         <article class="add-article">
           <span
             class="material-symbols-outlined add-span"
@@ -142,183 +177,199 @@
               <div
                 class="modal-contenido-form-div modal-contenido-form-div-lleno"
               >
-                <label for="">Tipo de Formación:</label>
-                <input
-                  type="text"
-                  name=""
-                  id="cursoConTutorFormTipoFormacion"
-                  disabled
-                  value=" [Tipo]"
-                />
+                <label for="cursoConTutorFormTipoFormacion"
+                  >Tipo de Formación:
+                  <input
+                    type="text"
+                    name="cursoConTutorFormTipoFormacion"
+                    id="cursoConTutorFormTipoFormacion"
+                    disabled
+                    value=" [Tipo]"
+                /></label>
               </div>
               <div
                 class="modal-contenido-form-div modal-contenido-form-div-lleno"
               >
-                <label for="nombreProceso">Nombre de formación: </label>
-                <input
-                  type="text"
-                  name=""
-                  id="cursoConTutorFormNombreFormacion"
-                  disabled
-                  value=" [Tipo]"
-                />
+                <label for="nombreProceso"
+                  >Nombre de formación:
+                  <input
+                    type="text"
+                    name="cursoConTutorFormNombreFormacion"
+                    id="cursoConTutorFormNombreFormacion"
+                    disabled
+                    value=" [Tipo]"
+                /></label>
               </div>
               <div class="modal-contenido-form-div-join">
                 <div class="modal-contenido-form-div">
-                  <label for="numCohorte">Cohorte</label>
-                  <input
-                    type="number"
-                    name="numCohorte"
-                    id="numCohorte"
-                    placeholder="Numero de cohorte"
-                    class="modal-contenido-form-input"
-                    value="2"
-                  />
+                  <label for="numCohorte"
+                    >Cohorte:
+                    <input
+                      type="number"
+                      name="numCohorte"
+                      id="numCohorte"
+                      placeholder="Numero de cohorte"
+                      class="modal-contenido-form-input"
+                      value="2"
+                  /></label>
                 </div>
               </div>
 
               <p class="texto-title-form-region">Rango de la cohorte</p>
               <div class="modal-contenido-form-div-join">
                 <div class="modal-contenido-form-div">
-                  <label for="nombreProceso">Fecha inicial</label>
-                  <input
-                    type="date"
-                    name="fechaInicialCohorte"
-                    id="fechaInicialCohorte"
-                    placeholder="Fecha inicial"
-                    class="modal-contenido-form-input"
-                  />
+                  <label for="fechaInicialCohorte"
+                    >Fecha inicial:
+                    <input
+                      type="date"
+                      name="fechaInicialCohorte"
+                      id="fechaInicialCohorte"
+                      placeholder="Fecha inicial"
+                      class="modal-contenido-form-input"
+                  /></label>
                 </div>
                 <div class="modal-contenido-form-div">
-                  <label for="nombreProceso">Fecha final</label>
-                  <input
-                    type="date"
-                    name="fechaFinalCohorte"
-                    id="fechaFinalCohorte"
-                    placeholder="Fecha final"
-                    class="modal-contenido-form-input"
-                  />
+                  <label for="fechaFinalCohorte"
+                    >Fecha final:
+                    <input
+                      type="date"
+                      name="fechaFinalCohorte"
+                      id="fechaFinalCohorte"
+                      placeholder="Fecha final"
+                      class="modal-contenido-form-input"
+                  /></label>
                 </div>
               </div>
               <p class="texto-title-form-region">Formulario de registro</p>
               <div class="modal-contenido-form-div-join">
                 <div class="modal-contenido-form-div">
-                  <label for="nombreProceso">Fecha inicial</label>
-                  <input
-                    type="date"
-                    name="fechaInicialCohorteFormInscripcion"
-                    id="fechaInicialCohorteFormInscripcion"
-                    placeholder="Fecha inicial"
-                    class="modal-contenido-form-input"
-                  />
+                  <label for="fechaInicialCohorteFormInscripcion"
+                    >Fecha inicial:
+                    <input
+                      type="date"
+                      name="fechaInicialCohorteFormInscripcion"
+                      id="fechaInicialCohorteFormInscripcion"
+                      placeholder="Fecha inicial"
+                      class="modal-contenido-form-input"
+                  /></label>
                 </div>
                 <div class="modal-contenido-form-div">
-                  <label for="nombreProceso">Fecha fecha</label>
-                  <input
-                    type="date"
-                    name="fechaFinalCohorteFormInscripcion"
-                    id="fechaFinalCohorteFormInscripcion"
-                    placeholder="Fecha final"
-                    class="modal-contenido-form-input"
-                  />
+                  <label for="fechaFinalCohorteFormInscripcion"
+                    >Fecha fecha:
+                    <input
+                      type="date"
+                      name="fechaFinalCohorteFormInscripcion"
+                      id="fechaFinalCohorteFormInscripcion"
+                      placeholder="Fecha final"
+                      class="modal-contenido-form-input"
+                  /></label>
                 </div>
               </div>
               <div class="modal-contenido-form-div">
-                <label for="nombreProceso"></label>
-                <input
-                  type="text"
-                  name="moduloDiplomado"
-                  id="moduloDiplomado"
-                  placeholder="Modulo"
-                  class="modal-contenido-form-input"
-                />
+                <label for="moduloDiplomado"
+                  >Nombre del modulo del diplomado:
+                  <input
+                    type="text"
+                    name="moduloDiplomado"
+                    id="moduloDiplomado"
+                    placeholder="Modulo"
+                    class="modal-contenido-form-input"
+                /></label>
               </div>
               <div class="modal-contenido-form-div">
-                <label for="nombreProceso"></label>
-                <input
-                  type="text"
-                  name="linkCursoOConexion"
-                  id="linkCursoOConexion"
-                  placeholder="Link de conexion / curso"
-                  class="modal-contenido-form-input"
-                />
+                <label for="linkCursoOConexion"
+                  >Link de conexión:
+                  <input
+                    type="text"
+                    name="linkCursoOConexion"
+                    id="linkCursoOConexion"
+                    placeholder="Link de conexion / curso"
+                    class="modal-contenido-form-input"
+                /></label>
               </div>
               <div class="modal-contenido-form-div-join">
                 <div class="modal-contenido-form-div">
-                  <label for="nombreProceso">Fecha de conexión</label>
-                  <input
-                    type="date"
-                    name="fechaConexion"
-                    id="fechaConexion"
-                    placeholder="Fecha de conexión"
-                    class="modal-contenido-form-input"
-                  />
+                  <label for="fechaConexion"
+                    >Fecha de conexión:
+                    <input
+                      type="date"
+                      name="fechaConexion"
+                      id="fechaConexion"
+                      placeholder="Fecha de conexión"
+                      class="modal-contenido-form-input"
+                  /></label>
                 </div>
                 <div class="modal-contenido-form-div">
-                  <label for="nombreProceso">Hora de conexion</label>
-                  <input
-                    type="time"
-                    name="horaConexion"
-                    id="horaConexion"
-                    placeholder="Hora de conexión"
-                    class="modal-contenido-form-input"
-                  />
+                  <label for="horaConexion"
+                    >Hora de conexion:
+                    <input
+                      type="time"
+                      name="horaConexion"
+                      id="horaConexion"
+                      placeholder="Hora de conexión"
+                      class="modal-contenido-form-input"
+                  /></label>
                 </div>
               </div>
               <p class="texto-title-form-region">Formulario de asistencia</p>
               <div class="modal-contenido-form-div-join">
                 <div class="modal-contenido-form-div">
-                  <label for="nombreProceso">Fecha inicial</label>
-                  <input
-                    type="date"
-                    name="fechaInicialAsistenciaCohorte"
-                    id="fechaInicialAsistenciaCohorte"
-                    placeholder="Fecha inicial"
-                    class="modal-contenido-form-input"
-                  />
+                  <label for="fechaInicialAsistenciaCohorte"
+                    >Fecha inicial:
+                    <input
+                      type="date"
+                      name="fechaInicialAsistenciaCohorte"
+                      id="fechaInicialAsistenciaCohorte"
+                      placeholder="Fecha inicial"
+                      class="modal-contenido-form-input"
+                  /></label>
                 </div>
                 <div class="modal-contenido-form-div">
-                  <label for="nombreProceso">Hora inicial</label>
-                  <input
-                    type="time"
-                    name="horaInicialAsistenciaCohorte"
-                    id="horaInicialAsistenciaCohorte"
-                    placeholder="Hora inicial"
-                    class="modal-contenido-form-input"
-                  />
+                  <label for="horaInicialAsistenciaCohorte"
+                    >Hora inicial:
+                    <input
+                      type="time"
+                      name="horaInicialAsistenciaCohorte"
+                      id="horaInicialAsistenciaCohorte"
+                      placeholder="Hora inicial"
+                      class="modal-contenido-form-input"
+                  /></label>
                 </div>
               </div>
               <div class="modal-contenido-form-div-join">
                 <div class="modal-contenido-form-div">
-                  <label for="nombreProceso">Fecha final</label>
-                  <input
-                    type="date"
-                    name="fechaFinalAsistenciaCohorte"
-                    id="fechaFinalAsistenciaCohorte"
-                    placeholder="Fecha final"
-                    class="modal-contenido-form-input"
-                  />
+                  <label for="fechaFinalAsistenciaCohorte"
+                    >Fecha final:
+                    <input
+                      type="date"
+                      name="fechaFinalAsistenciaCohorte"
+                      id="fechaFinalAsistenciaCohorte"
+                      placeholder="Fecha final"
+                      class="modal-contenido-form-input"
+                  /></label>
                 </div>
                 <div class="modal-contenido-form-div">
-                  <label for="nombreProceso">Hora final</label>
-                  <input
-                    type="time"
-                    name="horiaFinalAsistenciaCohorte"
-                    id="horiaFinalAsistenciaCohorte"
-                    placeholder="Hora final"
-                    class="modal-contenido-form-input"
-                  />
+                  <label for="horiaFinalAsistenciaCohorte"
+                    >Hora final:
+                    <input
+                      type="time"
+                      name="horiaFinalAsistenciaCohorte"
+                      id="horiaFinalAsistenciaCohorte"
+                      placeholder="Hora final"
+                      class="modal-contenido-form-input"
+                  /></label>
                 </div>
               </div>
               <div class="modal-contenido-form-div">
-                <label for="nombreProceso"></label>
-                <input
-                  type="text"
-                  name="moduloDiplomadoAsistencia"
-                  id="moduloDiplomadoAsistencia"
-                  placeholder="Modulo"
-                  class="modal-contenido-form-input"
-                />
+                <label for="moduloDiplomadoAsistencia"
+                  >Modulo asistencia de diplomado:
+                  <input
+                    type="text"
+                    name="moduloDiplomadoAsistencia"
+                    id="moduloDiplomadoAsistencia"
+                    placeholder="Modulo"
+                    class="modal-contenido-form-input"
+                /></label>
               </div>
               <input
                 type="submit"

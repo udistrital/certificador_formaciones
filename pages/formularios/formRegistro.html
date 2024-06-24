@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro de usuario</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="/images/iconos/pt-favicon-32x32.png"
+      sizes="32x32"
+    />
+
+    <link rel="stylesheet" href="../../../index.css" />
+    <link rel="stylesheet" href="../../../styles/formularios.css" />
+  </head>
+  <body>
+    <header class="header">
+      <figure class="header-banner">
+        <img
+          src="../../../images/Banner_formulario_vinotinto.jpg"
+          alt="Banner formulario"
+          id="header-banner-img"
+        />
+      </figure>
+      <h1 class="header-title">Formulario de registro</h1>
+    </header>
+    <main class="main">
+      <form action="" class="contenido-form" id="form">
+        <label class="form-label" for="form-nombreCompleto">
+          Ingrese su nombre completo:
+          <input
+            type="text"
+            name="nombreCompleto"
+            id="form-nombreCompleto"
+            class="form-input"
+            placeholder="Nombre completo"
+          />
+        </label>
+        <label class="form-label" for="form-nombreUsuario">
+          Ingrese el nombre de usuario:
+          <input
+            type="text"
+            name="nombreUsuario"
+            id="form-nombreUsuario"
+            class="form-input"
+            placeholder="Nombre de usuario"
+          />
+        </label>
+        <div class="form-div-join">
+          <div class="form-div-join">
+            <label class="form-label" for="form-correo">
+              Ingrese su correo electrónico:
+              <input
+                type="email"
+                name="correo"
+                id="form-correo"
+                class="form-input"
+                placeholder="Correo electronico"
+              />
+            </label>
+            <label class="form-label" for="form-correoConfirmacion">
+              Confirme su correo electrónico:
+              <input
+                type="email"
+                name="correoConfirmacion"
+                id="form-correoConfirmacion"
+                class="form-input"
+                placeholder="Confirmación de correo electronico"
+              />
+            </label>
+          </div>
+          <div class="form-div-join">
+            <label class="form-label" for="form-contrasena">
+              Ingrese la contraseña:
+              <input
+                type="password"
+                name="contrasena"
+                id="form-contrasena"
+                placeholder="Contraseña"
+                class="form-input"
+              />
+            </label>
+            <label class="form-label" for="form-contrasenaConfirmacion">
+              Confirme su contraseña:
+              <input
+                type="password"
+                name="contrasenaConfirmacion"
+                id="form-contrasenaConfirmacion"
+                placeholder="Confirmación contraseña"
+                class="form-input"
+              />
+            </label>
+          </div>
+        </div>
+
+        <label class="form-label-check" for="form-terminos"
+          ><input type="checkbox" name="form-terminos" id="form-terminos" />
+          Acepto <a href="#"> terminos y condiciones</a> para tratar estos datos
+          y confirmo que los mismos son veridicos
+        </label>
+
+        <input
+          type="submit"
+          value="Enviar"
+          class="button"
+          id="btn-submit-nuevaFormacion"
+        />
+      </form>
+    </main>
+    <footer>
+      <p>
+        Plan estratégico de Tecnologías de la Información y las Comunicaciones
+      </p>
+      <p>PlanEsTIC-UD</p>
+      <p>Copyright &copy; 2024</p>
+    </footer>
+  </body>
+</html>

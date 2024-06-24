@@ -3,7 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="/images/iconos/pt-favicon-32x32.png" sizes="32x32">
+    <link
+      rel="icon"
+      type="image/png"
+      href="/images/iconos/pt-favicon-32x32.png"
+      sizes="32x32"
+    />
     <link rel="stylesheet" href="styles/header.css" />
     <link rel="stylesheet" href="styles/informes.css" />
     <link rel="stylesheet" href="styles/navegacion.css" />
@@ -43,7 +48,7 @@
         </div>
         <ul class="sesion__acciones sesion__acciones--disabled">
           <li>
-            <a href="#"
+            <a href="./pages/formularios/formCambioClave.html"
               ><span class="material-symbols-outlined"> password </span>Cambio
               de clave</a
             >
@@ -76,8 +81,14 @@
               <a href="./pages/Tutor/CursoConTutorPage.html">Curso con tutor</a>
             </li>
             <li><a href="./pages/Mooc/CursoMoocPage.html">Curso MOOC</a></li>
-            <li><a href="./pages/CapacitacionTaller/CapacitacionTaller.html">Capacitación o Taller</a></li>
-            <li><a href="./pages/Diplomado/DiplomadosPage.html">Diplomado</a></li>
+            <li>
+              <a href="./pages/CapacitacionTaller/CapacitacionTaller.html"
+                >Capacitación o Taller</a
+              >
+            </li>
+            <li>
+              <a href="./pages/Diplomado/DiplomadosPage.html">Diplomado</a>
+            </li>
             <li><a href="./pages/Eventos/EventosPage.html">Evento</a></li>
           </ul>
         </li>
@@ -85,11 +96,36 @@
           <span class="material-symbols-outlined"> assignment </span>
           Formularios
           <ul class="li__ul">
-            <li><a href="./pages/formularios/formsInscripcion/PageFormsInscripciones.html">Formularios de inscripción</a></li>
-            <li><a href="./pages/formularios/formsPostulaciones/PageFormsPostulaciones.html">Formularios de ponentes</a></li>
-            <li><a href="./pages/formularios/formsDocumentacion/PageFormsDocumentacion.html">Formularios de documentación</a></li>
-            <li><a href="./pages/formularios/formsEvidencias/PageFormsEvidencias.html">Formularios de memorias/evidencias</a></li>
-            <li><a href="./pages/formularios/formsAsistencias/PageFormsAsistencias.html">Formularios de asistencias</a></li>
+            <li>
+              <a
+                href="./pages/formularios/formsInscripcion/PageFormsInscripciones.html"
+                >Formularios de inscripción</a
+              >
+            </li>
+            <li>
+              <a
+                href="./pages/formularios/formsPostulaciones/PageFormsPostulaciones.html"
+                >Formularios de ponentes</a
+              >
+            </li>
+            <li>
+              <a
+                href="./pages/formularios/formsDocumentacion/PageFormsDocumentacion.html"
+                >Formularios de documentación</a
+              >
+            </li>
+            <li>
+              <a
+                href="./pages/formularios/formsEvidencias/PageFormsEvidencias.html"
+                >Formularios de memorias/evidencias</a
+              >
+            </li>
+            <li>
+              <a
+                href="./pages/formularios/formsAsistencias/PageFormsAsistencias.html"
+                >Formularios de asistencias</a
+              >
+            </li>
           </ul>
         </li>
         <li class="ul__li">
@@ -111,7 +147,9 @@
     </template>
     <main class="main main-contenido-informes">
       <section class="section section-historial-nav">
-  <article class="historial-nav-article"><span style="color: var(--gris-historial-inicio);">historial</span></article>
+        <article class="historial-nav-article">
+          <span style="color: var(--gris-historial-inicio)">historial</span>
+        </article>
       </section>
 
       <article class="article-modal modal-disabled" id="modal-info-cohorte">
@@ -164,7 +202,12 @@
             for="input-buscador-informes"
             class="label label-buscador-informes"
           >
-            <input
+            <span
+              class="material-symbols-outlined search_symbol"
+              title="buscar"
+            >
+              search </span
+            ><input
               type="text"
               name="input-buscador-informes"
               id="input-buscador-informes"
