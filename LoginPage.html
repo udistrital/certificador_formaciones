@@ -12,15 +12,15 @@
     <link rel="stylesheet" href="../index.css" />
 
     <link rel="stylesheet" href="../styles/LoginPage.css" />
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <title>Inicio de sesión</title>
   </head>
   <body>
-    <section class="login-section">
-      <form class="login-form" id="login-form">
-        <h1 class="login-title">Certificador</h1>
-
-        <div>
-          <div>
+    <div class="div__loginPage">
+      <section class="section--login">
+        <h1 class="form__h1--title">Certificador</h1>
+        <form class="section__form--login" id="login-form">
+          <div class="form__div--login">
             <label for="" class="login-label"
               >Usuario:
               <input
@@ -33,7 +33,7 @@
                 autocomplete="email"
             /></label>
           </div>
-          <div>
+          <div class="form__div--login">
             <label for="" class="login-label"
               >Contraseña:<input
                 type="password"
@@ -45,29 +45,21 @@
                 autocomplete="current-password"
             /></label>
           </div>
-          <!-- <div>
-            <div class="login-div-operacion">
-              <label for="" class="login-label">Ingrese la operacion: 
-              <p id="login-operacion">operacion</p>
-            </div>
-            <input
-              type="number"
-              name=""
-              id=""
-              class="form-login-input forn-login-input-operacion"
-              required
-              placeholder="5"
-            /></label>
-          </div> -->
-          <div>
+          <div class="form__div--login">
+            <div
+              class="g-recaptcha"
+              data-sitekey="6LebXgsqAAAAAFGUpL1QFDfRWEDwUdWEGV9kcUo5"
+            ></div>
+          </div>
+          <div class="form__div--login">
             <input
               type="submit"
               value="Iniciar sesión"
               class="btn btn-rojo login-btn"
             />
           </div>
-        </div>
-        <article class="login-footer">
+        </form>
+        <article class="section__article--footer">
           <a href="#" target="_blank" class="a-links-login">Restaurar clave</a>
           <a
             href="../pages/formularios/formRegistro.html"
@@ -82,19 +74,20 @@
           <a href="#" target="_blank" class="a-links-login">PlanesTIC-UD</a>
           <a href="#" target="_blank" class="a-links-login">Copyright © 2023</a>
         </article>
-      </form>
+      </section>
       <article class="login-logos">
-        <figure>
-          <img
-            src="../images/logoud.png"
-            alt="Universidad Distrital Francisco José de Caldas"
-          />
-        </figure>
-        <figure>
-          <img src="../images/logopt.png" alt="PlanesTIC" />
-        </figure>
+        <img
+          src="../images/logoud.png"
+          alt="Universidad Distrital Francisco José de Caldas"
+          class="img__logo--login"
+        />
+        <img
+          src="../images/logopt.png"
+          alt="PlanesTIC"
+          class="img__logo--login"
+        />
       </article>
-    </section>
+    </div>
   </body>
   <script type="module" src="../scripts/Login.js"></script>
 </html>

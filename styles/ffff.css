@@ -1,0 +1,147 @@
+.login-section {
+  display: flex;
+  height: 100vh;
+}
+
+.login-title {
+  padding-top: 30px;
+  color: var(--blanco);
+}
+
+.login-form {
+  background-color: var(--negro);
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  width: 50%;
+  font-size: 25px;
+}
+
+.login-form > div {
+  width: 100%;
+}
+
+.login-form > div > div > input {
+  grid-column-start: 2;
+}
+
+#login-operacion {
+  width: fit-content;
+  padding: 0 16px 16px;
+}
+
+.form-login-input,
+.login-label {
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+
+.form-login-input {
+  background-color: var(--grisclaro);
+  border-radius: 10px;
+}
+
+.login-label {
+  color: var(--blanco);
+  justify-self: end;
+}
+
+.login-logos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-logos > figure {
+  width: 45%;
+}
+
+.login-footer {
+  color: var(--blanco);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  font-size: 16px;
+}
+
+.login-footer > * {
+  text-align: center;
+  text-decoration: underline;
+}
+
+#login-form-btn {
+  justify-self: start;
+  min-width: fit-content;
+}
+
+.forn-login-input-operacion {
+  width: fit-content;
+}
+
+@media only screen and (max-width: 1023px) {
+  .login-section {
+    flex-direction: column;
+    background-color: var(--negro);
+    align-items: center;
+    justify-content: center;
+  }
+  .login-form {
+    width: 100%;
+  }
+
+  .login-logos {
+    display: none;
+  }
+
+  .login-form > div > div {
+    /* background-color: rebeccapurple; */
+    /* outline: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #login-operacion {
+    color: var(--blanco);
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .login-form {
+    width: 50%;
+  }
+
+  .login-logos {
+    width: 50%;
+  }
+
+  .login-form > div > div {
+    /* background-color: rebeccapurple; */
+    /* outline: 1px solid black; */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    padding: 16px;
+    justify-content: end;
+  }
+
+  #login-operacion {
+    color: var(--blanco);
+    width: 100%;
+    text-align: right;
+  }
+}

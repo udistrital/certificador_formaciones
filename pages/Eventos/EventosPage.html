@@ -171,11 +171,7 @@
                 cancel
               </span>
             </div>
-            <form
-              action=""
-              class="modal-contenido-form"
-              id="modal-form-formacion"
-            >
+            <form class="modal-contenido-form" id="modal-form-formacion">
               <div
                 class="modal-contenido-form-div modal-contenido-form-div-lleno"
               >
@@ -190,10 +186,23 @@
                 /></label>
               </div>
               <div
+                class="modal-contenido-form-div modal-contenido-form-div-lleno"
+                style="display: none"
+              >
+                <label for="form-curso-tutor-input-tipo-formacion"
+                  >Tipo de Formación id:
+                  <input
+                    type="number"
+                    name="form-curso-tutor-input-tipo-formacion"
+                    id="form-curso-tutor-input-tipo-formacion-id"
+                    disabled
+                /></label>
+              </div>
+              <div
                 class="modal-contenido-form-div modal-contenido-form-div--new-formacion"
               >
-                <label>
-                  Ingrese el nombre del proceso:
+                <label for="nombreProceso"
+                  >Nombre del proceso:
                   <input
                     type="text"
                     name="nombreProceso"
@@ -202,16 +211,17 @@
                     class="modal-contenido-form-input"
                 /></label>
               </div>
-              <!-- <div class="modal-contenido-form-div">
-                <label for="intensidadHoraria"></label>
-                <input
-                  type="text"
-                  name="intensidadHoraria"
-                  id="intensidadHoraria"
-                  placeholder="Intensidad Horaria"
-                  class="modal-contenido-form-input"
-                />
-              </div> -->
+              <div class="modal-contenido-form-div">
+                <label for="intensidadHoraria"
+                  >Intensidad horaria:
+                  <input
+                    type="text"
+                    name="intensidadHoraria"
+                    id="intensidadHoraria"
+                    placeholder="Intensidad Horaria"
+                    class="modal-contenido-form-input"
+                /></label>
+              </div>
               <input
                 type="submit"
                 value="Crear proceso"
