@@ -1,3 +1,5 @@
+import crearFormacionfnc from "./crearFormacion.js";
+
 const d = document;
 const $closeModalNuevaFormacion = d.getElementById(
   "close-modal-nueva-formacion"
@@ -43,7 +45,7 @@ export const mostrarInfoCorhorte = () => {
   // console.log($openModalInfoCohorte);
   Array.from($openModalInfoCohorte).forEach((e, i) => {
     e.addEventListener("click", (event) => {
-      console.log('echoi');
+      console.log("echoi");
       if (event.target === e) {
         console.log(i);
         $modalinfoCohorte.classList.toggle("modal-disabled");
@@ -54,7 +56,7 @@ export const mostrarInfoCorhorte = () => {
 
 mostrarInfoCorhorte();
 
-d.addEventListener("submit", (e) => {
+d.addEventListener("submit", async (e) => {
   e.preventDefault();
   // CON EL SIGUIENTE CODIGO SE HARA LA PETICION AL SERVIDOR PARA ALMACENAR UNA NUEVA FORMACION,
   // UNA VEZ REALIZADO DEPENDE DEL MENSAJE DEL SERVIDOR SE MOSTRARA UNA NOTIFICACION
@@ -62,25 +64,27 @@ d.addEventListener("submit", (e) => {
   const $btnNuevaCohorte = document.getElementById("modal-form-cohorte");
   if (e.target === $btnNuevaFormacion) {
     $modalNuevaFormacion.classList.toggle("modal-disabled");
-    let a = 1;
-    if (1 === a) {
+
+    let estado = await crearFormacionfnc();
+
+    console.log(estado);
+
+    if (estado === true) {
       const $notificacionVerde = document.getElementById(
         "notificacion-verde-formacion"
       );
       $notificacionVerde.classList.toggle("notificacion-disabled");
-      // setTimeout(() => {
-      //   $notificacionVerde.classList.toggle("notificacion-disabled");
-      //   window.location.reload();
-      // }, 1000);
-    } else if (0 === a) {
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
+    } else if (estado === false) {
       const $notificacionRoja = document.getElementById(
         "notificacion-roja-formacion"
       );
       $notificacionRoja.classList.toggle("notificacion-disabled");
-      // setTimeout(() => {
-      //   $notificacionRoja.classList.toggle("notificacion-disabled");
-      //   window.location.reload();
-      // }, 1000);
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
     }
   } else if (e.target === $btnNuevaCohorte) {
     console.log("fshjfhjdhsjkfhdjsdfahjkfadshkj");

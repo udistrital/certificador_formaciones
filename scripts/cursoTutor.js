@@ -60,8 +60,12 @@ const asignarTipoFormacionAFormulario = (
   const $inputTipoFormacion = document.getElementById(
     "form-curso-tutor-input-tipo-formacion"
   );
+  const $inputTipoFormacionId = document.getElementById(
+    "form-curso-tutor-input-tipo-formacion-id"
+  );
   console.log("hola", nombreTipoFormacion);
   $inputTipoFormacion.setAttribute("value", nombreTipoFormacion);
+  $inputTipoFormacionId.setAttribute("value", idTipoFormacion);
 };
 
 //CARGUE DE CONTENIDOS

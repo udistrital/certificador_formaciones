@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!token) {
     // Redirigir a la página de inicio de sesión si no hay token
-    window.location.href = "../pages/LoginPage.html";
+    window.location.href = "/LoginPage.html";
   }
 
   // Opcional: Puedes hacer una llamada al servidor para verificar la validez del token
