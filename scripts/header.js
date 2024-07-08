@@ -18,11 +18,11 @@ $btn_ham.addEventListener("click", (e) => {
 
 const identificarUsuario = async () => {
   let data = await JSON.parse(sessionStorage.getItem("data"));
-  document.querySelector(".texto_nombreusuario").textContent =
-    data.nombre + " " + data.apellido;
-  document.querySelector(".texto_rol").textContent = data.rol;
+  console.log(data);
+  document.querySelector(".texto_nombreusuario").textContent = data[0].username;
+  document.querySelector(".texto_rol").textContent = data[0].nombre;
   document.querySelector(".controles__icono").textContent =
-    data.nombre[0] + data.apellido[0];
+    data[0].nombre[0] + data[0].username[0];
 };
 
 identificarUsuario();

@@ -16,7 +16,7 @@
   </head>
   <body>
     <section class="login-section">
-      <form class="login-form">
+      <form class="login-form" id="login-form">
         <h1 class="login-title">Certificador</h1>
 
         <div>
@@ -26,10 +26,11 @@
               <input
                 type="email"
                 name=""
-                id=""
+                id="login-correo"
                 class="form-login-input"
                 required
                 placeholder="******@udistrital.edu.co"
+                autocomplete="email"
             /></label>
           </div>
           <div>
@@ -37,10 +38,11 @@
               >Contraseña:<input
                 type="password"
                 name=""
-                id=""
+                id="login-pass"
                 class="form-login-input"
                 required
                 placeholder="*********"
+                autocomplete="current-password"
             /></label>
           </div>
           <!-- <div>
@@ -94,4 +96,5 @@
       </article>
     </section>
   </body>
+  <script type="module" src="../scripts/Login.js"></script>
 </html>

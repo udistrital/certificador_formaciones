@@ -43,12 +43,40 @@ function verCohorte() {
 }
 verCohorte();
 
-const asignarTipoFormacionAFormulario = () => {
+const asignarTipoFormacionAFormulario = (
+  idTipoFormacion,
+  nombreTipoFormacion
+) => {
   const $inputTipoFormacion = document.getElementById(
     "form-curso-tutor-input-tipo-formacion"
   );
-
-  $inputTipoFormacion.setAttribute("value", "Diplomado");
+  console.log("hola", nombreTipoFormacion);
+  $inputTipoFormacion.setAttribute("value", nombreTipoFormacion);
 };
 
-asignarTipoFormacionAFormulario();
+//CARGUE DE CONTENIDOS
+const buscarTipoFormacion = () => {
+  window.location.href.includes("DiplomadosPage") &&
+    fetch(
+      "https://pruebascrud.formaciones.planestic.udistrital.edu.co/v1/tipo_proceso.php?id=5"
+    )
+      .then((response) => {
+        // Verificar si la respuesta es exitosa (código de estado HTTP 200-299)
+        if (!response.ok) {
+          throw new Error("La solicitud no fue exitosa");
+        }
+        // Parsear la respuesta como JSON
+        return response.json();
+      })
+      .then(async (data) => {
+        // Hacer algo con los datos recibidos
+        // console.log(data);
+        await asignarTipoFormacionAFormulario(data[0].id, data[0].nombre);
+      })
+      .catch((error) => {
+        // Capturar y manejar cualquier error
+        console.error("Error:", error);
+      });
+};
+
+buscarTipoFormacion();
