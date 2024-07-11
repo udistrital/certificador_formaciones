@@ -12,8 +12,8 @@ const llenarTablaCursosTutor = (data) => {
   data.forEach((formacion) => {
     $template.querySelector("tr").innerHTML = `
                 <td>${formacion.id}</td>
-                <td>${formacion.nombre}</td>
-                <td>${formacion.tipoproceso}</td>
+                <td style="overflow-x: auto; max-width: 300px;">${formacion.nombre}</td>
+                <td>${formacion.tipo_proceso}</td>
                 <td class="td-acciones">
                 <span class="material-symbols-outlined accion-ver-cohorte" title="Ver cohortes">visibility</span>
                 </td>`;
@@ -38,17 +38,41 @@ function verCohorte(data) {
         id,
         data[id].id,
         data[id].nombre,
-        data[id].tipoproceso
+        data[id].tipo_proceso
       );
-      location.href = `CursoConTutorCohortesPage.html?idFormacion=${data[id].id}&nombreFormacion=${data[id].nombre}&tipoFormacion=${data[id].tipoproceso}`;
+      location.href = `CursoConTutorCohortesPage.html?idFormacion=${data[id].id}&nombreFormacion=${data[id].nombre}&tipoFormacion=${data[id].tipo_proceso}`;
     });
   });
 }
 
 const listarCursosTutorFetch = async () => {
-  modeloCursoConTutor = modelCT;
-  llenarTablaCursosTutor(modeloCursoConTutor);
-  verCohorte(modeloCursoConTutor);
+  const requestOptions = {
+    method: "GET",
+    redirect: "follow",
+  };
+
+  fetch(
+    "https://pruebascrud.formaciones.planestic.udistrital.edu.co/v1/proceso.php",
+    requestOptions
+  )
+    .then((response) => response.text())
+    .then((result) => {
+      console.log(JSON.parse(result));
+
+      //este fragmento permite que de todos los procesos se filtren los que son de curso con tutor
+      let formacionesCTutor = [];
+      JSON.parse(result).forEach((element) => {
+        element.tipo_proceso == 2 && formacionesCTutor.push(element);
+      });
+      modeloCursoConTutor = formacionesCTutor;
+      //en caso de que la peticion solo retorne procesos de tipo curso con tutor
+      // modeloCursoConTutor = JSON.parse(result);
+      llenarTablaCursosTutor(modeloCursoConTutor);
+      verCohorte(modeloCursoConTutor);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
 };
 
 listarCursosTutorFetch();

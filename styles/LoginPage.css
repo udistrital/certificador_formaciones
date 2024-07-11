@@ -47,6 +47,7 @@
 .form-login-input:hover,
 .form-login-input:focus {
   background-color: var(--blanco);
+  color: var(--gris-oscuro);
 }
 
 .section__form--login {
