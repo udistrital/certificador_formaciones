@@ -34,13 +34,13 @@
   }
 
   .modal-contenido-form-div-join {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 16px;
   }
 
   .modal-contenido-form-div{
-    width: 48%;
+    width: 100%;
   }
 
   .modal-contenido-form-div--new-formacion{
@@ -49,6 +49,9 @@
 
   .modal-contenido-form-div > label {
     align-self: flex-start;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
   }
 }
 
@@ -129,11 +132,15 @@
 }
 
 .modal-contenido-form-div-check {
-  display: flex;
   gap: 16px;
+  user-select: none;
+}
+
+.modal-contenido-form-div-check>label{
+  display: flex;
   flex-direction: row-reverse;
   justify-content: left;
-  user-select: none;
+  gap: 1rem;
 }
 
 .modal-contenido-form-input-check:checked {

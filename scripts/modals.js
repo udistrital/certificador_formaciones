@@ -1,4 +1,6 @@
+import crearCohorteFnc from "./crearCohorte.js";
 import crearFormacionfnc from "./crearFormacion.js";
+import reload from "./funcionalidades/ReloadPage.js";
 
 const d = document;
 const $closeModalNuevaFormacion = d.getElementById(
@@ -15,7 +17,7 @@ const $closeModalInfoCohorte = d.getElementById("close-modal-info-cohorte");
 const $modalinfoCohorte = d.getElementById("modal-info-cohorte");
 
 d.addEventListener("click", (e) => {
-  console.log(e.target);
+  // console.log(e.target);
   if (
     e.target === $closeModalNuevaFormacion ||
     e.target === $modalNuevaFormacion
@@ -74,23 +76,18 @@ d.addEventListener("submit", async (e) => {
         "notificacion-verde-formacion"
       );
       $notificacionVerde.classList.toggle("notificacion-disabled");
-      setTimeout(() => {
-        window.location.reload();
-      }, 1000);
+      reload();
     } else if (estado === false) {
       const $notificacionRoja = document.getElementById(
         "notificacion-roja-formacion"
       );
       $notificacionRoja.classList.toggle("notificacion-disabled");
-      setTimeout(() => {
-        window.location.reload();
-      }, 1000);
+      reload();
     }
   } else if (e.target === $btnNuevaCohorte) {
-    console.log("fshjfhjdhsjkfhdjsdfahjkfadshkj");
     $modalNuevaCohorte.classList.toggle("modal-disabled");
-    let a = 0;
-    if (1 === a) {
+    let estado = await crearCohorteFnc();
+    if (estado === true) {
       const $notificacionVerde = document.getElementById(
         "notificacion-verde-cohorte"
       );
@@ -99,7 +96,7 @@ d.addEventListener("submit", async (e) => {
       //   $notificacionVerde.classList.toggle("notificacion-disabled");
       //   window.location.reload();
       // }, 1000);
-    } else if (0 === a) {
+    } else if (estado === false) {
       console.log("rojo");
       const $notificacionRoja = document.getElementById(
         "notificacion-roja-cohorte"

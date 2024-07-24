@@ -5,19 +5,23 @@ const crearFormacionfnc = () => {
   ).value;
   let nombreFormacion = document.getElementById("nombreProceso").value;
   let intensidadHoraria = document.getElementById("intensidadHoraria").value;
+  let codigoEdx = "";
+  if (document.getElementById("")) {
+    codigoEdx = document.getElementById("").value;
+  }
+
   const data = {
     creador: idUsuario,
     tipo_proceso: idTipoFormacion,
     nombre: nombreFormacion,
     intensidad_horaria: intensidadHoraria,
     activo: true,
+    ...(codigoEdx !== "" && { codigo_edx: codigoEdx }),
   };
   console.log("data:", data);
 
   return fetchNuevaFormacion(data);
 };
-
-export default crearFormacionfnc;
 
 const fetchNuevaFormacion = async (data) => {
   let estado = false;
@@ -38,9 +42,9 @@ const fetchNuevaFormacion = async (data) => {
     requestOptions
   )
     .then((response) => response.text())
-    .then(async(result) => {
+    .then(async (result) => {
       console.log(JSON.parse(result));
-      if (await JSON.parse(result).estado === "ok") {
+      if ((await JSON.parse(result).estado) === "ok") {
         estado = true;
       }
     })
@@ -53,3 +57,5 @@ const fetchNuevaFormacion = async (data) => {
 
   return estado;
 };
+
+export default crearFormacionfnc;

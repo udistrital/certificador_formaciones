@@ -7,7 +7,7 @@ const listaCohortesCurso = cusosCohortesGenerales;
 const copiarLinks = () => {
   console.log("entra copia");
   document.addEventListener("click", (e) => {
-    console.log(e.target);
+    // console.log(e.target);
     let textoACopiar = "";
     if (
       e.target === document.getElementById("info-cohorte-copia-link-conexion")
@@ -186,9 +186,13 @@ const insertarInfoParaCreacionCohorte = (
   let $inputTipoFormacion = document.getElementById(
     "cursoConTutorFormTipoFormacion"
   );
+  let $inputIdFormacion = document.getElementById(
+    "cursoConTutorFormIdFormacion"
+  );
   console.log(nombreFormacion, tipoFormacion, idFormacion);
   $inputNombreFormacion.setAttribute("value", ` ${nombreFormacion}`);
   $inputTipoFormacion.setAttribute("value", ` ${tipoFormacion}`);
+  $inputIdFormacion.setAttribute("value", ` ${idFormacion}`);
 };
 
 const obtenerIdFormacionURL = () => {
@@ -268,3 +272,5 @@ const obtenerIdCohorte = (li) => {
 };
 
 obtenerIdCohorte(listaCohortesCurso);
+
+const FetchCrearCohorte = () => {};
