@@ -10,7 +10,7 @@ export let listaCohortesMooc = [
     linkinscripcion: "Implementation",
     linkasistencia: "Oganesson",
     linkconexion: "pressure",
-    id: "1",
+    id: "37",
     numCohorte:"1"
   },
   {

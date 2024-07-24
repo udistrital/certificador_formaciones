@@ -252,7 +252,7 @@ export let cusosCohortesGenerales = [
     linkAsis: "Bicycle",
     linkIns: "pfft",
     anio: "6",
-    id: "15",
+    id: "56",
   },
   {
     tipo: "Sheila",
@@ -268,7 +268,7 @@ export let cusosCohortesGenerales = [
     linkAsis: "Parkway",
     linkIns: "underneath",
     anio: "2",
-    id: "16",
+    id: "55",
   },
   {
     tipo: "Ahmad",
@@ -284,7 +284,7 @@ export let cusosCohortesGenerales = [
     linkAsis: "male",
     linkIns: "agonizing",
     anio: "2",
-    id: "17",
+    id: "54",
   },
   {
     tipo: "Kelsie",
@@ -300,6 +300,6 @@ export let cusosCohortesGenerales = [
     linkAsis: "Music",
     linkIns: "teal",
     anio: "1",
-    id: "18",
+    id: "37",
   },
 ];
