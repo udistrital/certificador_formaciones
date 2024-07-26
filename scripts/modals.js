@@ -35,13 +35,14 @@ d.addEventListener("click", (e) => {
     $modalNuevaCohorte.classList.toggle("modal-disabled");
   }
   if (e.target === $closeModalInfoCohorte || e.target === $modalinfoCohorte) {
+    console.log("modal open or close");
     $modalinfoCohorte.classList.toggle("modal-disabled");
   }
 });
 
 /** modal de informacion de una cohorte */
 
-export const mostrarInfoCorhorte = () => {
+export const mostrarModalInfoCohorte = () => {
   // debugger;
   const $openModalInfoCohorte = d.getElementsByClassName("show-info-cohorte");
   // console.log($openModalInfoCohorte);
@@ -56,7 +57,7 @@ export const mostrarInfoCorhorte = () => {
   });
 };
 
-mostrarInfoCorhorte();
+mostrarModalInfoCohorte();
 
 d.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -76,13 +77,13 @@ d.addEventListener("submit", async (e) => {
         "notificacion-verde-formacion"
       );
       $notificacionVerde.classList.toggle("notificacion-disabled");
-      reload();
+      // reload();
     } else if (estado === false) {
       const $notificacionRoja = document.getElementById(
         "notificacion-roja-formacion"
       );
       $notificacionRoja.classList.toggle("notificacion-disabled");
-      reload();
+      // reload();
     }
   } else if (e.target === $btnNuevaCohorte) {
     $modalNuevaCohorte.classList.toggle("modal-disabled");
@@ -92,14 +93,14 @@ d.addEventListener("submit", async (e) => {
         "notificacion-verde-cohorte"
       );
       $notificacionVerde.classList.remove("notificacion-disabled");
-      reload();
+      // reload();
     } else if (estado === false) {
       console.log("rojo");
       const $notificacionRoja = document.getElementById(
         "notificacion-roja-cohorte"
       );
       $notificacionRoja.classList.remove("notificacion-disabled");
-      reload();
+      // reload();
     }
   }
   window.scrollTo({

@@ -49,6 +49,7 @@ const crearCohorteFnc = () => {
   let incluirIntensidadFechaFinal = document.getElementById(
     "incluirIntensidadFechaFinal"
   ).value;
+  let modalidad = document.getElementById("modalidad").value;
 
   const data = {
     creador: idUsuario,
@@ -72,8 +73,50 @@ const crearCohorteFnc = () => {
     incluirIntensidadFechaFinal,
     nombreFormacion,
     idFormacion: idFormacion.trim(),
+    virtual: modalidad === "on" ? true : false,
   };
   console.log("data:", data);
+
+  let dataCohorteCompleta = {
+    cohorte: {
+      creador: parseInt(idUsuario),
+      proceso: parseInt(idFormacion.trim()),
+      cohorte: parseInt(numCohorte.trim()),
+      anio: parseInt(anioCohorte.trim()),
+      fecha_inicial: formatearFecha(fechaInicialCohorte),
+      fecha_final: formatearFecha(fechaFinalCohorte),
+      activo: true,
+    },
+    sesion: {
+      creador: parseInt(idUsuario),
+      cohorte: parseInt(numCohorte.trim()),
+      fechaConexion,
+      horaConexion,
+      virtual: modalidad === "on" ? true : false,
+      enlace: linkCursoOConexion,
+      activo: true,
+    },
+    formularioAsistencia: {
+      creador: parseInt(idUsuario),
+      cohorte: parseInt(numCohorte.trim()),
+      tipo_formulario: 1,
+      hash: `http://127.0.0.5:5501/pages/formularios/formsInscripcion/formularioRegistroAspirantes.html?idFormacion=${idFormacion}&idCohorte=${numCohorte}`,
+      fecha_inicial: fechaInicialAsistenciaCohorte,
+      horaInicialAsistenciaCohorte,
+      fecha_final: fechaFinalAsistenciaCohorte,
+      horiaFinalAsistenciaCohorte,
+    },
+    formularioRegistro: {
+      creador: parseInt(idUsuario),
+      cohorte: parseInt(numCohorte.trim()),
+      tipo_formulario: 2,
+      hash: `http://127.0.0.5:5501/pages/formularios/formsInscripcion/formularioRegistroAspirantes.html?idFormacion=${idFormacion}&idCohorte=${numCohorte}`,
+      fecha_inicial: fechaInicialCohorteFormInscripcion,
+      fecha_final: fechaFinalCohorteFormInscripcion,
+    },
+  };
+
+  console.log(dataCohorteCompleta);
 
   let dataCohorte = {
     creador: parseInt(idUsuario),

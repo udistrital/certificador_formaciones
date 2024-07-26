@@ -1,3 +1,4 @@
+import { mostrarModalInfoCohorte } from "../../modals.js";
 import mostarInforCohorte from "./MostrarInfoCohorte.js";
 import obtenerIdCohorte from "./ObtenerIdCohorte.js";
 
@@ -42,8 +43,8 @@ const listarCohorterFormacion = (listaCohortes) => {
   $tbody.appendChild($fargmento);
 
   mostarInforCohorte(listaCohortes);
-  obtenerIdCohorte(listaCohortes)
-
+  obtenerIdCohorte(listaCohortes);
+  mostrarModalInfoCohorte();
 };
 
 export default listarCohorterFormacion;

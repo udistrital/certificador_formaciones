@@ -1,6 +1,5 @@
-import { modelCohorteInfo } from "../models/cohorteModel.js";
 import { cusosCohortesGenerales } from "../models/informesGenerales.js";
-import { mostrarInfoCorhorte } from "./modals.js";
+import { mostrarModalInfoCohorte } from "./modals.js";
 
 let listaInformesGenerales = cusosCohortesGenerales;
 
@@ -52,7 +51,7 @@ const llenarTablaInformesGenerales = (li) => {
   });
 
   $tbodyFormacionesGenerales.appendChild($fargmento);
-  mostrarInfoCorhorte();
+  mostrarModalInfoCohorte();
 };
 
 let d = document;
