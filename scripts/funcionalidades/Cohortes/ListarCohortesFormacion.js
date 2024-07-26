@@ -12,14 +12,10 @@ const listarCohorterFormacion = (listaCohortes) => {
 
   listaCohortes.forEach((cohorte) => {
     $template.querySelector("tr").innerHTML = `
-                  <td>${cohorte.numCohorte}</td>
+                  <td>${cohorte.cohorte}</td>
                   <td>${cohorte.anio}</td>
-                  <td>${new Date(cohorte.fechaI).getFullYear()}/${new Date(
-      cohorte.fechaI
-    ).getMonth()}/${new Date(cohorte.fechaI).getDate()}</td>
-                  <td>${new Date(cohorte.fechaF).getFullYear()}/${new Date(
-      cohorte.fechaF
-    ).getMonth()}/${new Date(cohorte.fechaF).getDate()}</td>
+                  <td>${cohorte.fecha_inicial}</td>
+                  <td>${cohorte.fecha_final}</td>
                   <td class="td-acciones">
                   <span
                     class="material-symbols-outlined show-info-cohorte"

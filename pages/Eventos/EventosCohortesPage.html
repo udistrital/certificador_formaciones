@@ -177,25 +177,12 @@
               <div
                 class="modal-contenido-form-div modal-contenido-form-div-lleno"
               >
-                <label for="cursoConTutorFormTipoFormacion"
+                <label for=""
                   >Tipo de Formación:
                   <input
                     type="text"
-                    name="cursoConTutorFormTipoFormacion"
+                    name=""
                     id="cursoConTutorFormTipoFormacion"
-                    disabled
-                    value=" [Tipo]"
-                /></label>
-              </div>
-              <div
-                class="modal-contenido-form-div modal-contenido-form-div-lleno"
-              >
-                <label for="nombreProceso"
-                  >Nombre de formación:
-                  <input
-                    type="text"
-                    name="cursoConTutorFormNombreFormacion"
-                    id="cursoConTutorFormNombreFormacion"
                     disabled
                     value=" [Tipo]"
                 /></label>
@@ -213,21 +200,57 @@
                     value=" [id formación]"
                 /></label>
               </div>
-              <div class="modal-contenido-form-div-join">
-                <div class="modal-contenido-form-div">
-                  <label for="numCohorte"
-                    >Cohorte:
-                    <input
-                      type="number"
-                      name="numCohorte"
-                      id="numCohorte"
-                      placeholder="Numero de cohorte"
-                      class="modal-contenido-form-input"
-                      value="2"
-                  /></label>
-                </div>
+              <div
+                class="modal-contenido-form-div modal-contenido-form-div-lleno"
+              >
+                <label for="nombreProceso"
+                  >Nombre de formación:
+                  <input
+                    type="text"
+                    name=""
+                    id="cursoConTutorFormNombreFormacion"
+                    disabled
+                    value=" [Tipo]"
+                /></label>
               </div>
-
+              <div
+                class="modal-contenido-form-div modal-contenido-form-div-lleno"
+              >
+                <label for="numCohorte"
+                  >Cohorte:
+                  <input
+                    type="number"
+                    name="numCohorte"
+                    id="numCohorte"
+                    disabled
+                  />
+                </label>
+              </div>
+              <div class="modal-contenido-form-div">
+                <label for="anioCohorte"
+                  >Año de la cohorte:
+                  <input
+                    type="number"
+                    name="anioCohorte"
+                    id="anioCohorte"
+                    placeholder="Año de cohorte"
+                    class="modal-contenido-form-input"
+                    min="1900"
+                    max="2100"
+                    step="1"
+                /></label>
+              </div>
+              <div class="modal-contenido-form-div">
+                <label for="intensidadHoraria"
+                  >Intensidad horaria:
+                  <input
+                    type="number"
+                    name="intensidadHoraria"
+                    id="intensidadHoraria"
+                    placeholder="Intensidad horaria"
+                    class="modal-contenido-form-input"
+                /></label>
+              </div>
               <p class="texto-title-form-region">Rango de la cohorte</p>
               <div class="modal-contenido-form-div-join">
                 <div class="modal-contenido-form-div">
@@ -253,7 +276,7 @@
                   /></label>
                 </div>
               </div>
-              <p class="texto-title-form-region">Formulario de registro</p>
+              <p class="texto-title-form-region">Formulario de inscripción</p>
               <div class="modal-contenido-form-div-join">
                 <div class="modal-contenido-form-div">
                   <label for="fechaInicialCohorteFormInscripcion"
@@ -268,7 +291,7 @@
                 </div>
                 <div class="modal-contenido-form-div">
                   <label for="fechaFinalCohorteFormInscripcion"
-                    >Fecha fecha:
+                    >Fecha final:
                     <input
                       type="date"
                       name="fechaFinalCohorteFormInscripcion"
@@ -279,19 +302,8 @@
                 </div>
               </div>
               <div class="modal-contenido-form-div">
-                <label for="moduloDiplomado"
-                  >Nombre del modulo del diplomado:
-                  <input
-                    type="text"
-                    name="moduloDiplomado"
-                    id="moduloDiplomado"
-                    placeholder="Modulo"
-                    class="modal-contenido-form-input"
-                /></label>
-              </div>
-              <div class="modal-contenido-form-div">
                 <label for="linkCursoOConexion"
-                  >Link de conexión:
+                  >Link de conexion:
                   <input
                     type="text"
                     name="linkCursoOConexion"
@@ -314,7 +326,7 @@
                 </div>
                 <div class="modal-contenido-form-div">
                   <label for="horaConexion"
-                    >Hora de conexion:
+                    >Hora de conexión:
                     <input
                       type="time"
                       name="horaConexion"
@@ -373,22 +385,51 @@
                   /></label>
                 </div>
               </div>
-              <div class="modal-contenido-form-div">
-                <label for="moduloDiplomadoAsistencia"
-                  >Modulo asistencia de diplomado:
+              <p class="texto-title-form-region">Certificado</p>
+              <div
+                class="modal-contenido-form-div modal-contenido-form-div-check"
+              >
+                <label for="incluirIntensidadHoraria"
+                  >Incluir intensidad horaria
                   <input
-                    type="text"
-                    name="moduloDiplomadoAsistencia"
-                    id="moduloDiplomadoAsistencia"
-                    placeholder="Modulo"
-                    class="modal-contenido-form-input"
+                    type="checkbox"
+                    name="incluirIntensidadHoraria"
+                    id="incluirIntensidadHoraria"
+                    checked
+                    class="modal-contenido-form-input-check"
+                /></label>
+              </div>
+              <div
+                class="modal-contenido-form-div modal-contenido-form-div-check"
+              >
+                <label for="incluirIntensidadFechaInicial"
+                  >Incluir fecha inicial
+                  <input
+                    type="checkbox"
+                    name="incluirIntensidadFechaInicial"
+                    id="incluirIntensidadFechaInicial"
+                    checked
+                    class="modal-contenido-form-input-check"
+                /></label>
+              </div>
+              <div
+                class="modal-contenido-form-div modal-contenido-form-div-check"
+              >
+                <label for="incluirIntensidadFechaFinal"
+                  >Incluir fecha final
+                  <input
+                    type="checkbox"
+                    name="incluirIntensidadFechaFinal"
+                    id="incluirIntensidadFechaFinal"
+                    class="modal-contenido-form-input-check"
+                    checked
                 /></label>
               </div>
               <input
                 type="submit"
                 value="Crear proceso"
                 class="modal-contenido-button"
-                id="btn-submit-nuevaFormacion"
+                id="btn-submit-nuevaCohorte"
               />
             </form>
           </div>

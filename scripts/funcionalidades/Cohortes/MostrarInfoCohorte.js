@@ -6,7 +6,7 @@ const mostarInforCohorte = (listaCohortes) => {
   listaLinks.forEach((cohorte, index) => {
     cohorte.addEventListener("click", () => {
       //se captura el id del cohorte del cual se desea saber la informacion
-      let idCohorteInfoMostrar = listaCohortes[index].numCohorte;
+      let idCohorteInfoMostrar = listaCohortes[index].cohorte;
       console.log("hola mundo", listaCohortes[index], idCohorteInfoMostrar);
       const $numCohorteVisual = document.getElementById(
         "informacion-cohorte-numeral"
@@ -14,6 +14,7 @@ const mostarInforCohorte = (listaCohortes) => {
       $numCohorteVisual.textContent = `Cohorte [${idCohorteInfoMostrar}]`;
     });
   });
+  
   const $fargmento = document.createDocumentFragment(),
     $template = document.getElementById(
       "template-renglon-cursos-tutor-cohortes-info"

@@ -92,20 +92,14 @@ d.addEventListener("submit", async (e) => {
         "notificacion-verde-cohorte"
       );
       $notificacionVerde.classList.remove("notificacion-disabled");
-      // setTimeout(() => {
-      //   $notificacionVerde.classList.toggle("notificacion-disabled");
-      //   window.location.reload();
-      // }, 1000);
+      reload();
     } else if (estado === false) {
       console.log("rojo");
       const $notificacionRoja = document.getElementById(
         "notificacion-roja-cohorte"
       );
       $notificacionRoja.classList.remove("notificacion-disabled");
-      // setTimeout(() => {
-      //   $notificacionRoja.classList.toggle("notificacion-disabled");
-      //   window.location.reload();
-      // }, 1000);
+      reload();
     }
   }
   window.scrollTo({

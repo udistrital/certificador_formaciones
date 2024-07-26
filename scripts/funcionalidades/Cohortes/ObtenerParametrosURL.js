@@ -1,5 +1,5 @@
-import fetchListarCohortesFormacion from "./FetchListadoCohortes.js";
-import filtrarCohortesPorFormacion from "./FiltrarCohortesPorFormacion.js";
+import listarCohortes from "../../Fetching/ListarCohortes.js";
+import traerUltimaCohorte from "../../Fetching/UltimaCohorte.js";
 import insertarInfoParaCreacionCohorte from "./InsertarInformacionFormacion.js";
 
 const obtenerParametrosURL = () => {
@@ -18,11 +18,9 @@ const obtenerParametrosURL = () => {
     tipoFormacion,
     idFormacion
   );
-  //se usa la siguiente funcion en caso de que se retornen todos los cohortes y haya que filtrarlos de acuerdo con el numero de formacion
-  filtrarCohortesPorFormacion(idFormacion);
-  //en caso de que se necesite peticion fetch, se enviara el idFormacion, y el tipo de formacion para traer unicamente las cohortes necesarias
-  //   fetchListarCohortesFormacion(idFormacion, tipoFormacion);
+  listarCohortes(idFormacion, tipoFormacion);
   insertarInfoParaCreacionCohorte(idFormacion, nombreFormacion, tipoFormacion);
+  traerUltimaCohorte(tipoFormacion, idFormacion);
 };
 
 export default obtenerParametrosURL;

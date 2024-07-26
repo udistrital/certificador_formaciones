@@ -1,4 +1,5 @@
 const llenarTablaCursosTutor = (data) => {
+  console.log(data);
   const $fargmento = document.createDocumentFragment(),
     $template = document.getElementById(
       "template-renglon-cursos-tutor"
@@ -8,10 +9,18 @@ const llenarTablaCursosTutor = (data) => {
   data.forEach((formacion) => {
     $template.querySelector("tr").innerHTML = `
                   <td>${formacion.id}</td>
-                  <td style="overflow-x: auto; max-width: 300px;">${formacion.nombre}</td>
+                  <td style="overflow-x: auto; max-width: 300px;">${
+                    formacion.nombre
+                  }</td>
                   <td>${formacion.tipo_proceso}</td>
                   <td class="td-acciones">
                   <span class="material-symbols-outlined accion-ver-cohorte" title="Ver cohortes">visibility</span>
+                  ${
+                    formacion.tipo_proceso === "5"
+                      ? '<span class="material-symbols-outlined index-modulos" title="Modulos">stacks</span>'
+                      : ""
+                  }
+                  
                   </td>`;
 
     let clone = document.importNode($template, true);

@@ -1,3 +1,5 @@
+import formatearFecha from "./funcionalidades/FormateoFecha.js";
+
 const crearCohorteFnc = () => {
   let idUsuario = JSON.parse(sessionStorage.getItem("data"))[0].id;
   let idTipoFormacion = document.getElementById(
@@ -73,7 +75,16 @@ const crearCohorteFnc = () => {
   };
   console.log("data:", data);
 
-  // return fetchNuevaCohorte(data);
+  let dataCohorte = {
+    creador: parseInt(idUsuario),
+    proceso: parseInt(idFormacion.trim()),
+    cohorte: parseInt(numCohorte.trim()),
+    anio: parseInt(anioCohorte.trim()),
+    fecha_inicial: formatearFecha(fechaInicialCohorte),
+    fecha_final: formatearFecha(fechaFinalCohorte),
+    activo: true,
+  };
+  return fetchNuevaCohorte(dataCohorte);
 };
 
 const fetchNuevaCohorte = async (data) => {

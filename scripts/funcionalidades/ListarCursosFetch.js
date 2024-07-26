@@ -1,5 +1,6 @@
 import llenarTablaCursosTutor from "./llenaTablaFormaciones.js";
 import verCohorte from "./VerCohorte.js";
+import verModulos from "./VerModulos.js";
 
 const listarCursosTutorFetch = async (tipo_formacion) => {
   const requestOptions = {
@@ -26,6 +27,7 @@ const listarCursosTutorFetch = async (tipo_formacion) => {
       // modeloCursoConTutor = JSON.parse(result);
       llenarTablaCursosTutor(modeloCursoConTutor);
       verCohorte(modeloCursoConTutor);
+      tipo_formacion === 5 && verModulos(modeloCursoConTutor);
     })
     .catch((error) => {
       console.error(error);
