@@ -1,4 +1,4 @@
-import listarCohorterFormacion from "../funcionalidades/Cohortes/ListarCohortesFormacion.js";
+import listarCohorterFormacion from "../../funcionalidades/Cohortes/ListarCohortesFormacion.js";
 
 const listarCohortes = (idFormacion, idTipoFormacion) => {
   console.log(idFormacion);

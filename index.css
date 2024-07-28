@@ -340,6 +340,13 @@ h6 {
   outline: 1px solid var(--rojoprincipal);
 }
 
+.modal-data-cohorte-estado{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
 @media only screen and (max-width: 1023px) {
 }
 @media only screen and (min-width: 1024px) {

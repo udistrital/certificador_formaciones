@@ -111,7 +111,7 @@
 }
 
 .modal-contenido-form-input {
-  padding: 16px 0 16px 5px;
+  padding: 16px 7px;
   outline: 1px solid var(--negroModal);
   border-radius: 10px;
   width: 100%;

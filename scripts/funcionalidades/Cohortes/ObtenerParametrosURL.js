@@ -1,5 +1,4 @@
-import listarCohortes from "../../Fetching/ListarCohortes.js";
-import traerUltimaCohorte from "../../Fetching/UltimaCohorte.js";
+import listarCohortes from "../../Fetching/GET/ListarCohortes.js";
 import insertarInfoParaCreacionCohorte from "./InsertarInformacionFormacion.js";
 
 const obtenerParametrosURL = () => {
@@ -20,7 +19,6 @@ const obtenerParametrosURL = () => {
   );
   listarCohortes(idFormacion, tipoFormacion);
   insertarInfoParaCreacionCohorte(idFormacion, nombreFormacion, tipoFormacion);
-  traerUltimaCohorte(tipoFormacion, idFormacion);
 };
 
 export default obtenerParametrosURL;

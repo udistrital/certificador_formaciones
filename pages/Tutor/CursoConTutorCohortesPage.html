@@ -213,19 +213,6 @@
                   />
                 </label>
               </div>
-              <div
-                class="modal-contenido-form-div modal-contenido-form-div-lleno"
-              >
-                <label for="numCohorte"
-                  >Cohorte:
-                  <input
-                    type="number"
-                    name="numCohorte"
-                    id="numCohorte"
-                    disabled
-                  />
-                </label>
-              </div>
               <div class="modal-contenido-form-div">
                 <label for="anioCohorte">
                   Año de cohorte:
@@ -237,6 +224,21 @@
                     class="modal-contenido-form-input"
                     min="1900"
                     max="2100"
+                    step="1"
+                /></label>
+              </div>
+
+              <div class="modal-contenido-form-div">
+                <label for="numCohorte"
+                  >Cohorte:
+                  <input
+                    type="number"
+                    name="numCohorte"
+                    id="numCohorte"
+                    class="modal-contenido-form-input"
+                    placeholder="1, 2, o 3"
+                    min="1"
+                    max="3"
                     step="1"
                 /></label>
               </div>
@@ -473,10 +475,48 @@
                       <th scope="col">Link</th>
                     </tr>
                   </thead>
-                  <template id="template-renglon-cursos-tutor-cohortes-info">
-                    <tbody></tbody>
-                  </template>
-                  <tbody></tbody>
+                  <tbody class="table-body-info-cohorte">
+                    <tbody>
+                      <tr>
+                        <td>Inscripción</td>
+                        <td id="table-body-fechaInscripcion">fi</td>
+                        <td>
+                          <div class="modal-data-cohorte-estado" id="modal-data-cohorte-estado-inscripcion">
+                              
+                              
+                          </div>
+                        </td>
+                        <td>
+                          <span
+                            class="material-symbols-outlined share-info-cohorte"
+                            title="Copiar link de inscripción"
+                            id="info-cohorte-copia-link-inscripcion"
+                          >
+                            share
+                          </span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Asistencia</td>
+                        <td id="table-body-fechaAsistencia">fa</td>
+                        <td>
+                          <div class="modal-data-cohorte-estado" id="modal-data-cohorte-estado-asistencia">
+                            <span class="material-symbols-outlined on-info-cohorte" title="Habilitada" > check_circle </span>
+                            <span class="material-symbols-outlined off-info-cohorte" title="Deshabilitada"> cancel </span>
+                          </div>
+                        </td>
+                        <td>
+                          <span
+                            class="material-symbols-outlined share-info-cohorte"
+                            title="Copiar link de asistencia"
+                            id="info-cohorte-copia-link-asistencia"
+                          >
+                            share
+                          </span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </tbody>
                 </table>
               </section>
             </div>
@@ -600,3 +640,5 @@
   <script src="../../scripts/CerrarSesion.js" type="module"></script>
   <script src="../../scripts/autorizacion.js" type="module"></script>
 </html>
+
+

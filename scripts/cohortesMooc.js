@@ -287,9 +287,9 @@
 //   location.href = `CursoMoocCohortesPage.html?idFormacion=${idFormacion}&idCohorte=${idCohorte}`;
 // };
 
-import copiarLinks from "./funcionalidades/Cohortes/CopiaLinksCohortes.js";
+// import copiarLinks from "./funcionalidades/Cohortes/CopiaLinksCohortes.js";
 import obtenerParametrosURL from "./funcionalidades/Cohortes/ObtenerParametrosURL.js";
 
-copiarLinks();
+// copiarLinks();
 
 obtenerParametrosURL();

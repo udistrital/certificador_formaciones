@@ -12,7 +12,7 @@ const crearFormacionfnc = () => {
 
   const data = {
     creador: idUsuario,
-    tipo_proceso: idTipoFormacion,
+    tipo_proceso: parseInt(idTipoFormacion),
     nombre: nombreFormacion,
     intensidad_horaria: intensidadHoraria,
     activo: true,

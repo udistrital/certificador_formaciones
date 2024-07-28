@@ -1,6 +1,8 @@
+import postNuevoFormulario from "./Fetching/POST/InsertaFormulario.js";
+import postNuevaSesion from "./Fetching/POST/InsertarSesion.js";
 import formatearFecha from "./funcionalidades/FormateoFecha.js";
 
-const crearCohorteFnc = () => {
+const crearCohorteFnc = async () => {
   let idUsuario = JSON.parse(sessionStorage.getItem("data"))[0].id;
   let idTipoFormacion = document.getElementById(
     "cursoConTutorFormTipoFormacion"
@@ -37,7 +39,7 @@ const crearCohorteFnc = () => {
   let fechaFinalAsistenciaCohorte = document.getElementById(
     "fechaFinalAsistenciaCohorte"
   ).value;
-  let horiaFinalAsistenciaCohorte = document.getElementById(
+  let horaFinalAsistenciaCohorte = document.getElementById(
     "horiaFinalAsistenciaCohorte"
   ).value;
   let incluirIntensidadHoraria = document.getElementById(
@@ -67,7 +69,7 @@ const crearCohorteFnc = () => {
     fechaInicialAsistenciaCohorte,
     horaInicialAsistenciaCohorte,
     fechaFinalAsistenciaCohorte,
-    horiaFinalAsistenciaCohorte,
+    horaFinalAsistenciaCohorte,
     incluirIntensidadHoraria,
     incluirIntensidadFechaInicial,
     incluirIntensidadFechaFinal,
@@ -77,7 +79,7 @@ const crearCohorteFnc = () => {
   };
   console.log("data:", data);
 
-  let dataCohorteCompleta = {
+  let dataForm = {
     cohorte: {
       creador: parseInt(idUsuario),
       proceso: parseInt(idFormacion.trim()),
@@ -89,45 +91,34 @@ const crearCohorteFnc = () => {
     },
     sesion: {
       creador: parseInt(idUsuario),
-      cohorte: parseInt(numCohorte.trim()),
-      fechaConexion,
-      horaConexion,
-      virtual: modalidad === "on" ? true : false,
+      cohorte: null,
+      fecha_inicial: formatearFecha(fechaConexion),
+      fecha_final: formatearFecha(fechaConexion),
+      virtual: modalidad === "on" ? 1 : 0,
       enlace: linkCursoOConexion,
       activo: true,
     },
     formularioAsistencia: {
       creador: parseInt(idUsuario),
-      cohorte: parseInt(numCohorte.trim()),
-      tipo_formulario: 1,
+      cohorte: null,
+      tipo_formulario: 5,
       hash: `http://127.0.0.5:5501/pages/formularios/formsInscripcion/formularioRegistroAspirantes.html?idFormacion=${idFormacion}&idCohorte=${numCohorte}`,
-      fecha_inicial: fechaInicialAsistenciaCohorte,
-      horaInicialAsistenciaCohorte,
-      fecha_final: fechaFinalAsistenciaCohorte,
-      horiaFinalAsistenciaCohorte,
+      fecha_inicial: `${fechaInicialAsistenciaCohorte} ${horaInicialAsistenciaCohorte}:00`,
+      fecha_final: `${fechaFinalAsistenciaCohorte} ${horaFinalAsistenciaCohorte}:00`,
     },
     formularioRegistro: {
       creador: parseInt(idUsuario),
-      cohorte: parseInt(numCohorte.trim()),
-      tipo_formulario: 2,
+      cohorte: null,
+      tipo_formulario: 1,
       hash: `http://127.0.0.5:5501/pages/formularios/formsInscripcion/formularioRegistroAspirantes.html?idFormacion=${idFormacion}&idCohorte=${numCohorte}`,
-      fecha_inicial: fechaInicialCohorteFormInscripcion,
-      fecha_final: fechaFinalCohorteFormInscripcion,
+      fecha_inicial: formatearFecha(fechaInicialCohorteFormInscripcion),
+      fecha_final: formatearFecha(fechaFinalCohorteFormInscripcion),
     },
   };
 
-  console.log(dataCohorteCompleta);
+  console.log(dataForm);
 
-  let dataCohorte = {
-    creador: parseInt(idUsuario),
-    proceso: parseInt(idFormacion.trim()),
-    cohorte: parseInt(numCohorte.trim()),
-    anio: parseInt(anioCohorte.trim()),
-    fecha_inicial: formatearFecha(fechaInicialCohorte),
-    fecha_final: formatearFecha(fechaFinalCohorte),
-    activo: true,
-  };
-  return fetchNuevaCohorte(dataCohorte);
+  return fetchNuevaCohorte(dataForm);
 };
 
 const fetchNuevaCohorte = async (data) => {
@@ -135,7 +126,7 @@ const fetchNuevaCohorte = async (data) => {
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
 
-  const raw = JSON.stringify(data);
+  const raw = JSON.stringify(data.cohorte);
 
   const requestOptions = {
     method: "POST",
@@ -151,8 +142,16 @@ const fetchNuevaCohorte = async (data) => {
     .then((response) => response.text())
     .then(async (result) => {
       console.log(JSON.parse(result));
-      if ((await JSON.parse(result).estado) === "ok") {
+      result = JSON.parse(result);
+      if ((await result.estado) === "ok") {
         estado = true;
+        data.sesion.cohorte = result.resultado.id_cohorte;
+        data.formularioRegistro.cohorte = result.resultado.id_cohorte;
+        data.formularioAsistencia.cohorte = result.resultado.id_cohorte;
+        postNuevaSesion(data.sesion);
+        postNuevoFormulario(data.formularioRegistro);
+        postNuevoFormulario(data.formularioAsistencia);
+        console.log(data.sesion);
       }
     })
     .catch((error) => {
