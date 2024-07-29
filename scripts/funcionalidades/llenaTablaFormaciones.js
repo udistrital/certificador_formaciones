@@ -18,6 +18,8 @@ const llenarTablaCursosTutor = (data) => {
                   ${
                     formacion.tipo_proceso === "5"
                       ? '<span class="material-symbols-outlined index-modulos" title="Modulos">stacks</span>'
+                      : formacion.tipo_proceso === "6"
+                      ? '<span class="material-symbols-outlined index-modulos" title="Modulos">stacks</span>'
                       : ""
                   }
                   

@@ -177,11 +177,11 @@
               <div
                 class="modal-contenido-form-div modal-contenido-form-div-lleno"
               >
-                <label for=""
+                <label for="cursoConTutorFormTipoFormacion"
                   >Tipo de Formación:
                   <input
                     type="text"
-                    name=""
+                    name="cursoConTutorFormTipoFormacion"
                     id="cursoConTutorFormTipoFormacion"
                     disabled
                     value=" [Tipo]"
@@ -203,32 +203,20 @@
               <div
                 class="modal-contenido-form-div modal-contenido-form-div-lleno"
               >
-                <label for="nombreProceso"
+                <label for="cursoConTutorFormNombreFormacion"
                   >Nombre de formación:
                   <input
                     type="text"
-                    name=""
+                    name="cursoConTutorFormNombreFormacion"
                     id="cursoConTutorFormNombreFormacion"
                     disabled
                     value=" [Tipo]"
-                /></label>
-              </div>
-              <div
-                class="modal-contenido-form-div modal-contenido-form-div-lleno"
-              >
-                <label for="numCohorte"
-                  >Cohorte:
-                  <input
-                    type="number"
-                    name="numCohorte"
-                    id="numCohorte"
-                    disabled
                   />
                 </label>
               </div>
               <div class="modal-contenido-form-div">
-                <label for="anioCohorte"
-                  >Año de la cohorte:
+                <label for="anioCohorte">
+                  Año de cohorte:
                   <input
                     type="number"
                     name="anioCohorte"
@@ -240,17 +228,22 @@
                     step="1"
                 /></label>
               </div>
+
               <div class="modal-contenido-form-div">
-                <label for="intensidadHoraria"
-                  >Intensidad horaria:
+                <label for="numCohorte"
+                  >Cohorte:
                   <input
                     type="number"
-                    name="intensidadHoraria"
-                    id="intensidadHoraria"
-                    placeholder="Intensidad horaria"
+                    name="numCohorte"
+                    id="numCohorte"
                     class="modal-contenido-form-input"
+                    placeholder="1, 2, o 3"
+                    min="1"
+                    max="3"
+                    step="1"
                 /></label>
               </div>
+
               <p class="texto-title-form-region">Rango de la cohorte</p>
               <div class="modal-contenido-form-div-join">
                 <div class="modal-contenido-form-div">
@@ -301,9 +294,10 @@
                   /></label>
                 </div>
               </div>
+              <p class="texto-title-form-region">Modalidad</p>
               <div class="modal-contenido-form-div">
                 <label for="linkCursoOConexion"
-                  >Link de conexion:
+                  >Link de conexión:
                   <input
                     type="text"
                     name="linkCursoOConexion"
@@ -312,6 +306,7 @@
                     class="modal-contenido-form-input"
                 /></label>
               </div>
+
               <div class="modal-contenido-form-div-join">
                 <div class="modal-contenido-form-div">
                   <label for="fechaConexion"
@@ -335,6 +330,18 @@
                       class="modal-contenido-form-input"
                   /></label>
                 </div>
+              </div>
+              <div
+                class="modal-contenido-form-div modal-contenido-form-div-check"
+              >
+                <label for="modalidad"
+                  >Modalidad virtual
+                  <input
+                    type="checkbox"
+                    name="modalidad"
+                    id="modalidad"
+                    class="modal-contenido-form-input-check"
+                /></label>
               </div>
               <p class="texto-title-form-region">Formulario de asistencia</p>
               <div class="modal-contenido-form-div-join">
@@ -390,7 +397,7 @@
                 class="modal-contenido-form-div modal-contenido-form-div-check"
               >
                 <label for="incluirIntensidadHoraria"
-                  >Incluir intensidad horaria
+                  >Incluir intensidad horaria:
                   <input
                     type="checkbox"
                     name="incluirIntensidadHoraria"
@@ -403,7 +410,7 @@
                 class="modal-contenido-form-div modal-contenido-form-div-check"
               >
                 <label for="incluirIntensidadFechaInicial"
-                  >Incluir fecha inicial
+                  >Incluir fecha inicial:
                   <input
                     type="checkbox"
                     name="incluirIntensidadFechaInicial"
@@ -416,7 +423,7 @@
                 class="modal-contenido-form-div modal-contenido-form-div-check"
               >
                 <label for="incluirIntensidadFechaFinal"
-                  >Incluir fecha final
+                  >Incluir fecha final:
                   <input
                     type="checkbox"
                     name="incluirIntensidadFechaFinal"
@@ -468,10 +475,48 @@
                       <th scope="col">Link</th>
                     </tr>
                   </thead>
-                  <template id="template-renglon-cursos-tutor-cohortes-info">
-                    <tbody></tbody>
-                  </template>
-                  <tbody></tbody>
+                  <tbody class="table-body-info-cohorte">
+                    <tbody>
+                      <tr>
+                        <td>Inscripción</td>
+                        <td id="table-body-fechaInscripcion">fi</td>
+                        <td>
+                          <div class="modal-data-cohorte-estado" id="modal-data-cohorte-estado-inscripcion">
+                              
+                              
+                          </div>
+                        </td>
+                        <td>
+                          <span
+                            class="material-symbols-outlined share-info-cohorte"
+                            title="Copiar link de inscripción"
+                            id="info-cohorte-copia-link-inscripcion"
+                          >
+                            share
+                          </span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Asistencia</td>
+                        <td id="table-body-fechaAsistencia">fa</td>
+                        <td>
+                          <div class="modal-data-cohorte-estado" id="modal-data-cohorte-estado-asistencia">
+                            <span class="material-symbols-outlined on-info-cohorte" title="Habilitada" > check_circle </span>
+                            <span class="material-symbols-outlined off-info-cohorte" title="Deshabilitada"> cancel </span>
+                          </div>
+                        </td>
+                        <td>
+                          <span
+                            class="material-symbols-outlined share-info-cohorte"
+                            title="Copiar link de asistencia"
+                            id="info-cohorte-copia-link-asistencia"
+                          >
+                            share
+                          </span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </tbody>
                 </table>
               </section>
             </div>

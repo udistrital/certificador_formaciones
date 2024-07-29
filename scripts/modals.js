@@ -1,5 +1,6 @@
 import crearCohorteFnc from "./crearCohorte.js";
 import crearFormacionfnc from "./crearFormacion.js";
+import obtenerParametrosComposForm from "./funcionalidades/Modulos/ObtenerParametrosCamposForm.js";
 import reload from "./funcionalidades/ReloadPage.js";
 
 const d = document;
@@ -12,6 +13,10 @@ const $openModalNuevaFormacion = d.getElementById("add-nueva-formacion");
 const $closeModalNuevaCohorte = d.getElementById("close-modal-nueva-cohorte");
 const $modalNuevaCohorte = d.getElementById("modal-nueva-cohorte");
 const $openModalNuevaCohorte = d.getElementById("add-nueva-cohorte");
+
+const $closeModalNuevoModulo = d.getElementById("close-modal-nuevo-modulo");
+const $modalNuevoModulo = d.getElementById("modal-nuevo-modulo");
+const $openModalNuevoModulo = d.getElementById("add-nuevo-modulo");
 
 const $closeModalInfoCohorte = d.getElementById("close-modal-info-cohorte");
 const $modalinfoCohorte = d.getElementById("modal-info-cohorte");
@@ -33,6 +38,13 @@ d.addEventListener("click", (e) => {
   }
   if (e.target === $openModalNuevaCohorte) {
     $modalNuevaCohorte.classList.toggle("modal-disabled");
+  }
+
+  if (e.target === $closeModalNuevoModulo || e.target === $modalNuevoModulo) {
+    $modalNuevoModulo.classList.toggle("modal-disabled");
+  }
+  if (e.target === $openModalNuevoModulo) {
+    $modalNuevoModulo.classList.toggle("modal-disabled");
   }
   if (e.target === $closeModalInfoCohorte || e.target === $modalinfoCohorte) {
     console.log("modal open or close");
@@ -65,6 +77,7 @@ d.addEventListener("submit", async (e) => {
   // UNA VEZ REALIZADO DEPENDE DEL MENSAJE DEL SERVIDOR SE MOSTRARA UNA NOTIFICACION
   const $btnNuevaFormacion = document.getElementById("modal-form-formacion");
   const $btnNuevaCohorte = document.getElementById("modal-form-cohorte");
+  const $btnNuevoModulo = document.getElementById("modal-form-modulo");
   if (e.target === $btnNuevaFormacion) {
     $modalNuevaFormacion.classList.toggle("modal-disabled");
 
@@ -100,6 +113,24 @@ d.addEventListener("submit", async (e) => {
         "notificacion-roja-cohorte"
       );
       $notificacionRoja.classList.remove("notificacion-disabled");
+      // reload();
+    }
+  } else if (e.target === $btnNuevoModulo) {
+    $modalNuevoModulo.classList.toggle("modal-disabled");
+    let estado = await obtenerParametrosComposForm();
+    // console.log(estado);
+
+    if (estado === true) {
+      const $notificacionVerde = document.getElementById(
+        "notificacion-verde-formacion"
+      );
+      $notificacionVerde.classList.toggle("notificacion-disabled");
+      // reload();
+    } else if (estado === false) {
+      const $notificacionRoja = document.getElementById(
+        "notificacion-roja-formacion"
+      );
+      $notificacionRoja.classList.toggle("notificacion-disabled");
       // reload();
     }
   }

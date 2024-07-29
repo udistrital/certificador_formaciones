@@ -14,10 +14,10 @@ function verModulos(data) {
       );
       switch (data[id].tipo_proceso) {
         case "5":
-          location.href = `../../index.html?idFormacion=${data[id].id}&nombreFormacion=${data[id].nombre}&tipoFormacion=${data[id].tipo_proceso}`;
+          location.href = `../../pages/Diplomado/CursosModulos.html?idFormacion=${data[id].id}&nombreFormacion=${data[id].nombre}&tipoFormacion=${data[id].tipo_proceso}`;
           break;
         case "6":
-          location.href = `../../index.html?idFormacion=${data[id].id}&nombreFormacion=${data[id].nombre}&tipoFormacion=${data[id].tipo_proceso}`;
+          location.href = `../../pages/Eventos/EventosModulos.html?idFormacion=${data[id].id}&nombreFormacion=${data[id].nombre}&tipoFormacion=${data[id].tipo_proceso}`;
           break;
       }
     });

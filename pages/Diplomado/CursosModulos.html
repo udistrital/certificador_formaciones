@@ -151,36 +151,42 @@
         <article class="add-article">
           <span
             class="material-symbols-outlined add-span"
-            id="add-nueva-formacion"
+            id="add-nuevo-modulo"
             title="Agregar formación"
           >
             add
           </span>
         </article>
-        <article
-          class="article-modal modal-disabled"
-          id="modal-nueva-formacion"
-        >
+        <article class="article-modal modal-disabled" id="modal-nuevo-modulo">
           <div class="modal-contenido">
             <div class="modal-header">
-              <span class="modal-title">Nueva formación</span>
+              <span class="modal-title">Nuevo modulo</span>
               <span
                 class="material-symbols-outlined material-google-icon"
-                id="close-modal-nueva-formacion"
+                id="close-modal-nuevo-modulo"
               >
                 cancel
               </span>
             </div>
-            <form
-              action=""
-              class="modal-contenido-form"
-              id="modal-form-formacion"
-            >
+            <form action="" class="modal-contenido-form" id="modal-form-modulo">
+              <div
+                class="modal-contenido-form-div modal-contenido-form-div-lleno"
+              >
+                <label for="form-curso-tutor-input-tipo-formacion-id"
+                  >Id tipo de proceso:
+                  <input
+                    type="text"
+                    name="form-curso-tutor-input-tipo-formacion-id"
+                    id="form-curso-tutor-input-tipo-formacion-id"
+                    disabled
+                    value=" [Tipo]"
+                /></label>
+              </div>
               <div
                 class="modal-contenido-form-div modal-contenido-form-div-lleno"
               >
                 <label for="form-curso-tutor-input-tipo-formacion"
-                  >Tipo de Formación:
+                  >Tipo de proceso:
                   <input
                     type="text"
                     name="form-curso-tutor-input-tipo-formacion"
@@ -190,15 +196,56 @@
                 /></label>
               </div>
               <div
+                class="modal-contenido-form-div modal-contenido-form-div-lleno"
+              >
+                <label for="form-curso-tutor-input-id-proceso"
+                  >Id proceso:
+                  <input
+                    type="number"
+                    name="form-curso-tutor-input-id-proceso"
+                    id="form-curso-tutor-input-id-proceso"
+                    disabled
+                /></label>
+              </div>
+              <div
+                class="modal-contenido-form-div modal-contenido-form-div-lleno"
+              >
+                <label for="form-curso-tutor-input-nombre-proceso"
+                  >Nombre proceso:
+                  <input
+                    type="text"
+                    name="form-curso-tutor-input-nombre-proceso"
+                    id="form-curso-tutor-input-nombre-proceso"
+                    disabled
+                    required
+                /></label>
+              </div>
+              <div
                 class="modal-contenido-form-div modal-contenido-form-div--new-formacion"
               >
-                <label for="nombreProceso">Ingrese el nombre del proceso:
-                <input
-                  type="text"
-                  name="nombreProceso"
-                  id="nombreProceso"
-                  placeholder="Nombre del proceso"
-                  class="modal-contenido-form-input"
+                <label for="nombreModulo"
+                  >Nombre del modulo:
+                  <input
+                    type="text"
+                    name="nombreModulo"
+                    id="nombreModulo"
+                    placeholder="Nombre del modulo"
+                    class="modal-contenido-form-input"
+                    required
+                /></label>
+              </div>
+              <div
+                class="modal-contenido-form-div modal-contenido-form-div--new-formacion"
+              >
+                <label for="intensidadHoraria"
+                  >Intensidad horaria:
+                  <input
+                    type="number"
+                    name="intensidadHoraria"
+                    id="intensidadHoraria"
+                    placeholder="Nombre del proceso"
+                    class="modal-contenido-form-input"
+                    required
                 /></label>
               </div>
               <!-- <div class="modal-contenido-form-div">
@@ -226,7 +273,7 @@
             id="notificacion-verde-formacion"
           >
             <span class="material-symbols-outlined"> check_circle </span>
-            <p>Se ha creado la formación correctamente</p>
+            <p>Se ha creado el modulo correctamente</p>
             <span></span>
           </div>
           <div
@@ -234,7 +281,7 @@
             id="notificacion-roja-formacion"
           >
             <span class="material-symbols-outlined"> error </span>
-            <p>No se ha podido crear la formación</p>
+            <p>No se ha podido crear el modulo</p>
             <span></span>
           </div>
         </article>
@@ -247,9 +294,9 @@
           <thead>
             <tr>
               <th scope="col">ID</th>
-              <th scope="col">Nombre</th>
-              <th scope="col">Tipo de proceso</th>
-              <th scope="col">Acción</th>
+              <th scope="col">Nombre modulo</th>
+              <th scope="col">Nombre proceso</th>
+              <th scope="col">Tipo proceso</th>
             </tr>
           </thead>
           <tbody id="tbody-table-cursos-tutor">
@@ -304,9 +351,9 @@
   <script src="../../scripts/header.js" type="module"></script>
   <script src="../../scripts/modals.js" type="module"></script>
   <script src="../../scripts/navegacion.js" type="module"></script>
-  <script src="../../scripts/cursoTutor.js" type="module"></script>
+  <!-- <script src="../../scripts/cursoTutor.js" type="module"></script> -->
+  <script src="../../scripts/cursoModulos.js" type="module"></script>
   <script src="../../scripts/irTop.js" type="module"></script>
   <script src="../../scripts/CerrarSesion.js" type="module"></script>
   <script src="../../scripts/autorizacion.js" type="module"></script>
-
 </html>
