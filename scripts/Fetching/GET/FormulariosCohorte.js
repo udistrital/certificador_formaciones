@@ -10,6 +10,7 @@ const formulariosGET = async (idCohorteModelo) => {
       requestOptions
     );
     const result = await response.json();
+    console.log(result);
     const listaFormularios = result.filter((formulario) => {
       return formulario.cohorte === idCohorteModelo.toString();
     });

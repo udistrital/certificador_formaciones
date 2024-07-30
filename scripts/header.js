@@ -6,7 +6,7 @@ $headerSesionBtn.addEventListener("click", (e) => {
 });
 
 const $btn_ham = document.querySelector(".nav__menu");
-console.log($btn_ham);
+// console.log($btn_ham);
 
 $btn_ham.addEventListener("click", (e) => {
   document.querySelector(".nav").classList.toggle("nav--disabled");
@@ -18,7 +18,7 @@ $btn_ham.addEventListener("click", (e) => {
 
 const identificarUsuario = async () => {
   let data = await JSON.parse(sessionStorage.getItem("data"));
-  console.log(data);
+  // console.log(data);
   document.querySelector(".texto_nombreusuario").textContent = data[0].username;
   document.querySelector(".texto_rol").textContent = data[0].nombre;
   document.querySelector(".controles__icono").textContent =

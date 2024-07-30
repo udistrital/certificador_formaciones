@@ -8,7 +8,7 @@ export function registrarNavegacion() {
     localStorage.setItem("linksVisitados", JSON.stringify(linksVisitados));
   }
 
-  console.log(localStorage);
+  // console.log(localStorage);
 
   linksVisitados = JSON.parse(localStorage.getItem("linksVisitados")) || [
     window.location.href,
@@ -30,7 +30,7 @@ const obtenerInformacionURL = (link) => {
   informacion.forEach((value, key) => {
     paramsObj[key] = value;
   });
-  console.log(paramsObj);
+  // console.log(paramsObj);
   return paramsObj;
 };
 const llenarHistorial = () => {
@@ -41,7 +41,7 @@ const llenarHistorial = () => {
     "historial-nav-article"
   );
   // console.log($artHistorial);
-  console.log(linksVisitados);
+  // console.log(linksVisitados);
   linksVisitados.forEach((link) => {
     let nombreFormacion = obtenerInformacionURL(link).nombreFormacion;
     $template.querySelector("a").setAttribute("href", link);

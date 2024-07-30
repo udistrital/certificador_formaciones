@@ -90,13 +90,13 @@ d.addEventListener("submit", async (e) => {
         "notificacion-verde-formacion"
       );
       $notificacionVerde.classList.toggle("notificacion-disabled");
-      // reload();
+      reload();
     } else if (estado === false) {
       const $notificacionRoja = document.getElementById(
         "notificacion-roja-formacion"
       );
       $notificacionRoja.classList.toggle("notificacion-disabled");
-      // reload();
+      reload();
     }
   } else if (e.target === $btnNuevaCohorte) {
     $modalNuevaCohorte.classList.toggle("modal-disabled");
@@ -106,14 +106,14 @@ d.addEventListener("submit", async (e) => {
         "notificacion-verde-cohorte"
       );
       $notificacionVerde.classList.remove("notificacion-disabled");
-      // reload();
+      reload();
     } else if (estado === false) {
       console.log("rojo");
       const $notificacionRoja = document.getElementById(
         "notificacion-roja-cohorte"
       );
       $notificacionRoja.classList.remove("notificacion-disabled");
-      // reload();
+      reload();
     }
   } else if (e.target === $btnNuevoModulo) {
     $modalNuevoModulo.classList.toggle("modal-disabled");
@@ -125,13 +125,13 @@ d.addEventListener("submit", async (e) => {
         "notificacion-verde-formacion"
       );
       $notificacionVerde.classList.toggle("notificacion-disabled");
-      // reload();
+      reload();
     } else if (estado === false) {
       const $notificacionRoja = document.getElementById(
         "notificacion-roja-formacion"
       );
       $notificacionRoja.classList.toggle("notificacion-disabled");
-      // reload();
+      reload();
     }
   }
   window.scrollTo({

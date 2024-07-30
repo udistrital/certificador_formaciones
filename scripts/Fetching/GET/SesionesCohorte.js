@@ -10,6 +10,7 @@ const sesionesGET = async (idCohorteModelo) => {
       requestOptions
     );
     const result = await response.json();
+    console.log(result);
     const listadoSesiones = result.filter((sesion) => {
       return sesion.cohorte === idCohorteModelo.toString();
     });
