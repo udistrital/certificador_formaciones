@@ -27,7 +27,7 @@ const listarCursosTutorFetch = async (tipo_formacion) => {
       // modeloCursoConTutor = JSON.parse(result);
       llenarTablaCursosTutor(modeloCursoConTutor);
       verCohorte(modeloCursoConTutor);
-      tipo_formacion === 6 && verModulos(modeloCursoConTutor);
+      (tipo_formacion === 10 || tipo_formacion === 11) && verModulos(modeloCursoConTutor);
     })
     .catch((error) => {
       console.error(error);

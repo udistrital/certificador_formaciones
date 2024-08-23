@@ -16,9 +16,9 @@ const llenarTablaCursosTutor = (data) => {
                   <td class="td-acciones">
                   <span class="material-symbols-outlined accion-ver-cohorte" title="Ver cohortes">visibility</span>
                   ${
-                    formacion.tipo_proceso === "5"
+                    formacion.tipo_proceso === "10"
                       ? '<span class="material-symbols-outlined index-modulos" title="Modulos">stacks</span>'
-                      : formacion.tipo_proceso === "6"
+                      : formacion.tipo_proceso === "11"
                       ? '<span class="material-symbols-outlined index-modulos" title="Modulos">stacks</span>'
                       : ""
                   }

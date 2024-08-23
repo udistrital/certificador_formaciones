@@ -80,6 +80,7 @@ const crearCohorteFnc = async () => {
   console.log("data:", data);
 
   let dataForm = {
+    tipo_proceso: data.tipo_proceso,
     cohorte: {
       creador: parseInt(idUsuario),
       proceso: parseInt(idFormacion.trim()),
@@ -115,6 +116,47 @@ const crearCohorteFnc = async () => {
       fecha_final: formatearFecha(fechaFinalCohorteFormInscripcion),
     },
   };
+  console.log(window.location.pathname);
+
+  if (window.location.pathname.includes("EventosCohortesPage.html")) {
+    let fechaInicialCohorteFormDocumentacion = document.getElementById(
+        "fechaInicialCohorteFormDocumentacion"
+      ).value,
+      fechaFinalCohorteFormDocumentacion = document.getElementById(
+        "fechaFinalCohorteFormDocumentacion"
+      ).value,
+      fechaInicialCohorteFormMemoria = document.getElementById(
+        "fechaInicialCohorteFormMemorias"
+      ).value,
+      fechaFinalCohorteFormMemoria = document.getElementById(
+        "fechaFinalCohorteFormMemorias"
+      ).value;
+
+    dataForm.formularioPonente = {
+      creador: parseInt(idUsuario),
+      cohorte: null,
+      tipo_formulario: 2,
+      hash: `http://127.0.0.5:5501/pages/formularios/formsInscripcion/formularioRegistroAspirantes.html?idFormacion=${idFormacion}&idCohorte=${numCohorte}`,
+      fecha_inicial: formatearFecha(fechaInicialCohorteFormInscripcion),
+      fecha_final: formatearFecha(fechaFinalCohorteFormInscripcion),
+    };
+    dataForm.formularioDocumentacion = {
+      creador: parseInt(idUsuario),
+      cohorte: null,
+      tipo_formulario: 3,
+      hash: `http://127.0.0.5:5501/pages/formularios/formsInscripcion/formularioRegistroAspirantes.html?idFormacion=${idFormacion}&idCohorte=${numCohorte}`,
+      fecha_inicial: formatearFecha(fechaInicialCohorteFormDocumentacion),
+      fecha_final: formatearFecha(fechaFinalCohorteFormDocumentacion),
+    };
+    dataForm.formularioMemoria = {
+      creador: parseInt(idUsuario),
+      cohorte: null,
+      tipo_formulario: 4,
+      hash: `http://127.0.0.5:5501/pages/formularios/formsInscripcion/formularioRegistroAspirantes.html?idFormacion=${idFormacion}&idCohorte=${numCohorte}`,
+      fecha_inicial: formatearFecha(fechaInicialCohorteFormMemoria),
+      fecha_final: formatearFecha(fechaFinalCohorteFormMemoria),
+    };
+  }
 
   console.log(dataForm);
 
@@ -151,6 +193,18 @@ const fetchNuevaCohorte = async (data) => {
         postNuevaSesion(data.sesion);
         postNuevoFormulario(data.formularioRegistro);
         postNuevoFormulario(data.formularioAsistencia);
+        console.log(data.tipo_proceso, typeof data.tipo_proceso);
+
+        if (data.tipo_proceso === "11") {
+          console.log("Creando formularios apartes");
+
+          data.formularioPonente.cohorte = result.resultado.id_cohorte;
+          data.formularioDocumentacion.cohorte = result.resultado.id_cohorte;
+          data.formularioMemoria.cohorte = result.resultado.id_cohorte;
+          postNuevoFormulario(data.formularioPonente);
+          postNuevoFormulario(data.formularioDocumentacion);
+          postNuevoFormulario(data.formularioMemoria);
+        }
         console.log(data.sesion);
       }
     })

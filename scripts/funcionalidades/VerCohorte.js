@@ -12,19 +12,19 @@ function verCohorte(data) {
         data[id].tipo_proceso
       );
       switch (data[id].tipo_proceso) {
-        case "2":
+        case "7":
           location.href = `CursoConTutorCohortesPage.html?idFormacion=${data[id].id}&nombreFormacion=${data[id].nombre}&tipoFormacion=${data[id].tipo_proceso}`;
           break;
-        case "3":
+        case "8":
           location.href = `CursoMoocCohortesPage.html?idFormacion=${data[id].id}&nombreFormacion=${data[id].nombre}&tipoFormacion=${data[id].tipo_proceso}`;
           break;
-        case "4":
+        case "9":
           location.href = `CapacitacionCohortesPage.html?idFormacion=${data[id].id}&nombreFormacion=${data[id].nombre}&tipoFormacion=${data[id].tipo_proceso}`;
           break;
-        case "5":
+        case "10":
           location.href = `DiplomadoCohortesPage.html?idFormacion=${data[id].id}&nombreFormacion=${data[id].nombre}&tipoFormacion=${data[id].tipo_proceso}`;
           break;
-        case "6":
+        case "11":
           location.href = `EventosCohortesPage.html?idFormacion=${data[id].id}&nombreFormacion=${data[id].nombre}&tipoFormacion=${data[id].tipo_proceso}`;
           break;
       }
