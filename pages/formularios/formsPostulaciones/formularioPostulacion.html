@@ -4,7 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fomulario postulación</title>
-    <link rel="icon" type="image/png" href="/images/iconos/pt-favicon-32x32.png" sizes="32x32">
+    <link
+      rel="icon"
+      type="image/png"
+      href="/images/iconos/pt-favicon-32x32.png"
+      sizes="32x32"
+    />
     <link rel="stylesheet" href="../../../index.css" />
     <link rel="stylesheet" href="../../../styles/formularios.css" />
   </head>
@@ -22,52 +27,53 @@
       </h1>
     </header>
     <main class="main">
-      <form action="" class="contenido-form" id="form">
-        <label class="form-label" for="form-nombreEvento">
-          Nombre del proceso:
+      <form action="" class="contenido-form" id="form_ponentes">
+        <label class="form-label" for="form-nombreFormacion">
+          Nombre de formación:
           <input
             type="text"
-            name="nombreEvento"
-            id="form-nombreEvento"
-            disabled
-            value="Prueba Evento"
-            class="form-input"
+            name="nombreFormacion"
+            id="form-nombreFormacion"
+            readonly
+            value="Prueba Diplomado A"
+            class="form-input form-input-disabled"
           />
         </label>
         <div class="form-div-join">
-          <label class="form-label" for="form-tipoEvento">
-            Tipo de proceso:
+          <label class="form-label" for="form-tipoFormacion">
+            Tipo de formación
             <input
               type="text"
-              name="tipoEvento"
-              id="form-tipoEvento"
-              class="form-input"
-              value="Evento"
-              disabled
+              name="tipoFormacion"
+              id="form-tipoFormacion"
+              class="form-input form-input-disabled"
+              value="Diplomado"
+              readonly
             />
           </label>
-          <label class="form-label" for="form-anioEvento">
+          <label class="form-label" for="form-anioFormacion">
             Año de la cohorte:
             <input
               type="number"
-              name="anioEvento"
-              id="form-anioEvento"
-              class="form-input"
+              name="anioFormacion"
+              id="form-anioFormacion"
+              class="form-input form-input-disabled"
               value="2024"
               min="1900"
               max="2100"
-              disabled
+              readonly
             />
           </label>
-          <label class="form-label" for="form-numeroEvento">
+          <label class="form-label" for="form-numeroCohorte">
             Numero de cohorte:
             <input
               type="number"
-              name="numeroEvento"
-              id="form-numeroEvento"
-              class="form-input"
+              name="numeroCohorte"
+              id="form-numeroCohorte"
+              placeholder="Numero de cohorte"
+              class="form-input form-input-disabled"
               value="2"
-              disabled
+              readonly
             />
           </label>
         </div>
@@ -93,22 +99,18 @@
             />
           </label>
         </div>
-        <label class="form-label" for="form-tipoDocumentoPostulante">
+        <label class="form-label" for="form-tipoDocumento">
           Tipo de documento:
           <select
-            name="tipoDocumentoPostulante"
-            id="form-tipoDocumentoPostulante"
+            name="tipoDocumento"
+            id="form-tipoDocumento"
             required
             class="form-input"
-          >
-            <option value="cc">Cedula de ciudadania</option>
-            <option value="cc">Pasaporte</option>
-            <option value="cc">Cedula de extranjeria</option>
-          </select>
+          ></select>
         </label>
         <div class="form-div-join">
           <label class="form-label" for="form-numDocumentoPostulante">
-            Numero de identificación:  
+            Numero de identificación:
             <input
               type="number"
               name="numDocumentoPostulante"
@@ -179,25 +181,21 @@
           </label>
         </div>
 
-        <label class="form-label" for="form-vinculacionPostulante">
+        <label class="form-label" for="form-vinculacion">
           Tipo de vinculación:
           <select
-            name="vinculacionPostulante"
-            id="form-vinculacionPostulante"
+            name="vinculacion"
+            id="form-vinculacion"
             class="form-input"
             required
-          >
-            <option value="contratista">Contratista</option>
-            <option value="administrativo">Administrativo</option>
-            <option value="planta">Planta</option>
-          </select>
+          ></select>
         </label>
 
         <label class="form-label" for="form-perfilPostulante">
           Perfil de postulante:
           <textarea
-            name="areaPostulante"
-            id="form-areaPostulante"
+            name="perfilPostulante"
+            id="form-perfilPostulante"
             class="form-input"
             required
             cols="10"
@@ -206,7 +204,7 @@
 Perfil de formación y/o profesión Max. 1500 carácteres
           </textarea>
         </label>
-        <label class="form-label" for="form-perfilPostulante">
+        <label class="form-label" for="form-propuestaPostulante">
           Propuesta de ponencia:
           <input
             type="file"
@@ -220,7 +218,7 @@ Perfil de formación y/o profesión Max. 1500 carácteres
           </p>
         </label>
         <label class="form-label-check" for="form-terminos"
-          ><input type="checkbox" name="form-terminos" id="form-terminos" />
+          ><input type="checkbox" name="terminos" id="form-terminos" />
           Acepto <a href="#"> terminos y condiciones</a> para tratar estos datos
           y confirmo que los mismos son veridicos
         </label>
@@ -242,3 +240,10 @@ Perfil de formación y/o profesión Max. 1500 carácteres
     </footer>
   </body>
 </html>
+
+<script
+  type="module"
+  src="../../../scripts/funcionalidades/Formularios/PreLlenadoFormulario.js"
+></script>
+
+<script type="module" src="../../../scripts/funcionalidades/Formularios/CapturaCamposFormularios.js"></script>

@@ -4,7 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fomulario 1</title>
-    <link rel="icon" type="image/png" href="/images/iconos/pt-favicon-32x32.png" sizes="32x32">
+    <link
+      rel="icon"
+      type="image/png"
+      href="/images/iconos/pt-favicon-32x32.png"
+      sizes="32x32"
+    />
 
     <link rel="stylesheet" href="../../../index.css" />
     <link rel="stylesheet" href="../../../styles/formularios.css" />
@@ -21,16 +26,16 @@
       <h1 class="header-title">Formulario</h1>
     </header>
     <main class="main">
-      <form action="" class="contenido-form" id="form">
+      <form action="" class="contenido-form" id="form_inscritos">
         <label class="form-label" for="form-nombreFormacion">
           Nombre de proceso:
           <input
             type="text"
             name="nombreFormacion"
             id="form-nombreFormacion"
-            disabled
+            readonly
             value="Prueba Diplomado A"
-            class="form-input"
+            class="form-input form-input-disabled"
           />
         </label>
         <div class="form-div-join">
@@ -40,9 +45,9 @@
               type="text"
               name="tipoFormacion"
               id="form-tipoFormacion"
-              class="form-input"
+              class="form-input form-input-disabled"
               value="Diplomado"
-              disabled
+              readonly
             />
           </label>
           <label class="form-label" for="form-anioFormacion">
@@ -51,11 +56,11 @@
               type="number"
               name="anioFormacion"
               id="form-anioFormacion"
-              class="form-input"
+              class="form-input form-input-disabled"
               value="2024"
               min="1900"
               max="2100"
-              disabled
+              readonly
             />
           </label>
           <label class="form-label" for="form-numeroCohorte">
@@ -65,9 +70,9 @@
               name="numeroCohorte"
               id="form-numeroCohorte"
               placeholder="Numero de cohorte"
-              class="form-input"
+              class="form-input form-input-disabled"
               value="2"
-              disabled
+              readonly
             />
           </label>
         </div>
@@ -93,17 +98,14 @@
             />
           </label>
         </div>
-        <label class="form-label" for="form-tipoDocumentoPonente">
+        <label class="form-label" for="form-tipoDocumento">
           Tipo de documento:
           <select
-            name="tipoDocumentoPonente"
-            id="form-tipoDocumentoPonente"
+            name="tipoDocumento"
+            id="form-tipoDocumento"
             required
             class="form-input"
           >
-            <option value="cc">Cedula de ciudadania</option>
-            <option value="cc">Pasaporte</option>
-            <option value="cc">Cedula de extranjeria</option>
           </select>
         </label>
         <div class="form-div-join">
@@ -179,40 +181,20 @@
           </label>
         </div>
 
-        <label class="form-label" for="form-dependenciaPonente">
-          Seleccione la dependencia a la que pertenece:
+        <label class="form-label" for="form-vinculacion">
+          Seleccione el tipo de vinculación:
           <select
-            name="dependenciaPonente"
-            id="form-dependenciaPonente"
+            name="vinculacion"
+            id="form-vinculacion"
             class="form-input"
             required
-          >
-            <option value="contratista">Contratista</option>
-            <option value="administrativo">Administrativo</option>
-            <option value="planta">Planta</option>
-          </select>
-        </label>
-
-        <label class="form-label" for="form-areaPonente">
-          Seleccione el area a la que pertenece:
-          <select
-            name="areaPonente"
-            id="form-areaPonente"
-            class="form-input"
-            required
-          >
-            <option value="opt1">Plan estratégico ......</option>
-          </select>
+          ></select>
         </label>
 
         <label class="form-label-check" for="form-terminos"
-          ><input
-            type="checkbox"
-            name="form-terminos"
-            id="form-terminos"
-          />
-          Acepto <a href="#"> terminos y condiciones</a> para tratar estos datos
-          y confirmo que los mismos son veridicos
+          ><input type="checkbox" name="terminos" id="form-terminos" />
+          Acepto <a href="" target="_blank">terminos y condiciones</a> para
+          tratar estos datos y confirmo que los mismos son veridicos
         </label>
 
         <input
@@ -224,9 +206,20 @@
       </form>
     </main>
     <footer>
-      <p>Plan estratégico de Tecnologías de la Información y las Comunicaciones</p>
+      <p>
+        Plan estratégico de Tecnologías de la Información y las Comunicaciones
+      </p>
       <p>PlanEsTIC-UD</p>
       <p>Copyright &copy; 2024</p>
     </footer>
   </body>
 </html>
+
+<script
+  type="module"
+  src="../../../scripts/funcionalidades/Formularios/PreLlenadoFormulario.js"
+></script>
+<script
+  type="module"
+  src="../../../scripts/funcionalidades/Formularios/CapturaCamposFormularios.js"
+></script>

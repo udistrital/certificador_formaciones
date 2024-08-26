@@ -27,60 +27,61 @@
       </h1>
     </header>
     <main class="main">
-      <form action="" class="contenido-form" id="form">
-        <label class="form-label" for="form-nombreEvento">
-          Nombre evento:
+      <form action="" class="contenido-form" id="form_documentos">
+        <label class="form-label" for="form-nombreFormacion">
+          Nombre de formación:
           <input
             type="text"
-            name="nombreEvento"
-            id="form-nombreEvento"
-            disabled
-            value="Prueba Evento"
-            class="form-input"
+            name="nombreFormacion"
+            id="form-nombreFormacion"
+            readonly
+            value="Prueba Diplomado A"
+            class="form-input form-input-disabled"
           />
         </label>
         <div class="form-div-join">
-          <label class="form-label" for="form-tipoEvento">
-            Tipo de proceso:
+          <label class="form-label" for="form-tipoFormacion">
+            Tipo de formación
             <input
               type="text"
-              name="tipoEvento"
-              id="form-tipoEvento"
-              class="form-input"
-              value="Evento"
-              disabled
+              name="tipoFormacion"
+              id="form-tipoFormacion"
+              class="form-input form-input-disabled"
+              value="Diplomado"
+              readonly
             />
           </label>
-          <label class="form-label" for="form-anioEvento">
+          <label class="form-label" for="form-anioFormacion">
             Año de la cohorte:
             <input
               type="number"
-              name="anioEvento"
-              id="form-anioEvento"
-              class="form-input"
+              name="anioFormacion"
+              id="form-anioFormacion"
+              class="form-input form-input-disabled"
               value="2024"
               min="1900"
               max="2100"
-              disabled
+              readonly 
             />
           </label>
-          <label class="form-label" for="form-numeroEvento">
-            Numero de la cohorte del evento:
+          <label class="form-label" for="form-numeroCohorte">
+            Numero de cohorte:
             <input
               type="number"
-              name="numeroEvento"
-              id="form-numeroEvento"
-              class="form-input"
+              name="numeroCohorte"
+              id="form-numeroCohorte"
+              placeholder="Numero de cohorte"
+              class="form-input form-input-disabled"
               value="2"
-              disabled
+              readonly 
             />
           </label>
         </div>
-        <label class="form-label" for="form-tipoDocumentoPostulante">
+        <label class="form-label" for="form-tipoDocumento">
           Seleccione tipo de documento:
           <select
-            name="tipoDocumentoPostulante"
-            id="form-tipoDocumentoPostulante"
+            name="tipoDocumento"
+            id="form-tipoDocumento"
             required
             class="form-input"
           >
@@ -157,3 +158,6 @@
     </footer>
   </body>
 </html>
+
+<script type="module" src="../../../scripts/funcionalidades/Formularios/PreLlenadoFormulario.js"></script>
+<script type="module" src="../../../scripts/funcionalidades/Formularios/CapturaCamposFormularios.js"></script>

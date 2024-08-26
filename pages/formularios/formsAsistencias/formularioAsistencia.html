@@ -25,16 +25,16 @@
       <h1 class="header-title">Formulario</h1>
     </header>
     <main class="main">
-      <form action="" class="contenido-form" id="form">
+      <form action="" class="contenido-form" id="form_asistencias">
         <label class="form-label" for="form-nombreFormacion">
           Nombre de formación:
           <input
             type="text"
             name="nombreFormacion"
             id="form-nombreFormacion"
-            disabled
+            readonly
             value="Prueba Diplomado A"
-            class="form-input"
+            class="form-input form-input-disabled"
           />
         </label>
         <div class="form-div-join">
@@ -44,9 +44,9 @@
               type="text"
               name="tipoFormacion"
               id="form-tipoFormacion"
-              class="form-input"
+              class="form-input form-input-disabled"
               value="Diplomado"
-              disabled
+              readonly
             />
           </label>
           <label class="form-label" for="form-anioFormacion">
@@ -55,11 +55,11 @@
               type="number"
               name="anioFormacion"
               id="form-anioFormacion"
-              class="form-input"
+              class="form-input form-input-disabled"
               value="2024"
               min="1900"
               max="2100"
-              disabled
+              readonly
             />
           </label>
           <label class="form-label" for="form-numeroCohorte">
@@ -69,24 +69,20 @@
               name="numeroCohorte"
               id="form-numeroCohorte"
               placeholder="Numero de cohorte"
-              class="form-input"
+              class="form-input form-input-disabled"
               value="2"
-              disabled
+              readonly
             />
           </label>
         </div>
-        <label class="form-label" for="form-tipoDocumentoPonente">
+        <label class="form-label" for="form-tipoDocumento">
           Seleccione tipo de documento:
           <select
-            name="tipoDocumentoPonente"
-            id="form-tipoDocumentoPonente"
+            name="tipoDocumento"
+            id="form-tipoDocumento"
             required
             class="form-input"
-          >
-            <option value="cc">Cedula de ciudadania</option>
-            <option value="cc">Pasaporte</option>
-            <option value="cc">Cedula de extranjeria</option>
-          </select>
+          ></select>
         </label>
         <div class="form-div-join">
           <label class="form-label" for="form-numDocumentoPonente">
@@ -114,7 +110,7 @@
         </div>
 
         <label class="form-label-check" for="form-terminos"
-          ><input type="checkbox" name="form-terminos" id="form-terminos" />
+          ><input type="checkbox" name="terminos" id="form-terminos" />
           Confirmo mi asistencia a la sesión de hoy
         </label>
 
@@ -135,3 +131,13 @@
     </footer>
   </body>
 </html>
+
+<script
+  type="module"
+  src="../../../scripts/funcionalidades/Formularios/PreLlenadoFormulario.js"
+></script>
+
+<script
+  type="module"
+  src="../../../scripts/funcionalidades/Formularios/CapturaCamposFormularios.js"
+></script>
