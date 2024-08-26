@@ -2,6 +2,7 @@ import crearCohorteFnc from "./crearCohorte.js";
 import crearFormacionfnc from "./crearFormacion.js";
 import obtenerParametrosComposForm from "./funcionalidades/Modulos/ObtenerParametrosCamposForm.js";
 import reload from "./funcionalidades/ReloadPage.js";
+import gotop from "./irTop.js";
 
 const d = document;
 const $closeModalNuevaFormacion = d.getElementById(
@@ -63,6 +64,7 @@ export const mostrarModalInfoCohorte = () => {
       console.log("echoi");
       if (event.target === e) {
         console.log(i);
+        gotop()
         $modalinfoCohorte.classList.toggle("modal-disabled");
       }
     });

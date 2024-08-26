@@ -36,6 +36,28 @@ const copiarLinks = (data) => {
       navigator.clipboard.writeText(textoACopiar).then(() => {
         alert("Se ha copidado el link");
       });
+    } else if (
+      e.target === document.getElementById("info-cohorte-copia-link-ponentes")
+    ) {
+      textoACopiar = "ponentes"
+      navigator.clipboard.writeText(textoACopiar).then(() => {
+        alert("Se ha copidado el link");
+      });
+    } else if (
+      e.target ===
+      document.getElementById("info-cohorte-copia-link-documentacion")
+    ) {
+      textoACopiar = "documentacion"
+      navigator.clipboard.writeText(textoACopiar).then(() => {
+        alert("Se ha copidado el link");
+      });
+    } else if (
+      e.target === document.getElementById("info-cohorte-copia-link-memorias")
+    ) {
+      textoACopiar = "memorias"
+      navigator.clipboard.writeText(textoACopiar).then(() => {
+        alert("Se ha copidado el link");
+      });
     }
   });
 };

@@ -9,10 +9,17 @@ window.addEventListener("scroll", function () {
 document.querySelector(".nav-menu-top").addEventListener(
   "click",
   (e) => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth", // Esto hace que el desplazamiento sea suave
-    });
+    gotop();
   },
   true
 );
+
+
+const gotop = () =>{
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth", // Esto hace que el desplazamiento sea suave
+  });
+}
+
+export default gotop;

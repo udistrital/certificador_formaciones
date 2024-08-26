@@ -1,75 +1,60 @@
-import { cusosCohortesGenerales } from "../models/informesGenerales.js";
+// import { cusosCohortesGenerales } from "../models/informesGenerales.js";
+import listaFormularios from "./Fetching/GET/ListarFormularios.js";
+import llenarTablaPageFormularios from "./funcionalidades/Formularios/LlenaTablaPageFormularios.js";
+import redireccionarFormulario from "./funcionalidades/Formularios/RedireccionarFormulario.js";
 
 let listaInformesGenerales = [];
 const listarGeneralesFetch = async () => {
-  await fetch("https://65e896cb4bb72f0a9c4fdadd.mockapi.io/api/generales")
-    .then((response) => {
-      // Verificar si la respuesta es exitosa (código de estado HTTP 200-299)
-      if (!response.ok) {
-        throw new Error("La solicitud no fue exitosa");
-      }
-      // Parsear la respuesta como JSON
-      return response.json();
-    })
-    .then((data) => {
-      // Hacer algo con los datos recibidos
-      listaInformesGenerales = data;
-      console.log(data);
-      llenarTablaInformesGenerales(listaInformesGenerales);
-      obtenerIdCohorte(listaInformesGenerales);
-      ordenamientos(listaInformesGenerales);
-    })
-    .catch((error) => {
-      // Capturar y manejar cualquier error
-      console.error("Error:", error);
-      llenarTablaInformesGenerales(cusosCohortesGenerales);
-      obtenerIdCohorte(cusosCohortesGenerales);
-      ordenamientos(cusosCohortesGenerales);
-    });
+  // Hacer algo con los datos recibidos
+  listaInformesGenerales = await listaFormularios();
+  console.log(listaInformesGenerales);
+  llenarTablaPageFormularios(listaInformesGenerales);
+  obtenerIdCohorte(listaInformesGenerales);
+  ordenamientos(listaInformesGenerales);
 };
 
 listarGeneralesFetch();
 
-const llenarTablaInformesGenerales = (li) => {
-  console.log(li);
-  // debugger;
-  const $fargmento = document.createDocumentFragment(),
-    $template = document.getElementById(
-      "template-renglon-formaciones-generales"
-    ).content,
-    $tbodyFormacionesGenerales = document.getElementById(
-      "tbody-table-formaciones-generales"
-    );
-  $tbodyFormacionesGenerales.innerHTML = "";
-  li.forEach((formacion) => {
-    $template.querySelector("tr").innerHTML = `
-      <td>${formacion.id}</td>
-      <td>${formacion.tipo}</td>
-      <td>${formacion.nombre}</td>
-      <td>${formacion.numCohorte}</td>
-      <td>${formacion.anio}</td>
-      <td>${new Date(formacion.fechaI).getFullYear()}/${
-      new Date(formacion.fechaI).getMonth() + 1
-    }/${new Date(formacion.fechaI).getDate()}</td>
-      <td>${new Date(formacion.fechaF).getFullYear()}/${
-      new Date(formacion.fechaF).getMonth() + 1
-    }/${new Date(formacion.fechaF).getDate()}</td>
-      <td class="td-acciones">
-      <span
-      class="material-symbols-outlined index-asistencias"
-      title="Ver link información cohorte"
-      >
-      link
-      </span>
-      </td>`;
+// const llenarTablaInformesGenerales = (li) => {
+//   console.log(li);
+//   // debugger;
+//   const $fargmento = document.createDocumentFragment(),
+//     $template = document.getElementById(
+//       "template-renglon-formaciones-generales"
+//     ).content,
+//     $tbodyFormacionesGenerales = document.getElementById(
+//       "tbody-table-formaciones-generales"
+//     );
+//   $tbodyFormacionesGenerales.innerHTML = "";
+//   li.forEach((formacion) => {
+//     $template.querySelector("tr").innerHTML = `
+//       <td>${formacion.id}</td>
+//       <td>${formacion.tipo}</td>
+//       <td>${formacion.nombre}</td>
+//       <td>${formacion.numCohorte}</td>
+//       <td>${formacion.anio}</td>
+//       <td>${new Date(formacion.fechaI).getFullYear()}/${
+//       new Date(formacion.fechaI).getMonth() + 1
+//     }/${new Date(formacion.fechaI).getDate()}</td>
+//       <td>${new Date(formacion.fechaF).getFullYear()}/${
+//       new Date(formacion.fechaF).getMonth() + 1
+//     }/${new Date(formacion.fechaF).getDate()}</td>
+//       <td class="td-acciones">
+//       <span
+//       class="material-symbols-outlined index-asistencias"
+//       title="Ver link información cohorte"
+//       >
+//       link
+//       </span>
+//       </td>`;
 
-    let clone = document.importNode($template, true);
+//     let clone = document.importNode($template, true);
 
-    $fargmento.appendChild(clone);
-  });
+//     $fargmento.appendChild(clone);
+//   });
 
-  $tbodyFormacionesGenerales.appendChild($fargmento);
-};
+//   $tbodyFormacionesGenerales.appendChild($fargmento);
+// };
 
 let d = document;
 const ordenamientos = () => {
@@ -196,19 +181,31 @@ document
     obtenerIdCohorte(filtrado);
   });
 
-const redireccionarAsistencia = (idCohorte, idFormacion) => {
-  location.href = `formularioPostulacion.html?idFormacion=${idFormacion}&idCohorte=${idCohorte}`;
-};
-
 const obtenerIdCohorte = (li) => {
-  llenarTablaInformesGenerales(li);
+  // llenarTablaInformesGenerales(li);
 
   let listaAsistencias = d.querySelectorAll(".index-asistencias");
   listaAsistencias.forEach((asistencia, id) => {
     asistencia.addEventListener("click", (e) => {
-      console.log("se hizo clic");
-      console.log(id, "id", li[id].id);
-      redireccionarAsistencia(li[id].numCohorte, li[id].id);
+      // console.log("se hizo clic");
+      console.log(id, "id", li[id].id_formulario);
+      let idCohorteModelo = li[id].id_cohorte,
+        cohorte = li[id].cohorte,
+        idProceso = li[id].id_proceso,
+        nombreProceso = li[id].nombre_proceso,
+        nombreTipoProceso = li[id].nombre_tipo_proceso,
+        idTipoProceso = li[id].id_tipo_proceso,
+        anio = li[id].anio;
+      redireccionarFormulario(
+        idCohorteModelo,
+        cohorte,
+        idProceso,
+        nombreProceso,
+        nombreTipoProceso,
+        idTipoProceso,
+        anio
+      );
+      // redireccionarAsistencia(li[id].numCohorte, li[id].id);
     });
   });
 };

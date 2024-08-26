@@ -305,7 +305,91 @@ const llenarModalInfoCohorteSeleccionada = (inforCohorte) => {
         share
       </span>
     </td>
-  </tr>`;
+  </tr>
+
+  ${inforCohorte.id_tipo_proceso === "11" ? `<tr class="tr-modal-infocohorte">
+    <td>Ponentes</td>
+    <td>${inforCohorte.link_asistencia[0].fecha_inicial} - ${
+    inforCohorte.link_asistencia[0].fecha_final
+  }</td>
+    <td>
+      <div class="modal-data-cohorte-estado">
+      ${
+        new Date(inforCohorte.link_asistencia[0].fecha_final).getTime() >=
+        new Date().getTime()
+          ? '<span class="material-symbols-outlined on-info-cohorte" title="Habilitada" > check_circle </span>'
+          : '<span class="material-symbols-outlined off-info-cohorte" title="Deshabilitada"> cancel </span>'
+      }
+      </div>
+    </td>
+    <td>
+      <span
+        class="material-symbols-outlined share-info-cohorte"
+        title="Copiar link de asistencia"
+        id="info-cohorte-copia-link-asistencia"
+      >
+        share
+      </span>
+    </td>
+  </tr>
+  <tr class="tr-modal-infocohorte">
+    <td>Documentación</td>
+    <td>${inforCohorte.link_asistencia[0].fecha_inicial} - ${
+    inforCohorte.link_asistencia[0].fecha_final
+  }</td>
+    <td>
+      <div class="modal-data-cohorte-estado">
+      ${
+        new Date(inforCohorte.link_asistencia[0].fecha_final).getTime() >=
+        new Date().getTime()
+          ? '<span class="material-symbols-outlined on-info-cohorte" title="Habilitada" > check_circle </span>'
+          : '<span class="material-symbols-outlined off-info-cohorte" title="Deshabilitada"> cancel </span>'
+      }
+      </div>
+    </td>
+    <td>
+      <span
+        class="material-symbols-outlined share-info-cohorte"
+        title="Copiar link de asistencia"
+        id="info-cohorte-copia-link-asistencia"
+      >
+        share
+      </span>
+    </td>
+  </tr>
+  <tr class="tr-modal-infocohorte">
+    <td>Memorias</td>
+    <td>${inforCohorte.link_asistencia[0].fecha_inicial} - ${
+    inforCohorte.link_asistencia[0].fecha_final
+  }</td>
+    <td>
+      <div class="modal-data-cohorte-estado">
+      ${
+        new Date(inforCohorte.link_asistencia[0].fecha_final).getTime() >=
+        new Date().getTime()
+          ? '<span class="material-symbols-outlined on-info-cohorte" title="Habilitada" > check_circle </span>'
+          : '<span class="material-symbols-outlined off-info-cohorte" title="Deshabilitada"> cancel </span>'
+      }
+      </div>
+    </td>
+    <td>
+      <span
+        class="material-symbols-outlined share-info-cohorte"
+        title="Copiar link de asistencia"
+        id="info-cohorte-copia-link-asistencia"
+      >
+        share
+      </span>
+    </td>
+  </tr>
+  
+  ` : ""}
+
+  
+  
+
+  `
+  
   clone = document.importNode($template, true);
 
   $fargmento.appendChild(clone);

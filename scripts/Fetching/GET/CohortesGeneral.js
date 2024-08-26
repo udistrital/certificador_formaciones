@@ -9,6 +9,7 @@ const cohortesGeneralesGET = async (idCohorteModelo) => {
   try {
     const response = await fetch(
       `https://pruebascrud.formaciones.planestic.udistrital.edu.co/mid/cohorte.php`,
+      // `https://pruebascrud.formaciones.planestic.udistrital.edu.co/v1/cohorte.php`,
       requestOptions
     );
     const result = await response.json();
