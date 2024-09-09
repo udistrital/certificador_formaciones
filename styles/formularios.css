@@ -57,7 +57,7 @@ body {
   background-color: var(--rojoprincipal);
 }
 
-input:disabled {
+input:disabled, select:disabled {
   background-color: var(--rojo-transparente);
   outline: 2px solid var(--gris);
   color: black;

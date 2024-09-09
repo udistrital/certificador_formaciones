@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario de validación de cursante</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="/images/iconos/pt-favicon-32x32.png"
+      sizes="32x32"
+    />
+
+    <link rel="stylesheet" href="../../../index.css" />
+    <link rel="stylesheet" href="../../../styles/formularios.css" />
+  </head>
+  <body>
+    <header class="header">
+      <figure class="header-banner">
+        <img
+          src="../../../images/Banner_formulario_vinotinto.jpg"
+          alt="Banner formulario"
+          id="header-banner-img"
+        />
+      </figure>
+      <h1 class="header-title">validación de cursante</h1>
+    </header>
+    <main class="main">
+      <form action="" class="contenido-form" id="form_cursante">
+        <label class="form-label" for="form-tipoDocumento">
+          Tipo de documento:
+          <select
+            name="tipoDocumento"
+            id="form-tipoDocumento"
+            required
+            class="form-input"
+          >
+          </select>
+        </label>
+        <div class="form-div-join">
+          <label class="form-label" for="form-numDocumentoPonente">
+            Numero de documento:
+            <input
+              type="number"
+              name="numDocumentoPonente"
+              id="form-numDocumentoPonente"
+              placeholder="101258988"
+              class="form-input"
+              required
+            />
+          </label>
+        </div>
+
+        <label class="form-label-check" for="form-terminos"
+          ><input type="checkbox" name="terminos" id="form-terminos" />
+          Acepto <a href="" target="_blank">terminos y condiciones</a> para
+          tratar estos datos y confirmo que los mismos son veridicos
+        </label>
+
+        <input
+          type="submit"
+          value="Enviar"
+          class="button"
+          id="btn-submit-nuevaFormacion"
+        />
+      </form>
+    </main>
+    <footer>
+      <p>
+        Plan estratégico de Tecnologías de la Información y las Comunicaciones
+      </p>
+      <p>PlanEsTIC-UD</p>
+      <p>Copyright &copy; 2024</p>
+    </footer>
+  </body>
+</html>
+
+<script
+  type="module"
+  src="../../../scripts/funcionalidades/Formularios/PreLlenadoFormulario.js"
+></script>
+<script
+  type="module"
+  src="../../../scripts/funcionalidades/Formularios/CapturaCamposFormularios.js"
+></script>

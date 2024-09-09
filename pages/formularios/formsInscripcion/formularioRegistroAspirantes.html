@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fomulario 1</title>
+    <title>Fomulario de registro a cohorte</title>
     <link
       rel="icon"
       type="image/png"
@@ -23,7 +23,7 @@
           id="header-banner-img"
         />
       </figure>
-      <h1 class="header-title">Formulario</h1>
+      <h1 class="header-title">Registro a cohorte</h1>
     </header>
     <main class="main">
       <form action="" class="contenido-form" id="form_inscritos">
@@ -77,38 +77,72 @@
           </label>
         </div>
         <div class="form-div-join">
-          <label class="form-label" for="form-nombresPonente">
-            Nombres:
+          <label class="form-label" for="form-primerNombre">
+            Primer nombre:
             <input
               type="text"
-              name="nombresPonente"
-              id="form-nombresPonente"
-              placeholder="Jass Alf"
+              name="primerNombre"
+              id="form-primerNombre"
+              placeholder="primer nombre"
               class="form-input"
+              required
             />
           </label>
-          <label class="form-label" for="form-apellidosPonente">
-            Apellidos:
+          <label class="form-label" for="form-segundoNombre">
+            Segundo nombre:
             <input
               type="text"
-              name="apellidosPonente"
-              id="form-apellidosPonente"
-              placeholder="Sua San"
+              name="segundoNombre"
+              id="form-segundoNombre"
+              placeholder="segundo nombre"
               class="form-input"
             />
           </label>
         </div>
+        <div class="form-div-join">
+          <label class="form-label" for="form-primerApellido">
+            Primer apellido:
+            <input
+              type="text"
+              name="primerApellido"
+              id="form-primerApellido"
+              placeholder="primer apellido"
+              class="form-input"
+              required
+            />
+          </label>
+          <label class="form-label" for="form-segundoApellido">
+            Segundo apellido:
+            <input
+              type="text"
+              name="segundoApellido"
+              id="form-segundoApellido"
+              placeholder="segundo apellido"
+              class="form-input"
+              required
+            />
+          </label>
+        </div>
+        
+        <label class="form-label" for="form-codigoEdx">
+          Código Edx:
+          <input
+            type="text"
+            name="codigoEdx"
+            id="form-codigoEdx"
+            placeholder="Código Edx"
+            class="form-input"
+          />
+        </label>
         <label class="form-label" for="form-tipoDocumento">
           Tipo de documento:
           <select
             name="tipoDocumento"
             id="form-tipoDocumento"
             required
-            class="form-input"
-          >
-          </select>
+            class="form-input form-input-disabled"
+          ></select>
         </label>
-        <div class="form-div-join">
           <label class="form-label" for="form-numDocumentoPonente">
             Numero de documento:
             <input
@@ -116,22 +150,57 @@
               name="numDocumentoPonente"
               id="form-numDocumentoPonente"
               placeholder="101258988"
-              class="form-input"
+              class="form-input form-input-disabled"
               required
             />
           </label>
-          <label class="form-label" for="form-numDocumentoPonenteRepetir">
-            Confirme numero de documento:
-            <input
-              type="number"
-              name="numDocumentoPonenteRepetir"
-              id="form-numDocumentoPonenteRepetir"
-              placeholder="101258988"
-              class="form-input"
-              required
-            />
-          </label>
-        </div>
+        <label class="form-label" for="form-fechaNacimiento">
+          Fecha de nacimiento:
+          <input
+            type="date"
+            name="fechaNacimiento"
+            id="form-fechaNacimiento"
+            class="form-input"
+            required
+          />
+        </label>
+
+        <label class="form-label" for="form-genero"></label>
+          Género:
+          <select
+            name="genero"
+            id="form-genero"
+            class="form-input"
+            required
+          ></select>
+        </label>
+        <label class="form-label" for="form-identidadGenero"></label>
+          Identidad de género:
+          <select
+            name="identidadGenero"
+            id="form-identidadGenero"
+            class="form-input"
+            required
+          ></select>
+        </label>
+        <label class="form-label" for="form-grupoEtnico"></label>
+          Grupo Etnico:
+          <select
+            name="grupoEtnico"
+            id="form-grupoEtnico"
+            class="form-input"
+            
+          ></select>
+        </label>
+        <label class="form-label" for="form-discapacidad"></label>
+          Tipo de discapacidad:
+          <select
+            name="discapacidad"
+            id="form-discapacidad"
+            class="form-input"
+            
+          ></select>
+        </label>
         <div class="form-div-join">
           <label class="form-label" for="form-correoPonente">
             Correo electrónico:
@@ -192,9 +261,9 @@
         </label>
 
         <label class="form-label-check" for="form-terminos"
-          ><input type="checkbox" name="terminos" id="form-terminos" />
-          Acepto <a href="" target="_blank">terminos y condiciones</a> para
-          tratar estos datos y confirmo que los mismos son veridicos
+          ><input type="checkbox" name="terminos" id="form-terminos" /> Acepto
+          <a href="" target="_blank">terminos y condiciones</a> para tratar
+          estos datos y confirmo que los mismos son veridicos
         </label>
 
         <input

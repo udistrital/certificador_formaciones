@@ -1,3 +1,7 @@
+import validaCursante from "../../Fetching/GET/Cursante.js";
+import insertaRegistro from "../../Fetching/POST/InsertaRegistroAspirante.js";
+import obtenerParametrosUrlFormulario from "./ObtenerParametrosUrlFormulario.js";
+
 const capturaCampos = () => {
   if (window.location.pathname.includes("formularioRegistroAspirantes")) {
     formularioRegistro();
@@ -9,7 +13,43 @@ const capturaCampos = () => {
     formularioEvidencias();
   } else if (window.location.pathname.includes("formularioDocumentos")) {
     formularioDocumentos();
+  } else if (
+    window.location.pathname.includes("formularioValidacionCursante")
+  ) {
+    formularioValidaCursante();
   }
+};
+
+export const formularioValidaCursante = () => {
+  document
+    .getElementById("form_cursante")
+    .addEventListener("submit", async function (event) {
+      event.preventDefault(); // Evitar que el formulario se envíe de manera predeterminada
+
+      const formData = new FormData(event.target); // Crear un objeto FormData
+      console.log(event.target);
+
+      // Capturar datos
+      let data = {
+        tipoDocumento: formData.get("tipoDocumento"),
+        numDocumento: formData.get("numDocumentoPonente"),
+        terminos: formData.get("terminos"),
+      };
+      console.log(data);
+      let existe_cursante = await validaCursante(data);
+      let {
+        idCohorteModelo,
+        cohorte,
+        idProceso,
+        nombreProceso,
+        nombreTipoProceso,
+        idTipoProceso,
+        anio,
+      } = obtenerParametrosUrlFormulario();
+      location.href = `formularioRegistroAspirantes.html?idCohorteModelo=${idCohorteModelo}&cohorte=${cohorte}&idProceso=${idProceso}&nombreProceso=${nombreProceso}&nombreTipoProceso=${nombreTipoProceso}&idTipoProceso=${idTipoProceso}&anio=${anio}&existeCursante=${existe_cursante}&tipoDocumento=${data.tipoDocumento}&numDocumento=${data.numDocumento}&terminos=${data.terminos}`;
+
+      // return data;
+    });
 };
 
 const formularioRegistro = () => {
@@ -39,9 +79,9 @@ const formularioRegistro = () => {
         tipoVinculacion: formData.get("vinculacion"),
         terminos: formData.get("terminos"),
       };
-      console.log(data);
-
-      return data;
+      // console.log(data);
+      insertaRegistro(data);
+      // return data;
     });
 };
 
