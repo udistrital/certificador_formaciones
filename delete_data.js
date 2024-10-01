@@ -16,7 +16,7 @@ const deleteForm = (id) => {
   };
 
   fetch(
-    "https://pruebascrud.formaciones.planestic.udistrital.edu.co/v1/formulario.php",
+    "https://pruebascrud.formaciones.planestic.udistrital.edu.co/v1/registro.php",
     requestOptions
   )
     .then((response) => response.text())
@@ -24,8 +24,8 @@ const deleteForm = (id) => {
     .catch((error) => console.error(error));
 };
 
-let id = 65;
+let id = 34;
 const interval = setInterval(() => {
   deleteForm(id);
   id++;
-}, 5000);
+}, 500);

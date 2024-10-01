@@ -1,6 +1,8 @@
+import { fetchNuevaCohorte } from "./Fetching/POST/InsertaCohorte.js";
 import postNuevoFormulario from "./Fetching/POST/InsertaFormulario.js";
 import postNuevaSesion from "./Fetching/POST/InsertarSesion.js";
 import formatearFecha from "./funcionalidades/FormateoFecha.js";
+import notificacion from "./funcionalidades/Notificacion.js";
 
 const crearCohorteFnc = async () => {
   let idUsuario = JSON.parse(sessionStorage.getItem("data"))[0].id;
@@ -120,102 +122,93 @@ const crearCohorteFnc = async () => {
 
   if (window.location.pathname.includes("EventosCohortesPage.html")) {
     let fechaInicialCohorteFormDocumentacion = document.getElementById(
-        "fechaInicialCohorteFormDocumentacion"
+        "fechaInicialDocumentacion"
       ).value,
       fechaFinalCohorteFormDocumentacion = document.getElementById(
-        "fechaFinalCohorteFormDocumentacion"
+        "fechaFinalDocumentacion"
       ).value,
       fechaInicialCohorteFormMemoria = document.getElementById(
-        "fechaInicialCohorteFormMemorias"
+        "fechaInicialMemoria"
       ).value,
-      fechaFinalCohorteFormMemoria = document.getElementById(
-        "fechaFinalCohorteFormMemorias"
-      ).value;
+      fechaFinalCohorteFormMemoria =
+        document.getElementById("fechaFinalMemoria").value;
 
-    dataForm.formularioPonente = {
-      creador: parseInt(idUsuario),
-      cohorte: null,
-      tipo_formulario: 2,
-      hash: `http://127.0.0.5:5501/pages/formularios/formsInscripcion/formularioRegistroAspirantes.html?idFormacion=${idFormacion}&idCohorte=${numCohorte}`,
-      fecha_inicial: formatearFecha(fechaInicialCohorteFormInscripcion),
-      fecha_final: formatearFecha(fechaFinalCohorteFormInscripcion),
-    };
-    dataForm.formularioDocumentacion = {
+    // let resultInsertaFormularioPonentes = await postNuevoFormulario(
+    //   dataFormularioPonente
+    // );
+    // let resultInsertaFormularioDocumentacion = await postNuevoFormulario(
+    //   dataFormularioDocumentacion
+    // );
+    // let resultInsertaFormularioMemoria = await postNuevoFormulario(
+    //   dataFormularioMemorias
+    // );
+
+    dataForm.dataFormularioPonente = {
       creador: parseInt(idUsuario),
       cohorte: null,
       tipo_formulario: 3,
       hash: `http://127.0.0.5:5501/pages/formularios/formsInscripcion/formularioRegistroAspirantes.html?idFormacion=${idFormacion}&idCohorte=${numCohorte}`,
-      fecha_inicial: formatearFecha(fechaInicialCohorteFormDocumentacion),
-      fecha_final: formatearFecha(fechaFinalCohorteFormDocumentacion),
+      fecha_inicial: formatearFecha(fechaInicialCohorteFormInscripcion),
+      fecha_final: formatearFecha(fechaFinalCohorteFormInscripcion),
     };
-    dataForm.formularioMemoria = {
+
+    dataForm.dataFormularioMemorias = {
       creador: parseInt(idUsuario),
       cohorte: null,
-      tipo_formulario: 4,
+      tipo_formulario: 5,
       hash: `http://127.0.0.5:5501/pages/formularios/formsInscripcion/formularioRegistroAspirantes.html?idFormacion=${idFormacion}&idCohorte=${numCohorte}`,
       fecha_inicial: formatearFecha(fechaInicialCohorteFormMemoria),
       fecha_final: formatearFecha(fechaFinalCohorteFormMemoria),
     };
+    dataForm.dataFormularioDocumentacion = {
+      creador: parseInt(idUsuario),
+      cohorte: null,
+      tipo_formulario: 4,
+      hash: `http://127.0.0.5:5501/pages/formularios/formsInscripcion/formularioRegistroAspirantes.html?idFormacion=${idFormacion}&idCohorte=${numCohorte}`,
+      fecha_inicial: formatearFecha(fechaInicialCohorteFormDocumentacion),
+      fecha_final: formatearFecha(fechaFinalCohorteFormDocumentacion),
+    };
   }
-
-  console.log(dataForm);
-
-  return fetchNuevaCohorte(dataForm);
+  insertaDataForm(dataForm);
 };
 
-const fetchNuevaCohorte = async (data) => {
-  let estado = false;
-  const myHeaders = new Headers();
-  myHeaders.append("Content-Type", "application/json");
+const insertaDataForm = async (dataForm) => {
+  console.log(dataForm);
+  let resultadoCohorte = await fetchNuevaCohorte(dataForm);
 
-  const raw = JSON.stringify(data.cohorte);
+  if (resultadoCohorte.estado === "ok") {
+    dataForm.sesion.cohorte = resultadoCohorte.resultado.id_cohorte;
+    let respuestaSesion = await postNuevaSesion(dataForm.sesion);
+    console.log(respuestaSesion);
 
-  const requestOptions = {
-    method: "POST",
-    headers: myHeaders,
-    body: raw,
-    redirect: "follow",
-  };
+    dataForm.formularioRegistro.cohorte = resultadoCohorte.resultado.id_cohorte;
+    dataForm.formularioAsistencia.cohorte =
+      resultadoCohorte.resultado.id_cohorte;
+    dataForm.formularioAsistencia.sesion = respuestaSesion.resultado.id_sesion;
+    dataForm.formularioAsistencia.sesion = respuestaSesion.resultado.id_sesion;
+    await postNuevoFormulario(dataForm.formularioRegistro);
+    await postNuevoFormulario(dataForm.formularioAsistencia);
 
-  await fetch(
-    "https://pruebascrud.formaciones.planestic.udistrital.edu.co/v1/cohorte.php",
-    requestOptions
-  )
-    .then((response) => response.text())
-    .then(async (result) => {
-      console.log(JSON.parse(result));
-      result = JSON.parse(result);
-      if ((await result.estado) === "ok") {
-        estado = true;
-        data.sesion.cohorte = result.resultado.id_cohorte;
-        data.formularioRegistro.cohorte = result.resultado.id_cohorte;
-        data.formularioAsistencia.cohorte = result.resultado.id_cohorte;
-        postNuevaSesion(data.sesion);
-        postNuevoFormulario(data.formularioRegistro);
-        postNuevoFormulario(data.formularioAsistencia);
-        console.log(data.tipo_proceso, typeof data.tipo_proceso);
+    if (dataForm.tipo_proceso === "11") {
+      console.log("Creando formularios apartes");
 
-        if (data.tipo_proceso === "11") {
-          console.log("Creando formularios apartes");
-
-          data.formularioPonente.cohorte = result.resultado.id_cohorte;
-          data.formularioDocumentacion.cohorte = result.resultado.id_cohorte;
-          data.formularioMemoria.cohorte = result.resultado.id_cohorte;
-          postNuevoFormulario(data.formularioPonente);
-          postNuevoFormulario(data.formularioDocumentacion);
-          postNuevoFormulario(data.formularioMemoria);
-        }
-        console.log(data.sesion);
-      }
-    })
-    .catch((error) => {
-      console.error(error);
-      if (error.estado == "error") {
-        estado = false;
-      }
-    });
-
-  return estado;
+      dataForm.dataFormularioPonente.cohorte =
+        resultadoCohorte.resultado.id_cohorte;
+      dataForm.dataFormularioMemorias.cohorte =
+        resultadoCohorte.resultado.id_cohorte;
+      dataForm.dataFormularioDocumentacion.cohorte =
+        resultadoCohorte.resultado.id_cohorte;
+      dataForm.dataFormularioDocumentacion.sesion =
+        respuestaSesion.resultado.id_sesion;
+      dataForm.dataFormularioDocumentacion.sesion =
+        respuestaSesion.resultado.id_sesion;
+      dataForm.dataFormularioDocumentacion.sesion =
+        respuestaSesion.resultado.id_sesion;
+      await postNuevoFormulario(dataForm.dataFormularioPonente);
+      await postNuevoFormulario(dataForm.dataFormularioMemorias);
+      await postNuevoFormulario(dataForm.dataFormularioDocumentacion);
+    }
+  }
 };
 
 export default crearCohorteFnc;

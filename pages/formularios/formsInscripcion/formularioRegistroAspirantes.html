@@ -23,7 +23,7 @@
           id="header-banner-img"
         />
       </figure>
-      <h1 class="header-title">Registro a cohorte</h1>
+      <h1 class="header-title">Registro a cohorte aspirante</h1>
     </header>
     <main class="main">
       <form action="" class="contenido-form" id="form_inscritos">
@@ -77,6 +77,28 @@
           </label>
         </div>
         <div class="form-div-join">
+          <label class="form-label" for="form-tipoDocumento">
+            Tipo de documento:
+            <select
+              name="tipoDocumento"
+              id="form-tipoDocumento"
+              required
+              class="form-input form-input-disabled"
+            ></select>
+          </label>
+          <label class="form-label" for="form-numDocumentoPonente">
+            Numero de documento:
+            <input
+              type="number"
+              name="numDocumentoPonente"
+              id="form-numDocumentoPonente"
+              placeholder="101258988"
+              class="form-input form-input-disabled"
+              required
+            />
+          </label>
+        </div>
+        <div class="form-div-join">
           <label class="form-label" for="form-primerNombre">
             Primer nombre:
             <input
@@ -123,7 +145,7 @@
             />
           </label>
         </div>
-        
+
         <label class="form-label" for="form-codigoEdx">
           Código Edx:
           <input
@@ -134,26 +156,7 @@
             class="form-input"
           />
         </label>
-        <label class="form-label" for="form-tipoDocumento">
-          Tipo de documento:
-          <select
-            name="tipoDocumento"
-            id="form-tipoDocumento"
-            required
-            class="form-input form-input-disabled"
-          ></select>
-        </label>
-          <label class="form-label" for="form-numDocumentoPonente">
-            Numero de documento:
-            <input
-              type="number"
-              name="numDocumentoPonente"
-              id="form-numDocumentoPonente"
-              placeholder="101258988"
-              class="form-input form-input-disabled"
-              required
-            />
-          </label>
+
         <label class="form-label" for="form-fechaNacimiento">
           Fecha de nacimiento:
           <input
@@ -165,7 +168,7 @@
           />
         </label>
 
-        <label class="form-label" for="form-genero"></label>
+        <label class="form-label" for="form-genero">
           Género:
           <select
             name="genero"
@@ -174,7 +177,7 @@
             required
           ></select>
         </label>
-        <label class="form-label" for="form-identidadGenero"></label>
+        <label class="form-label" for="form-identidadGenero">
           Identidad de género:
           <select
             name="identidadGenero"
@@ -183,22 +186,20 @@
             required
           ></select>
         </label>
-        <label class="form-label" for="form-grupoEtnico"></label>
+        <label class="form-label" for="form-grupoEtnico">
           Grupo Etnico:
           <select
             name="grupoEtnico"
             id="form-grupoEtnico"
             class="form-input"
-            
           ></select>
         </label>
-        <label class="form-label" for="form-discapacidad"></label>
+        <label class="form-label" for="form-discapacidad">
           Tipo de discapacidad:
           <select
             name="discapacidad"
             id="form-discapacidad"
             class="form-input"
-            
           ></select>
         </label>
         <div class="form-div-join">
@@ -258,6 +259,14 @@
             class="form-input"
             required
           ></select>
+        </label>
+
+        <label
+          class="form-label"
+          for="form-dependencia"
+          id="form__label-dependencia"
+        >
+          
         </label>
 
         <label class="form-label-check" for="form-terminos"

@@ -11,6 +11,7 @@
     />
 
     <link rel="stylesheet" href="../../styles/header.css" />
+    <link rel="stylesheet" href="../../styles/informes.css" />
     <link rel="stylesheet" href="../../styles/table.css" />
     <link rel="stylesheet" href="../../styles/footer.css" />
     <link rel="stylesheet" href="../../styles/modal.css" />
@@ -124,7 +125,6 @@
                 >Formularios de memorias/evidencias</a
               >
             </li>
-            
           </ul>
         </li>
         <li class="ul__li">
@@ -264,6 +264,26 @@
           </div>
         </article>
       </section>
+      <section class="section-buscador-informes">
+        <article class="buscador-informes-article">
+          <label
+            for="input-buscador-informes"
+            class="label label-buscador-informes"
+          >
+            <span
+              class="material-symbols-outlined search_symbol"
+              title="buscar"
+            >
+              search </span
+            ><input
+              type="text"
+              name="input-buscador-informes"
+              id="input-buscador-informes"
+              placeholder="buscar..."
+            />
+          </label>
+        </article>
+      </section>
       <section><h1 class="table-descripcion">Listado cursos MOOC</h1></section>
       <section class="section section-table">
         <table>
@@ -272,17 +292,28 @@
           </caption> -->
           <thead>
             <tr>
-              <th scope="col">ID</th>
-              <th scope="col">Nombre</th>
+              <th scope="col">
+                <div class="table-sort" id="index-sort-id">
+                  ID<span class="material-symbols-outlined">
+                    arrow_drop_down
+                  </span>
+                </div>
+              </th>
+              <th scope="col">
+                <div class="table-sort" id="index-sort-nombre">
+                  Nombre<span class="material-symbols-outlined">
+                    arrow_drop_down
+                  </span>
+                </div>
+              </th>
               <th scope="col">Tipo de proceso</th>
               <th scope="col">Acción</th>
             </tr>
           </thead>
-          <tbody id="tbody-table-cursos-tutor">
-            <template id="template-renglon-cursos-tutor">
-              <tr></tr>
-            </template>
-          </tbody>
+          <template id="template-renglon-cursos-tutor">
+            <tr></tr>
+          </template>
+          <tbody id="tbody-table-cursos-tutor"></tbody>
         </table>
       </section>
     </main>
@@ -334,5 +365,4 @@
   <script src="../../scripts/irTop.js" type="module"></script>
   <script src="../../scripts/CerrarSesion.js" type="module"></script>
   <script src="../../scripts/autorizacion.js" type="module"></script>
-
 </html>

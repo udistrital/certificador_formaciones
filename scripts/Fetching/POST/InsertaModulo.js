@@ -1,6 +1,5 @@
-const postNuevoModulo = async (data) => {
+const insertaModulo = async (data) => {
   console.log(data);
-  let estado = false;
 
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
@@ -14,27 +13,19 @@ const postNuevoModulo = async (data) => {
     redirect: "follow",
   };
 
-  await fetch(
-    "https://pruebascrud.formaciones.planestic.udistrital.edu.co/v1/modulo.php",
-    requestOptions
-  )
-    .then((response) => response.text())
-    .then(async (result) => {
-      console.log(JSON.parse(result));
-      result = JSON.parse(result);
-      if ((await result.estado) === "ok") {
-        console.log("eeeeeeeeeeeee");
-        estado = true;
-      }
-    })
-    .catch((error) => {
-      console.error(error);
-      if (error.estado == "error") {
-        estado = false;
-      }
-    });
-  console.log(estado);
-  return estado;
+  try {
+    let result = await fetch(
+      "https://pruebascrud.formaciones.planestic.udistrital.edu.co/v1/modulo.php",
+      requestOptions
+    );
+
+    result = await result.json();
+
+    return result;
+  } catch (error) {
+    console.error(error);
+    return error;
+  }
 };
 
-export default postNuevoModulo;
+export default insertaModulo;

@@ -20,7 +20,7 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
     />
     <link rel="stylesheet" href="../../styles/agregarButton.css" />
-    <title>Cursos</title>
+    <title>Modulos evento</title>
   </head>
   <body>
     <header class="header">
@@ -172,52 +172,23 @@
               <div
                 class="modal-contenido-form-div modal-contenido-form-div-lleno"
               >
-                <label for="form-curso-tutor-input-tipo-formacion-id"
-                  >Id tipo de proceso:
-                  <input
-                    type="text"
-                    name="form-curso-tutor-input-tipo-formacion-id"
-                    id="form-curso-tutor-input-tipo-formacion-id"
-                    disabled
-                    value=" [Tipo]"
-                /></label>
-              </div>
-              <div
-                class="modal-contenido-form-div modal-contenido-form-div-lleno"
-              >
-                <label for="form-curso-tutor-input-tipo-formacion"
-                  >Tipo de proceso:
-                  <input
-                    type="text"
-                    name="form-curso-tutor-input-tipo-formacion"
-                    id="form-curso-tutor-input-tipo-formacion"
-                    disabled
-                    value=" [Tipo]"
-                /></label>
-              </div>
-              <div
-                class="modal-contenido-form-div modal-contenido-form-div-lleno"
-              >
                 <label for="form-curso-tutor-input-id-proceso"
                   >Id proceso:
                   <input
                     type="number"
                     name="form-curso-tutor-input-id-proceso"
                     id="form-curso-tutor-input-id-proceso"
-                    disabled
                 /></label>
               </div>
               <div
                 class="modal-contenido-form-div modal-contenido-form-div-lleno"
               >
-                <label for="form-curso-tutor-input-nombre-proceso"
-                  >Nombre proceso:
+                <label for="form-curso-tutor-input-id-cohorte"
+                  >Id cohorte:
                   <input
-                    type="text"
-                    name="form-curso-tutor-input-nombre-proceso"
-                    id="form-curso-tutor-input-nombre-proceso"
-                    disabled
-                    required
+                    type="number"
+                    name="form-curso-tutor-input-id-cohorte"
+                    id="form-curso-tutor-input-id-cohorte"
                 /></label>
               </div>
               <div
@@ -248,43 +219,167 @@
                     required
                 /></label>
               </div>
-              <!-- <div class="modal-contenido-form-div">
-                <label for="intensidadHoraria"></label>
-                <input
-                  type="text"
-                  name="intensidadHoraria"
-                  id="intensidadHoraria"
-                  placeholder="Intensidad Horaria"
-                  class="modal-contenido-form-input"
-                />
-              </div> -->
+
+              <p class="texto-title-form-region">Rango registro cursantes</p>
+              <div class="modal-contenido-form-div-join">
+                <div class="modal-contenido-form-div">
+                  <label for="fechaInicialCursante"
+                    >Fecha inicial:
+                    <input
+                      type="date"
+                      name="fechaInicialCursante"
+                      id="fechaInicialCursante"
+                      placeholder="Fecha inicial"
+                      class="modal-contenido-form-input"
+                  /></label>
+                </div>
+                <div class="modal-contenido-form-div">
+                  <label for="fechaFinalCursante"
+                    >Fecha final:
+                    <input
+                      type="date"
+                      name="fechaFinalCursante"
+                      id="fechaFinalCursante"
+                      placeholder="Fecha final"
+                      class="modal-contenido-form-input"
+                  /></label>
+                </div>
+              </div>
+
+              <p class="texto-title-form-region">Rango registro asistencias</p>
+              <div class="modal-contenido-form-div-join">
+                <div class="modal-contenido-form-div">
+                  <label for="fechaInicialAsistencia"
+                    >Fecha inicial:
+                    <input
+                      type="date"
+                      name="fechaInicialAsistencia"
+                      id="fechaInicialAsistencia"
+                      placeholder="Fecha inicial"
+                      class="modal-contenido-form-input"
+                  /></label>
+                </div>
+                <div class="modal-contenido-form-div">
+                  <label for="horaInicialAsistencia"
+                    >Hora inicial:
+                    <input
+                      type="time"
+                      name="horaInicialAsistencia"
+                      id="horaInicialAsistencia"
+                      placeholder="Hora inicial"
+                      class="modal-contenido-form-input"
+                  /></label>
+                </div>
+              </div>
+              <div class="modal-contenido-form-div-join">
+                <div class="modal-contenido-form-div">
+                  <label for="fechaFinallAsistencia"
+                    >Fecha final:
+                    <input
+                      type="date"
+                      name="fechaFinallAsistencia"
+                      id="fechaFinallAsistencia"
+                      placeholder="Fecha inicial"
+                      class="modal-contenido-form-input"
+                  /></label>
+                </div>
+                <div class="modal-contenido-form-div">
+                  <label for="horaFinalAsistencia"
+                    >Hora final:
+                    <input
+                      type="time"
+                      name="horaFinalAsistencia"
+                      id="horaFinalAsistencia"
+                      placeholder="Hora final"
+                      class="modal-contenido-form-input"
+                  /></label>
+                </div>
+              </div>
+
+              <p class="texto-title-form-region">Sesion</p>
+              <div class="modal-contenido-form-div-join">
+                <div class="modal-contenido-form-div">
+                  <label for="fechaInicialSesion"
+                    >Fecha inicial:
+                    <input
+                      type="date"
+                      name="fechaInicialSesion"
+                      id="fechaInicialSesion"
+                      placeholder="Fecha inicial"
+                      class="modal-contenido-form-input"
+                  /></label>
+                </div>
+                <div class="modal-contenido-form-div">
+                  <label for="horaInicialSesion"
+                    >Hora inicial:
+                    <input
+                      type="time"
+                      name="horaInicialSesion"
+                      id="horaInicialSesion"
+                      placeholder="Hora inicial"
+                      class="modal-contenido-form-input"
+                  /></label>
+                </div>
+              </div>
+              <div class="modal-contenido-form-div-join">
+                <div class="modal-contenido-form-div">
+                  <label for="fechaFinallSesion"
+                    >Fecha final:
+                    <input
+                      type="date"
+                      name="fechaFinallSesion"
+                      id="fechaFinallSesion"
+                      placeholder="Fecha inicial"
+                      class="modal-contenido-form-input"
+                  /></label>
+                </div>
+                <div class="modal-contenido-form-div">
+                  <label for="horaFinalSesion"
+                    >Hora final:
+                    <input
+                      type="time"
+                      name="horaFinalSesion"
+                      id="horaFinalSesion"
+                      placeholder="Hora final"
+                      class="modal-contenido-form-input"
+                  /></label>
+                </div>
+              </div>
+              <div
+                class="modal-contenido-form-div modal-contenido-form-div-lleno"
+              >
+                <label for="linkSesion"
+                  >Link de sesión:
+                  <input
+                    type="text"
+                    name="linkSesion"
+                    id="linkSesion"
+                    class="modal-contenido-form-input"
+                /></label>
+              </div>
+              <div
+                class="modal-contenido-form-div modal-contenido-form-div-check"
+              >
+                <label for="modalidad"
+                  >Modalidad virtual
+                  <input
+                    type="checkbox"
+                    name="modalidad"
+                    id="modalidad"
+                    class="modal-contenido-form-input-check"
+                /></label>
+              </div>
+
               <input
                 type="submit"
-                value="Crear proceso"
+                value="Crear módulo"
                 class="modal-contenido-button"
                 id="btn-submit-nuevaFormacion"
               />
             </form>
           </div>
         </article>
-        <article class="article-notificacion">
-          <div
-            class="notificacion notificacion-verde notificacion-disabled"
-            id="notificacion-verde-formacion"
-          >
-            <span class="material-symbols-outlined"> check_circle </span>
-            <p>Se ha creado el modulo correctamente</p>
-            <span></span>
-          </div>
-          <div
-            class="notificacion notificacion-roja notificacion-disabled"
-            id="notificacion-roja-formacion"
-          >
-            <span class="material-symbols-outlined"> error </span>
-            <p>No se ha podido crear el modulo</p>
-            <span></span>
-          </div>
-        </article>
+        <article class="article-notificacion"></article>
       </section>
       <section class="section section-table">
         <table>
@@ -297,6 +392,7 @@
               <th scope="col">Nombre modulo</th>
               <th scope="col">Nombre proceso</th>
               <th scope="col">Tipo proceso</th>
+              <th scope="col">Acciones</th>
             </tr>
           </thead>
           <tbody id="tbody-table-cursos-tutor">
@@ -351,7 +447,6 @@
   <script src="../../scripts/header.js" type="module"></script>
   <script src="../../scripts/modals.js" type="module"></script>
   <script src="../../scripts/navegacion.js" type="module"></script>
-  <!-- <script src="../../scripts/cursoTutor.js" type="module"></script> -->
   <script src="../../scripts/cursoModulos.js" type="module"></script>
   <script src="../../scripts/irTop.js" type="module"></script>
   <script src="../../scripts/CerrarSesion.js" type="module"></script>

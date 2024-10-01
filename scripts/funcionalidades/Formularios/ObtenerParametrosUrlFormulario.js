@@ -18,6 +18,7 @@ const obtenerParametrosUrlFormulario = () => {
     new URLSearchParams(window.location.search).get("idTipoProceso")
   );
   let anio = parseInt(new URLSearchParams(window.location.search).get("anio"));
+  let id_formulario = parseInt(new URLSearchParams(window.location.search).get("id_formulario"));
 
 
   return {
@@ -28,6 +29,7 @@ const obtenerParametrosUrlFormulario = () => {
     nombreTipoProceso,
     idTipoProceso,
     anio,
+    id_formulario
   };
 };
 

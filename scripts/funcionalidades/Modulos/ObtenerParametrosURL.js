@@ -4,25 +4,14 @@ import llenaFormNuevoModulo from "./LlenaFormNuevoModulo.js";
 import obtenerParametrosComposForm from "./ObtenerParametrosCamposForm.js";
 
 const obtenerParametrosURL = () => {
-  let idFormacion = parseInt(
-    new URLSearchParams(window.location.search).get("idFormacion")
+  let id_proceso = parseInt(
+    new URLSearchParams(window.location.search).get("idProceso")
   );
-  let nombreFormacion = new URLSearchParams(window.location.search).get(
-    "nombreFormacion"
-  );
-  let tipoFormacion = new URLSearchParams(window.location.search).get(
-    "tipoFormacion"
-  );
+  let id_cohorte = new URLSearchParams(window.location.search).get("idCohorte");
 
-  console.log(
-    "Obtener info url: " + nombreFormacion,
-    tipoFormacion,
-    idFormacion
-  );
-
-  listarModulos(nombreFormacion, tipoFormacion, idFormacion);
-  buscarTipoFormacion(tipoFormacion);
-  llenaFormNuevoModulo(nombreFormacion, idFormacion);
+  listarModulos(id_proceso, id_cohorte);
+  // buscarTipoFormacion(tipoFormacion);
+  llenaFormNuevoModulo(id_proceso, id_cohorte);
 };
 
 export default obtenerParametrosURL;

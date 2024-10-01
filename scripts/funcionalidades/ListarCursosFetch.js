@@ -1,6 +1,5 @@
-import llenarTablaCursosTutor from "./llenaTablaFormaciones.js";
-import verCohorte from "./VerCohorte.js";
-import verModulos from "./VerModulos.js";
+import { ordenamientoProceso } from "./Cursos/Ordenamientos.js";
+import { reloadTabla } from "./Cursos/ReloadCursos.js";
 
 const listarCursosTutorFetch = async (tipo_formacion) => {
   const requestOptions = {
@@ -25,9 +24,8 @@ const listarCursosTutorFetch = async (tipo_formacion) => {
       let modeloCursoConTutor = formacionesCTutor;
       //en caso de que la peticion solo retorne procesos de tipo curso con tutor
       // modeloCursoConTutor = JSON.parse(result);
-      llenarTablaCursosTutor(modeloCursoConTutor);
-      verCohorte(modeloCursoConTutor);
-      (tipo_formacion === 10 || tipo_formacion === 11) && verModulos(modeloCursoConTutor);
+      ordenamientoProceso(modeloCursoConTutor, tipo_formacion);
+      reloadTabla(modeloCursoConTutor, tipo_formacion);
     })
     .catch((error) => {
       console.error(error);

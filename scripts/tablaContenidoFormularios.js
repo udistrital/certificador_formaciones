@@ -15,47 +15,6 @@ const listarGeneralesFetch = async () => {
 
 listarGeneralesFetch();
 
-// const llenarTablaInformesGenerales = (li) => {
-//   console.log(li);
-//   // debugger;
-//   const $fargmento = document.createDocumentFragment(),
-//     $template = document.getElementById(
-//       "template-renglon-formaciones-generales"
-//     ).content,
-//     $tbodyFormacionesGenerales = document.getElementById(
-//       "tbody-table-formaciones-generales"
-//     );
-//   $tbodyFormacionesGenerales.innerHTML = "";
-//   li.forEach((formacion) => {
-//     $template.querySelector("tr").innerHTML = `
-//       <td>${formacion.id}</td>
-//       <td>${formacion.tipo}</td>
-//       <td>${formacion.nombre}</td>
-//       <td>${formacion.numCohorte}</td>
-//       <td>${formacion.anio}</td>
-//       <td>${new Date(formacion.fechaI).getFullYear()}/${
-//       new Date(formacion.fechaI).getMonth() + 1
-//     }/${new Date(formacion.fechaI).getDate()}</td>
-//       <td>${new Date(formacion.fechaF).getFullYear()}/${
-//       new Date(formacion.fechaF).getMonth() + 1
-//     }/${new Date(formacion.fechaF).getDate()}</td>
-//       <td class="td-acciones">
-//       <span
-//       class="material-symbols-outlined index-asistencias"
-//       title="Ver link información cohorte"
-//       >
-//       link
-//       </span>
-//       </td>`;
-
-//     let clone = document.importNode($template, true);
-
-//     $fargmento.appendChild(clone);
-//   });
-
-//   $tbodyFormacionesGenerales.appendChild($fargmento);
-// };
-
 let d = document;
 const ordenamientos = () => {
   let orderBool = false;
@@ -182,12 +141,16 @@ document
   });
 
 const obtenerIdCohorte = (li) => {
-  // llenarTablaInformesGenerales(li);
+  console.log(li);
 
   let listaAsistencias = d.querySelectorAll(".index-asistencias");
+  let tipoRegistro = window.location.pathname.includes(`PageFormsPostulaciones`)
+    ? "postulante"
+    : window.location.pathname.includes(`PageFormsInscripciones`)
+    ? "estudiante"
+    : null;
   listaAsistencias.forEach((asistencia, id) => {
     asistencia.addEventListener("click", (e) => {
-      // console.log("se hizo clic");
       console.log(id, "id", li[id].id_formulario);
       let idCohorteModelo = li[id].id_cohorte,
         cohorte = li[id].cohorte,
@@ -195,7 +158,10 @@ const obtenerIdCohorte = (li) => {
         nombreProceso = li[id].nombre_proceso,
         nombreTipoProceso = li[id].nombre_tipo_proceso,
         idTipoProceso = li[id].id_tipo_proceso,
-        anio = li[id].anio;
+        anio = li[id].anio,
+        id_formulario = li[id].id_formulario;
+      console.log(li[id]);
+
       redireccionarFormulario(
         idCohorteModelo,
         cohorte,
@@ -203,7 +169,9 @@ const obtenerIdCohorte = (li) => {
         nombreProceso,
         nombreTipoProceso,
         idTipoProceso,
-        anio
+        anio,
+        id_formulario,
+        tipoRegistro
       );
       // redireccionarAsistencia(li[id].numCohorte, li[id].id);
     });

@@ -6,7 +6,7 @@
 @media only screen and (min-width: 1024px) {
 }
 
-.section-table{
+.section-table {
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -39,17 +39,29 @@ td {
 }
 
 tr {
-  transition: .5s;
+  transition: 0.5s;
   outline: 1px solid var(--grisclaro);
   vertical-align: middle;
 }
 
-tr:nth-child(odd){
+tr:nth-child(odd) {
   background-color: #f1f1f1;
 }
 
-tr:hover{
+tr:hover {
   background-color: #e1e1e1;
+}
+
+.td-acciones-index {
+  text-align: left;
+}
+
+.td-acciones{
+  user-select: none;
+}
+
+.icon-disabled {
+  visibility: hidden;
 }
 
 .td-acciones span:hover {
@@ -59,12 +71,12 @@ tr:hover{
   user-select: none;
 }
 
-.asistencias-boton-exportar{
+.asistencias-boton-exportar {
   font-size: 16px !important;
   padding: 10px !important;
   background-color: var(--rojoprincipal);
   color: var(--blanco);
-  display: flex ;
+  display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
@@ -72,21 +84,21 @@ tr:hover{
   margin: 2px;
 }
 
-.asistencias-boton-exportar:hover{
+.asistencias-boton-exportar:hover {
   cursor: pointer;
   background-color: var(--blanco);
   color: var(--rojoprincipal);
   outline: 1px solid var(--rojoprincipal);
 }
 
-.table-sort{
+.table-sort {
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
 }
 
-.td-acciones{
+/* .td-acciones {
   display: flex;
   height: 100%;
   justify-content: center;
@@ -95,4 +107,25 @@ tr:hover{
   gap: 10px;
   padding: 0;
   outline: none;
+} */
+
+.index-aceptarPonente {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  white-space: nowrap;
+  padding: 5px;
+  user-select: none;
+  transition: all 0.3s ease;
+}
+
+.index-aceptarPonente:hover {
+  outline: 0.2px solid var(--rojoprincipal);
+  color: var(--rojoprincipal);
+}
+
+td {
+  vertical-align: middle;
 }

@@ -1,4 +1,6 @@
-const crearFormacionfnc = () => {
+import notificacion from "./funcionalidades/Notificacion.js";
+
+const crearFormacionfnc = async () => {
   let idUsuario = JSON.parse(sessionStorage.getItem("data"))[0].id;
   let idTipoFormacion = document.getElementById(
     "form-curso-tutor-input-tipo-formacion-id"
@@ -19,8 +21,7 @@ const crearFormacionfnc = () => {
     ...(codigoEdx !== "" && { codigo_edx: codigoEdx }),
   };
   console.log("data:", data);
-
-  return fetchNuevaFormacion(data);
+  await fetchNuevaFormacion(data);
 };
 
 const fetchNuevaFormacion = async (data) => {
@@ -43,19 +44,20 @@ const fetchNuevaFormacion = async (data) => {
   )
     .then((response) => response.text())
     .then(async (result) => {
-      console.log(JSON.parse(result));
-      if ((await JSON.parse(result).estado) === "ok") {
-        estado = true;
+      result = JSON.parse(result);
+      console.log(result);
+
+      if (result.estado === "ok") {
+        notificacion(true, "Se creo la formación correctamente");
+      } else {
+        notificacion(false, "Hubo un problema al crear la formación");
       }
     })
     .catch((error) => {
-      console.error(error);
       if (error.estado == "error") {
-        estado = false;
+        notificacion(false, "Hubo un error al crear la formación");
       }
     });
-
-  return estado;
 };
 
 export default crearFormacionfnc;

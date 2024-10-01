@@ -1,9 +1,8 @@
-const llenaFormNuevoModulo = (nombreProceso, idProceso) => {
-  console.log(nombreProceso);
-  document.getElementById("form-curso-tutor-input-nombre-proceso").value =
-    nombreProceso;
+const llenaFormNuevoModulo = (id_proceso, id_cohorte) => {
+  document.getElementById("form-curso-tutor-input-id-cohorte").value =
+    id_cohorte;
   document.getElementById("form-curso-tutor-input-id-proceso").value =
-    idProceso;
+    id_proceso;
 };
 
 export default llenaFormNuevoModulo;

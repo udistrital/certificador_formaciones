@@ -15,7 +15,10 @@ const buscarTipoFormacion = async (idTipoFormacion) => {
     .then(async (data) => {
       // Hacer algo con los datos recibidos
       console.log(data);
-      await asignarTipoFormacionAFormulario(data.id_tipo_proceso, data.tipo_proceso);
+      await asignarTipoFormacionAFormulario(
+        data.id_tipo_proceso,
+        data.tipo_proceso
+      );
     })
     .catch((error) => {
       // Capturar y manejar cualquier error

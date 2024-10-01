@@ -1,13 +1,13 @@
 import llenarTablaModulos from "../../funcionalidades/Modulos/LlenarTablaModulos.js";
 
-const listarModulos = async (nombreFormacion, tipoFormacion, idFormacion) => {
+const listarModulos = async (id_proceso, id_cohorte) => {
   const requestOptions = {
     method: "GET",
     redirect: "follow",
   };
 
   fetch(
-    `https://pruebascrud.formaciones.planestic.udistrital.edu.co/v1/modulo.php?idProceso=${idFormacion}`,
+    `https://pruebascrud.formaciones.planestic.udistrital.edu.co/v1/modulo.php?proceso_ig=${id_proceso}&id_cohorte=${id_cohorte}`,
     requestOptions
   )
     .then((response) => response.text())
@@ -17,7 +17,7 @@ const listarModulos = async (nombreFormacion, tipoFormacion, idFormacion) => {
       let modulos = JSON.parse(result);
       if (modulos.length !== 0) {
         modulos = modulos.filter((modulo) => {
-          return modulo.proceso === idFormacion.toString();
+          return modulo.proceso === id_proceso.toString();
         });
       }
 

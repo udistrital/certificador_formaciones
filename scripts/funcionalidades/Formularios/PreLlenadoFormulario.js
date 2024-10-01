@@ -1,3 +1,6 @@
+import validaCursante from "../../Fetching/GET/Cursante.js";
+import fetchingDependencias from "../../Fetching/GET/ListaDependencias.js";
+import { listaDependenciasTipoDependencias } from "../../Fetching/GET/ListaDependenciasTipoDependencias.js";
 import listaGeneros from "../../Fetching/GET/ListaGeneros.js";
 import listaGrupoEtnico from "../../Fetching/GET/ListaGrupoEtnico.js";
 import listaIdentidadGenero from "../../Fetching/GET/ListaIdentidadGenero.js";
@@ -12,9 +15,9 @@ const llenarFormulario = async () => {
     window.location.pathname.includes("formularioPostulacion")
   ) {
     let listadoVinculaciones = await fetchingVinculacion();
-    console.log(listadoVinculaciones);
+    // console.log(listadoVinculaciones);
     agregarDatosFormulario();
-    agregarOpcionesSelectVinculacion(listadoVinculaciones);
+    await agregarOpcionesSelectVinculacion(listadoVinculaciones);
   }
 
   if (
@@ -24,98 +27,189 @@ const llenarFormulario = async () => {
     window.location.pathname.includes("formularioDocumentos")
   ) {
     agregarDatosFormulario();
-    agregarOpcionesSelectTipoDocumento();
+    await agregarOpcionesSelectTipoDocumento();
   }
 
   if (window.location.pathname.includes("formularioValidacionCursante")) {
-    agregarOpcionesSelectTipoDocumento();
+    await agregarOpcionesSelectTipoDocumento();
   }
 
-  if (window.location.pathname.includes("formularioRegistroAspirantes")) {
+  if (
+    window.location.pathname.includes("formularioRegistroAspirantes") ||
+    window.location.pathname.includes("formularioPostulacion")
+  ) {
     let listadoGeneros = await listaGeneros();
     let listaIdentidadesGeneros = await listaIdentidadGenero();
     let listaGruposEtnicos = await listaGrupoEtnico();
     let listaTiposDiscapacidades = await listaTipoDiscapacidad();
-    let { tipoDocumento, numDocumento, terminos } = capturaDatosCursanteUrl();
-
-    document.getElementById("form-numDocumentoPonente").value = numDocumento;
-    document.getElementById("form-numDocumentoPonente").readOnly  = true;
+    let res = await capturaDatosCursanteUrl();
+    let listaDependencias = await fetchingDependencias();
+    // console.log(res);
 
     agregarDatosFormulario();
-    agregarOpcionesSelectTipoDocumento(tipoDocumento);
-    agregarGenero(listadoGeneros);
-    agregarIdentidadGenero(listaIdentidadesGeneros);
-    agregarGrupoEtnico(listaGruposEtnicos);
-    agregarTipoDiscapacidad(listaTiposDiscapacidades);
+    await agregarOpcionesSelectTipoDocumento();
+    await agregarGenero(listadoGeneros);
+    await agregarIdentidadGenero(listaIdentidadesGeneros);
+    await agregarGrupoEtnico(listaGruposEtnicos);
+    await agregarTipoDiscapacidad(listaTiposDiscapacidades);
+    await defineDependencias();
+
+    agregarDatosFormularioExisteCursante(res);
   }
 };
 
-const capturaDatosCursanteUrl = () => {
-  let tipoDocumento = new URLSearchParams(window.location.search).get(
-    "tipoDocumento"
+const capturaDatosCursanteUrl = async () => {
+  let existe_cursante = new URLSearchParams(window.location.search).get(
+    "existeCursante"
   );
-  let numDocumento = new URLSearchParams(window.location.search).get(
-    "numDocumento"
-  );
-  let terminos = new URLSearchParams(window.location.search).get("terminos");
+  let data = {
+    tipo_documento: new URLSearchParams(window.location.search).get(
+      "tipoDocumento"
+    ),
+    numero_documento: new URLSearchParams(window.location.search).get(
+      "numDocumento"
+    ),
+  };
 
-  return { tipoDocumento, numDocumento, terminos };
+  if (existe_cursante == "true") {
+    let res = await validaCursante(data);
+    return res;
+  }
+
+  return { existe: false, cursante: data };
 };
-const agregarTipoDiscapacidad = (listaTipoDiscapacidades) => {
-  console.log(listaTipoDiscapacidades);
+const agregarTipoDiscapacidad = async (listaTipoDiscapacidades) => {
+  // console.log(listaTipoDiscapacidades);
 
   const $vinculaciones = document.getElementById("form-discapacidad");
 
   $vinculaciones.innerHTML = "";
 
-  listaTipoDiscapacidades.forEach((item) => {
+  await listaTipoDiscapacidades.forEach((item) => {
     const option = document.createElement("option");
     option.value = item.id;
     option.text = item.nombre;
     $vinculaciones.appendChild(option);
   });
 };
-const agregarGrupoEtnico = (grupoetnico) => {
-  console.log(grupoetnico);
+const agregarGrupoEtnico = async (grupoetnico) => {
+  // console.log(grupoetnico);
 
   const $vinculaciones = document.getElementById("form-grupoEtnico");
 
   $vinculaciones.innerHTML = "";
 
-  grupoetnico.forEach((item) => {
+  await grupoetnico.forEach((item) => {
     const option = document.createElement("option");
     option.value = item.id;
     option.text = item.nombre;
     $vinculaciones.appendChild(option);
   });
 };
-const agregarIdentidadGenero = (identidadesGeneros) => {
-  console.log(identidadesGeneros);
+const agregarIdentidadGenero = async (identidadesGeneros) => {
+  // console.log(identidadesGeneros);
 
   const $vinculaciones = document.getElementById("form-identidadGenero");
 
   $vinculaciones.innerHTML = "";
 
-  identidadesGeneros.forEach((item) => {
+  await identidadesGeneros.forEach((item) => {
     const option = document.createElement("option");
     option.value = item.id;
     option.text = item.nombre;
     $vinculaciones.appendChild(option);
   });
 };
-const agregarGenero = (generos) => {
-  console.log(generos);
+const agregarGenero = async (generos) => {
+  // console.log(generos);
 
   const $vinculaciones = document.getElementById("form-genero");
 
   $vinculaciones.innerHTML = "";
 
-  generos.forEach((item) => {
+  await generos.forEach((item) => {
     const option = document.createElement("option");
     option.value = item.id;
     option.text = item.nombre;
     $vinculaciones.appendChild(option);
   });
+};
+
+const defineDependencias = async () => {
+  document.addEventListener("change", async (e) => {
+    const validaSelect = e.target.matches("#form-vinculacion");
+    console.log(e.target.value, typeof e.target.value);
+
+    if (validaSelect) {
+      if (
+        e.target.value === "3" ||
+        e.target.value === "4" ||
+        e.target.value === "5" ||
+        e.target.value === "6" ||
+        e.target.value === "7"
+      ) {
+        console.log("estudiante, docente, egresado");
+        let listadoDependenciasPorTipo =
+          await listaDependenciasTipoDependencias(17);
+
+        listadoDependenciasPorTipo = listadoDependenciasPorTipo.map(
+          (dep_tip_dep) => dep_tip_dep.dependencia
+        );
+
+        let listadoDependencias = await fetchingDependencias();
+
+        listadoDependencias = listadoDependencias.filter((dependencia) =>
+          listadoDependenciasPorTipo.includes(dependencia.id)
+        );
+
+        console.log(listadoDependencias);
+        agregarDependencia(listadoDependencias, true);
+      } else if (e.target.value === "1" || e.target.value === "2") {
+        console.log("contratista, administrativo");
+        let listadoDependencias = await fetchingDependencias();
+        console.log(listadoDependencias);
+        agregarDependencia(listadoDependencias, true);
+      } else {
+        console.log("otro");
+        agregarDependencia([], false);
+      }
+    }
+  });
+};
+
+export const agregarDependencia = async (dependencias, esSelect) => {
+  console.log(dependencias);
+
+  const $labelDependencia = document.getElementById("form__label-dependencia");
+  if (esSelect) {
+    $labelDependencia.innerHTML = `Seleccione la dependencia a la que pertenece:<select
+            name="dependencia"
+            id="form-dependencia"
+            class="form-input"
+            required
+          >
+            
+          </select>`;
+
+    const $dependencias = document.getElementById("form-dependencia");
+
+    $dependencias.innerHTML = "";
+
+    await dependencias.forEach((item) => {
+      const option = document.createElement("option");
+      option.value = item.id;
+      option.text = item.nombre;
+      $dependencias.appendChild(option);
+    });
+  } else {
+    $labelDependencia.innerHTML = `Ingrese la institución a la que pertenece: <input
+            type="text"
+            name="instituto"
+            id="form-instituto"
+            class="form-input"
+            required
+          />`;
+  }
 };
 const agregarDatosFormulario = () => {
   let {
@@ -132,12 +226,12 @@ const agregarDatosFormulario = () => {
   document.getElementById("form-anioFormacion").value = anio;
   document.getElementById("form-numeroCohorte").value = cohorte;
 };
-const agregarOpcionesSelectVinculacion = (data) => {
+const agregarOpcionesSelectVinculacion = async (data) => {
   const $vinculaciones = document.getElementById("form-vinculacion");
 
   $vinculaciones.innerHTML = "";
 
-  data.forEach((item) => {
+  await data.forEach((item) => {
     const option = document.createElement("option");
     option.value = item.id;
     option.text = item.nombre;
@@ -147,7 +241,7 @@ const agregarOpcionesSelectVinculacion = (data) => {
 
 const agregarOpcionesSelectTipoDocumento = async (preSeleccion) => {
   let listadoTiposDocumento = await fetchingTipoDocumento();
-  console.log(listadoTiposDocumento);
+  // console.log(listadoTiposDocumento);
 
   const $tiposDocumento = document.getElementById("form-tipoDocumento");
 
@@ -159,14 +253,118 @@ const agregarOpcionesSelectTipoDocumento = async (preSeleccion) => {
     option.text = item.nombre;
     $tiposDocumento.appendChild(option);
   });
+};
 
-  preSeleccion && ($tiposDocumento.value = preSeleccion);
+const agregarDatosFormularioExisteCursante = (dataCursante) => {
+  // console.log(dataCursante);
 
+  if (dataCursante.existe) {
+    let $primerNombre = document.getElementById("form-primerNombre"),
+      $segundoNombre = document.getElementById("form-segundoNombre"),
+      $primerApellido = document.getElementById("form-primerApellido"),
+      $segundoApellido = document.getElementById("form-segundoApellido"),
+      $codigoEdx = document.getElementById("form-codigoEdx"),
+      $fechaNacimiento = document.getElementById("form-fechaNacimiento"),
+      $correoPonente = document.getElementById("form-correoPonente"),
+      $correoPonenteRepetir = document.getElementById(
+        "form-correoPonenteRepetir"
+      ),
+      $telefonoPonente = document.getElementById("form-telefonoPonente"),
+      $telefonoPonenteRepetir = document.getElementById(
+        "form-telefonoPonenteRepetir"
+      );
+
+    $primerNombre.value = dataCursante.cursante.primer_nombre;
+    $segundoNombre.value = dataCursante.cursante.segundo_nombre;
+    $primerApellido.value = dataCursante.cursante.primer_apellido;
+    $segundoApellido.value = dataCursante.cursante.segundo_apellido;
+    $codigoEdx.value = dataCursante.cursante.usuario_edx;
+    $fechaNacimiento.value = dataCursante.cursante.fecha_nacimiento;
+    $correoPonente.value = dataCursante.cursante.correo;
+    $correoPonenteRepetir.value = dataCursante.cursante.correo;
+    $telefonoPonente.value = dataCursante.cursante.numero_contacto;
+    $telefonoPonenteRepetir.value = dataCursante.cursante.numero_contacto;
+
+    $primerNombre.readOnly = true;
+    $segundoNombre.readOnly = true;
+    $primerApellido.readOnly = true;
+    $segundoApellido.readOnly = true;
+    $codigoEdx.readOnly = true;
+    $fechaNacimiento.readOnly = true;
+    $correoPonente.readOnly = true;
+    $correoPonenteRepetir.readOnly = true;
+    $telefonoPonente.readOnly = true;
+    $telefonoPonenteRepetir.readOnly = true;
+
+    $primerNombre.classList.add("form-input-disabled");
+    $segundoNombre.classList.add("form-input-disabled");
+    $primerApellido.classList.add("form-input-disabled");
+    $segundoApellido.classList.add("form-input-disabled");
+    $codigoEdx.classList.add("form-input-disabled");
+    $fechaNacimiento.classList.add("form-input-disabled");
+    $correoPonente.classList.add("form-input-disabled");
+    $correoPonenteRepetir.classList.add("form-input-disabled");
+    $telefonoPonente.classList.add("form-input-disabled");
+    $telefonoPonenteRepetir.classList.add("form-input-disabled");
+
+    let $genero = document.getElementById("form-genero"),
+      $identidadGenero = document.getElementById("form-identidadGenero"),
+      $grupoEtnico = document.getElementById("form-grupoEtnico"),
+      $discapacidad = document.getElementById("form-discapacidad");
+
+    $genero.value = dataCursante.cursante.genero;
+    $identidadGenero.value = dataCursante.cursante.identidad_genero;
+    $grupoEtnico.value = dataCursante.cursante.grupo_etnico;
+    $discapacidad.value = dataCursante.cursante.tipo_discapacidad;
+
+    $genero.setAttribute("data-selected", dataCursante.cursante.genero);
+    $identidadGenero.setAttribute(
+      "data-selected",
+      dataCursante.cursante.identidad_genero
+    );
+    $grupoEtnico.setAttribute(
+      "data-selected",
+      dataCursante.cursante.grupo_etnico
+    );
+    $discapacidad.setAttribute(
+      "data-selected",
+      dataCursante.cursante.tipo_discapacidad
+    );
+
+    $genero.addEventListener("change", function (event) {
+      event.target.value = event.target.getAttribute("data-selected");
+    });
+    $identidadGenero.addEventListener("change", function (event) {
+      event.target.value = event.target.getAttribute("data-selected");
+    });
+    $grupoEtnico.addEventListener("change", function (event) {
+      event.target.value = event.target.getAttribute("data-selected");
+    });
+    $discapacidad.addEventListener("change", function (event) {
+      event.target.value = event.target.getAttribute("data-selected");
+    });
+
+    $genero.classList.add("form-input-disabled");
+    $identidadGenero.classList.add("form-input-disabled");
+    $grupoEtnico.classList.add("form-input-disabled");
+    $discapacidad.classList.add("form-input-disabled");
+  }
+
+  let $numDocumentoPonente = document.getElementById(
+    "form-numDocumentoPonente"
+  );
+  $numDocumentoPonente.value = dataCursante.cursante.numero_documento;
+  $numDocumentoPonente.readOnly = true;
+
+  let $tipoDocumento = document.getElementById("form-tipoDocumento");
+  $tipoDocumento.value = dataCursante.cursante.tipo_documento;
   // Guardar el valor seleccionado inicialmente
-  preSeleccion && $tiposDocumento.setAttribute("data-selected", preSeleccion);
-
+  $tipoDocumento.setAttribute(
+    "data-selected",
+    dataCursante.cursante.tipo_documento
+  );
   // Prevenir que el usuario cambie la selección
-  $tiposDocumento.addEventListener("change", function (event) {
+  $tipoDocumento.addEventListener("change", function (event) {
     event.target.value = event.target.getAttribute("data-selected");
   });
 };

@@ -1,35 +1,37 @@
 const insertaRegistro = async (data) => {
-    console.log(data);
-    
-    const myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-  
-    const raw = JSON.stringify(data);
-  
-    const requestOptions = {
-      method: "POST",
-      headers: myHeaders,
-      body: raw,
-      redirect: "follow",
-    };
-  
-    await fetch(
+  console.log(data);
+
+  const myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+
+  const raw = JSON.stringify(data);
+
+  const requestOptions = {
+    method: "POST",
+    headers: myHeaders,
+    body: raw,
+    redirect: "follow",
+  };
+
+  try {
+    let result = await fetch(
       "https://pruebascrud.formaciones.planestic.udistrital.edu.co/v1/registro.php",
       requestOptions
-    )
-      .then((response) => response.text())
-      .then(async (result) => {
-        console.log(JSON.parse(result));
-        result = JSON.parse(result);
-        if ((await result.estado) === "ok") {
-          console.log(result);
-        } else {
-          console.log(result.estado);
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-}
+    );
+
+    result = await result.json();
+    if ((await result.estado) === "ok") {
+      console.log(result);
+      return result;
+      alert("Se registro exitosamente al curso");
+      // window.location.href = "/";
+    } else {
+      console.log(result.estado);
+    }
+  } catch (error) {
+    console.error(error);
+    return error;
+  }
+};
 
 export default insertaRegistro;

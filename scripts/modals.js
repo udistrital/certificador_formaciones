@@ -1,5 +1,6 @@
 import crearCohorteFnc from "./crearCohorte.js";
 import crearFormacionfnc from "./crearFormacion.js";
+import formularioModulo from "./funcionalidades/Modulos/CapturaCamposFormularioModulo.js";
 import obtenerParametrosComposForm from "./funcionalidades/Modulos/ObtenerParametrosCamposForm.js";
 import reload from "./funcionalidades/ReloadPage.js";
 import gotop from "./irTop.js";
@@ -23,7 +24,6 @@ const $closeModalInfoCohorte = d.getElementById("close-modal-info-cohorte");
 const $modalinfoCohorte = d.getElementById("modal-info-cohorte");
 
 d.addEventListener("click", (e) => {
-  // console.log(e.target);
   if (
     e.target === $closeModalNuevaFormacion ||
     e.target === $modalNuevaFormacion
@@ -45,6 +45,8 @@ d.addEventListener("click", (e) => {
     $modalNuevoModulo.classList.toggle("modal-disabled");
   }
   if (e.target === $openModalNuevoModulo) {
+    console.log("abriendo modulo new");
+
     $modalNuevoModulo.classList.toggle("modal-disabled");
   }
   if (e.target === $closeModalInfoCohorte || e.target === $modalinfoCohorte) {
@@ -56,15 +58,13 @@ d.addEventListener("click", (e) => {
 /** modal de informacion de una cohorte */
 
 export const mostrarModalInfoCohorte = () => {
-  // debugger;
   const $openModalInfoCohorte = d.getElementsByClassName("show-info-cohorte");
-  // console.log($openModalInfoCohorte);
   Array.from($openModalInfoCohorte).forEach((e, i) => {
     e.addEventListener("click", (event) => {
       console.log("echoi");
       if (event.target === e) {
         console.log(i);
-        gotop()
+        gotop();
         $modalinfoCohorte.classList.toggle("modal-disabled");
       }
     });
@@ -82,59 +82,13 @@ d.addEventListener("submit", async (e) => {
   const $btnNuevoModulo = document.getElementById("modal-form-modulo");
   if (e.target === $btnNuevaFormacion) {
     $modalNuevaFormacion.classList.toggle("modal-disabled");
-
-    let estado = await crearFormacionfnc();
-
-    console.log(estado);
-
-    if (estado === true) {
-      const $notificacionVerde = document.getElementById(
-        "notificacion-verde-formacion"
-      );
-      $notificacionVerde.classList.toggle("notificacion-disabled");
-      reload();
-    } else if (estado === false) {
-      const $notificacionRoja = document.getElementById(
-        "notificacion-roja-formacion"
-      );
-      $notificacionRoja.classList.toggle("notificacion-disabled");
-      reload();
-    }
+    await crearFormacionfnc();
   } else if (e.target === $btnNuevaCohorte) {
     $modalNuevaCohorte.classList.toggle("modal-disabled");
-    let estado = await crearCohorteFnc();
-    if (estado === true) {
-      const $notificacionVerde = document.getElementById(
-        "notificacion-verde-cohorte"
-      );
-      $notificacionVerde.classList.remove("notificacion-disabled");
-      reload();
-    } else if (estado === false) {
-      console.log("rojo");
-      const $notificacionRoja = document.getElementById(
-        "notificacion-roja-cohorte"
-      );
-      $notificacionRoja.classList.remove("notificacion-disabled");
-      reload();
-    }
+    await crearCohorteFnc();
   } else if (e.target === $btnNuevoModulo) {
     $modalNuevoModulo.classList.toggle("modal-disabled");
-    let estado = await obtenerParametrosComposForm();
-    // console.log(estado);
-
-    if (estado === true) {
-      const $notificacionVerde = document.getElementById(
-        "notificacion-verde-formacion"
-      );
-      $notificacionVerde.classList.toggle("notificacion-disabled");
-      reload();
-    } else if (estado === false) {
-      const $notificacionRoja = document.getElementById(
-        "notificacion-roja-formacion"
-      );
-      $notificacionRoja.classList.toggle("notificacion-disabled");
-      reload();
-    }
+    await formularioModulo(e);
   }
   window.scrollTo({
     top: 0,

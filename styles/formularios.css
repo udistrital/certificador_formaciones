@@ -74,7 +74,6 @@ a:hover {
 
 .form-label-check{
   display: flex;
-  margin: 10px 0;
 }
 
 @media only screen and (max-width: 1023px) {
@@ -86,7 +85,8 @@ a:hover {
   }
 
   #header-banner-img {
-    object-fit: fill;
+    display: block;
+    object-fit: scale-down;
   }
   .main {
     width: 90%;
@@ -119,8 +119,7 @@ a:hover {
 @media only screen and (min-width: 1024px) {
   .header-banner {
     display: block;
-    height: 100%;
-    width: 60%;
+    width: 100%;
     padding: 0;
     margin: 0;
   }
@@ -155,4 +154,10 @@ footer {
   justify-content: center;
   align-items: center;
   padding: 0 0 16px 0;
+}
+
+.contenido-form{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }

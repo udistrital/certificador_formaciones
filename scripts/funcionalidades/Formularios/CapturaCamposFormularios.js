@@ -1,8 +1,16 @@
 import validaCursante from "../../Fetching/GET/Cursante.js";
+import fetchingDependencias from "../../Fetching/GET/ListaDependencias.js";
+import { listaDependenciasTipoDependencias } from "../../Fetching/GET/ListaDependenciasTipoDependencias.js";
+import listaRegistros from "../../Fetching/GET/ListaRegistros.js";
+import insertaAsistencia from "../../Fetching/POST/InsertaAsistencia.js";
+import insertaCursante from "../../Fetching/POST/InsertaCursante.js";
 import insertaRegistro from "../../Fetching/POST/InsertaRegistroAspirante.js";
+import insertaRegistroPonencia from "../../Fetching/POST/InsertaRegistroPonencia.js";
+import formatearFecha from "../FormateoFecha.js";
 import obtenerParametrosUrlFormulario from "./ObtenerParametrosUrlFormulario.js";
+import { agregarDependencia } from "./PreLlenadoFormulario.js";
 
-const capturaCampos = () => {
+const capturaCampos = async () => {
   if (window.location.pathname.includes("formularioRegistroAspirantes")) {
     formularioRegistro();
   } else if (window.location.pathname.includes("formularioAsistencia")) {
@@ -31,12 +39,13 @@ export const formularioValidaCursante = () => {
 
       // Capturar datos
       let data = {
-        tipoDocumento: formData.get("tipoDocumento"),
-        numDocumento: formData.get("numDocumentoPonente"),
-        terminos: formData.get("terminos"),
+        tipo_documento: formData.get("tipoDocumento"),
+        numero_documento: formData.get("numDocumentoPonente"),
       };
       console.log(data);
-      let existe_cursante = await validaCursante(data);
+      let res = await validaCursante(data);
+      console.log(res);
+
       let {
         idCohorteModelo,
         cohorte,
@@ -45,50 +54,135 @@ export const formularioValidaCursante = () => {
         nombreTipoProceso,
         idTipoProceso,
         anio,
+        id_formulario,
       } = obtenerParametrosUrlFormulario();
-      location.href = `formularioRegistroAspirantes.html?idCohorteModelo=${idCohorteModelo}&cohorte=${cohorte}&idProceso=${idProceso}&nombreProceso=${nombreProceso}&nombreTipoProceso=${nombreTipoProceso}&idTipoProceso=${idTipoProceso}&anio=${anio}&existeCursante=${existe_cursante}&tipoDocumento=${data.tipoDocumento}&numDocumento=${data.numDocumento}&terminos=${data.terminos}`;
+      // location.href = `formularioRegistroAspirantes.html?idCohorteModelo=${idCohorteModelo}&cohorte=${cohorte}&idProceso=${idProceso}&nombreProceso=${nombreProceso}&nombreTipoProceso=${nombreTipoProceso}&idTipoProceso=${idTipoProceso}&anio=${anio}&existeCursante=${existe_cursante}&tipoDocumento=${data.tipoDocumento}&numDocumento=${data.numDocumento}`;
+
+      let tipoRegistro = new URLSearchParams(window.location.search).get(
+        "tipoRegistro"
+      );
+
+      if (tipoRegistro === "estudiante") {
+        location.href = `formsInscripcion/formularioRegistroAspirantes.html?cohorte=${cohorte}&nombreProceso=${nombreProceso}&nombreTipoProceso=${nombreTipoProceso}&anio=${anio}&id_formulario=${id_formulario}&existeCursante=${
+          res.existe
+        }&tipoDocumento=${data.tipo_documento}&numDocumento=${
+          data.numero_documento
+        }${res.existe === true ? "&id_cursante=" : ""}${
+          res.existe === true ? res.cursante.id : ""
+        }`;
+      } else if (tipoRegistro === "postulante") {
+        location.href = `formsPostulaciones/formularioPostulacion.html?cohorte=${cohorte}&nombreProceso=${nombreProceso}&nombreTipoProceso=${nombreTipoProceso}&anio=${anio}&id_formulario=${id_formulario}&existeCursante=${
+          res.existe
+        }&tipoDocumento=${data.tipo_documento}&numDocumento=${
+          data.numero_documento
+        }${res.existe === true ? "&id_cursante=" : ""}${
+          res.existe === true ? res.cursante.id : ""
+        }`;
+      }
 
       // return data;
     });
 };
 
 const formularioRegistro = () => {
+  let { id_cursante, id_formulario } = extraDatosInsertaRegistro();
+  console.log("registro");
+
   document
     .getElementById("form_inscritos")
-    .addEventListener("submit", function (event) {
+    .addEventListener("submit", async function (event) {
       event.preventDefault(); // Evitar que el formulario se envíe de manera predeterminada
 
       const formData = new FormData(event.target); // Crear un objeto FormData
-      console.log(event.target);
 
-      // Capturar datos
-      let data = {
-        nombreProceso: formData.get("nombreFormacion"),
-        nombreTipoProceso: formData.get("tipoFormacion"),
-        anio: formData.get("anioFormacion"),
-        cohorte: formData.get("numeroCohorte"),
-        nombres: formData.get("nombresPonente"),
-        apellidos: formData.get("apellidosPonente"),
-        tipoDocumento: formData.get("tipoDocumento"),
-        numDocumento: formData.get("numDocumentoPonente"),
-        numDocumentoConfirmacion: formData.get("numDocumentoPonenteRepetir"),
+      let dataCursante = {
+        usuario_edx: formData.get("codigoEdx"),
+        primer_nombre: formData.get("primerNombre"),
+        segundo_nombre: formData.get("segundoNombre"),
+        primer_apellido: formData.get("primerApellido"),
+        segundo_apellido: formData.get("segundoApellido"),
+        fecha_modificado: formatearFecha(Date.now()),
+        tipo_documento: formData.get("tipoDocumento"),
+        numero_documento: formData.get("numDocumentoPonente"),
+        fecha_nacimiento: formData.get("fechaNacimiento"),
+        genero: formData.get("genero"),
+        identidad_genero: formData.get("identidadGenero"),
+        grupo_etnico: formData.get("grupoEtnico"),
+        tipo_discapacidad: formData.get("discapacidad"),
         correo: formData.get("correoPonente"),
-        correoConfirmacion: formData.get("correoPonenteRepetir"),
-        numContacto: formData.get("telefonoPonente"),
-        numContactoConfirmacion: formData.get("telefonoPonenteRepetir"),
-        tipoVinculacion: formData.get("vinculacion"),
+        numero_contacto: formData.get("telefonoPonente"),
+        fecha_creado: formatearFecha(Date.now()),
+      };
+
+      let data = {
+        cursante: id_cursante,
+        formulario: id_formulario,
+        dependencia: formData.get("dependencia"),
+        vinculacion: formData.get("vinculacion"),
+        instituto: formData.get("instituto"),
+        ponente: 0,
+        fecha_registro: formatearFecha(Date.now()),
+        fecha_creado: formatearFecha(Date.now()),
+        fecha_modificado: formatearFecha(Date.now()),
         terminos: formData.get("terminos"),
       };
-      // console.log(data);
-      insertaRegistro(data);
+
+      console.log(data);
+      if (data.terminos === "on") {
+        if (id_cursante === null) {
+          console.log("insertando ");
+          console.log(dataCursante);
+
+          let res = await insertaCursante(dataCursante);
+          if (res.estado === "ok") {
+            console.log("Se creo el cursante, se registrara");
+            console.log(res.resultado, data);
+            data.cursante = res.resultado.id_cursante;
+          } else if (res.estado === "error") {
+            console.log(res.resultado.error_motivo);
+          }
+          console.log(res);
+        }
+
+        let validaExistenciaRegistroCohorte = await listaRegistros(
+          data.cursante,
+          data.formulario
+        );
+
+        console.log(validaExistenciaRegistroCohorte);
+
+        if (!validaExistenciaRegistroCohorte.existe) {
+          let resultadoRegistro = await insertaRegistro(data);
+          if (resultadoRegistro.estado === "ok") {
+            alert("Se registro a la cohorte");
+          } else {
+            alert("No se pudo registrar a la cohorte");
+          }
+        } else {
+          alert("Ya se encuentra registrado a la cohorte");
+        }
+      } else {
+        alert("Debe aceptar terminos");
+      }
       // return data;
     });
+};
+
+const extraDatosInsertaRegistro = () => {
+  return {
+    id_cursante:
+      new URLSearchParams(window.location.search).get("id_cursante") &&
+      new URLSearchParams(window.location.search).get("id_cursante"),
+    id_formulario: new URLSearchParams(window.location.search).get(
+      "id_formulario"
+    ),
+  };
 };
 
 const formularioAsistencia = () => {
   document
     .getElementById("form_asistencias")
-    .addEventListener("submit", function (event) {
+    .addEventListener("submit", async function (event) {
       event.preventDefault(); // Evitar que el formulario se envíe de manera predeterminada
 
       const formData = new FormData(event.target); // Crear un objeto FormData
@@ -105,44 +199,143 @@ const formularioAsistencia = () => {
         numDocumentoConfirmacion: formData.get("numDocumentoPonenteRepetir"),
         terminos: formData.get("terminos"),
       };
-      console.log(data);
+      let dataCursante = {
+        tipo_documento: formData.get("tipoDocumento"),
+        numero_documento: formData.get("numDocumentoPonente"),
+      };
+      // console.log(dataCursante);
+      let res = await validaCursante(dataCursante);
+      console.log(res);
+
+      if (res.existe === true) {
+        let resListarRegistros = await listaRegistros(res.cursante.id);
+        if (resListarRegistros.existe) {
+          let dataAsistencia = {
+            formulario: extraDatosInsertaAsistencia().id_formulario,
+            registro: resListarRegistros.registro[0].id,
+            fecha_creado: formatearFecha(Date.now()),
+            fecha_modificado: formatearFecha(Date.now()),
+            fecha_asistencia: formatearFecha(Date.now()),
+          };
+          // console.log(dataAsistencia);
+          let respuestaInsertaAsistencia = await insertaAsistencia(
+            dataAsistencia
+          );
+          console.log(respuestaInsertaAsistencia);
+        }
+      } else {
+        alert("No existe el cursante");
+      }
 
       return data;
     });
 };
 
+const extraDatosInsertaAsistencia = () => {
+  return {
+    id_formulario: new URLSearchParams(window.location.search).get(
+      "id_formulario"
+    ),
+  };
+};
+
 const formularioPostulacion = () => {
+  let { id_cursante, id_formulario } = extraDatosInsertaRegistro();
+
   document
     .getElementById("form_ponentes")
-    .addEventListener("submit", function (event) {
+    .addEventListener("submit", async function (event) {
       event.preventDefault(); // Evitar que el formulario se envíe de manera predeterminada
 
       const formData = new FormData(event.target); // Crear un objeto FormData
-      console.log(event.target);
 
-      // Capturar datos
-      let data = {
-        nombreProceso: formData.get("nombreFormacion"),
-        nombreTipoProceso: formData.get("tipoFormacion"),
-        anio: formData.get("anioFormacion"),
-        cohorte: formData.get("numeroCohorte"),
-        nombres: formData.get("nombresPostulante"),
-        apellidos: formData.get("apellidosPostulante"),
-        tipoDocumento: formData.get("tipoDocumento"),
-        numDocumento: formData.get("numDocumentoPostulante"),
-        numDocumentoConfirmacion: formData.get("numDocumentoPostulanteRepetir"),
-        correo: formData.get("correoPostulante"),
-        correoConfirmacion: formData.get("correoPostulanteRepetir"),
-        numContacto: formData.get("telefonoPostulante"),
-        numContactoConfirmacion: formData.get("telefonoPostulanteRepetir"),
-        tipoVinculacion: formData.get("vinculacion"),
-        perfilPonente: formData.get("perfilPostulante"),
-        propuestaPonente: formData.get("propuestaPostulante"),
-        terminos: formData.get("terminos"),
+      let dataCursante = {
+        usuario_edx: formData.get("codigoEdx"),
+        primer_nombre: formData.get("primerNombre"),
+        segundo_nombre: formData.get("segundoNombre"),
+        primer_apellido: formData.get("primerApellido"),
+        segundo_apellido: formData.get("segundoApellido"),
+        fecha_modificado: formatearFecha(Date.now()),
+        tipo_documento: formData.get("tipoDocumento"),
+        numero_documento: formData.get("numDocumentoPonente"),
+        fecha_nacimiento: formData.get("fechaNacimiento"),
+        genero: formData.get("genero"),
+        identidad_genero: formData.get("identidadGenero"),
+        grupo_etnico: formData.get("grupoEtnico"),
+        tipo_discapacidad: formData.get("discapacidad"),
+        correo: formData.get("correoPonente"),
+        numero_contacto: formData.get("telefonoPonente"),
+        fecha_creado: formatearFecha(Date.now()),
       };
-      console.log(data);
 
-      return data;
+      let dataRegistro = {
+        cursante: id_cursante,
+        formulario: id_formulario,
+        vinculacion: formData.get("vinculacion"),
+        ponente: true,
+        fecha_registro: formatearFecha(Date.now()),
+        fecha_creado: formatearFecha(Date.now()),
+        fecha_modificado: formatearFecha(Date.now()),
+        propuestaPonente: formData.get("propuestaPostulante"),
+        perfilPonente: formData.get("perfilPostulante"),
+      };
+
+      let dataRegistroPonencia = {
+        registro: null,
+        perfil: formData.get("perfilPostulante"),
+        ponencia: "url del documento propuesta de ponencia",
+        duracion: 10,
+        aceptado: false,
+        presentacion: null,
+        foto: null,
+        memoria: null,
+        fecha_creado: formatearFecha(Date.now()),
+        fecha_modificado: formatearFecha(Date.now()),
+      };
+
+      if (formData.get("terminos") === "on") {
+        if (id_cursante === null) {
+          console.log("insertando ");
+
+          let resulCursante = await insertaCursante(dataCursante);
+          if (resulCursante.estado === "ok") {
+            alert("Se creo el cursante, se registrara a la cohorte");
+            dataRegistro.cursante = resulCursante.resultado.id_cursante;
+          } else if (resulCursante.estado === "error") {
+            console.log(resulCursante.resultado.error_motivo);
+          }
+        }
+        let validaExistenciaRegistroCohorte = await listaRegistros(
+          dataRegistro.cursante
+        );
+
+        console.log(validaExistenciaRegistroCohorte);
+
+        if (validaExistenciaRegistroCohorte.existe === true) {
+          alert("El usuario ya se encuentra registrado en la cohorte");
+        } else {
+          let resultRegistro = await insertaRegistro(dataRegistro);
+          console.log(resultRegistro);
+
+          if (resultRegistro.estado === "ok") {
+            dataRegistroPonencia.registro =
+              resultRegistro.resultado.id_registro;
+
+            let resultRegistroPonencia = await insertaRegistroPonencia(
+              dataRegistroPonencia
+            );
+
+            console.log(resultRegistroPonencia);
+          } else {
+            alert("Error al registrarse en la cohorte");
+          }
+          // console.log(restulRegistro);
+        }
+      } else {
+        alert("Debe aceptar terminos");
+      }
+
+      console.log(dataRegistroPonencia);
     });
 };
 

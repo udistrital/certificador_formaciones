@@ -5,26 +5,24 @@ const llenarTablaCursosTutor = (data) => {
       "template-renglon-cursos-tutor"
     ).content,
     $tbody = document.getElementById("tbody-table-cursos-tutor");
-
+  $tbody.innerHTML = "";
   data.forEach((formacion) => {
     $template.querySelector("tr").innerHTML = `
                   <td>${formacion.id}</td>
-                  <td style="overflow-x: auto; max-width: 300px;">${
-                    formacion.nombre
-                  }</td>
+                  <td style="overflow-x: auto; max-width: 300px;">${formacion.nombre}</td>
                   <td>${formacion.tipo_proceso}</td>
                   <td class="td-acciones">
                   <span class="material-symbols-outlined accion-ver-cohorte" title="Ver cohortes">visibility</span>
-                  ${
-                    formacion.tipo_proceso === "10"
-                      ? '<span class="material-symbols-outlined index-modulos" title="Modulos">stacks</span>'
-                      : formacion.tipo_proceso === "11"
-                      ? '<span class="material-symbols-outlined index-modulos" title="Modulos">stacks</span>'
-                      : ""
-                  }
                   
                   </td>`;
 
+    // ${
+    //   formacion.tipo_proceso === "10"
+    //     ? '<span class="material-symbols-outlined index-modulos" title="Modulos">stacks</span>'
+    //     : formacion.tipo_proceso === "11"
+    //     ? '<span class="material-symbols-outlined index-modulos" title="Modulos">stacks</span>'
+    //     : ""
+    // }
     let clone = document.importNode($template, true);
 
     $fargmento.appendChild(clone);

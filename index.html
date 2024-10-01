@@ -216,54 +216,6 @@
           </label>
         </article>
       </section>
-      <!-- <section class="section section-nav">
-        <article class="nav-article">
-          <ul class="nav-article-ul">
-            <li>
-              <a
-                href="./index.html"
-                class="nav-article-ul-li-a"
-                >Generales</a
-              >
-            </li>
-            <li>
-              <a
-                href="../pages/CertificadosEmitidosPage.html"
-                class="nav-article-ul-li-a"
-                >Cursos con tutor</a
-              >
-            </li>
-            <li>
-              <a
-                href="../pages/CertificadosEmitidosPage.html"
-                class="nav-article-ul-li-a"
-                >Cursos Autodirigidos (MOOC)</a
-              >
-            </li>
-            <li>
-              <a
-                href="../pages/CertificadosEmitidosPage.html"
-                class="nav-article-ul-li-a"
-                >Capacitaciones y/o talleres</a
-              >
-            </li>
-            <li>
-              <a
-                href="../pages/CertificadosEmitidosPage.html"
-                class="nav-article-ul-li-a"
-                >Diplomado</a
-              >
-            </li>
-            <li>
-              <a
-                href="../pages/CertificadosEmitidosPage.html"
-                class="nav-article-ul-li-a"
-                >Eventos</a
-              >
-            </li>
-          </ul>
-        </article>
-      </section> -->
       <section class="section section-table">
         <table>
           <caption class="table-descripcion">
@@ -292,8 +244,20 @@
                   </span>
                 </div>
               </th>
-              <th scope="col">Cohorte</th>
-              <th scope="col">año</th>
+              <th scope="col">
+                <div class="table-sort" id="index-sort-anio">
+                  Año<span class="material-symbols-outlined">
+                    arrow_drop_down
+                  </span>
+                </div>
+              </th>
+              <th scope="col">
+                <div class="table-sort" id="index-sort-cohorte">
+                  Cohorte<span class="material-symbols-outlined">
+                    arrow_drop_down
+                  </span>
+                </div>
+              </th>
               <th scope="col">
                 <div class="table-sort" id="index-sort-fechaInicial">
                   Fecha inicial<span class="material-symbols-outlined">
@@ -314,31 +278,7 @@
           <template id="template-renglon-formaciones-generales">
             <tr></tr>
           </template>
-          <tbody id="tbody-table-formaciones-generales">
-            <!-- <tr>
-              <td>1</td>
-              <td>Curso con tutor</td>
-              <td>Investigacion</td>
-              <td>1</td>
-              <td>1998</td>
-              <td>1/12/2023</td>
-              <td>1/12/2024</td>
-              <td class="td-acciones">
-                <span class="material-symbols-outlined" title="Ver link">
-                  link
-                </span>
-                <span class="material-symbols-outlined" title="Asistencia">
-                  fact_check
-                </span>
-                <span class="material-symbols-outlined" title="Certificaciones">
-                  workspace_premium
-                </span>
-                <span class="material-symbols-outlined" title="Configurarción">
-                  settings
-                </span>
-              </td>
-            </tr> -->
-          </tbody>
+          <tbody id="tbody-table-formaciones-generales"></tbody>
         </table>
       </section>
     </main>

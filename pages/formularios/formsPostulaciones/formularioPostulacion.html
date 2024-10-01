@@ -23,7 +23,7 @@
         />
       </figure>
       <h1 class="header-title">
-        Verifique que sus datos sean correctos antes de confirmar su postulación
+        Formulario de registro ponente
       </h1>
     </header>
     <main class="main">
@@ -78,78 +78,149 @@
           </label>
         </div>
         <div class="form-div-join">
-          <label class="form-label" for="form-nombresPostulante">
-            Nombres:
+          <label class="form-label" for="form-tipoDocumento">
+            Tipo de documento:
+            <select
+              name="tipoDocumento"
+              id="form-tipoDocumento"
+              required
+              class="form-input form-input-disabled"
+            ></select>
+          </label>
+          <label class="form-label" for="form-numDocumentoPonente">
+            Numero de documento:
             <input
-              type="text"
-              name="nombresPostulante"
-              id="form-nombresPostulante"
-              placeholder="Jass Alf"
-              class="form-input"
+              type="number"
+              name="numDocumentoPonente"
+              id="form-numDocumentoPonente"
+              placeholder="101258988"
+              class="form-input form-input-disabled"
+              required
             />
           </label>
-          <label class="form-label" for="form-apellidosPostulante">
-            Apellidos:
+        </div>
+        <div class="form-div-join">
+          <label class="form-label" for="form-primerNombre">
+            Primer nombre:
             <input
               type="text"
-              name="apellidosPostulante"
-              id="form-apellidosPostulante"
-              placeholder="Sua San"
+              name="primerNombre"
+              id="form-primerNombre"
+              placeholder="primer nombre"
+              class="form-input"
+              required
+            />
+          </label>
+          <label class="form-label" for="form-segundoNombre">
+            Segundo nombre:
+            <input
+              type="text"
+              name="segundoNombre"
+              id="form-segundoNombre"
+              placeholder="segundo nombre"
               class="form-input"
             />
           </label>
         </div>
-        <label class="form-label" for="form-tipoDocumento">
-          Tipo de documento:
-          <select
-            name="tipoDocumento"
-            id="form-tipoDocumento"
+        <div class="form-div-join">
+          <label class="form-label" for="form-primerApellido">
+            Primer apellido:
+            <input
+              type="text"
+              name="primerApellido"
+              id="form-primerApellido"
+              placeholder="primer apellido"
+              class="form-input"
+              required
+            />
+          </label>
+          <label class="form-label" for="form-segundoApellido">
+            Segundo apellido:
+            <input
+              type="text"
+              name="segundoApellido"
+              id="form-segundoApellido"
+              placeholder="segundo apellido"
+              class="form-input"
+              required
+            />
+          </label>
+        </div>
+
+        <label class="form-label" for="form-codigoEdx">
+          Código Edx:
+          <input
+            type="text"
+            name="codigoEdx"
+            id="form-codigoEdx"
+            placeholder="Código Edx"
+            class="form-input"
+          />
+        </label>
+
+        <label class="form-label" for="form-fechaNacimiento">
+          Fecha de nacimiento:
+          <input
+            type="date"
+            name="fechaNacimiento"
+            id="form-fechaNacimiento"
+            class="form-input"
             required
+          />
+        </label>
+
+        <label class="form-label" for="form-genero">
+          Género:
+          <select
+            name="genero"
+            id="form-genero"
+            class="form-input"
+            required
+          ></select>
+        </label>
+        <label class="form-label" for="form-identidadGenero">
+          Identidad de género:
+          <select
+            name="identidadGenero"
+            id="form-identidadGenero"
+            class="form-input"
+            required
+          ></select>
+        </label>
+        <label class="form-label" for="form-grupoEtnico">
+          Grupo Etnico:
+          <select
+            name="grupoEtnico"
+            id="form-grupoEtnico"
+            class="form-input"
+          ></select>
+        </label>
+        <label class="form-label" for="form-discapacidad">
+          Tipo de discapacidad:
+          <select
+            name="discapacidad"
+            id="form-discapacidad"
             class="form-input"
           ></select>
         </label>
         <div class="form-div-join">
-          <label class="form-label" for="form-numDocumentoPostulante">
-            Numero de identificación:
-            <input
-              type="number"
-              name="numDocumentoPostulante"
-              id="form-numDocumentoPostulante"
-              placeholder="101258988"
-              class="form-input"
-              required
-            />
-          </label>
-          <label class="form-label" for="form-numDocumentoPostulanteRepetir">
-            Confirme numero de identificación:
-            <input
-              type="number"
-              name="numDocumentoPostulanteRepetir"
-              id="form-numDocumentoPostulanteRepetir"
-              placeholder="101258988"
-              class="form-input"
-              required
-            />
-          </label>
-        </div>
-        <div class="form-div-join">
-          <label class="form-label" for="form-correoPostulante">
+          <label class="form-label" for="form-correoPonente">
             Correo electrónico:
             <input
               type="email"
-              name="correoPostulante"
-              id="form-correoPostulante"
+              name="correoPonente"
+              id="form-correoPonente"
               placeholder="jesus@udistrital.edu.co"
               class="form-input"
               required
             />
           </label>
-          <label class="form-label" for="form-correoPostulanteRepetir">
-            Confirme correo electrónico:
+          <label class="form-label" for="form-correoPonenteRepetir">
+            Confirme el correo electrónico:
             <input
               type="email"
-              name="correoPostulanteRepetir"
-              id="form-correoPostulanteRepetir"
+              name="correoPonenteRepetir"
+              id="form-correoPonenteRepetir"
               placeholder="jesus@udistrital.edu.co"
               class="form-input"
               required
@@ -157,23 +228,23 @@
           </label>
         </div>
         <div class="form-div-join">
-          <label class="form-label" for="form-telefonoPostulante">
+          <label class="form-label" for="form-telefonoPonente">
             Numero de contacto:
             <input
               type="number"
-              name="telefonoPostulante"
-              id="form-telefonoPostulante"
+              name="telefonoPonente"
+              id="form-telefonoPonente"
               placeholder="3013840229"
               class="form-input"
               required
             />
           </label>
-          <label class="form-label" for="form-telefonoPostulanteRepetir">
-            Confirme numero de contacto:
+          <label class="form-label" for="form-telefonoPonenteRepetir">
+            Confirme su numero de contacto:
             <input
               type="number"
-              name="telefonoPostulanteRepetir"
-              id="form-telefonoPostulanteRepetir"
+              name="telefonoPonenteRepetir"
+              id="form-telefonoPonenteRepetir"
               placeholder="3013840229"
               class="form-input"
               required
@@ -189,6 +260,13 @@
             class="form-input"
             required
           ></select>
+        </label>
+
+        <label
+          class="form-label"
+          for="form-dependencia"
+          id="form__label-dependencia"
+        >
         </label>
 
         <label class="form-label" for="form-perfilPostulante">
@@ -218,9 +296,9 @@ Perfil de formación y/o profesión Max. 1500 carácteres
           </p>
         </label>
         <label class="form-label-check" for="form-terminos"
-          ><input type="checkbox" name="terminos" id="form-terminos" />
-          Acepto <a href="#"> terminos y condiciones</a> para tratar estos datos
-          y confirmo que los mismos son veridicos
+          ><input type="checkbox" name="terminos" id="form-terminos" /> Acepto
+          <a href="#"> terminos y condiciones</a> para tratar estos datos y
+          confirmo que los mismos son veridicos
         </label>
 
         <input
@@ -246,4 +324,7 @@ Perfil de formación y/o profesión Max. 1500 carácteres
   src="../../../scripts/funcionalidades/Formularios/PreLlenadoFormulario.js"
 ></script>
 
-<script type="module" src="../../../scripts/funcionalidades/Formularios/CapturaCamposFormularios.js"></script>
+<script
+  type="module"
+  src="../../../scripts/funcionalidades/Formularios/CapturaCamposFormularios.js"
+></script>

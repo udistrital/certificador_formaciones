@@ -97,9 +97,13 @@ const llenarHistorial = () => {
         ? `Formularios de evidencias ${nombreFormacion ? nombreFormacion : ""}`
         : link.includes("EventosPage")  
         ? `Eventos ${nombreFormacion ? nombreFormacion : ""}`
-        : link.includes()
-        ? ""
-        : ""
+        : link.includes("CursantesRegistrados")
+        ? "Cursantes registrados"
+        : link.includes("PonentesRegistrados")
+        ? "Ponentes registrados"
+        : link.includes("EventosModulos")
+        ? "Modulos"
+        :""
     }`;
     let clone = document.importNode($template, true);
 
