@@ -1,4 +1,5 @@
 import llenarTablaModulos from "../../funcionalidades/Modulos/LlenarTablaModulos.js";
+import { notificarNoRegistros } from "../../funcionalidades/NotificaNoExistenciaRegistros.js";
 
 const listarModulos = async (id_proceso, id_cohorte) => {
   const requestOptions = {
@@ -21,7 +22,11 @@ const listarModulos = async (id_proceso, id_cohorte) => {
         });
       }
 
-      llenarTablaModulos(modulos);
+      if (modulos.length !== 0) {
+        llenarTablaModulos(modulos, id_cohorte);
+      } else {
+        notificarNoRegistros("No se encontraron modulos registrados");
+      }
     })
     .catch((error) => {
       console.error(error);

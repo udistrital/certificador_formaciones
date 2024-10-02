@@ -49,6 +49,9 @@ const fetchNuevaFormacion = async (data) => {
 
       if (result.estado === "ok") {
         notificacion(true, "Se creo la formación correctamente");
+        setTimeout(() => {
+          // window.location.reload();
+        }, 1500);
       } else {
         notificacion(false, "Hubo un problema al crear la formación");
       }

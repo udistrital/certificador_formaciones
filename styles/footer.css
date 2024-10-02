@@ -6,6 +6,7 @@
   color: var(--blanco);
   flex-direction: column;
   justify-content: space-between;
+  transition: .5s;
 }
 
 .footer__section--sn {

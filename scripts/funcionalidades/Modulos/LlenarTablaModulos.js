@@ -2,8 +2,8 @@ import { mostrarModalInfoCohorte } from "../../modals.js";
 import mostarInforCohorte from "../Cohortes/MostrarInfoCohorte.js";
 import obtenerIdCohorte from "../Cohortes/ObtenerIdCohorte.js";
 
-const llenarTablaModulos = (listaModulos) => {
-  console.log(listaModulos);
+const llenarTablaModulos = (listaModulos, id_cohorte) => {
+  console.log(listaModulos, "dsddddddddddddddd");
   const $fargmento = document.createDocumentFragment(),
     $template = document.getElementById(
       "template-renglon-cursos-tutor"
@@ -13,9 +13,7 @@ const llenarTablaModulos = (listaModulos) => {
   listaModulos.forEach((modulo) => {
     $template.querySelector("tr").innerHTML = `
                   <td>${modulo.id}</td>
-                  <td style="overflow-x: auto; max-width: 300px;">${
-                    modulo.nombre
-                  }</td>
+                  <td style="overflow-x: auto; max-width: 300px;">${modulo.nombre}</td>
                   <td>${modulo.proceso}</td>
                   <td>${modulo.proceso}</td>
                   <td class="td-acciones"><span
@@ -35,11 +33,11 @@ const llenarTablaModulos = (listaModulos) => {
                   </span>
                   </td>
                   `;
-                  // ${
-                  //   window.location.pathname.includes("EventosModulos")
-                  //     ? '<span class="material-symbols-outlined index-ponentes" title="Ponentes registrados">cast_for_education</span>'
-                  //     : ""
-                  // }
+    // ${
+    //   window.location.pathname.includes("EventosModulos")
+    //     ? '<span class="material-symbols-outlined index-ponentes" title="Ponentes registrados">cast_for_education</span>'
+    //     : ""
+    // }
 
     let clone = document.importNode($template, true);
 
@@ -49,7 +47,7 @@ const llenarTablaModulos = (listaModulos) => {
   $tbody.appendChild($fargmento);
 
   mostarInforCohorte(listaModulos);
-  obtenerIdCohorte(listaModulos);
+  obtenerIdCohorte(listaModulos, id_cohorte);
   mostrarModalInfoCohorte();
 };
 

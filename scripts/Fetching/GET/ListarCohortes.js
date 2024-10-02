@@ -1,4 +1,5 @@
 import listarCohorterFormacion from "../../funcionalidades/Cohortes/ListarCohortesFormacion.js";
+import { notificarNoRegistros } from "../../funcionalidades/NotificaNoExistenciaRegistros.js";
 
 const listarCohortes = (idFormacion, idTipoFormacion) => {
   console.log(idFormacion);
@@ -18,7 +19,11 @@ const listarCohortes = (idFormacion, idTipoFormacion) => {
       // let listaCohortesFormacion = result.filter((cohorte) => {
       //   return cohorte.proceso === idFormacion.toString();
       // });
-      listarCohorterFormacion(result);
+      if (result.length !== 0) {
+        listarCohorterFormacion(result);
+      } else {
+        notificarNoRegistros("No se han encontrado cohortes registradas");
+      }
     })
     .catch((error) => console.error(error));
 };

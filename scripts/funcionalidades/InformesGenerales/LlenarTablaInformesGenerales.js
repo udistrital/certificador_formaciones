@@ -1,8 +1,9 @@
 import { mostrarModalInfoCohorte } from "../../modals.js";
+import { notificarNoRegistros } from "../NotificaNoExistenciaRegistros.js";
 import { obtenerIdCohorteInformeGeneral } from "./ObtenerIdCohorteInformesGenerales.js";
 
 const llenarTablaInformesGenerales = (li) => {
-  // console.log(li);
+  console.log(li);
   // debugger;
   const $fargmento = document.createDocumentFragment(),
     $template = document.getElementById(
@@ -12,52 +13,57 @@ const llenarTablaInformesGenerales = (li) => {
       "tbody-table-formaciones-generales"
     );
   $tbodyFormacionesGenerales.innerHTML = "";
-  li.forEach((formacion) => {
-    $template.querySelector("tr").innerHTML = `
-        <td>${formacion.id_cohorte}</td>
-        <td>${formacion.nombre_tipo_proceso}</td>
-        <td>${formacion.nombre_proceso}</td>
-        <td>${formacion.anio}</td>
-        <td>${formacion.cohorte}</td>
-        <td>${formacion.fecha_inicial_cohorte}</td>
-        <td>${formacion.fecha_final_cohorte}</td>
-        <td class="td-acciones td-acciones-index">
-        <span
-        class="material-symbols-outlined show-info-cohorte index-info-cohorte"
-        title="Ver link información cohorte"
-        >
-        link
-        </span>
-        <span class="material-symbols-outlined index-asistencias" title="Asistencia">
-        fact_check
-        </span>
-        <span class="material-symbols-outlined index-certificados" title="Certificaciones">
-        workspace_premium
-        </span>
-        
-        <span class="material-symbols-outlined index-cursantes" title="Cursantes registrados">
-        how_to_reg
-        </span>
-          <span class="material-symbols-outlined index-ponentes ${
-            formacion.id_tipo_proceso !== "11" ? "icon-disabled" : ""
-          }" title="Ponentes registrados">cast_for_education</span> 
-          <span class="material-symbols-outlined index-modulos ${
-            formacion.id_tipo_proceso !== "11" &&
-            formacion.id_tipo_proceso !== "10"
-              ? "icon-disabled"
-              : ""
-          }" title="Modulos de cohorte">stack</span>
-        
-        </td>`;
-    {
-      /* <span class="material-symbols-outlined index-configuracion" title="Configurarción">
-        settings
-        </span> */
-    }
-    let clone = document.importNode($template, true);
 
-    $fargmento.appendChild(clone);
-  });
+  if (li.length !== 0) {
+    li.forEach((formacion) => {
+      $template.querySelector("tr").innerHTML = `
+          <td>${formacion.id_cohorte}</td>
+          <td>${formacion.nombre_tipo_proceso}</td>
+          <td>${formacion.nombre_proceso}</td>
+          <td>${formacion.anio}</td>
+          <td>${formacion.cohorte}</td>
+          <td>${formacion.fecha_inicial_cohorte}</td>
+          <td>${formacion.fecha_final_cohorte}</td>
+          <td class="td-acciones td-acciones-index">
+          <span
+          class="material-symbols-outlined show-info-cohorte index-info-cohorte"
+          title="Ver link información cohorte"
+          >
+          link
+          </span>
+          <span class="material-symbols-outlined index-asistencias" title="Asistencia">
+          fact_check
+          </span>
+          <span class="material-symbols-outlined index-certificados" title="Certificaciones">
+          workspace_premium
+          </span>
+          
+          <span class="material-symbols-outlined index-cursantes" title="Cursantes registrados">
+          how_to_reg
+          </span>
+            <span class="material-symbols-outlined index-ponentes ${
+              formacion.id_tipo_proceso !== "11" ? "icon-disabled" : ""
+            }" title="Ponentes registrados">cast_for_education</span> 
+            <span class="material-symbols-outlined index-modulos ${
+              formacion.id_tipo_proceso !== "11" &&
+              formacion.id_tipo_proceso !== "10"
+                ? "icon-disabled"
+                : ""
+            }" title="Modulos de cohorte">stack</span>
+          
+          </td>`;
+      {
+        /* <span class="material-symbols-outlined index-configuracion" title="Configurarción">
+          settings
+          </span> */
+      }
+      let clone = document.importNode($template, true);
+
+      $fargmento.appendChild(clone);
+    });
+  } else {
+    notificarNoRegistros("No se encontraron cortes registradas aun");
+  }
 
   $tbodyFormacionesGenerales.appendChild($fargmento);
   mostrarModalInfoCohorte();

@@ -22,6 +22,7 @@
 
 table {
   width: 100%;
+  transition: 0.5s;
 }
 
 th {
@@ -56,7 +57,7 @@ tr:hover {
   text-align: left;
 }
 
-.td-acciones{
+.td-acciones {
   user-select: none;
 }
 
@@ -128,4 +129,15 @@ tr:hover {
 
 td {
   vertical-align: middle;
+}
+
+.p-noregistros {
+  display: none;
+}
+
+.p-noRegistros-enabled {
+  display: flex;
+  background-color: var(--grisclaro);
+  justify-content: center;
+  align-items: center;
 }

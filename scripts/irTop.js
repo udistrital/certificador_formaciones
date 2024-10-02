@@ -14,12 +14,11 @@ document.querySelector(".nav-menu-top").addEventListener(
   true
 );
 
-
-const gotop = () =>{
+const gotop = () => {
   window.scrollTo({
     top: 0,
     behavior: "smooth", // Esto hace que el desplazamiento sea suave
   });
-}
+};
 
 export default gotop;

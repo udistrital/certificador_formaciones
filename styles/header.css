@@ -1,5 +1,6 @@
 .header {
   display: flex;
+  transition: .5s;
 }
 
 .header__sesion {
@@ -280,6 +281,7 @@
   .header {
     position: relative;
     justify-content: space-between;
+    transition: .5s;
   }
   .header__sesion {
     flex-direction: column;

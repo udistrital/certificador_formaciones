@@ -11,6 +11,9 @@ const listaRegistros = async (idCursante, idFormulario) => {
       requestOptions
     );
     const result = await response.json();
+    console.log(idCursante, idFormulario);
+
+    console.log(result);
 
     let filtrado = await result.filter(
       (registro) =>

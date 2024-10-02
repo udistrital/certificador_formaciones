@@ -15,14 +15,6 @@ const llenarTablaCursosTutor = (data) => {
                   <span class="material-symbols-outlined accion-ver-cohorte" title="Ver cohortes">visibility</span>
                   
                   </td>`;
-
-    // ${
-    //   formacion.tipo_proceso === "10"
-    //     ? '<span class="material-symbols-outlined index-modulos" title="Modulos">stacks</span>'
-    //     : formacion.tipo_proceso === "11"
-    //     ? '<span class="material-symbols-outlined index-modulos" title="Modulos">stacks</span>'
-    //     : ""
-    // }
     let clone = document.importNode($template, true);
 
     $fargmento.appendChild(clone);

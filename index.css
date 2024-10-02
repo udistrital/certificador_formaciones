@@ -14,13 +14,12 @@
   --azulClaro: #0d6efd;
   --verde: #8bc34a;
   --rojo: #bb2d3b;
-  --rojo-transparente:#8b191931;
+  --rojo-transparente: #8b191931;
   --gris-historial-inicio: #7c7c7c;
 
-
   /* nueva linea grafica */
-  --gris-oscuro:#373435;
-  --gris-claro:#4F4D4D;
+  --gris-oscuro: #373435;
+  --gris-claro: #4f4d4d;
   --rojo-principal-claro: #8b1919ec;
 }
 
@@ -160,6 +159,7 @@ svg {
 /* Configuramos la tipografía para toda la web */
 body {
   min-height: 100vh;
+  /* min-height: 100%; */
   font-size: 100%;
   font-family: var(--tipo-principal);
   color: var(--negro);
@@ -175,9 +175,9 @@ body {
   -webkit-font-smoothing: antialiased;
   /* opcional */
   -moz-osx-font-smoothing: grayscale;
-  /* display: flex;
+  display: flex;
   flex-direction: column;
-  justify-content: space-between; */
+  justify-content: space-between;
 }
 
 h1 {
@@ -234,6 +234,7 @@ h6 {
   flex-direction: column;
   gap: 16px;
   padding: 30px 100px;
+  flex: 1;
 }
 
 .section-buscador-informes {
@@ -340,7 +341,7 @@ h6 {
   outline: 1px solid var(--rojoprincipal);
 }
 
-.modal-data-cohorte-estado{
+.modal-data-cohorte-estado {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -351,7 +352,7 @@ h6 {
 }
 @media only screen and (min-width: 1024px) {
 }
-@media screen and (max-width: 768px){
+@media screen and (max-width: 768px) {
   .main {
     padding: 30px 30px;
   }

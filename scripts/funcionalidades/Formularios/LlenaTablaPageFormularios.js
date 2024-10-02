@@ -11,7 +11,11 @@ const llenarTablaPageFormularios = (li) => {
   $tbodyFormacionesGenerales.innerHTML = "";
   li.forEach((formacion) => {
     $template.querySelector("tr").innerHTML = `
-        <td>${formacion.id_proceso}) ${formacion.nombre_proceso}</td>
+        <td>${formacion.id_proceso}) ${formacion.nombre_proceso}${
+      formacion.nombre_modulo === "No registra"
+        ? ""
+        : " - " + formacion.nombre_modulo
+    }</td>
         <td>${formacion.nombre_tipo_proceso}</td>
         <td>${formacion.cohorte}-${formacion.id_cohorte}</td>
         <td>${formacion.anio}</td>

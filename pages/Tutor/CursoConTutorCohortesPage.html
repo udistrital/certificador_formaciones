@@ -124,7 +124,6 @@
                 >Formularios de memorias/evidencias</a
               >
             </li>
-            
           </ul>
         </li>
         <li class="ul__li">
@@ -477,46 +476,57 @@
                     </tr>
                   </thead>
                   <tbody class="table-body-info-cohorte">
-                    <tbody>
-                      <tr>
-                        <td>Inscripción</td>
-                        <td id="table-body-fechaInscripcion">fi</td>
-                        <td>
-                          <div class="modal-data-cohorte-estado" id="modal-data-cohorte-estado-inscripcion">
-                              
-                              
-                          </div>
-                        </td>
-                        <td>
+                    <tr>
+                      <td>Inscripción</td>
+                      <td id="table-body-fechaInscripcion">fi</td>
+                      <td>
+                        <div
+                          class="modal-data-cohorte-estado"
+                          id="modal-data-cohorte-estado-inscripcion"
+                        ></div>
+                      </td>
+                      <td>
+                        <span
+                          class="material-symbols-outlined share-info-cohorte"
+                          title="Copiar link de inscripción"
+                          id="info-cohorte-copia-link-inscripcion"
+                        >
+                          share
+                        </span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Asistencia</td>
+                      <td id="table-body-fechaAsistencia">fa</td>
+                      <td>
+                        <div
+                          class="modal-data-cohorte-estado"
+                          id="modal-data-cohorte-estado-asistencia"
+                        >
                           <span
-                            class="material-symbols-outlined share-info-cohorte"
-                            title="Copiar link de inscripción"
-                            id="info-cohorte-copia-link-inscripcion"
+                            class="material-symbols-outlined on-info-cohorte"
+                            title="Habilitada"
                           >
-                            share
+                            check_circle
                           </span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Asistencia</td>
-                        <td id="table-body-fechaAsistencia">fa</td>
-                        <td>
-                          <div class="modal-data-cohorte-estado" id="modal-data-cohorte-estado-asistencia">
-                            <span class="material-symbols-outlined on-info-cohorte" title="Habilitada" > check_circle </span>
-                            <span class="material-symbols-outlined off-info-cohorte" title="Deshabilitada"> cancel </span>
-                          </div>
-                        </td>
-                        <td>
                           <span
-                            class="material-symbols-outlined share-info-cohorte"
-                            title="Copiar link de asistencia"
-                            id="info-cohorte-copia-link-asistencia"
+                            class="material-symbols-outlined off-info-cohorte"
+                            title="Deshabilitada"
                           >
-                            share
+                            cancel
                           </span>
-                        </td>
-                      </tr>
-                    </tbody>
+                        </div>
+                      </td>
+                      <td>
+                        <span
+                          class="material-symbols-outlined share-info-cohorte"
+                          title="Copiar link de asistencia"
+                          id="info-cohorte-copia-link-asistencia"
+                        >
+                          share
+                        </span>
+                      </td>
+                    </tr>
                   </tbody>
                 </table>
               </section>
@@ -561,34 +571,8 @@
               <tr></tr>
             </template>
           </tbody>
-          <!-- <tbody>
-            <tr>
-              <td>1</td>
-              <td>Producto 1</td>
-              <td>$19.99</td>
-              <td>$19.99</td>
-              <td class="td-acciones">
-                <span
-                  class="material-symbols-outlined show-info-cohorte"
-                  title="Ver link"
-                >
-                  link
-                </span>
-                <span class="material-symbols-outlined" title="Asistencia">
-                  <a href="../pages/AsistenciasPage.html"> fact_check </a>
-                </span>
-                <span class="material-symbols-outlined" title="Certificaciones">
-                  <a href="../pages/CertificadosEmitidosPage.html">
-                    workspace_premium
-                  </a>
-                </span>
-                <span class="material-symbols-outlined" title="Configurarción">
-                  settings
-                </span>
-              </td>
-            </tr>
-          </tbody> -->
         </table>
+        <p class="p-noregistros"></p>
       </section>
     </main>
     <footer class="footer">
@@ -641,5 +625,3 @@
   <script src="../../scripts/CerrarSesion.js" type="module"></script>
   <script src="../../scripts/autorizacion.js" type="module"></script>
 </html>
-
-

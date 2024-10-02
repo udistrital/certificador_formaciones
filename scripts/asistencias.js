@@ -1,44 +1,68 @@
 import listaAsistenciasCohorte from "./Fetching/GET/ListaAsistenciasCohorte.js";
+import { notificarNoRegistros } from "./funcionalidades/NotificaNoExistenciaRegistros.js";
 
 const obtenerIdCohorteProcesoUrl = () => {
+  let id_modulo = null;
+
+  if (window.location.href.includes("idModulo")) {
+    id_modulo = new URLSearchParams(window.location.search).get("idModulo");
+  }
   return {
     id_proceso: new URLSearchParams(window.location.search).get("idProceso"),
     id_cohorte: new URLSearchParams(window.location.search).get("idCohorte"),
+    id_modulo,
   };
 };
 
 const mostrarListadoAsistencias = async () => {
-  let { id_proceso, id_cohorte } = obtenerIdCohorteProcesoUrl();
-  let listado = await listaAsistenciasCohorte(id_cohorte, id_proceso);
+  let { id_proceso, id_cohorte, id_modulo } = obtenerIdCohorteProcesoUrl();
+  let listado = await listaAsistenciasCohorte(
+    id_cohorte,
+    id_proceso,
+    id_modulo
+  );
   console.log(listado);
 
   const $fargmento = document.createDocumentFragment(),
     $template = document.getElementById("template-renglon-asistencia").content,
     $tbody = document.getElementById("tbody-table-asistencia");
   $tbody.innerHTML = "";
-  listado.forEach((asistencia, index) => {
-    $template.querySelector("tr").innerHTML = `
-        <tr>
-            <td>${asistencia.nombre_inscrito}</td>
-            <td>${asistencia.tipo_documento}</td>
-            <td>${asistencia.numero_documento}</td>
-            <td>${asistencia.id_asistencia}</td>
-            <td>${asistencia.fecha_asistencia}</td>
-            <td class="td-acciones">
-            <span class="material-symbols-outlined" title="Ver asistencias">
-                <a href="../pages/CursoConTutorCohortesPage.html"
-                >visibility</a
-                ></span
-            >
-            </td>
-        </tr>
-        `;
 
-    let clone = document.importNode($template, true);
+  if (listado.length !== 0) {
+    listado.forEach((asistencia, index) => {
+      $template.querySelector("tr").innerHTML = `
+          <tr>
+              <td>${asistencia.nombre_inscrito}</td>
+              <td>${asistencia.tipo_documento}</td>
+              <td>${asistencia.numero_documento}</td>
+              <td>${asistencia.id_asistencia}</td>
+              <td>${asistencia.fecha_asistencia}</td>
+              <td class="td-acciones">
+              <span class="material-symbols-outlined" title="Ver asistencias">
+                  <a href="../pages/CursoConTutorCohortesPage.html"
+                  >visibility</a
+                  ></span
+              >
+              </td>
+          </tr>
+          `;
 
-    $fargmento.appendChild(clone);
-  });
-  $tbody.appendChild($fargmento);
+      let clone = document.importNode($template, true);
+
+      $fargmento.appendChild(clone);
+    });
+    $tbody.appendChild($fargmento);
+  } else {
+    if (window.location.href.includes("idModulo")) {
+      notificarNoRegistros(
+        "No se encontraron asistencias registradas el modulo"
+      );
+    } else {
+      notificarNoRegistros(
+        "No se encontraron asistencias registradas para la cohorte"
+      );
+    }
+  }
 };
 
 mostrarListadoAsistencias();
