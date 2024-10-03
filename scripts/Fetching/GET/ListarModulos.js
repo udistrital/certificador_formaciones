@@ -22,11 +22,7 @@ const listarModulos = async (id_proceso, id_cohorte) => {
         });
       }
 
-      if (modulos.length !== 0) {
-        llenarTablaModulos(modulos, id_cohorte);
-      } else {
-        notificarNoRegistros("No se encontraron modulos registrados");
-      }
+      llenarTablaModulos(modulos, id_cohorte);
     })
     .catch((error) => {
       console.error(error);

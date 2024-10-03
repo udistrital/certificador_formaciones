@@ -85,6 +85,12 @@ const agregarTipoDiscapacidad = async (listaTipoDiscapacidades) => {
 
   $vinculaciones.innerHTML = "";
 
+  // Crea la opción de "No selección"
+  const defaultOption = document.createElement("option");
+  defaultOption.value = ""; // Puedes dejarlo vacío o asignar un valor que indique 'no seleccionado'
+  defaultOption.text = "Seleccione un tipo de discapacidad";
+  $vinculaciones.appendChild(defaultOption);
+
   await listaTipoDiscapacidades.forEach((item) => {
     const option = document.createElement("option");
     option.value = item.id;
@@ -99,6 +105,12 @@ const agregarGrupoEtnico = async (grupoetnico) => {
 
   $vinculaciones.innerHTML = "";
 
+  // Crea la opción de "No selección"
+  const defaultOption = document.createElement("option");
+  defaultOption.value = ""; // Puedes dejarlo vacío o asignar un valor que indique 'no seleccionado'
+  defaultOption.text = "Seleccione un grupo etnico";
+  $vinculaciones.appendChild(defaultOption);
+
   await grupoetnico.forEach((item) => {
     const option = document.createElement("option");
     option.value = item.id;
@@ -112,6 +124,11 @@ const agregarIdentidadGenero = async (identidadesGeneros) => {
   const $vinculaciones = document.getElementById("form-identidadGenero");
 
   $vinculaciones.innerHTML = "";
+  // Crea la opción de "No selección"
+  const defaultOption = document.createElement("option");
+  defaultOption.value = ""; // Puedes dejarlo vacío o asignar un valor que indique 'no seleccionado'
+  defaultOption.text = "Seleccione su identidad de genero";
+  $vinculaciones.appendChild(defaultOption);
 
   await identidadesGeneros.forEach((item) => {
     const option = document.createElement("option");
@@ -126,6 +143,12 @@ const agregarGenero = async (generos) => {
   const $vinculaciones = document.getElementById("form-genero");
 
   $vinculaciones.innerHTML = "";
+
+  // Crea la opción de "No selección"
+  const defaultOption = document.createElement("option");
+  defaultOption.value = ""; // Puedes dejarlo vacío o asignar un valor que indique 'no seleccionado'
+  defaultOption.text = "Seleccione su genero";
+  $vinculaciones.appendChild(defaultOption);
 
   await generos.forEach((item) => {
     const option = document.createElement("option");
@@ -195,6 +218,12 @@ export const agregarDependencia = async (dependencias, esSelect) => {
 
     $dependencias.innerHTML = "";
 
+    // Crea la opción de "No selección"
+    const defaultOption = document.createElement("option");
+    defaultOption.value = ""; // Puedes dejarlo vacío o asignar un valor que indique 'no seleccionado'
+    defaultOption.text = "Seleccione la dependencia a la que pertenece";
+    $dependencias.appendChild(defaultOption);
+
     await dependencias.forEach((item) => {
       const option = document.createElement("option");
       option.value = item.id;
@@ -231,6 +260,12 @@ const agregarOpcionesSelectVinculacion = async (data) => {
 
   $vinculaciones.innerHTML = "";
 
+  // Crea la opción de "No selección"
+  const defaultOption = document.createElement("option");
+  defaultOption.value = ""; // Puedes dejarlo vacío o asignar un valor que indique 'no seleccionado'
+  defaultOption.text = "Seleccione su tipo de vinculacion";
+  $vinculaciones.appendChild(defaultOption);
+
   await data.forEach((item) => {
     const option = document.createElement("option");
     option.value = item.id;
@@ -246,6 +281,12 @@ const agregarOpcionesSelectTipoDocumento = async (preSeleccion) => {
   const $tiposDocumento = document.getElementById("form-tipoDocumento");
 
   $tiposDocumento.innerHTML = "";
+
+  // Crea la opción de "No selección"
+  const defaultOption = document.createElement("option");
+  defaultOption.value = ""; // Puedes dejarlo vacío o asignar un valor que indique 'no seleccionado'
+  defaultOption.text = "Seleccione su tipo de documento";
+  $tiposDocumento.appendChild(defaultOption);
 
   await listadoTiposDocumento.forEach((item) => {
     const option = document.createElement("option");

@@ -57,6 +57,7 @@ export const ordenamientoProceso = (listadoProcesos, idTipoProceso) => {
           formacion.nombre.toLowerCase().includes(filtro)
         );
       });
+      console.log(filtrado);
 
       reloadTabla(filtrado, idTipoProceso);
 

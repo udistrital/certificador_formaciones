@@ -115,6 +115,7 @@
               placeholder="primer nombre"
               class="form-input"
               required
+              minlength="3"
             />
           </label>
           <label class="form-label" for="form-segundoNombre">
@@ -125,6 +126,7 @@
               id="form-segundoNombre"
               placeholder="segundo nombre"
               class="form-input"
+              minlength="3"
             />
           </label>
         </div>
@@ -138,6 +140,7 @@
               placeholder="primer apellido"
               class="form-input"
               required
+              minlength="3"
             />
           </label>
           <label class="form-label" for="form-segundoApellido">
@@ -149,6 +152,7 @@
               placeholder="segundo apellido"
               class="form-input"
               required
+              minlength="3"
             />
           </label>
         </div>
@@ -161,6 +165,7 @@
             id="form-codigoEdx"
             placeholder="Código Edx"
             class="form-input"
+            minlength="6"
           />
         </label>
 
@@ -172,6 +177,7 @@
             id="form-fechaNacimiento"
             class="form-input"
             required
+            min="1924-01-01"
           />
         </label>
 
@@ -199,6 +205,7 @@
             name="grupoEtnico"
             id="form-grupoEtnico"
             class="form-input"
+            required
           ></select>
         </label>
         <label class="form-label" for="form-discapacidad">
@@ -207,6 +214,7 @@
             name="discapacidad"
             id="form-discapacidad"
             class="form-input"
+            required
           ></select>
         </label>
         <div class="form-div-join">
@@ -243,6 +251,8 @@
               placeholder="3013840229"
               class="form-input"
               required
+              min="3000000000"
+              max="3999999999"
             />
           </label>
           <label class="form-label" for="form-telefonoPonenteRepetir">
@@ -254,6 +264,8 @@
               placeholder="3013840229"
               class="form-input"
               required
+              min="3000000000"
+              max="3999999999"
             />
           </label>
         </div>
@@ -276,9 +288,9 @@
         </label>
 
         <label class="form-label-check" for="form-terminos"
-          ><input type="checkbox" name="terminos" id="form-terminos" /> Acepto
-          <a href="" target="_blank">terminos y condiciones</a> para tratar
-          estos datos y confirmo que los mismos son veridicos
+          ><input type="checkbox" name="terminos" id="form-terminos" required />
+          Acepto <a href="" target="_blank">terminos y condiciones</a> para
+          tratar estos datos y confirmo que los mismos son veridicos
         </label>
 
         <input

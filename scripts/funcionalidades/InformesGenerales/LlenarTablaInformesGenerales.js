@@ -1,5 +1,8 @@
 import { mostrarModalInfoCohorte } from "../../modals.js";
-import { notificarNoRegistros } from "../NotificaNoExistenciaRegistros.js";
+import {
+  notificarNoRegistros,
+  quitaNotificacionNoRegistros,
+} from "../NotificaNoExistenciaRegistros.js";
 import { obtenerIdCohorteInformeGeneral } from "./ObtenerIdCohorteInformesGenerales.js";
 
 const llenarTablaInformesGenerales = (li) => {
@@ -60,6 +63,7 @@ const llenarTablaInformesGenerales = (li) => {
       let clone = document.importNode($template, true);
 
       $fargmento.appendChild(clone);
+      quitaNotificacionNoRegistros();
     });
   } else {
     notificarNoRegistros("No se encontraron cortes registradas aun");

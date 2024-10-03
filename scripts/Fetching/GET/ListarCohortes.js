@@ -19,11 +19,8 @@ const listarCohortes = (idFormacion, idTipoFormacion) => {
       // let listaCohortesFormacion = result.filter((cohorte) => {
       //   return cohorte.proceso === idFormacion.toString();
       // });
-      if (result.length !== 0) {
-        listarCohorterFormacion(result);
-      } else {
-        notificarNoRegistros("No se han encontrado cohortes registradas");
-      }
+
+      listarCohorterFormacion(result);
     })
     .catch((error) => console.error(error));
 };

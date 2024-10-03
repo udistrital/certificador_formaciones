@@ -1,7 +1,5 @@
 import fetchingAsistenciaById from "../../Fetching/GET/AsistenciaById.js";
 import validaCursante from "../../Fetching/GET/Cursante.js";
-import fetchingDependencias from "../../Fetching/GET/ListaDependencias.js";
-import { listaDependenciasTipoDependencias } from "../../Fetching/GET/ListaDependenciasTipoDependencias.js";
 import listaRegistros from "../../Fetching/GET/ListaRegistros.js";
 import listaRegistrosMid from "../../Fetching/GET/Mid/ListaRegistrosMid.js";
 import fetchingTipoDocumentoById from "../../Fetching/GET/TipoDocumentoId.js";
@@ -13,7 +11,6 @@ import insertaRegistroPonencia from "../../Fetching/POST/InsertaRegistroPonencia
 import formatearFecha from "../FormateoFecha.js";
 import notificacion from "../Notificacion.js";
 import obtenerParametrosUrlFormulario from "./ObtenerParametrosUrlFormulario.js";
-import { agregarDependencia } from "./PreLlenadoFormulario.js";
 
 const capturaCampos = async () => {
   if (window.location.pathname.includes("formularioRegistroAspirantes")) {
@@ -258,8 +255,7 @@ const formularioAsistencia = () => {
           let id_registro = filtraCursante[0].id_registro;
 
           console.log(id_registro);
-          
-          
+
           const respuestaAsistenciaById = await fetchingAsistenciaById(
             id_registro
           );
