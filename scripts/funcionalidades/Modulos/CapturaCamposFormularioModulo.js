@@ -17,12 +17,7 @@ const formularioModulo = async (e) => {
     intensidad_horaria: formData.get("intensidadHoraria"),
   };
 
-  console.log(
-    formData.get("fechaFinallAsistencia") +
-      " " +
-      formData.get("horaFinalAsistencia") +
-      ":00"
-  );
+  console.log(formData.get("fechaFinallAsistencia") + " " + formData.get("horaFinalAsistencia") + ":00");
 
   let resultadoInsertaModulo = await insertaModulo(dataModulo);
   console.log(resultadoInsertaModulo);
@@ -32,16 +27,8 @@ const formularioModulo = async (e) => {
     const sesion = {
       creador: parseInt(idUsuario),
       cohorte: formData.get("form-curso-tutor-input-id-cohorte"),
-      fecha_inicial:
-        formData.get("fechaInicialSesion") +
-        " " +
-        formData.get("horaInicialSesion") +
-        ":00",
-      fecha_final:
-        formData.get("fechaFinallSesion") +
-        " " +
-        formData.get("horaFinalSesion") +
-        ":00",
+      fecha_inicial: formData.get("fechaInicialSesion") + " " + formData.get("horaInicialSesion") + ":00",
+      fecha_final: formData.get("fechaFinallSesion") + " " + formData.get("horaFinalSesion") + ":00",
       sesion_virtual: formData.get("modalidad") === "on" ? 1 : 0,
       enlace: formData.get("linkSesion"),
       activo: true,
@@ -70,26 +57,14 @@ const formularioModulo = async (e) => {
         sesion: respuestaInsertaSesion.resultado.id_sesion,
         tipo_formulario: 2,
         hash: "link formulario",
-        fecha_inicial:
-          formData.get("fechaInicialAsistencia") +
-          " " +
-          formData.get("horaInicialAsistencia") +
-          ":00",
-        fecha_final:
-          formData.get("fechaFinallAsistencia") +
-          " " +
-          formData.get("horaFinalAsistencia") +
-          ":00",
+        fecha_inicial: formData.get("fechaInicialAsistencia") + " " + formData.get("horaInicialAsistencia") + ":00",
+        fecha_final: formData.get("fechaFinallAsistencia") + " " + formData.get("horaFinalAsistencia") + ":00",
       };
       console.log(dataFormularioRegistro);
 
-      let resultInsertaFormularioRegistro = await postNuevoFormulario(
-        dataFormularioRegistro
-      );
+      let resultInsertaFormularioRegistro = await postNuevoFormulario(dataFormularioRegistro);
 
-      let resultInsertaFormularioAsistencia = await postNuevoFormulario(
-        dataFormularioAsistencia
-      );
+      let resultInsertaFormularioAsistencia = await postNuevoFormulario(dataFormularioAsistencia);
     } else {
       notificacion(false, "No se ha podido registrar la sesion");
     }

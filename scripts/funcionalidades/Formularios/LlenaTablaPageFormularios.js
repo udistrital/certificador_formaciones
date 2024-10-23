@@ -2,20 +2,13 @@ const llenarTablaPageFormularios = (li) => {
   console.log(li);
   // debugger;
   const $fargmento = document.createDocumentFragment(),
-    $template = document.getElementById(
-      "template-renglon-formaciones-generales"
-    ).content,
-    $tbodyFormacionesGenerales = document.getElementById(
-      "tbody-table-formaciones-generales"
-    );
+    $template = document.getElementById("template-renglon-formaciones-generales").content,
+    $tbodyFormacionesGenerales = document.getElementById("tbody-table-formaciones-generales");
   $tbodyFormacionesGenerales.innerHTML = "";
+
   li.forEach((formacion) => {
     $template.querySelector("tr").innerHTML = `
-        <td>${formacion.id_proceso}) ${formacion.nombre_proceso}${
-      formacion.nombre_modulo === "No registra"
-        ? ""
-        : " - " + formacion.nombre_modulo
-    }</td>
+        <td>${formacion.id_proceso}) ${formacion.nombre_proceso}${formacion.nombre_modulo === undefined || formacion.nombre_modulo === "No registra" ? "" : " - " + formacion.nombre_modulo}</td>
         <td>${formacion.nombre_tipo_proceso}</td>
         <td>${formacion.cohorte}-${formacion.id_cohorte}</td>
         <td>${formacion.anio}</td>

@@ -1,5 +1,4 @@
 import llenarTablaModulos from "../../funcionalidades/Modulos/LlenarTablaModulos.js";
-import { notificarNoRegistros } from "../../funcionalidades/NotificaNoExistenciaRegistros.js";
 
 const listarModulos = async (id_proceso, id_cohorte) => {
   const requestOptions = {
@@ -7,26 +6,18 @@ const listarModulos = async (id_proceso, id_cohorte) => {
     redirect: "follow",
   };
 
-  fetch(
-    `https://pruebascrud.formaciones.planestic.udistrital.edu.co/v1/modulo.php?proceso_ig=${id_proceso}&id_cohorte=${id_cohorte}`,
-    requestOptions
-  )
-    .then((response) => response.text())
-    .then((result) => {
-      console.log(JSON.parse(result));
+  try {
+    let result = await fetch(`https://pruebascrud.formaciones.planestic.udistrital.edu.co/mid/modulo.php?id_proceso=${id_proceso}&id_cohorte=${id_cohorte}`, requestOptions);
 
-      let modulos = JSON.parse(result);
-      if (modulos.length !== 0) {
-        modulos = modulos.filter((modulo) => {
-          return modulo.proceso === id_proceso.toString();
-        });
-      }
-
-      llenarTablaModulos(modulos, id_cohorte);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+    result = await result.json();
+    console.log("fdslfkjsdjkfkjfdsa");
+    
+    llenarTablaModulos(result, id_cohorte);
+    return result;
+  } catch (error) {
+    console.log(error);
+    return error;
+  }
 };
 
 export default listarModulos;

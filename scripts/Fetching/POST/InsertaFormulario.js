@@ -16,10 +16,7 @@ const postNuevoFormulario = async (data) => {
   };
 
   try {
-    let result = await fetch(
-      "https://pruebascrud.formaciones.planestic.udistrital.edu.co/v1/formulario.php",
-      requestOptions
-    );
+    let result = await fetch("https://pruebascrud.formaciones.planestic.udistrital.edu.co/v1/formulario.php", requestOptions);
 
     result = await result.json();
     if (result.estado === "ok") {
@@ -41,15 +38,15 @@ const postNuevoFormulario = async (data) => {
       notificacion(
         false,
         parseInt(data.tipo_formulario) === 1
-          ? "No se creo un formulario para la cohorte"
+          ? "No se creo un formulario de registro para la cohorte"
           : parseInt(data.tipo_formulario) === 2
-          ? "No se creo un formulario para la cohorte"
+          ? "No se creo un formulario de asistencia para la cohorte"
           : parseInt(data.tipo_formulario) === 3
-          ? "No se creo un formulario para la cohorte"
+          ? "No se creo un formulario de ponentes para la cohorte"
           : parseInt(data.tipo_formulario) === 4
-          ? "No se creo un formulario para la cohorte"
+          ? "No se creo un formulario de documentación para la cohorte"
           : parseInt(data.tipo_formulario) === 5
-          ? "No se creo un formulario para la cohorte"
+          ? "No se creo un formulario de memorias para la cohorte"
           : ""
       );
     }

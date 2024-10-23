@@ -3,22 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="icon"
-      type="image/png"
-      href="/images/iconos/pt-favicon-32x32.png"
-      sizes="32x32"
-    />
+    <link rel="icon" type="image/png" href="/images/iconos/pt-favicon-32x32.png" sizes="32x32" />
     <link rel="stylesheet" href="../../styles/header.css" />
     <link rel="stylesheet" href="../../styles/table.css" />
     <link rel="stylesheet" href="../../styles/footer.css" />
     <link rel="stylesheet" href="../../styles/modal.css" />
     <link rel="stylesheet" href="../../styles/notificacion.css" />
     <link rel="stylesheet" href="../../index.css" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
-    />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="../../styles/agregarButton.css" />
     <title>Modulos Diplomados</title>
   </head>
@@ -26,15 +18,90 @@
     <header class="header">
       <a href="../../index.html" class="header__link">
         <figure class="link__figure">
-          <img
-            src="../../images/UD-PlanEsTIC.png"
-            alt="PlanesTIC y Universclassad Distrital Francisco José de Caldas"
-            class="figure__img"
-            height="80"
-          />
+          <img src="../../images/UD-PlanEsTIC.png" alt="PlanesTIC y Universclassad Distrital Francisco José de Caldas" class="figure__img" height="80" />
         </figure>
       </a>
-
+      <article class="article-modal modal-disabled" id="modal-info-cohorte">
+        <div class="modal-contenido">
+          <div class="modal-header">
+            <span class="modal-title">Información cohorte</span>
+            <span
+              class="material-symbols-outlined material-google-icon"
+              id="close-modal-info-cohorte"
+            >
+              cancel
+            </span>
+          </div>
+          <div class="modal-data-cohorte">
+            <h2 id="informacion-cohorte-numeral">Cohorte [#]</h2>
+            <p
+              class="data-cohorte-linkCon"
+              title="Copiar link de conexión"
+              id="info-cohorte-copia-link-conexion"
+            >
+              <span class="material-symbols-outlined"> share </span>
+              Link de conexión
+            </p>
+            <section class="section section-table">
+              <table class="table-info-cohorte" id="table-info-cohorte">
+                <caption class="table-descripcion">
+                  Información
+                </caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Formulario</th>
+                    <th scope="col">Rango</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Link</th>
+                  </tr>
+                </thead>
+                <tbody class="table-body-info-cohorte">
+                  <tbody>
+                    <tr>
+                      <td>Inscripción</td>
+                      <td id="table-body-fechaInscripcion">fi</td>
+                      <td>
+                        <div class="modal-data-cohorte-estado" id="modal-data-cohorte-estado-inscripcion">
+                            
+                            
+                        </div>
+                      </td>
+                      <td>
+                        <span
+                          class="material-symbols-outlined share-info-cohorte"
+                          title="Copiar link de inscripción"
+                          id="info-cohorte-copia-link-inscripcion"
+                        >
+                          share
+                        </span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Asistencia</td>
+                      <td id="table-body-fechaAsistencia">fa</td>
+                      <td>
+                        <div class="modal-data-cohorte-estado" id="modal-data-cohorte-estado-asistencia">
+                          <span class="material-symbols-outlined on-info-cohorte" title="Habilitada" > check_circle </span>
+                          <span class="material-symbols-outlined off-info-cohorte" title="Deshabilitada"> cancel </span>
+                        </div>
+                      </td>
+                      <td>
+                        <span
+                          class="material-symbols-outlined share-info-cohorte"
+                          title="Copiar link de asistencia"
+                          id="info-cohorte-copia-link-asistencia"
+                        >
+                          share
+                        </span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </tbody>
+              </table>
+            </section>
+          </div>
+        </div>
+      </article>
       <div class="header__sesion">
         <div class="sesion__controles">
           <span class="controles__icono">JP</span>
@@ -42,22 +109,14 @@
             <span class="texto_nombreusuario">nombre usuario</span>
             <span class="texto_rol">rol</span>
           </div>
-          <span class="material-symbols-outlined dowm controles__dowm">
-            expand_more
-          </span>
+          <span class="material-symbols-outlined dowm controles__dowm"> expand_more </span>
         </div>
         <ul class="sesion__acciones sesion__acciones--disabled">
           <li>
-            <a href="../formularios/formCambioClave.html"
-              ><span class="material-symbols-outlined"> password </span>Cambio
-              de clave</a
-            >
+            <a href="../formularios/formCambioClave.html"><span class="material-symbols-outlined"> password </span>Cambio de clave</a>
           </li>
           <li id="header__cerrarSesion">
-            <a href="#"
-              ><span class="material-symbols-outlined"> logout </span>Cerrar
-              sesión
-            </a>
+            <a href="#"><span class="material-symbols-outlined"> logout </span>Cerrar sesión </a>
           </li>
         </ul>
       </div>
@@ -66,25 +125,18 @@
       <ul class="nav__ul">
         <li class="ul__li">
           <a href="../../index.html" class="li__a">
-            <span class="li__span"
-              ><span class="material-symbols-outlined"> feed </span
-              >Informes</span
-            >
+            <span class="li__span"><span class="material-symbols-outlined"> feed </span>Informes</span>
           </a>
         </li>
         <li class="ul__li">
-          <span class="li__span">
-            <span class="material-symbols-outlined"> edit </span>Tipo formación
-          </span>
+          <span class="li__span"> <span class="material-symbols-outlined"> edit </span>Tipo formación </span>
           <ul class="li__ul">
             <li>
               <a href="CursoConTutorPage.html">Curso con tutor</a>
             </li>
             <li><a href="../Mooc/CursoMoocPage.html">Curso MOOC</a></li>
             <li>
-              <a href="../CapacitacionTaller/CapacitacionTaller.html"
-                >Capacitación o Taller</a
-              >
+              <a href="../CapacitacionTaller/CapacitacionTaller.html">Capacitación o Taller</a>
             </li>
             <li><a href="../Diplomado/DiplomadosPage.html">Diplomado</a></li>
             <li><a href="../Eventos/EventosPage.html">Evento</a></li>
@@ -95,43 +147,24 @@
           Formularios
           <ul class="li__ul">
             <li>
-              <a
-                href="../formularios/formsInscripcion/PageFormsInscripciones.html"
-                >Formularios de inscripción</a
-              >
+              <a href="../formularios/formsInscripcion/PageFormsInscripciones.html">Formularios de inscripción</a>
             </li>
             <li>
-              <a
-                href="../formularios/formsAsistencias/PageFormsAsistencias.html"
-                >Formularios de asistencias</a
-              >
+              <a href="../formularios/formsAsistencias/PageFormsAsistencias.html">Formularios de asistencias</a>
             </li>
             <li>
-              <a
-                href="../formularios/formsPostulaciones/PageFormsPostulaciones.html"
-                >Formularios de ponentes</a
-              >
+              <a href="../formularios/formsPostulaciones/PageFormsPostulaciones.html">Formularios de ponentes</a>
             </li>
             <li>
-              <a
-                href="../formularios/formsDocumentacion/PageFormsDocumentacion.html"
-                >Formularios de documentación</a
-              >
+              <a href="../formularios/formsDocumentacion/PageFormsDocumentacion.html">Formularios de documentación</a>
             </li>
             <li>
-              <a href="../formularios/formsEvidencias/PageFormsEvidencias.html"
-                >Formularios de memorias/evidencias</a
-              >
+              <a href="../formularios/formsEvidencias/PageFormsEvidencias.html">Formularios de memorias/evidencias</a>
             </li>
           </ul>
         </li>
-        <li class="ul__li">
-          <span class="material-symbols-outlined"> search </span>Consulta
-        </li>
-        <li class="ul__li">
-          <span class="material-symbols-outlined"> monitoring </span
-          >Estadisticas
-        </li>
+        <li class="ul__li"><span class="material-symbols-outlined"> search </span>Consulta</li>
+        <li class="ul__li"><span class="material-symbols-outlined"> monitoring </span>Estadisticas</li>
       </ul>
     </nav>
     <button class="nav__menu">
@@ -149,233 +182,81 @@
         </article>
 
         <article class="add-article">
-          <span
-            class="material-symbols-outlined add-span"
-            id="add-nuevo-modulo"
-            title="Agregar formación"
-          >
-            add
-          </span>
+          <span class="material-symbols-outlined add-span" id="add-nuevo-modulo" title="Agregar formación"> add </span>
         </article>
         <article class="article-modal modal-disabled" id="modal-nuevo-modulo">
           <div class="modal-contenido">
             <div class="modal-header">
               <span class="modal-title">Nuevo modulo</span>
-              <span
-                class="material-symbols-outlined material-google-icon"
-                id="close-modal-nuevo-modulo"
-              >
-                cancel
-              </span>
+              <span class="material-symbols-outlined material-google-icon" id="close-modal-nuevo-modulo"> cancel </span>
             </div>
             <form action="" class="modal-contenido-form" id="modal-form-modulo">
-              <div
-                class="modal-contenido-form-div modal-contenido-form-div-lleno"
-              >
-                <label for="form-curso-tutor-input-id-proceso"
-                  >Id proceso:
-                  <input
-                    type="number"
-                    name="form-curso-tutor-input-id-proceso"
-                    id="form-curso-tutor-input-id-proceso"
-                /></label>
+              <div class="modal-contenido-form-div modal-contenido-form-div-lleno">
+                <label for="form-curso-tutor-input-id-proceso">Id proceso: <input type="number" name="form-curso-tutor-input-id-proceso" id="form-curso-tutor-input-id-proceso" /></label>
               </div>
-              <div
-                class="modal-contenido-form-div modal-contenido-form-div-lleno"
-              >
-                <label for="form-curso-tutor-input-id-cohorte"
-                  >Id cohorte:
-                  <input
-                    type="number"
-                    name="form-curso-tutor-input-id-cohorte"
-                    id="form-curso-tutor-input-id-cohorte"
-                /></label>
+              <div class="modal-contenido-form-div modal-contenido-form-div-lleno">
+                <label for="form-curso-tutor-input-id-cohorte">Id cohorte: <input type="number" name="form-curso-tutor-input-id-cohorte" id="form-curso-tutor-input-id-cohorte" /></label>
               </div>
-              <div
-                class="modal-contenido-form-div modal-contenido-form-div--new-formacion"
-              >
-                <label for="nombreModulo"
-                  >Nombre del modulo:
-                  <input
-                    type="text"
-                    name="nombreModulo"
-                    id="nombreModulo"
-                    placeholder="Nombre del modulo"
-                    class="modal-contenido-form-input"
-                    required
-                /></label>
+              <div class="modal-contenido-form-div modal-contenido-form-div--new-formacion">
+                <label for="nombreModulo">Nombre del modulo: <input type="text" name="nombreModulo" id="nombreModulo" placeholder="Nombre del modulo" class="modal-contenido-form-input" required /></label>
               </div>
-              <div
-                class="modal-contenido-form-div modal-contenido-form-div--new-formacion"
-              >
-                <label for="intensidadHoraria"
-                  >Intensidad horaria:
-                  <input
-                    type="number"
-                    name="intensidadHoraria"
-                    id="intensidadHoraria"
-                    placeholder="Nombre del proceso"
-                    class="modal-contenido-form-input"
-                    required
-                /></label>
+              <div class="modal-contenido-form-div modal-contenido-form-div--new-formacion">
+                <label for="intensidadHoraria">Intensidad horaria: <input type="number" name="intensidadHoraria" id="intensidadHoraria" placeholder="Nombre del proceso" class="modal-contenido-form-input" required /></label>
               </div>
 
               <p class="texto-title-form-region">Rango registro cursantes</p>
               <div class="modal-contenido-form-div-join">
                 <div class="modal-contenido-form-div">
-                  <label for="fechaInicialCursante"
-                    >Fecha inicial:
-                    <input
-                      type="date"
-                      name="fechaInicialCursante"
-                      id="fechaInicialCursante"
-                      placeholder="Fecha inicial"
-                      class="modal-contenido-form-input"
-                  /></label>
+                  <label for="fechaInicialCursante">Fecha inicial: <input type="date" name="fechaInicialCursante" id="fechaInicialCursante" placeholder="Fecha inicial" class="modal-contenido-form-input" /></label>
                 </div>
                 <div class="modal-contenido-form-div">
-                  <label for="fechaFinalCursante"
-                    >Fecha final:
-                    <input
-                      type="date"
-                      name="fechaFinalCursante"
-                      id="fechaFinalCursante"
-                      placeholder="Fecha final"
-                      class="modal-contenido-form-input"
-                  /></label>
+                  <label for="fechaFinalCursante">Fecha final: <input type="date" name="fechaFinalCursante" id="fechaFinalCursante" placeholder="Fecha final" class="modal-contenido-form-input" /></label>
                 </div>
               </div>
 
               <p class="texto-title-form-region">Rango registro asistencias</p>
               <div class="modal-contenido-form-div-join">
                 <div class="modal-contenido-form-div">
-                  <label for="fechaInicialAsistencia"
-                    >Fecha inicial:
-                    <input
-                      type="date"
-                      name="fechaInicialAsistencia"
-                      id="fechaInicialAsistencia"
-                      placeholder="Fecha inicial"
-                      class="modal-contenido-form-input"
-                  /></label>
+                  <label for="fechaInicialAsistencia">Fecha inicial: <input type="date" name="fechaInicialAsistencia" id="fechaInicialAsistencia" placeholder="Fecha inicial" class="modal-contenido-form-input" /></label>
                 </div>
                 <div class="modal-contenido-form-div">
-                  <label for="horaInicialAsistencia"
-                    >Hora inicial:
-                    <input
-                      type="time"
-                      name="horaInicialAsistencia"
-                      id="horaInicialAsistencia"
-                      placeholder="Hora inicial"
-                      class="modal-contenido-form-input"
-                  /></label>
+                  <label for="horaInicialAsistencia">Hora inicial: <input type="time" name="horaInicialAsistencia" id="horaInicialAsistencia" placeholder="Hora inicial" class="modal-contenido-form-input" /></label>
                 </div>
               </div>
               <div class="modal-contenido-form-div-join">
                 <div class="modal-contenido-form-div">
-                  <label for="fechaFinallAsistencia"
-                    >Fecha final:
-                    <input
-                      type="date"
-                      name="fechaFinallAsistencia"
-                      id="fechaFinallAsistencia"
-                      placeholder="Fecha inicial"
-                      class="modal-contenido-form-input"
-                  /></label>
+                  <label for="fechaFinallAsistencia">Fecha final: <input type="date" name="fechaFinallAsistencia" id="fechaFinallAsistencia" placeholder="Fecha inicial" class="modal-contenido-form-input" /></label>
                 </div>
                 <div class="modal-contenido-form-div">
-                  <label for="horaFinalAsistencia"
-                    >Hora final:
-                    <input
-                      type="time"
-                      name="horaFinalAsistencia"
-                      id="horaFinalAsistencia"
-                      placeholder="Hora final"
-                      class="modal-contenido-form-input"
-                  /></label>
+                  <label for="horaFinalAsistencia">Hora final: <input type="time" name="horaFinalAsistencia" id="horaFinalAsistencia" placeholder="Hora final" class="modal-contenido-form-input" /></label>
                 </div>
               </div>
 
               <p class="texto-title-form-region">Sesion</p>
               <div class="modal-contenido-form-div-join">
                 <div class="modal-contenido-form-div">
-                  <label for="fechaInicialSesion"
-                    >Fecha inicial:
-                    <input
-                      type="date"
-                      name="fechaInicialSesion"
-                      id="fechaInicialSesion"
-                      placeholder="Fecha inicial"
-                      class="modal-contenido-form-input"
-                  /></label>
+                  <label for="fechaInicialSesion">Fecha inicial: <input type="date" name="fechaInicialSesion" id="fechaInicialSesion" placeholder="Fecha inicial" class="modal-contenido-form-input" /></label>
                 </div>
                 <div class="modal-contenido-form-div">
-                  <label for="horaInicialSesion"
-                    >Hora inicial:
-                    <input
-                      type="time"
-                      name="horaInicialSesion"
-                      id="horaInicialSesion"
-                      placeholder="Hora inicial"
-                      class="modal-contenido-form-input"
-                  /></label>
+                  <label for="horaInicialSesion">Hora inicial: <input type="time" name="horaInicialSesion" id="horaInicialSesion" placeholder="Hora inicial" class="modal-contenido-form-input" /></label>
                 </div>
               </div>
               <div class="modal-contenido-form-div-join">
                 <div class="modal-contenido-form-div">
-                  <label for="fechaFinallSesion"
-                    >Fecha final:
-                    <input
-                      type="date"
-                      name="fechaFinallSesion"
-                      id="fechaFinallSesion"
-                      placeholder="Fecha inicial"
-                      class="modal-contenido-form-input"
-                  /></label>
+                  <label for="fechaFinallSesion">Fecha final: <input type="date" name="fechaFinallSesion" id="fechaFinallSesion" placeholder="Fecha inicial" class="modal-contenido-form-input" /></label>
                 </div>
                 <div class="modal-contenido-form-div">
-                  <label for="horaFinalSesion"
-                    >Hora final:
-                    <input
-                      type="time"
-                      name="horaFinalSesion"
-                      id="horaFinalSesion"
-                      placeholder="Hora final"
-                      class="modal-contenido-form-input"
-                  /></label>
+                  <label for="horaFinalSesion">Hora final: <input type="time" name="horaFinalSesion" id="horaFinalSesion" placeholder="Hora final" class="modal-contenido-form-input" /></label>
                 </div>
               </div>
-              <div
-                class="modal-contenido-form-div modal-contenido-form-div-lleno"
-              >
-                <label for="linkSesion"
-                  >Link de sesión:
-                  <input
-                    type="text"
-                    name="linkSesion"
-                    id="linkSesion"
-                    class="modal-contenido-form-input"
-                /></label>
+              <div class="modal-contenido-form-div modal-contenido-form-div-lleno">
+                <label for="linkSesion">Link de sesión: <input type="text" name="linkSesion" id="linkSesion" class="modal-contenido-form-input" /></label>
               </div>
-              <div
-                class="modal-contenido-form-div modal-contenido-form-div-check"
-              >
-                <label for="modalidad"
-                  >Modalidad virtual
-                  <input
-                    type="checkbox"
-                    name="modalidad"
-                    id="modalidad"
-                    class="modal-contenido-form-input-check"
-                /></label>
+              <div class="modal-contenido-form-div modal-contenido-form-div-check">
+                <label for="modalidad">Modalidad virtual <input type="checkbox" name="modalidad" id="modalidad" class="modal-contenido-form-input-check" /></label>
               </div>
 
-              <input
-                type="submit"
-                value="Crear módulo"
-                class="modal-contenido-button"
-                id="btn-submit-nuevaFormacion"
-              />
+              <input type="submit" value="Crear módulo" class="modal-contenido-button" id="btn-submit-nuevaFormacion" />
             </form>
           </div>
         </article>
@@ -408,24 +289,16 @@
       <section class="footer__section footer__section--data">
         <article class="section__article">
           <span>
-            <p class="article__title">
-              Universidad Distrital Francisco José de Caldas
-            </p>
+            <p class="article__title">Universidad Distrital Francisco José de Caldas</p>
             <p class="article__title">NIT. 899.999.230-7</p>
           </span>
 
           <br />
 
-          <p>
-            Institución de Educación Superior sujeta a inspección y vigilancia
-            por
-          </p>
+          <p>Institución de Educación Superior sujeta a inspección y vigilancia por</p>
           <p>el Ministerio de Educación Nacional.</p>
           <p>Acuerdo de creación Nº 10 de 1948 del Concejo de Bogotá.</p>
-          <p>
-            Acreditación Institucional de Alta Calidad - Resolución Nº 23096 del
-            15 de diciembre de
-          </p>
+          <p>Acreditación Institucional de Alta Calidad - Resolución Nº 23096 del 15 de diciembre de</p>
           <p>2016.</p>
 
           <br /><br />
@@ -433,9 +306,7 @@
         <article class="section__article">
           <p class="article__title">PlanEsTIC - UD</p>
           <br />
-          <p>
-            Plan Estratégico en Tecnologías de la Información y la Comunicación
-          </p>
+          <p>Plan Estratégico en Tecnologías de la Información y la Comunicación</p>
           <p>Resolución No. 053 - 2013</p>
           <p>Acuerdo No. 001 de 2013</p>
         </article>

@@ -11,19 +11,20 @@ let insertaAsistencia = async (asistencia) => {
     body: raw,
     redirect: "follow",
   };
+  console.log(asistencia);
 
-  try {
-    let result = await fetch(
-      "https://pruebascrud.formaciones.planestic.udistrital.edu.co/v1/asistencia.php",
-      requestOptions
-    );
+  // try {
+  //   let result = await fetch(
+  //     "https://pruebascrud.formaciones.planestic.udistrital.edu.co/v1/asistencia.php",
+  //     requestOptions
+  //   );
 
-    result = await result.json();
-    return result;
-  } catch (error) {
-    console.error(error);
-    return error;
-  }
+  //   result = await result.json();
+  //   return result;
+  // } catch (error) {
+  //   console.error(error);
+  //   return error;
+  // }
 };
 
 export default insertaAsistencia;

@@ -1,11 +1,4 @@
-import {
-  redireccionarAsistencias,
-  redireccionarCertificaciones,
-  redireccionarConfiguraciones,
-  redireccionarCursantesRegistrados,
-  redireccionarEventosModulos,
-  redireccionarPonentesRegistrados,
-} from "./Redirecciones.js";
+import { redireccionarAsistencias, redireccionarCertificaciones, redireccionarConfiguraciones, redireccionarCursantesRegistrados, redireccionarEventosModulos, redireccionarPonentesRegistrados } from "./Redirecciones.js";
 
 const obtenerIdCohorte = (li, id_cohorte) => {
   console.log(li);
@@ -13,12 +6,12 @@ const obtenerIdCohorte = (li, id_cohorte) => {
   let listaAsistencias = document.querySelectorAll(".index-asistencias");
   listaAsistencias.forEach((asistencia, id) => {
     asistencia.addEventListener("click", (e) => {
-      if (
-        window.location.pathname.includes("CursosModulos") ||
-        window.location.pathname.includes("EventosModulos")
-      ) {
-        let idProceso = li[id].proceso,
-          idModulo = li[id].id;
+      if (window.location.pathname.includes("CursosModulos") || window.location.pathname.includes("EventosModulos")) {
+        console.log("fdssfsdfds");
+
+        let idProceso = li[id].id_proceso,
+          idModulo = li[id].id_modulo,
+          id_cohorte = li[id].id_cohorte;
         redireccionarAsistencias(idProceso, id_cohorte, idModulo);
       } else {
         let idProceso = li[id].id_proceso,
@@ -31,12 +24,9 @@ const obtenerIdCohorte = (li, id_cohorte) => {
   let listaCertificados = document.querySelectorAll(".index-certificados");
   listaCertificados.forEach((certificados, id) => {
     certificados.addEventListener("click", (e) => {
-      if (
-        window.location.pathname.includes("CursosModulos") ||
-        window.location.pathname.includes("EventosModulos")
-      ) {
-        let idProceso = li[id].proceso,
-          idModulo = li[id].id;
+      if (window.location.pathname.includes("CursosModulos") || window.location.pathname.includes("EventosModulos")) {
+        let idProceso = li[id].id_proceso,
+          idModulo = li[id].id_modulo;
         redireccionarCertificaciones(idProceso, id_cohorte, idModulo);
       } else {
         let idProceso = li[id].id_proceso,
@@ -49,10 +39,7 @@ const obtenerIdCohorte = (li, id_cohorte) => {
   let listaConfiguraciones = document.querySelectorAll(".index-configuracion");
   listaConfiguraciones.forEach((configuracion, id) => {
     configuracion.addEventListener("click", (e) => {
-      if (
-        window.location.pathname.includes("CursosModulos") ||
-        window.location.pathname.includes("EventosModulos")
-      ) {
+      if (window.location.pathname.includes("CursosModulos") || window.location.pathname.includes("EventosModulos")) {
         let idProceso = li[id].proceso,
           idModulo = li[id].id;
         redireccionarConfiguraciones(idProceso, id_cohorte, idModulo);
@@ -67,10 +54,7 @@ const obtenerIdCohorte = (li, id_cohorte) => {
   let listaPonentes = document.querySelectorAll(".index-ponentes");
   listaPonentes.forEach((ponente, id) => {
     ponente.addEventListener("click", (e) => {
-      if (
-        window.location.pathname.includes("CursosModulos") ||
-        window.location.pathname.includes("EventosModulos")
-      ) {
+      if (window.location.pathname.includes("CursosModulos") || window.location.pathname.includes("EventosModulos")) {
         let idProceso = li[id].proceso,
           idModulo = li[id].id;
         redireccionarPonentesRegistrados(idProceso, id_cohorte, idModulo);
@@ -85,12 +69,10 @@ const obtenerIdCohorte = (li, id_cohorte) => {
   let listaCursantes = document.querySelectorAll(".index-cursantes");
   listaCursantes.forEach((cursante, id) => {
     cursante.addEventListener("click", (e) => {
-      if (
-        window.location.pathname.includes("CursosModulos") ||
-        window.location.pathname.includes("EventosModulos")
-      ) {
-        let idProceso = li[id].proceso,
-          idModulo = li[id].id;
+      if (window.location.pathname.includes("CursosModulos") || window.location.pathname.includes("EventosModulos")) {
+        let idProceso = li[id].id_proceso,
+          idModulo = li[id].id_modulo,
+          id_cohorte = li[id].id_cohorte;
         redireccionarCursantesRegistrados(idProceso, id_cohorte, idModulo);
       } else {
         let idProceso = li[id].id_proceso,

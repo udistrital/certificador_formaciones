@@ -11,34 +11,22 @@ const mostarInforCohorte = (listaCohortes) => {
   let listadoSesiones = [];
   listaLinks.forEach((cohorte, index) => {
     cohorte.addEventListener("click", async () => {
-      // $tableInfoCohorte.innerHTML = "";
-      //se captura el id del cohorte del cual se desea saber la informacion
       let idCohorteInfoMostrar = listaCohortes[index].cohorte;
-      // console.log("hola mundo", listaCohortes[index], idCohorteInfoMostrar);
-      const $numCohorteVisual = document.getElementById(
-        "informacion-cohorte-numeral"
-      );
-      if (window.location.pathname.includes("EventosModulos")) {
-        $numCohorteVisual.textContent = `Modulo [ ${listaCohortes[index].nombre}-${listaCohortes[index].proceso} ]`;
+      const $numCohorteVisual = document.getElementById("informacion-cohorte-numeral");
+      if (window.location.pathname.includes("EventosModulos") || window.location.pathname.includes("CursosModulos")) {
+        $numCohorteVisual.textContent = `Modulo [ ${listaCohortes[index].id_modulo} - ${listaCohortes[index].nombre_modulo} ]`;
+        console.log(listaCohortes[index].link_inscripcion[0].fecha_inicial);
 
-        document.getElementById(
-          "table-body-fechaInscripcion"
-        ).textContent = `${listaCohortes[index].fecha_creado} ${listaCohortes[index].fecha_creado}`;
-        document.getElementById(
-          "table-body-fechaAsistencia"
-        ).textContent = `${listaCohortes[index].fecha_creado} ${listaCohortes[index].fecha_creado}`;
+        document.getElementById("table-body-fechaInscripcion").textContent = `${listaCohortes[index].link_inscripcion[0].fecha_inicial} ${listaCohortes[index].link_inscripcion[0].fecha_final}`;
+        document.getElementById("table-body-fechaAsistencia").textContent = `${listaCohortes[index].link_asistencia[0].fecha_inicial} ${listaCohortes[index].link_asistencia[0].fecha_final}`;
 
-        document.getElementById(
-          "modal-data-cohorte-estado-inscripcion"
-        ).innerHTML = `${
-          new Date(listaCohortes[index].fecha_creado) < Date.now()
+        document.getElementById("modal-data-cohorte-estado-inscripcion").innerHTML = `${
+          new Date(listaCohortes[index].link_inscripcion[0].fecha_final) < Date.now()
             ? '<span class="material-symbols-outlined off-info-cohorte" title="Deshabilitada"> cancel </span> cerrado'
             : '<span class="material-symbols-outlined on-info-cohorte" title="Habilitada" > check_circle </span> abierto'
         }`;
-        document.getElementById(
-          "modal-data-cohorte-estado-asistencia"
-        ).innerHTML = `${
-          new Date(listaCohortes[index].fecha_creado) < Date.now()
+        document.getElementById("modal-data-cohorte-estado-asistencia").innerHTML = `${
+          new Date(listaCohortes[index].link_asistencia[0].fecha_final) < Date.now()
             ? '<span class="material-symbols-outlined off-info-cohorte" title="Deshabilitada"> cancel </span> cerrado'
             : '<span class="material-symbols-outlined on-info-cohorte" title="Habilitada" > check_circle </span> abierto'
         }`;
@@ -55,26 +43,16 @@ const mostarInforCohorte = (listaCohortes) => {
         // listadoFormularios = await formulariosGET(idCohorteModelo);
         // listadoSesiones = await sesionesGET(idCohorteModelo);
 
-        document.getElementById(
-          "table-body-fechaInscripcion"
-        ).textContent = `${listaCohortes[index].link_inscripcion[0].fecha_inicial} ${listaCohortes[index].link_inscripcion[0].fecha_final}`;
-        document.getElementById(
-          "table-body-fechaAsistencia"
-        ).textContent = `${listaCohortes[index].link_asistencia[0].fecha_inicial} ${listaCohortes[index].link_asistencia[0].fecha_final}`;
+        document.getElementById("table-body-fechaInscripcion").textContent = `${listaCohortes[index].link_inscripcion[0].fecha_inicial} ${listaCohortes[index].link_inscripcion[0].fecha_final}`;
+        document.getElementById("table-body-fechaAsistencia").textContent = `${listaCohortes[index].link_asistencia[0].fecha_inicial} ${listaCohortes[index].link_asistencia[0].fecha_final}`;
 
-        document.getElementById(
-          "modal-data-cohorte-estado-inscripcion"
-        ).innerHTML = `${
-          new Date(listaCohortes[index].link_inscripcion[0].fecha_final) <
-          Date.now()
+        document.getElementById("modal-data-cohorte-estado-inscripcion").innerHTML = `${
+          new Date(listaCohortes[index].link_inscripcion[0].fecha_final) < Date.now()
             ? '<span class="material-symbols-outlined off-info-cohorte" title="Deshabilitada"> cancel </span> cerrado'
             : '<span class="material-symbols-outlined on-info-cohorte" title="Habilitada" > check_circle </span> abierto'
         }`;
-        document.getElementById(
-          "modal-data-cohorte-estado-asistencia"
-        ).innerHTML = `${
-          new Date(listaCohortes[index].link_asistencia[0].fecha_final) <
-          Date.now()
+        document.getElementById("modal-data-cohorte-estado-asistencia").innerHTML = `${
+          new Date(listaCohortes[index].link_asistencia[0].fecha_final) < Date.now()
             ? '<span class="material-symbols-outlined off-info-cohorte" title="Deshabilitada"> cancel </span> cerrado'
             : '<span class="material-symbols-outlined on-info-cohorte" title="Habilitada" > check_circle </span> abierto'
         }`;
@@ -98,41 +76,21 @@ const mostarInforCohorte = (listaCohortes) => {
           //     ? '<span class="material-symbols-outlined off-info-cohorte" title="Deshabilitada"> cancel </span> cerrado'
           //     : '<span class="material-symbols-outlined on-info-cohorte" title="Habilitada" > check_circle </span> abierto'
           // }`;
-          
 
           //IMPLEMENTACION DE PONENTES, DOCUMENTACION Y MEMORIAS, SE DEBE CORREGIR ESTA PARTE CUANDO FUNCIONE EL ENDPOINT CON TODOS LOS FORMULARIOS NECESARIOS
-        document.getElementById(
-          "table-body-fechaPonentes"
-        ).textContent = `${listaCohortes[index].fecha_creado} ${listaCohortes[index].fecha_creado}`;
-        document.getElementById(
-          "table-body-fechaDocumentacion"
-        ).textContent = `${listaCohortes[index].fecha_creado} ${listaCohortes[index].fecha_creado}`;
-        document.getElementById(
-          "table-body-fechaMemorias"
-        ).textContent = `${listaCohortes[index].fecha_creado} ${listaCohortes[index].fecha_creado}`;
-        document.getElementById(
-          "modal-data-cohorte-estado-ponentes"
-        ).innerHTML = `${
-          new Date(listaCohortes[index].fecha_creado) < Date.now()
-            ? '<span class="material-symbols-outlined off-info-cohorte" title="Deshabilitada"> cancel </span> cerrado'
-            : '<span class="material-symbols-outlined on-info-cohorte" title="Habilitada" > check_circle </span> abierto'
-        }`;
+          document.getElementById("table-body-fechaPonentes").textContent = `${listaCohortes[index].fecha_creado} ${listaCohortes[index].fecha_creado}`;
+          document.getElementById("table-body-fechaDocumentacion").textContent = `${listaCohortes[index].fecha_creado} ${listaCohortes[index].fecha_creado}`;
+          document.getElementById("table-body-fechaMemorias").textContent = `${listaCohortes[index].fecha_creado} ${listaCohortes[index].fecha_creado}`;
+          document.getElementById("modal-data-cohorte-estado-ponentes").innerHTML = `${
+            new Date(listaCohortes[index].fecha_creado) < Date.now() ? '<span class="material-symbols-outlined off-info-cohorte" title="Deshabilitada"> cancel </span> cerrado' : '<span class="material-symbols-outlined on-info-cohorte" title="Habilitada" > check_circle </span> abierto'
+          }`;
 
-        document.getElementById(
-          "modal-data-cohorte-estado-documentacion"
-        ).innerHTML = `${
-          new Date(listaCohortes[index].fecha_creado) < Date.now()
-            ? '<span class="material-symbols-outlined off-info-cohorte" title="Deshabilitada"> cancel </span> cerrado'
-            : '<span class="material-symbols-outlined on-info-cohorte" title="Habilitada" > check_circle </span> abierto'
-        }`;
-        document.getElementById(
-          "modal-data-cohorte-estado-memorias"
-        ).innerHTML = `${
-          new Date(listaCohortes[index].fecha_creado) < Date.now()
-            ? '<span class="material-symbols-outlined off-info-cohorte" title="Deshabilitada"> cancel </span> cerrado'
-            : '<span class="material-symbols-outlined on-info-cohorte" title="Habilitada" > check_circle </span> abierto'
-        }`;
-
+          document.getElementById("modal-data-cohorte-estado-documentacion").innerHTML = `${
+            new Date(listaCohortes[index].fecha_creado) < Date.now() ? '<span class="material-symbols-outlined off-info-cohorte" title="Deshabilitada"> cancel </span> cerrado' : '<span class="material-symbols-outlined on-info-cohorte" title="Habilitada" > check_circle </span> abierto'
+          }`;
+          document.getElementById("modal-data-cohorte-estado-memorias").innerHTML = `${
+            new Date(listaCohortes[index].fecha_creado) < Date.now() ? '<span class="material-symbols-outlined off-info-cohorte" title="Deshabilitada"> cancel </span> cerrado' : '<span class="material-symbols-outlined on-info-cohorte" title="Habilitada" > check_circle </span> abierto'
+          }`;
 
           // document.getElementById(
           //   "modal-data-cohorte-estado-documentacion"

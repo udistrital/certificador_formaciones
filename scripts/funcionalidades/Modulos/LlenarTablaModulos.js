@@ -1,26 +1,21 @@
 import { mostrarModalInfoCohorte } from "../../modals.js";
 import mostarInforCohorte from "../Cohortes/MostrarInfoCohorte.js";
 import obtenerIdCohorte from "../Cohortes/ObtenerIdCohorte.js";
-import {
-  notificarNoRegistros,
-  quitaNotificacionNoRegistros,
-} from "../NotificaNoExistenciaRegistros.js";
+import { notificarNoRegistros, quitaNotificacionNoRegistros } from "../NotificaNoExistenciaRegistros.js";
 
 const llenarTablaModulos = (listaModulos, id_cohorte) => {
-  console.log(listaModulos, "dsddddddddddddddd");
+  console.log(listaModulos.length, "dsddddddddddddddd");
   const $fargmento = document.createDocumentFragment(),
-    $template = document.getElementById(
-      "template-renglon-cursos-tutor"
-    ).content,
+    $template = document.getElementById("template-renglon-cursos-tutor").content,
     $tbody = document.getElementById("tbody-table-cursos-tutor");
 
-  if (modulos.length !== 0) {
-    listaModulos.forEach((modulo) => {
-      $template.querySelector("tr").innerHTML = `
-                    <td>${modulo.id}</td>
-                    <td style="overflow-x: auto; max-width: 300px;">${modulo.nombre}</td>
-                    <td>${modulo.proceso}</td>
-                    <td>${modulo.proceso}</td>
+  // if (listaModulos.length !== 0) {
+  listaModulos.forEach((modulo) => {
+    $template.querySelector("tr").innerHTML = `
+                    <td>${modulo.id_modulo}</td>
+                    <td style="overflow-x: auto; max-width: 300px;">${modulo.nombre_modulo}</td>
+                    <td>${modulo.nombre_proceso}</td>
+                    <td>${modulo.nombre_tipo_proceso}</td>
                     <td class="td-acciones"><span
                       class="material-symbols-outlined show-info-cohorte"
                       title="Ver link"
@@ -38,26 +33,26 @@ const llenarTablaModulos = (listaModulos, id_cohorte) => {
                     </span>
                     </td>
                     `;
-      // ${
-      //   window.location.pathname.includes("EventosModulos")
-      //     ? '<span class="material-symbols-outlined index-ponentes" title="Ponentes registrados">cast_for_education</span>'
-      //     : ""
-      // }
+    // ${
+    //   window.location.pathname.includes("EventosModulos")
+    //     ? '<span class="material-symbols-outlined index-ponentes" title="Ponentes registrados">cast_for_education</span>'
+    //     : ""
+    // }
 
-      let clone = document.importNode($template, true);
+    let clone = document.importNode($template, true);
 
-      $fargmento.appendChild(clone);
-    });
+    $fargmento.appendChild(clone);
+  });
 
-    $tbody.appendChild($fargmento);
+  $tbody.appendChild($fargmento);
 
-    mostarInforCohorte(listaModulos);
-    obtenerIdCohorte(listaModulos, id_cohorte);
-    mostrarModalInfoCohorte();
-    quitaNotificacionNoRegistros();
-  } else {
-    notificarNoRegistros("No se encontraron modulos registrados");
-  }
+  mostarInforCohorte(listaModulos);
+  obtenerIdCohorte(listaModulos, id_cohorte);
+  mostrarModalInfoCohorte();
+  quitaNotificacionNoRegistros();
+  // } else {
+  //   notificarNoRegistros("No se encontraron modulos registrados");
+  // }
 };
 
 export default llenarTablaModulos;
