@@ -139,7 +139,7 @@
               <th scope="col">Acciones</th>
             </tr>
           </thead>
-          <tbody>
+          <!-- <tbody>
             <tr>
               <td>Juan Ramirez Perez</td>
               <td>CC</td>
@@ -156,8 +156,13 @@
                 <span class="material-symbols-outlined" title="Enviar certificado"> forward_to_inbox </span>
               </td>
             </tr>
-          </tbody>
+          </tbody> -->
+          <template id="template-renglon-nocertificados">
+            <tr></tr>
+          </template>
+          <tbody id="tbody-table-nocertificados"></tbody>
         </table>
+        <p class="p-noregistros"></p>
       </section>
     </main>
     <footer class="footer">

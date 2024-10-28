@@ -2,14 +2,10 @@ import { copiarEnlacesInformesGenerales } from "./CopiarEnlacesInforGenerales.js
 
 export const llenarModalInfoCohorteSeleccionada = (inforCohorte) => {
   console.log("INFORMACION DE LA COHORTE MODAL:" + inforCohorte);
-  const $numCohorteVisual = document.getElementById(
-    "informacion-cohorte-numeral"
-  );
+  const $numCohorteVisual = document.getElementById("informacion-cohorte-numeral");
   $numCohorteVisual.textContent = `${inforCohorte.nombre_tipo_proceso} - ${inforCohorte.nombre_proceso} - Cohorte [ ${inforCohorte.anio}-${inforCohorte.cohorte} ]`;
   const $fargmento = document.createDocumentFragment(),
-    $template = document.getElementById(
-      "template-renglon-cohortes-info"
-    ).content,
+    $template = document.getElementById("template-renglon-cohortes-info").content,
     $tableInfoCohorte = document.getElementById("table-info-cohorte");
 
   try {
@@ -29,14 +25,11 @@ export const llenarModalInfoCohorteSeleccionada = (inforCohorte) => {
   $template.querySelector("tbody").innerHTML = `
     <tr class="tr-modal-infocohorte">
       <td>Inscripción</td>
-      <td>${inforCohorte.link_inscripcion[0].fecha_inicial} - ${
-    inforCohorte.link_inscripcion[0].fecha_final
-  }</td>
+      <td>${inforCohorte.link_inscripcion[0].fecha_inicial} - ${inforCohorte.link_inscripcion[0].fecha_final}</td>
       <td>
         <div class="modal-data-cohorte-estado">
         ${
-          new Date(inforCohorte.link_inscripcion[0].fecha_final).getTime() >=
-          new Date().getTime()
+          new Date(inforCohorte.link_inscripcion[0].fecha_final).getTime() >= new Date().getTime()
             ? '<span class="material-symbols-outlined on-info-cohorte" title="Habilitada" > check_circle </span>'
             : '<span class="material-symbols-outlined off-info-cohorte" title="Deshabilitada"> cancel </span>'
         } 
@@ -52,16 +45,15 @@ export const llenarModalInfoCohorteSeleccionada = (inforCohorte) => {
         </span>
       </td>
     </tr>
-    <tr class="tr-modal-infocohorte">
+    ${
+      inforCohorte.id_tipo_proceso !== "8"
+        ? `<tr class="tr-modal-infocohorte">
       <td>Asistencia</td>
-      <td>${inforCohorte.link_asistencia[0].fecha_inicial} - ${
-    inforCohorte.link_asistencia[0].fecha_final
-  }</td>
+      <td>${inforCohorte.link_asistencia[0].fecha_inicial} - ${inforCohorte.link_asistencia[0].fecha_final}</td>
       <td>
         <div class="modal-data-cohorte-estado">
         ${
-          new Date(inforCohorte.link_asistencia[0].fecha_final).getTime() >=
-          new Date().getTime()
+          new Date(inforCohorte.link_asistencia[0].fecha_final).getTime() >= new Date().getTime()
             ? '<span class="material-symbols-outlined on-info-cohorte" title="Habilitada" > check_circle </span>'
             : '<span class="material-symbols-outlined off-info-cohorte" title="Deshabilitada"> cancel </span>'
         }
@@ -76,20 +68,20 @@ export const llenarModalInfoCohorteSeleccionada = (inforCohorte) => {
           share
         </span>
       </td>
-    </tr>
+    </tr>`
+        : ""
+    }
+    
   
     ${
       inforCohorte.id_tipo_proceso === "11"
         ? `<tr class="tr-modal-infocohorte">
       <td>Ponentes</td>
-      <td>${inforCohorte.link_asistencia[0].fecha_inicial} - ${
-            inforCohorte.link_asistencia[0].fecha_final
-          }</td>
+      <td>${inforCohorte.link_asistencia[0].fecha_inicial} - ${inforCohorte.link_asistencia[0].fecha_final}</td>
       <td>
         <div class="modal-data-cohorte-estado">
         ${
-          new Date(inforCohorte.link_asistencia[0].fecha_final).getTime() >=
-          new Date().getTime()
+          new Date(inforCohorte.link_asistencia[0].fecha_final).getTime() >= new Date().getTime()
             ? '<span class="material-symbols-outlined on-info-cohorte" title="Habilitada" > check_circle </span>'
             : '<span class="material-symbols-outlined off-info-cohorte" title="Deshabilitada"> cancel </span>'
         }
@@ -107,14 +99,11 @@ export const llenarModalInfoCohorteSeleccionada = (inforCohorte) => {
     </tr>
     <tr class="tr-modal-infocohorte">
       <td>Documentación</td>
-      <td>${inforCohorte.link_asistencia[0].fecha_inicial} - ${
-            inforCohorte.link_asistencia[0].fecha_final
-          }</td>
+      <td>${inforCohorte.link_asistencia[0].fecha_inicial} - ${inforCohorte.link_asistencia[0].fecha_final}</td>
       <td>
         <div class="modal-data-cohorte-estado">
         ${
-          new Date(inforCohorte.link_asistencia[0].fecha_final).getTime() >=
-          new Date().getTime()
+          new Date(inforCohorte.link_asistencia[0].fecha_final).getTime() >= new Date().getTime()
             ? '<span class="material-symbols-outlined on-info-cohorte" title="Habilitada" > check_circle </span>'
             : '<span class="material-symbols-outlined off-info-cohorte" title="Deshabilitada"> cancel </span>'
         }
@@ -132,14 +121,11 @@ export const llenarModalInfoCohorteSeleccionada = (inforCohorte) => {
     </tr>
     <tr class="tr-modal-infocohorte">
       <td>Memorias</td>
-      <td>${inforCohorte.link_asistencia[0].fecha_inicial} - ${
-            inforCohorte.link_asistencia[0].fecha_final
-          }</td>
+      <td>${inforCohorte.link_asistencia[0].fecha_inicial} - ${inforCohorte.link_asistencia[0].fecha_final}</td>
       <td>
         <div class="modal-data-cohorte-estado">
         ${
-          new Date(inforCohorte.link_asistencia[0].fecha_final).getTime() >=
-          new Date().getTime()
+          new Date(inforCohorte.link_asistencia[0].fecha_final).getTime() >= new Date().getTime()
             ? '<span class="material-symbols-outlined on-info-cohorte" title="Habilitada" > check_circle </span>'
             : '<span class="material-symbols-outlined off-info-cohorte" title="Deshabilitada"> cancel </span>'
         }
@@ -171,6 +157,10 @@ export const llenarModalInfoCohorteSeleccionada = (inforCohorte) => {
   $fargmento.appendChild(clone);
 
   $tableInfoCohorte.appendChild($fargmento);
+
+  if (inforCohorte.id_tipo_proceso === "8") {
+    document.getElementById("info-cohorte-copia-link-conexion").style.display = "none";
+  }
 
   copiarEnlacesInformesGenerales(inforCohorte);
 };

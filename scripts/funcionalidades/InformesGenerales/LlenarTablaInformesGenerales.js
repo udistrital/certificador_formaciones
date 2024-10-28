@@ -34,7 +34,9 @@ const llenarTablaInformesGenerales = (li) => {
           >
           link
           </span>
-          <span class="material-symbols-outlined index-asistencias" title="Asistencia">
+          <span class="material-symbols-outlined index-asistencias ${
+              formacion.id_tipo_proceso === "8" ? "icon-disabled" : ""
+            }" title="Asistencia">
           fact_check
           </span>
           <span class="material-symbols-outlined index-certificados" title="Certificaciones">

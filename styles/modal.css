@@ -149,6 +149,9 @@
 
 .modal-data-cohorte {
   padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .modal-data-cohorte h2 {
@@ -178,12 +181,10 @@
   display: flex;
   justify-content: left;
   align-items: center;
-  padding: 8px 8px;
   color: var(--rojoprincipal);
   cursor: pointer;
   /*gap: 16px;*/
   user-select: none;
   width: fit-content;
   transition: .3s;
-  margin: 8px 0;
 }

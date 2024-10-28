@@ -44,18 +44,20 @@ const mostarInforCohorte = (listaCohortes) => {
         // listadoSesiones = await sesionesGET(idCohorteModelo);
 
         document.getElementById("table-body-fechaInscripcion").textContent = `${listaCohortes[index].link_inscripcion[0].fecha_inicial} ${listaCohortes[index].link_inscripcion[0].fecha_final}`;
-        document.getElementById("table-body-fechaAsistencia").textContent = `${listaCohortes[index].link_asistencia[0].fecha_inicial} ${listaCohortes[index].link_asistencia[0].fecha_final}`;
 
         document.getElementById("modal-data-cohorte-estado-inscripcion").innerHTML = `${
           new Date(listaCohortes[index].link_inscripcion[0].fecha_final) < Date.now()
             ? '<span class="material-symbols-outlined off-info-cohorte" title="Deshabilitada"> cancel </span> cerrado'
             : '<span class="material-symbols-outlined on-info-cohorte" title="Habilitada" > check_circle </span> abierto'
         }`;
-        document.getElementById("modal-data-cohorte-estado-asistencia").innerHTML = `${
-          new Date(listaCohortes[index].link_asistencia[0].fecha_final) < Date.now()
-            ? '<span class="material-symbols-outlined off-info-cohorte" title="Deshabilitada"> cancel </span> cerrado'
-            : '<span class="material-symbols-outlined on-info-cohorte" title="Habilitada" > check_circle </span> abierto'
-        }`;
+        if (listaCohortes[index].id_tipo_proceso !== "8") {
+          document.getElementById("table-body-fechaAsistencia").textContent = `${listaCohortes[index].link_asistencia[0].fecha_inicial} ${listaCohortes[index].link_asistencia[0].fecha_final}`;
+          document.getElementById("modal-data-cohorte-estado-asistencia").innerHTML = `${
+            new Date(listaCohortes[index].link_asistencia[0].fecha_final) < Date.now()
+              ? '<span class="material-symbols-outlined off-info-cohorte" title="Deshabilitada"> cancel </span> cerrado'
+              : '<span class="material-symbols-outlined on-info-cohorte" title="Habilitada" > check_circle </span> abierto'
+          }`;
+        }
 
         //IMPLEMENTACION DE PONENTES, DOCUMENTACION Y MEMORIAS, SE DEBE CORREGIR ESTA PARTE CUANDO FUNCIONE EL ENDPOINT CON TODOS LOS FORMULARIOS NECESARIOS
         if (listaCohortes[index].id_tipo_proceso === "11") {

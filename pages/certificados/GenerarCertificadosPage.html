@@ -136,7 +136,7 @@
               <th scope="col">Acciones</th>
             </tr>
           </thead>
-          <tbody>
+          <!-- <tbody>
             <tr>
               <td>
                 <label for="check-gen-certificados" id="label-check-gen-certificados"
@@ -157,8 +157,13 @@
                 <span class="material-symbols-outlined" title="Generar certificado"> badge </span>
               </td>
             </tr>
-          </tbody>
+          </tbody> -->
+          <template id="template-renglon-nocertificados">
+            <tr></tr>
+          </template>
+          <tbody id="tbody-table-nocertificados"></tbody>
         </table>
+        <p class="p-noregistros"></p>
       </section>
       <div class="contenedor-btn-generar-certificados">
         <button class="btn btn-generar-certificados">

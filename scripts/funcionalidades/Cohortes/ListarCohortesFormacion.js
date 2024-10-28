@@ -1,8 +1,5 @@
 import { mostrarModalInfoCohorte } from "../../modals.js";
-import {
-  notificarNoRegistros,
-  quitaNotificacionNoRegistros,
-} from "../NotificaNoExistenciaRegistros.js";
+import { notificarNoRegistros, quitaNotificacionNoRegistros } from "../NotificaNoExistenciaRegistros.js";
 import mostarInforCohorte from "./MostrarInfoCohorte.js";
 import obtenerIdCohorte from "./ObtenerIdCohorte.js";
 
@@ -10,19 +7,17 @@ const listarCohorterFormacion = (listaCohortes) => {
   console.log(listaCohortes);
 
   const $fargmento = document.createDocumentFragment(),
-    $template = document.getElementById(
-      "template-renglon-cursos-tutor-cohortes"
-    ).content,
+    $template = document.getElementById("template-renglon-cursos-tutor-cohortes").content,
     $tbody = document.getElementById("tbody-table-cursos-tutor-cohortes");
 
   // console.log(listaCohortes);
 
   if (listaCohortes.length !== 0) {
     listaCohortes.forEach((cohorte) => {
+      console.log(cohorte.nombre_tipo_proceso);
+
       $template.querySelector("tr").innerHTML = `
-                    <td>${cohorte.anio}-${cohorte.cohorte}-${
-        cohorte.id_cohorte
-      }</td>
+                    <td>${cohorte.anio}-${cohorte.cohorte}-${cohorte.id_cohorte}</td>
                     <td>${cohorte.anio}</td>
                     <td>${cohorte.fecha_inicial_cohorte}</td>
                     <td>${cohorte.fecha_final_cohorte}</td>
@@ -33,9 +28,8 @@ const listarCohorterFormacion = (listaCohortes) => {
                     >
                       link
                     </span>
-                    <span class="material-symbols-outlined index-asistencias" title="Asistencia">
-                      fact_check
-                    </span>
+                    ${cohorte.nombre_tipo_proceso === "Curso MOOC" ? "" : '<span class="material-symbols-outlined index-asistencias" title="Asistencia">fact_check</span>'}
+                    
                     <span class="material-symbols-outlined index-certificados" title="Certificaciones">
                         workspace_premium
                     </span>
@@ -45,9 +39,7 @@ const listarCohorterFormacion = (listaCohortes) => {
                     ${
                       window.location.pathname.includes("EventosCohortesPage")
                         ? '<span class="material-symbols-outlined index-ponentes" title="Ponentes registrados">cast_for_education</span> <span class="material-symbols-outlined index-modulos" title="Modulos de cohorte">stack</span>'
-                        : window.location.pathname.includes(
-                            "DiplomadoCohortesPage"
-                          )
+                        : window.location.pathname.includes("DiplomadoCohortesPage")
                         ? '<span class="material-symbols-outlined index-modulos" title="Modulos de cohorte">stack</span>'
                         : ""
                     }
