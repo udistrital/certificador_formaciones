@@ -34,17 +34,17 @@ const llenarTablaInformesGenerales = (li) => {
           >
           link
           </span>
-          <span class="material-symbols-outlined index-asistencias ${
-              formacion.id_tipo_proceso === "8" ? "icon-disabled" : ""
-            }" title="Asistencia">
-          fact_check
-          </span>
           <span class="material-symbols-outlined index-certificados" title="Certificaciones">
           workspace_premium
           </span>
           
           <span class="material-symbols-outlined index-cursantes" title="Cursantes registrados">
           how_to_reg
+          </span>
+          <span class="material-symbols-outlined index-asistencias ${
+              formacion.id_tipo_proceso === "8" ? "icon-disabled" : ""
+            }" title="Asistencia">
+          fact_check
           </span>
             <span class="material-symbols-outlined index-ponentes ${
               formacion.id_tipo_proceso !== "11" ? "icon-disabled" : ""
