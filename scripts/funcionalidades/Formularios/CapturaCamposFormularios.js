@@ -1,6 +1,7 @@
 import fetchingAsistenciaById from "../../Fetching/GET/AsistenciaById.js";
 import validaCursante from "../../Fetching/GET/Cursante.js";
 import listaRegistros from "../../Fetching/GET/ListaRegistros.js";
+import obtenerFormByHash from "../../Fetching/GET/FormByHash.js";
 import listaRegistrosMid from "../../Fetching/GET/Mid/ListaRegistrosMid.js";
 import fetchingTipoDocumentoById from "../../Fetching/GET/TipoDocumentoId.js";
 import traeFormulario from "../../Fetching/GET/TraeFormulario.js";
@@ -11,6 +12,7 @@ import insertaRegistroPonencia from "../../Fetching/POST/InsertaRegistroPonencia
 import formatearFecha from "../FormateoFecha.js";
 import notificacion from "../Notificacion.js";
 import obtenerParametrosUrlFormulario from "./ObtenerParametrosUrlFormulario.js";
+import obtenerFormByHashMid from "../../Fetching/GET/Mid/FormByHashMid.js";
 
 const capturaCampos = async () => {
   if (window.location.pathname.includes("formularioRegistroAspirantes")) {
@@ -28,37 +30,39 @@ const capturaCampos = async () => {
   }
 };
 
-export const formularioValidaCursante = () => {
+export const formularioValidaCursante = async () => {
   document.getElementById("form_cursante").addEventListener("submit", async function (event) {
     event.preventDefault(); // Evitar que el formulario se envíe de manera predeterminada
 
-    const formData = new FormData(event.target); // Crear un objeto FormData
-    console.log(event.target);
+    let codigo = await obtenerParametrosUrlFormulario();
 
-    // Capturar datos
-    let data = {
-      tipo_documento: formData.get("tipoDocumento"),
-      numero_documento: formData.get("numDocumentoPonente"),
-    };
-    console.log(data);
-    let res = await validaCursante(data);
-    console.log(res);
+    let resultadoTipoFormulario = await obtenerFormByHash(codigo);
 
-    let { idCohorteModelo, cohorte, idProceso, nombreProceso, nombreTipoProceso, idTipoProceso, anio, id_formulario } = obtenerParametrosUrlFormulario();
-    // location.href = `formularioRegistroAspirantes.html?idCohorteModelo=${idCohorteModelo}&cohorte=${cohorte}&idProceso=${idProceso}&nombreProceso=${nombreProceso}&nombreTipoProceso=${nombreTipoProceso}&idTipoProceso=${idTipoProceso}&anio=${anio}&existeCursante=${existe_cursante}&tipoDocumento=${data.tipoDocumento}&numDocumento=${data.numDocumento}`;
+    if (!resultadoTipoFormulario.existe) {
+      alert("No se logro identificar el formulario");
+    } else {
+      let tipoformulario = resultadoTipoFormulario.formulario[0].tipo_formulario;
 
-    let tipoRegistro = new URLSearchParams(window.location.search).get("tipoRegistro");
+      console.log(typeof tipoformulario);
 
-    if (tipoRegistro === "estudiante") {
-      location.href = `formsInscripcion/formularioRegistroAspirantes.html?cohorte=${cohorte}&nombreProceso=${nombreProceso}&nombreTipoProceso=${nombreTipoProceso}&anio=${anio}&id_formulario=${id_formulario}&existeCursante=${res.existe}&tipoDocumento=${data.tipo_documento}&numDocumento=${
-        data.numero_documento
-      }${res.existe === true ? "&id_cursante=" : ""}${res.existe === true ? res.cursante.id : ""}`;
-    } else if (tipoRegistro === "postulante") {
-      location.href = `formsPostulaciones/formularioPostulacion.html?cohorte=${cohorte}&nombreProceso=${nombreProceso}&nombreTipoProceso=${nombreTipoProceso}&anio=${anio}&id_formulario=${id_formulario}&existeCursante=${res.existe}&tipoDocumento=${data.tipo_documento}&numDocumento=${
-        data.numero_documento
-      }${res.existe === true ? "&id_cursante=" : ""}${res.existe === true ? res.cursante.id : ""}`;
+      const formData = new FormData(event.target); // Crear un objeto FormData
+      console.log(event.target);
+
+      // Capturar datos
+      let data = {
+        tipo_documento: formData.get("tipoDocumento"),
+        numero_documento: formData.get("numDocumentoPonente"),
+      };
+      console.log(data);
+      let res = await validaCursante(data);
+      console.log(res);
+
+      if (tipoformulario === "1") {
+        location.href = `formsInscripcion/formularioRegistroAspirantes.html?codigo=${codigo}&existeCursante=${res.existe}&tipoDocumento=${data.tipo_documento}&numDocumento=${data.numero_documento}${res.existe === true ? "&id_cursante=" : ""}${res.existe === true ? res.cursante.id : ""}`;
+      } else if (tipoformulario === "3") {
+        location.href = `formsPostulaciones/formularioPostulacion.html?codigo=${codigo}&existeCursante=${res.existe}&tipoDocumento=${data.tipo_documento}&numDocumento=${data.numero_documento}${res.existe === true ? "&id_cursante=" : ""}${res.existe === true ? res.cursante.id : ""}`;
+      }
     }
-    // return data;
   });
 };
 
@@ -342,18 +346,23 @@ const formularioPostulacion = () => {
 };
 
 const formularioEvidencias = () => {
-  document.getElementById("form_evidencias").addEventListener("submit", function (event) {
+  document.getElementById("form_evidencias").addEventListener("submit", async function (event) {
     event.preventDefault(); // Evitar que el formulario se envíe de manera predeterminada
 
-    const formData = new FormData(event.target); // Crear un objeto FormData
-    console.log(event.target);
+    let codigo = obtenerParametrosUrlFormulario();
 
+    let resultadoFormByHashMid = await obtenerFormByHashMid(codigo);
+
+    console.log(resultadoFormByHashMid);
+
+    const formData = new FormData(event.target); // Crear un objeto FormData
     // Capturar datos
     let data = {
-      nombreProceso: formData.get("nombreFormacion"),
-      nombreTipoProceso: formData.get("tipoFormacion"),
-      anio: formData.get("anioFormacion"),
-      cohorte: formData.get("numeroCohorte"),
+      // nombreProceso: formData.get("nombreFormacion"),
+      // nombreTipoProceso: formData.get("tipoFormacion"),
+      // anio: formData.get("anioFormacion"),
+      // cohorte: formData.get("numeroCohorte"),
+      id_cohorte: idCohorteModelo,
       tipoDocumento: formData.get("tipoDocumento"),
       numDocumento: formData.get("numDocumentoPostulante"),
       numDocumentoConfirmacion: formData.get("numDocumentoPostulanteRepetir"),
@@ -368,16 +377,13 @@ const formularioEvidencias = () => {
 const formularioDocumentos = () => {
   document.getElementById("form_documentos").addEventListener("submit", function (event) {
     event.preventDefault(); // Evitar que el formulario se envíe de manera predeterminada
+    let { idCohorteModelo, cohorte, idProceso, nombreProceso, nombreTipoProceso, idTipoProceso, anio, id_formulario } = obtenerParametrosUrlFormulario();
 
     const formData = new FormData(event.target); // Crear un objeto FormData
-    console.log(event.target);
 
     // Capturar datos
     let data = {
-      nombreProceso: formData.get("nombreFormacion"),
-      nombreTipoProceso: formData.get("tipoFormacion"),
-      anio: formData.get("anioFormacion"),
-      cohorte: formData.get("numeroCohorte"),
+      id_cohorte: idCohorteModelo,
       tipoDocumento: formData.get("tipoDocumento"),
       numDocumento: formData.get("numDocumentoPostulante"),
       numDocumentoConfirmacion: formData.get("numDocumentoPostulanteRepetir"),

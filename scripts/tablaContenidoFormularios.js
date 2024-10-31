@@ -93,14 +93,10 @@ const ordenamientos = () => {
       orderBool = !orderBool;
       //ORDENAMIENTO DE MAYOR A MENOR
       if (orderBool) {
-        listaInformesGenerales.sort(
-          (a, b) => b.fechaInicialCohorte - a.fechaInicialCohorte
-        );
+        listaInformesGenerales.sort((a, b) => b.fechaInicialCohorte - a.fechaInicialCohorte);
       } else {
         //ORDENAMIENTO DE MENOR A MAYOR
-        listaInformesGenerales.sort(
-          (a, b) => a.fechaInicialCohorte - b.fechaInicialCohorte
-        );
+        listaInformesGenerales.sort((a, b) => a.fechaInicialCohorte - b.fechaInicialCohorte);
       }
       obtenerIdCohorte(listaInformesGenerales);
     } else if (e.target === d.getElementById("index-sort-fechaFinal")) {
@@ -108,71 +104,49 @@ const ordenamientos = () => {
       orderBool = !orderBool;
       //ORDENAMIENTO DE MAYOR A MENOR
       if (orderBool) {
-        listaInformesGenerales.sort(
-          (a, b) => b.fechaFinalCohorte - a.fechaFinalCohorte
-        );
+        listaInformesGenerales.sort((a, b) => b.fechaFinalCohorte - a.fechaFinalCohorte);
       } else {
         //ORDENAMIENTO DE MENOR A MAYOR
-        listaInformesGenerales.sort(
-          (a, b) => a.fechaFinalCohorte - b.fechaFinalCohorte
-        );
+        listaInformesGenerales.sort((a, b) => a.fechaFinalCohorte - b.fechaFinalCohorte);
       }
       obtenerIdCohorte(listaInformesGenerales);
     }
   });
 };
 
-document
-  .getElementById("input-buscador-informes")
-  .addEventListener("input", (event) => {
-    let filtro = event.target.value.toLowerCase();
-    console.log(filtro);
-    let filtrado = listaInformesGenerales.filter((formacion) => {
-      return (
-        formacion.nombre.toLowerCase().includes(filtro) ||
-        formacion.tipo.toLowerCase().includes(filtro) ||
-        formacion.id.toString().toLowerCase().includes(filtro) ||
-        formacion.numCohorte.toString().toLowerCase().includes(filtro) ||
-        formacion.anio.toString().toLowerCase().includes(filtro)
-      );
-    });
-    console.log(filtrado);
-    obtenerIdCohorte(filtrado);
+document.getElementById("input-buscador-informes").addEventListener("input", (event) => {
+  let filtro = event.target.value.toLowerCase();
+  console.log(filtro);
+  let filtrado = listaInformesGenerales.filter((formacion) => {
+    return (
+      formacion.nombre.toLowerCase().includes(filtro) || formacion.tipo.toLowerCase().includes(filtro) || formacion.id.toString().toLowerCase().includes(filtro) || formacion.numCohorte.toString().toLowerCase().includes(filtro) || formacion.anio.toString().toLowerCase().includes(filtro)
+    );
   });
+  console.log(filtrado);
+  obtenerIdCohorte(filtrado);
+});
 
 const obtenerIdCohorte = (li) => {
   console.log(li);
 
   let listaAsistencias = d.querySelectorAll(".index-asistencias");
-  let tipoRegistro = window.location.pathname.includes(`PageFormsPostulaciones`)
-    ? "postulante"
-    : window.location.pathname.includes(`PageFormsInscripciones`)
-    ? "estudiante"
-    : null;
+  let tipoRegistro = window.location.pathname.includes(`PageFormsPostulaciones`) ? "postulante" : window.location.pathname.includes(`PageFormsInscripciones`) ? "estudiante" : null;
   listaAsistencias.forEach((asistencia, id) => {
     asistencia.addEventListener("click", (e) => {
-      console.log(id, "id", li[id].id_formulario);
-      let idCohorteModelo = li[id].id_cohorte,
-        cohorte = li[id].cohorte,
-        idProceso = li[id].id_proceso,
-        nombreProceso = li[id].nombre_proceso,
-        nombreTipoProceso = li[id].nombre_tipo_proceso,
-        idTipoProceso = li[id].id_tipo_proceso,
-        anio = li[id].anio,
-        id_formulario = li[id].id_formulario;
-      console.log(li[id]);
+      // console.log(id, "id", li[id].link);
+      let codigo = li[id].link;
+      // let idCohorteModelo = li[id].id_cohorte,
+      //   cohorte = li[id].cohorte,
+      //   idProceso = li[id].id_proceso,
+      //   nombreProceso = li[id].nombre_proceso,
+      //   nombreTipoProceso = li[id].nombre_tipo_proceso,
+      //   idTipoProceso = li[id].id_tipo_proceso,
+      //   anio = li[id].anio,
+      //   id_formulario = li[id].id_formulario;
+      // console.log(li[id]);
 
-      redireccionarFormulario(
-        idCohorteModelo,
-        cohorte,
-        idProceso,
-        nombreProceso,
-        nombreTipoProceso,
-        idTipoProceso,
-        anio,
-        id_formulario,
-        tipoRegistro
-      );
+      // redireccionarFormulario(idCohorteModelo, cohorte, idProceso, nombreProceso, nombreTipoProceso, idTipoProceso, anio, id_formulario, tipoRegistro);
+      redireccionarFormulario(codigo);
       // redireccionarAsistencia(li[id].numCohorte, li[id].id);
     });
   });

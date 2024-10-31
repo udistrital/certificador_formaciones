@@ -25,8 +25,8 @@ const crearCohorteFnc = async () => {
   if (idTipoFormacion !== "8") {
     console.log(idTipoFormacion === "8", typeof idTipoFormacion, typeof "8", idTipoFormacion);
 
-    fechaInicialCohorte = document.getElementById("fechaInicialCohorte").value;
-    fechaFinalCohorte = document.getElementById("fechaFinalCohorte").value;
+    fechaInicialCohorte = idTipoFormacion === "9" ? document.getElementById("fechaInicialCohorteFormInscripcion").value : document.getElementById("fechaInicialCohorte").value;
+    fechaFinalCohorte = idTipoFormacion === "9" ? document.getElementById("fechaConexion").value : document.getElementById("fechaFinalCohorte").value;
     linkCursoOConexion = document.getElementById("linkCursoOConexion").value;
     fechaConexion = document.getElementById("fechaConexion").value;
     horaConexion = document.getElementById("horaConexion").value;
@@ -81,7 +81,7 @@ const crearCohorteFnc = async () => {
       creador: parseInt(idUsuario),
       cohorte: null,
       tipo_formulario: 1,
-      hash: `http://127.0.0.5:5501/pages/formularios/formsInscripcion/formularioRegistroAspirantes.html?idFormacion=${idFormacion}&idCohorte=${numCohorte}`,
+      hash: Math.random().toString(36).substr(2) + Date.now().toString(36),
       fecha_inicial: formatearFecha(fechaInicialCohorteFormInscripcion),
       fecha_final: formatearFecha(fechaFinalCohorteFormInscripcion),
     },
@@ -92,7 +92,7 @@ const crearCohorteFnc = async () => {
       creador: parseInt(idUsuario),
       cohorte: null,
       tipo_formulario: 2,
-      hash: `http://127.0.0.5:5501/pages/formularios/formsInscripcion/formularioRegistroAspirantes.html?idFormacion=${idFormacion}&idCohorte=${numCohorte}`,
+      hash: Math.random().toString(36).substr(2) + Date.now().toString(36),
       fecha_inicial: `${fechaInicialAsistenciaCohorte} ${horaInicialAsistenciaCohorte}:00`,
       fecha_final: `${fechaFinalAsistenciaCohorte} ${horaFinalAsistenciaCohorte}:00`,
     };
@@ -118,7 +118,7 @@ const crearCohorteFnc = async () => {
       creador: parseInt(idUsuario),
       cohorte: null,
       tipo_formulario: 3,
-      hash: `http://127.0.0.5:5501/pages/formularios/formsInscripcion/formularioRegistroAspirantes.html?idFormacion=${idFormacion}&idCohorte=${numCohorte}`,
+      hash:Math.random().toString(36).substr(2) + Date.now().toString(36),
       fecha_inicial: formatearFecha(fechaInicialCohorteFormInscripcion),
       fecha_final: formatearFecha(fechaFinalCohorteFormInscripcion),
     };
@@ -127,7 +127,7 @@ const crearCohorteFnc = async () => {
       creador: parseInt(idUsuario),
       cohorte: null,
       tipo_formulario: 5,
-      hash: `http://127.0.0.5:5501/pages/formularios/formsInscripcion/formularioRegistroAspirantes.html?idFormacion=${idFormacion}&idCohorte=${numCohorte}`,
+      hash: Math.random().toString(36).substr(2) + Date.now().toString(36),
       fecha_inicial: formatearFecha(fechaInicialCohorteFormMemoria),
       fecha_final: formatearFecha(fechaFinalCohorteFormMemoria),
     };
@@ -135,7 +135,7 @@ const crearCohorteFnc = async () => {
       creador: parseInt(idUsuario),
       cohorte: null,
       tipo_formulario: 4,
-      hash: `http://127.0.0.5:5501/pages/formularios/formsInscripcion/formularioRegistroAspirantes.html?idFormacion=${idFormacion}&idCohorte=${numCohorte}`,
+      hash: Math.random().toString(36).substr(2) + Date.now().toString(36),
       fecha_inicial: formatearFecha(fechaInicialCohorteFormDocumentacion),
       fecha_final: formatearFecha(fechaFinalCohorteFormDocumentacion),
     };
@@ -150,9 +150,10 @@ const insertaDataForm = async (dataForm) => {
   if (resultadoCohorte.estado === "ok") {
     dataForm.formularioRegistro.cohorte = resultadoCohorte.resultado.id_cohorte;
     await postNuevoFormulario(dataForm.formularioRegistro);
+    let respuestaSesion;
     if (dataForm.tipo_proceso !== "8") {
       dataForm.sesion.cohorte = resultadoCohorte.resultado.id_cohorte;
-      let respuestaSesion = await postNuevaSesion(dataForm.sesion);
+      respuestaSesion = await postNuevaSesion(dataForm.sesion);
       console.log(respuestaSesion);
 
       dataForm.formularioAsistencia.cohorte = resultadoCohorte.resultado.id_cohorte;
@@ -162,6 +163,16 @@ const insertaDataForm = async (dataForm) => {
 
     if (dataForm.tipo_proceso === "11") {
       console.log("Creando formularios apartes");
+
+      dataForm.documentos = {
+        id_cohorte: resultadoCohorte.id_cohorte,
+        banner: document.getElementById("foto").files[0],
+        propuesta: document.getElementById("ponencia").files[0],
+        presentacion: document.getElementById("presentacion").files[0],
+        memoria: document.getElementById("memoria").files[0],
+      };
+
+      console.log(dataForm.documentos);
 
       dataForm.dataFormularioPonente.cohorte = resultadoCohorte.resultado.id_cohorte;
       dataForm.dataFormularioMemorias.cohorte = resultadoCohorte.resultado.id_cohorte;

@@ -1,17 +1,8 @@
 import validaCursante from "../../Fetching/GET/Cursante.js";
 import { formularioValidaCursante } from "./CapturaCamposFormularios.js";
 
-const redireccionarFormulario = (
-  idCohorteModelo,
-  cohorte,
-  idProceso,
-  nombreProceso,
-  nombreTipoProceso,
-  idTipoProceso,
-  anio,
-  id_formulario,
-  tipoRegistro
-) => {
+// const redireccionarFormulario = (idCohorteModelo, cohorte, idProceso, nombreProceso, nombreTipoProceso, idTipoProceso, anio, id_formulario, tipoRegistro) => {
+const redireccionarFormulario = (codigo) => {
   /**
    * ${
     validarRedireccion() === "formularioValidacionCursante" &&
@@ -19,12 +10,13 @@ const redireccionarFormulario = (
   }
    */
   // location.href = `${validarRedireccion()}.html?idCohorteModelo=${idCohorteModelo}&cohorte=${cohorte}&idProceso=${idProceso}&nombreProceso=${nombreProceso}&nombreTipoProceso=${nombreTipoProceso}&idTipoProceso=${idTipoProceso}&anio=${anio}`;
-  window.open(
-    `${validarRedireccion()}.html?cohorte=${cohorte}&nombreProceso=${nombreProceso}&nombreTipoProceso=${nombreTipoProceso}&anio=${anio}&id_formulario=${id_formulario}${
-      tipoRegistro !== null ? "&tipoRegistro=" + tipoRegistro : ""
-    }`,
-    "_blank"
-  );
+  // window.open(
+  //   `${validarRedireccion()}.html?idCohorteModelo=${idCohorteModelo}&cohorte=${cohorte}&idproceso=${idProceso}&idtipoproceso=${idTipoProceso}&nombreProceso=${nombreProceso}&nombreTipoProceso=${nombreTipoProceso}&anio=${anio}&id_formulario=${id_formulario}${
+  //     tipoRegistro !== null ? "&tipoRegistro=" + tipoRegistro : ""
+  //   }`,
+  //   "_blank"
+  // );
+  window.open(`${validarRedireccion()}.html?codigo=${codigo}`, "_blank");
 };
 
 const validarRedireccion = () => {

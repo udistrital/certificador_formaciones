@@ -5,24 +5,28 @@ d.getElementById("anioCohorte").setAttribute("min", new Date().getFullYear());
 d.getElementById("anioCohorte").setAttribute("max", new Date().getFullYear() + 1);
 
 if (!window.location.pathname.includes("CursoMoocCohortesPage")) {
-  d.getElementById("fechaInicialCohorte").setAttribute("min", new Date().getFullYear() + "-" + String(new Date().getMonth() + 1).padStart(2, "0") + "-" + String(new Date().getDate()).padStart(2, "0"));
-  d.getElementById("fechaFinalCohorte").setAttribute("min", new Date().getFullYear() + "-" + String(new Date().getMonth() + 1).padStart(2, "0") + "-" + String(new Date().getDate() + 1).padStart(2, "0"));
-
   document.addEventListener("change", (e) => {
-    if (e.target.matches("#fechaInicialCohorte")) {
-      d.getElementById("fechaFinalCohorte").setAttribute("min", e.target.value);
+    if (!window.location.pathname.includes("CapacitacionCohortesPage")) {
+      d.getElementById("fechaInicialCohorte").setAttribute("min", new Date().getFullYear() + "-" + String(new Date().getMonth() + 1).padStart(2, "0") + "-" + String(new Date().getDate()).padStart(2, "0"));
+      d.getElementById("fechaFinalCohorte").setAttribute("min", new Date().getFullYear() + "-" + String(new Date().getMonth() + 1).padStart(2, "0") + "-" + String(new Date().getDate() + 1).padStart(2, "0"));
+      if (e.target.matches("#fechaInicialCohorte")) {
+        d.getElementById("fechaFinalCohorte").setAttribute("min", e.target.value);
 
-      //se configura el rango de fechas para la inscripcion
-      d.getElementById("fechaInicialCohorteFormInscripcion").setAttribute("min", e.target.value);
-      d.getElementById("fechaFinalCohorteFormInscripcion").setAttribute("min", e.target.value);
-    }
+        //se configura el rango de fechas para la inscripcion
+        d.getElementById("fechaInicialCohorteFormInscripcion").setAttribute("min", e.target.value);
+        d.getElementById("fechaFinalCohorteFormInscripcion").setAttribute("min", e.target.value);
+      }
 
-    if (e.target.matches("#fechaFinalCohorte")) {
-      //se configura el rango de fechas para la inscripcion
-      d.getElementById("fechaInicialCohorteFormInscripcion").setAttribute("max", e.target.value);
-      d.getElementById("fechaFinalCohorteFormInscripcion").setAttribute("max", e.target.value);
+      if (e.target.matches("#fechaFinalCohorte")) {
+        //se configura el rango de fechas para la inscripcion
+        d.getElementById("fechaInicialCohorteFormInscripcion").setAttribute("max", e.target.value);
+        d.getElementById("fechaFinalCohorteFormInscripcion").setAttribute("max", e.target.value);
 
-      d.getElementById("fechaConexion").setAttribute("max", e.target.value);
+        d.getElementById("fechaConexion").setAttribute("max", e.target.value);
+      }
+    } else {
+      d.getElementById("fechaInicialCohorteFormInscripcion").setAttribute("min", new Date().getFullYear() + "-" + String(new Date().getMonth() + 1).padStart(2, "0") + "-" + String(new Date().getDate()).padStart(2, "0"));
+      d.getElementById("fechaFinalCohorteFormInscripcion").setAttribute("min", new Date().getFullYear() + "-" + String(new Date().getMonth() + 1).padStart(2, "0") + "-" + String(new Date().getDate() + 1).padStart(2, "0"));
     }
 
     if (e.target.matches("#fechaInicialCohorteFormInscripcion")) {
