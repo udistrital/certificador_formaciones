@@ -5,7 +5,6 @@ const validaCursante = async (dataCursante) => {
     method: "GET",
     redirect: "follow",
   };
-
   try {
     const response = await fetch(
       `https://pruebascrud.formaciones.planestic.udistrital.edu.co/v1/cursante.php?tipoDocumento=${dataCursante.tipo_documento}&numDocumento=${dataCursante.numero_documento}`,

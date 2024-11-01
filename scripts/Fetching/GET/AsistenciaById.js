@@ -6,10 +6,7 @@ const fetchingAsistenciaById = async (id) => {
   console.log(id);
 
   try {
-    let result = await fetch(
-      `https://pruebascrud.formaciones.planestic.udistrital.edu.co/v1/asistencia.php?registro_ig=${id}`,
-      requestOptions
-    );
+    let result = await fetch(`https://pruebascrud.formaciones.planestic.udistrital.edu.co/v1/asistencia.php?registro_ig=${id}`, requestOptions);
     result = await result.json();
     return result;
   } catch (error) {

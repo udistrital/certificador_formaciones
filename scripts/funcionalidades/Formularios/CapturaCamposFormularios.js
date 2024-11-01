@@ -168,83 +168,108 @@ const gotop = () => {
   });
 };
 
-const formularioAsistencia = () => {
+const formularioAsistencia = async () => {
   document.getElementById("form_asistencias").addEventListener("submit", async function (event) {
     event.preventDefault(); // Evitar que el formulario se envíe de manera predeterminada
 
     const formData = new FormData(event.target); // Crear un objeto FormData
-    console.log(event.target);
 
-    // Capturar datos
-    let data = {
-      nombreProceso: formData.get("nombreFormacion"),
-      nombreTipoProceso: formData.get("tipoFormacion"),
-      anio: formData.get("anioFormacion"),
-      cohorte: formData.get("numeroCohorte"),
-      tipoDocumento: formData.get("tipoDocumento"),
-      numDocumento: formData.get("numDocumentoPonente"),
-      numDocumentoConfirmacion: formData.get("numDocumentoPonenteRepetir"),
-      terminos: formData.get("terminos"),
-    };
     let dataCursante = {
       tipo_documento: formData.get("tipoDocumento"),
       numero_documento: formData.get("numDocumentoPonente"),
     };
-    // console.log(dataCursante);
-    let res = await validaCursante(dataCursante);
-    console.log(res);
 
-    let respuestaExisteFormulario = await traeFormulario(extraDatosInsertaAsistencia().id_formulario);
-    console.log(respuestaExisteFormulario);
+    console.log(dataCursante);
+    let tipoDocumentoById = await fetchingTipoDocumentoById(dataCursante.tipo_documento);
+    console.log(tipoDocumentoById[0].codigo_abreviacion);
 
-    if (res.existe === true && respuestaExisteFormulario.existe === true) {
-      // notificacion(true, "exite cursante y cohorte");
-      let resListarRegistros = await listaRegistrosMid(respuestaExisteFormulario.formulario[0].cohorte, respuestaExisteFormulario.formulario[0].modulo);
-      console.log(resListarRegistros);
+    // dataCursante.tipo_documento = tipoDocumentoById[0].codigo_abreviacion;
 
-      let tipoDocumentoById = await fetchingTipoDocumentoById(data.tipoDocumento);
-      console.log(tipoDocumentoById);
+    const codigo_abreviacion = tipoDocumentoById[0].codigo_abreviacion;
 
-      let filtraCursante = resListarRegistros.registradoCohorte.filter((registro) => registro.tipo_documento === tipoDocumentoById[0].codigo_abreviacion && registro.numero_documento === data.numDocumento);
+    const codigo = await obtenerParametrosUrlFormulario();
+    const resultadoFormByHash = await obtenerFormByHashMid(codigo);
+    console.log(codigo, resultadoFormByHash.formulario);
+    console.log(resultadoFormByHash.formulario[0].id_modulo);
 
-      console.log(filtraCursante);
+    if (resultadoFormByHash.existe === true) {
+      const resultadoValidaCursante = await validaCursante(dataCursante);
+      if (resultadoValidaCursante.existe === true) {
+        console.log(resultadoValidaCursante.cursante);
+        let resultadoListarRegistros = await listaRegistrosMid(resultadoFormByHash.formulario[0].id_cohorte, resultadoFormByHash.formulario[0].id_modulo);
+        console.log(resultadoListarRegistros);
 
-      if (resListarRegistros.existe === false || filtraCursante.length === 0) {
-        notificacion(false, "No se puede registrar la asistencia ya que no esta registrado en la cohorte");
-      } else if (resListarRegistros.existe) {
-        let id_registro = filtraCursante[0].id_registro;
+        if (resultadoListarRegistros.existe) {
+          let filtraCursante = resultadoListarRegistros.registradoCohorte.filter((registro) => registro.tipo_documento === codigo_abreviacion && registro.numero_documento === dataCursante.numero_documento);
+          console.log(filtraCursante);
+          if (filtraCursante.length !== 0) {
+            console.log(resultadoListarRegistros.registradoCohorte[0].id_registro);
+            let dataAsistencia = {
+              formulario: resultadoFormByHash.formulario[0].id_formulario,
+              registro: resultadoListarRegistros.registradoCohorte[0].id_registro,
+              fecha_asistencia: formatearFecha(Date.now()),
+            };
 
-        console.log(id_registro);
+            const respuestaAsistenciaById = await fetchingAsistenciaById(dataAsistencia.registro);
 
-        const respuestaAsistenciaById = await fetchingAsistenciaById(id_registro);
-
-        console.log(respuestaAsistenciaById);
-
-        let dataAsistencia = {
-          formulario: extraDatosInsertaAsistencia().id_formulario,
-          registro: id_registro,
-          registro: resListarRegistros.registradoCohorte[0].id_registro,
-          fecha_creado: formatearFecha(Date.now()),
-          fecha_modificado: formatearFecha(Date.now()),
-          fecha_asistencia: formatearFecha(Date.now()),
-        };
-        console.log(dataAsistencia);
-
-        let respuestaInsertaAsistencia = await insertaAsistencia(dataAsistencia);
-
-        if (respuestaInsertaAsistencia.estado === "ok") {
-          notificacion(true, "Se registro la asistencia");
-        } else if (respuestaInsertaAsistencia.estado === "error") {
-          notificacion(false, "Hubo un error, no se registro la asistencia");
+            console.log(respuestaAsistenciaById);
+            if (respuestaAsistenciaById.length !== 0) {
+              notificacion(false, "Ya se registro su asistencia previamente");
+            } else {
+              let respuestaInsertaAsistencia = await insertaAsistencia(dataAsistencia);
+              if (respuestaInsertaAsistencia.estado === "ok") {
+                notificacion(true, "Se registro la asistencia");
+              } else if (respuestaInsertaAsistencia.estado === "error") {
+                notificacion(false, "Hubo un error, no se registro la asistencia");
+              }
+            }
+          } else {
+            notificacion(false, "El cursante no esta registrado en la cohorte o modulo");
+          }
+        } else {
+          notificacion(false, "No fue posible cargar el listado de registros");
         }
-
-        console.log(respuestaInsertaAsistencia);
+      } else {
+        notificacion(false, "No se encuentra registrado como cursante");
       }
     } else {
-      notificacion(false, "No existe el cursante");
+      notificacion(false, "No se encontro información del formulario");
     }
 
-    return data;
+    // let respuestaExisteFormulario = await traeFormulario(extraDatosInsertaAsistencia().id_formulario);
+    // console.log(respuestaExisteFormulario);
+
+    // if (res.existe === true && respuestaExisteFormulario.existe === true) {
+    //   // notificacion(true, "exite cursante y cohorte");
+
+    //   let filtraCursante = resListarRegistros.registradoCohorte.filter((registro) => registro.tipo_documento === tipoDocumentoById[0].codigo_abreviacion && registro.numero_documento === data.numDocumento);
+
+    //   console.log(filtraCursante);
+
+    //   if (resListarRegistros.existe === false || filtraCursante.length === 0) {
+    //     notificacion(false, "No se puede registrar la asistencia ya que no esta registrado en la cohorte");
+    //   } else if (resListarRegistros.existe) {
+    //     let id_registro = filtraCursante[0].id_registro;
+
+    //     console.log(id_registro);
+
+    //     let dataAsistencia = {
+    //       formulario: extraDatosInsertaAsistencia().id_formulario,
+    //       registro: id_registro,
+    //       registro: resListarRegistros.registradoCohorte[0].id_registro,
+    //       fecha_creado: formatearFecha(Date.now()),
+    //       fecha_modificado: formatearFecha(Date.now()),
+    //       fecha_asistencia: formatearFecha(Date.now()),
+    //     };
+    //     console.log(dataAsistencia);
+
+    //     console.log(respuestaInsertaAsistencia);
+    //   }
+    // } else {
+    //   notificacion(false, "No existe el cursante");
+    // }
+
+    // return data;
   });
 };
 
@@ -254,8 +279,14 @@ const extraDatosInsertaAsistencia = () => {
   };
 };
 
-const formularioPostulacion = () => {
-  let { id_cursante, id_formulario } = extraDatosInsertaRegistro();
+const formularioPostulacion = async () => {
+  console.log("registro");
+  let id_cursante = extraeCursante();
+  let codigo = await obtenerParametrosUrlFormulario();
+
+  let resultadoFormByHash = await obtenerFormByHashMid(codigo);
+
+  console.log(id_cursante, codigo, resultadoFormByHash);
 
   document.getElementById("form_ponentes").addEventListener("submit", async function (event) {
     event.preventDefault(); // Evitar que el formulario se envíe de manera predeterminada
@@ -283,7 +314,7 @@ const formularioPostulacion = () => {
 
     let dataRegistro = {
       cursante: id_cursante,
-      formulario: id_formulario,
+      formulario: resultadoFormByHash.formulario[0].id_formulario,
       vinculacion: formData.get("vinculacion"),
       ponente: true,
       fecha_registro: formatearFecha(Date.now()),
@@ -306,46 +337,42 @@ const formularioPostulacion = () => {
       fecha_modificado: formatearFecha(Date.now()),
     };
 
-    if (formData.get("terminos") === "on") {
-      if (id_cursante === null) {
-        console.log("insertando ");
+    if (id_cursante === null) {
+      console.log("insertando ");
 
-        let resulCursante = await insertaCursante(dataCursante);
-        if (resulCursante.estado === "ok") {
-          dataRegistro.cursante = resulCursante.resultado.id_cursante;
-        } else if (resulCursante.estado === "error") {
-          console.log(resulCursante.resultado.error_motivo);
-        }
+      let resulCursante = await insertaCursante(dataCursante);
+      if (resulCursante.estado === "ok") {
+        dataRegistro.cursante = resulCursante.resultado.id_cursante;
+      } else if (resulCursante.estado === "error") {
+        console.log(resulCursante.resultado.error_motivo);
       }
+    }
 
-      let resultadoExistenciaFormulario = await traeFormulario(id_formulario);
-      console.log(resultadoExistenciaFormulario);
+    let resultadoExistenciaFormulario = await traeFormulario(id_formulario);
+    console.log(resultadoExistenciaFormulario);
 
-      let validaExistenciaRegistroCohorte = await listaRegistrosMid(resultadoExistenciaFormulario.formulario[0].cohorte);
+    let validaExistenciaRegistroCohorte = await listaRegistrosMid(resultadoExistenciaFormulario.formulario[0].cohorte);
 
-      console.log(validaExistenciaRegistroCohorte);
+    console.log(validaExistenciaRegistroCohorte);
 
-      if (validaExistenciaRegistroCohorte.existe === true) {
-        let resultRegistro = await insertaRegistro(dataRegistro);
-        console.log(resultRegistro);
+    if (validaExistenciaRegistroCohorte.existe === true) {
+      let resultRegistro = await insertaRegistro(dataRegistro);
+      console.log(resultRegistro);
 
-        if (resultRegistro.estado === "ok") {
-          dataRegistroPonencia.registro = resultRegistro.resultado.id_registro;
+      if (resultRegistro.estado === "ok") {
+        dataRegistroPonencia.registro = resultRegistro.resultado.id_registro;
 
-          let resultRegistroPonencia = await insertaRegistroPonencia(dataRegistroPonencia);
-          if (resultRegistroPonencia.estado === "ok") {
-            notificacion(true, "Se registro como ponente a la cohorte");
-          }
-          console.log(resultRegistroPonencia);
-        } else {
-          notificacion(false, "Error al registrarse en la cohorte como ponente");
+        let resultRegistroPonencia = await insertaRegistroPonencia(dataRegistroPonencia);
+        if (resultRegistroPonencia.estado === "ok") {
+          notificacion(true, "Se registro como ponente a la cohorte");
         }
+        console.log(resultRegistroPonencia);
       } else {
-        notificacion(false, "Ya se encuentra registrado en la cohorte, como ponente o como cursante");
-        // console.log(restulRegistro);
+        notificacion(false, "Error al registrarse en la cohorte como ponente");
       }
     } else {
-      alert("Debe aceptar terminos");
+      notificacion(false, "Ya se encuentra registrado en la cohorte, como ponente o como cursante");
+      // console.log(restulRegistro);
     }
 
     console.log(dataRegistroPonencia);
