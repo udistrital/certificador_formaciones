@@ -1,4 +1,6 @@
 const validaCursante = async (dataCursante) => {
+  console.log(dataCursante);
+  
   const requestOptions = {
     method: "GET",
     redirect: "follow",
@@ -13,11 +15,10 @@ const validaCursante = async (dataCursante) => {
     const result = await response.json();
     console.log(result);
 
-    let filtrado = await result.filter(
-      (cursante) =>
-        cursante.tipo_documento === dataCursante.tipo_documento &&
-        cursante.numero_documento === dataCursante.numero_documento
-    );
+    let filtrado = await result.filter((cursante) => {
+      return cursante.tipo_documento.trim() === dataCursante.tipo_documento.trim() && cursante.numero_documento.trim() === dataCursante.numero_documento.trim();
+    });
+    console.log(filtrado);
 
     if (filtrado.length === 1) {
       return { existe: true, cursante: filtrado[0] };

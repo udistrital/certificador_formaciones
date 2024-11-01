@@ -18,7 +18,7 @@ const traeFormulario = async (idFormulario) => {
       return { existe: true, formulario: result };
     }
     //   return result;
-    return { existe: false, cursante: [] };
+    return { existe: false, formulario: [] };
   } catch (error) {
     console.error(error);
 

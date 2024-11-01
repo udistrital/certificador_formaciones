@@ -57,24 +57,39 @@ export const formularioValidaCursante = async () => {
       let res = await validaCursante(data);
       console.log(res);
 
+      let urlRegistro = `formsInscripcion/formularioRegistroAspirantes.html?codigo=${codigo}&tipoDocumento=${data.tipo_documento}&numDocumento=${data.numero_documento}${res.existe === true ? "&id_cursante=" + res.cursante.id : ""}`,
+        urlPontente = `formsPostulaciones/formularioPostulacion.html?codigo=${codigo}&tipoDocumento=${data.tipo_documento}&numDocumento=${data.numero_documento}${res.existe === true ? "&id_cursante=" + res.cursante.id : ""}`;
+
+      console.log(urlRegistro, urlPontente);
+
       if (tipoformulario === "1") {
-        location.href = `formsInscripcion/formularioRegistroAspirantes.html?codigo=${codigo}&existeCursante=${res.existe}&tipoDocumento=${data.tipo_documento}&numDocumento=${data.numero_documento}${res.existe === true ? "&id_cursante=" : ""}${res.existe === true ? res.cursante.id : ""}`;
+        location.href = urlRegistro;
       } else if (tipoformulario === "3") {
-        location.href = `formsPostulaciones/formularioPostulacion.html?codigo=${codigo}&existeCursante=${res.existe}&tipoDocumento=${data.tipo_documento}&numDocumento=${data.numero_documento}${res.existe === true ? "&id_cursante=" : ""}${res.existe === true ? res.cursante.id : ""}`;
+        location.href = urlPontente;
       }
     }
   });
 };
 
-const formularioRegistro = () => {
-  let { id_cursante, id_formulario } = extraDatosInsertaRegistro();
+const extraeCursante = () => {
+  let id_cursante = new URLSearchParams(window.location.search).has("id_cursante") ? new URLSearchParams(window.location.search).get("id_cursante") : null;
+
+  return id_cursante;
+};
+
+const formularioRegistro = async () => {
   console.log("registro");
+  let id_cursante = extraeCursante();
+  let codigo = await obtenerParametrosUrlFormulario();
+
+  let resultadoFormByHash = await obtenerFormByHashMid(codigo);
+
+  console.log(id_cursante, codigo, resultadoFormByHash);
 
   document.getElementById("form_inscritos").addEventListener("submit", async function (event) {
     event.preventDefault(); // Evitar que el formulario se envíe de manera predeterminada
 
     const formData = new FormData(event.target); // Crear un objeto FormData
-
     let dataCursante = {
       usuario_edx: formData.get("codigoEdx"),
       primer_nombre: formData.get("primerNombre"),
@@ -94,55 +109,55 @@ const formularioRegistro = () => {
       fecha_creado: formatearFecha(Date.now()),
     };
 
-    let data = {
-      cursante: id_cursante,
-      formulario: id_formulario,
+    let dataRegistro = {
+      cursante: null,
+      formulario: resultadoFormByHash.formulario[0].id_formulario,
       dependencia: formData.get("dependencia"),
       vinculacion: formData.get("vinculacion"),
       instituto: formData.get("instituto"),
       ponente: 0,
       fecha_registro: formatearFecha(Date.now()),
-      fecha_creado: formatearFecha(Date.now()),
-      fecha_modificado: formatearFecha(Date.now()),
-      terminos: formData.get("terminos"),
     };
 
-    console.log(data);
-    if (data.terminos === "on") {
-      if (id_cursante === null) {
-        console.log("insertando ");
-        console.log(dataCursante);
-
-        let res = await insertaCursante(dataCursante);
-        if (res.estado === "ok") {
-          console.log("Se creo el cursante, se registrara");
-          console.log(res.resultado, data);
-          data.cursante = res.resultado.id_cursante;
-        } else if (res.estado === "error") {
-          console.log(res.resultado.error_motivo);
+    if (id_cursante === null) {
+      const respuestaInsertaCursante = await insertaCursante(dataCursante);
+      console.log(respuestaInsertaCursante);
+      if (respuestaInsertaCursante.estado === "ok") {
+        notificacion(true, "Se ha registrado como nuevo cursante");
+        dataRegistro.cursante = respuestaInsertaCursante.resultado.id_cursante;
+        console.log(dataRegistro);
+        let validaExistenciaRegistroCohorte = await listaRegistros(dataRegistro.cursante, dataRegistro.formulario);
+        if (!validaExistenciaRegistroCohorte.existe) {
+          let resultadoInsertaRegistro = await insertaRegistro(dataRegistro);
+          console.log(resultadoInsertaRegistro);
+          if (resultadoInsertaRegistro.estado === "ok") {
+            notificacion(true, "Se registrado el cursante al proceso");
+          } else {
+            notificacion(false, "No se ha podido registrar el cursante al proceso");
+          }
         }
-        console.log(res);
-      }
-
-      let validaExistenciaRegistroCohorte = await listaRegistros(data.cursante, data.formulario);
-
-      console.log(validaExistenciaRegistroCohorte);
-
-      if (!validaExistenciaRegistroCohorte.existe) {
-        let resultadoRegistro = await insertaRegistro(data);
-        if (resultadoRegistro.estado === "ok") {
-          notificacion(true, "Se registro el cursante a la cohorte");
-        } else {
-          notificacion(false, "No se registro el cursante a la cohorte");
-        }
+        console.log(validaExistenciaRegistroCohorte);
       } else {
-        notificacion(false, "El cursante ya esta registrado en la cohorte");
+        notificacion(false, "No se logro registrar al cursante");
       }
     } else {
-      alert("Debe aceptar terminos");
+      console.log(dataRegistro);
+
+      dataRegistro.cursante = id_cursante;
+      let validaExistenciaRegistroCohorte = await listaRegistros(dataRegistro.cursante, dataRegistro.formulario);
+      if (!validaExistenciaRegistroCohorte.existe) {
+        let resultadoInsertaRegistro = await insertaRegistro(dataRegistro);
+        console.log(resultadoInsertaRegistro);
+        if (resultadoInsertaRegistro.estado === "ok") {
+          notificacion(true, "Se registrado el cursante a la cohorte o modulo");
+        } else {
+          notificacion(false, "No se ha podido registrar el cursante a la cohorte o modulo");
+        }
+      } else {
+        notificacion(false, "El cursante ya se encuentra registrado en la cohorte o modulo");
+      }
     }
     gotop();
-    // return data;
   });
 };
 
@@ -151,13 +166,6 @@ const gotop = () => {
     top: 0,
     behavior: "smooth", // Esto hace que el desplazamiento sea suave
   });
-};
-
-const extraDatosInsertaRegistro = () => {
-  return {
-    id_cursante: new URLSearchParams(window.location.search).get("id_cursante") && new URLSearchParams(window.location.search).get("id_cursante"),
-    id_formulario: new URLSearchParams(window.location.search).get("id_formulario"),
-  };
 };
 
 const formularioAsistencia = () => {

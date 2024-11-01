@@ -1,4 +1,6 @@
 const listaRegistros = async (idCursante, idFormulario) => {
+  console.log(idCursante, idFormulario);
+
   const requestOptions = {
     method: "GET",
     redirect: "follow",
@@ -15,10 +17,13 @@ const listaRegistros = async (idCursante, idFormulario) => {
 
     console.log(result);
 
-    let filtrado = await result.filter(
-      (registro) =>
-        registro.cursante === idCursante && registro.formulario === idFormulario
-    );
+    let filtrado = await result.filter((registro) => {
+      console.log(registro.cursante, registro.formulario, idCursante, idFormulario);
+
+      return registro.cursante === "" + idCursante && registro.formulario === idFormulario;
+    });
+
+    console.log(filtrado);
 
     if (filtrado.length !== 0) {
       return { existe: true, registro: filtrado };

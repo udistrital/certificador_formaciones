@@ -43,19 +43,21 @@ const llenarFormulario = async () => {
     await agregarGrupoEtnico(listaGruposEtnicos);
     await agregarTipoDiscapacidad(listaTiposDiscapacidades);
     await defineDependencias();
+    console.log(res);
 
     agregarDatosFormularioExisteCursante(res);
   }
 };
 
 const capturaDatosCursanteUrl = async () => {
-  let existe_cursante = new URLSearchParams(window.location.search).get("existeCursante");
+  let existe_cursante = new URLSearchParams(window.location.search).has("id_cursante");
   let data = {
     tipo_documento: new URLSearchParams(window.location.search).get("tipoDocumento"),
     numero_documento: new URLSearchParams(window.location.search).get("numDocumento"),
   };
+  console.log(existe_cursante, data.tipo_documento, data.numero_documento);
 
-  if (existe_cursante == "true") {
+  if (existe_cursante == true) {
     let res = await validaCursante(data);
     return res;
   }
@@ -158,7 +160,7 @@ const defineDependencias = async () => {
 
         listadoDependencias = listadoDependencias.filter((dependencia) => listadoDependenciasPorTipo.includes(dependencia.id));
 
-        console.log(listadoDependencias);
+        // console.log(listadoDependencias);
         agregarDependencia(listadoDependencias, true);
       } else if (e.target.value === "1" || e.target.value === "2") {
         console.log("contratista, administrativo");
@@ -174,7 +176,7 @@ const defineDependencias = async () => {
 };
 
 export const agregarDependencia = async (dependencias, esSelect) => {
-  console.log(dependencias);
+  // console.log(dependencias);
 
   const $labelDependencia = document.getElementById("form__label-dependencia");
   if (esSelect) {
@@ -219,9 +221,9 @@ const agregarDatosFormulario = async () => {
 
   let formulario = await obtenerFormByHashMid(codigo);
   console.log(formulario);
-  
+
   console.log(!formulario.existe);
-  
+
   if (!formulario.existe) {
     alert("No se encontro el formulario!!!!");
   } else {

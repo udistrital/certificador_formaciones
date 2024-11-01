@@ -11,7 +11,7 @@ const formatearFecha = (fecha) => {
 
   // Formatear la fecha y hora en el formato deseado
   const formattedDate = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
-  console.log(formattedDate);
+  // console.log(formattedDate);
   return formattedDate;
 };
 
