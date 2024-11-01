@@ -7,7 +7,8 @@ const obtenerFormByHashMid = async (hash) => {
 
   console.log(formv1);
   if (formv1.existe === false) {
-    notificacion(false, "No se ecuentra informacion del formulario");
+    // notificacion(false, "No se ecuentra informacion del formulario");
+    return { existe: false, formulario: [] };
   } else {
     switch (formv1.formulario[0].tipo_formulario) {
       case "1":

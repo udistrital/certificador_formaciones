@@ -4,30 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fomulario de registro a cohorte</title>
-    <link
-      rel="icon"
-      type="image/png"
-      href="/images/iconos/pt-favicon-32x32.png"
-      sizes="32x32"
-    />
+    <link rel="icon" type="image/png" href="/images/iconos/pt-favicon-32x32.png" sizes="32x32" />
 
     <link rel="stylesheet" href="../../../index.css" />
     <link rel="stylesheet" href="../../../styles/formularios.css" />
     <link rel="stylesheet" href="../../../styles/notificacion.css" />
 
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
-    />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
   </head>
   <body>
     <header class="header">
       <figure class="header-banner">
-        <img
-          src="../../../images/Banner_formulario_vinotinto.jpg"
-          alt="Banner formulario"
-          id="header-banner-img"
-        />
+        <img src="../../../images/Banner_formulario_vinotinto.jpg" alt="Banner formulario" id="header-banner-img" />
       </figure>
       <h1 class="header-title">Registro a cohorte aspirante</h1>
     </header>
@@ -36,286 +24,125 @@
       <form action="" class="contenido-form" id="form_inscritos">
         <label class="form-label" for="form-nombreFormacion">
           Nombre de proceso:
-          <input
-            type="text"
-            name="nombreFormacion"
-            id="form-nombreFormacion"
-            readonly
-            value="Prueba Diplomado A"
-            class="form-input form-input-disabled"
-          />
+          <input type="text" name="nombreFormacion" id="form-nombreFormacion" readonly value="Prueba Diplomado A" class="form-input form-input-disabled" />
         </label>
         <div class="form-div-join">
           <label class="form-label" for="form-tipoFormacion">
             Tipo de proceso:
-            <input
-              type="text"
-              name="tipoFormacion"
-              id="form-tipoFormacion"
-              class="form-input form-input-disabled"
-              value="Diplomado"
-              readonly
-            />
+            <input type="text" name="tipoFormacion" id="form-tipoFormacion" class="form-input form-input-disabled" value="Diplomado" readonly />
           </label>
           <label class="form-label" for="form-anioFormacion">
             Año de la cohorte:
-            <input
-              type="number"
-              name="anioFormacion"
-              id="form-anioFormacion"
-              class="form-input form-input-disabled"
-              value="2024"
-              min="1900"
-              max="2100"
-              readonly
-            />
+            <input type="number" name="anioFormacion" id="form-anioFormacion" class="form-input form-input-disabled" value="2024" min="1900" max="2100" readonly />
           </label>
           <label class="form-label" for="form-numeroCohorte">
             Numero de la cohorte:
-            <input
-              type="number"
-              name="numeroCohorte"
-              id="form-numeroCohorte"
-              placeholder="Numero de cohorte"
-              class="form-input form-input-disabled"
-              value="2"
-              readonly
-            />
+            <input type="number" name="numeroCohorte" id="form-numeroCohorte" placeholder="Numero de cohorte" class="form-input form-input-disabled" value="2" readonly />
           </label>
         </div>
         <div class="form-div-join">
           <label class="form-label" for="form-tipoDocumento">
             Tipo de documento:
-            <select
-              name="tipoDocumento"
-              id="form-tipoDocumento"
-              required
-              class="form-input form-input-disabled"
-            ></select>
+            <select name="tipoDocumento" id="form-tipoDocumento" required class="form-input form-input-disabled"></select>
           </label>
           <label class="form-label" for="form-numDocumentoPonente">
             Numero de documento:
-            <input
-              type="number"
-              name="numDocumentoPonente"
-              id="form-numDocumentoPonente"
-              placeholder="101258988"
-              class="form-input form-input-disabled"
-              required
-            />
+            <input type="number" name="numDocumentoPonente" id="form-numDocumentoPonente" placeholder="101258988" class="form-input form-input-disabled" required />
           </label>
         </div>
         <div class="form-div-join">
           <label class="form-label" for="form-primerNombre">
             Primer nombre:
-            <input
-              type="text"
-              name="primerNombre"
-              id="form-primerNombre"
-              placeholder="primer nombre"
-              class="form-input"
-              required
-              minlength="3"
-            />
+            <input type="text" name="primerNombre" id="form-primerNombre" placeholder="primer nombre" class="form-input" required minlength="3" />
           </label>
           <label class="form-label" for="form-segundoNombre">
             Segundo nombre:
-            <input
-              type="text"
-              name="segundoNombre"
-              id="form-segundoNombre"
-              placeholder="segundo nombre"
-              class="form-input"
-              minlength="3"
-            />
+            <input type="text" name="segundoNombre" id="form-segundoNombre" placeholder="segundo nombre" class="form-input" minlength="3" />
           </label>
         </div>
         <div class="form-div-join">
           <label class="form-label" for="form-primerApellido">
             Primer apellido:
-            <input
-              type="text"
-              name="primerApellido"
-              id="form-primerApellido"
-              placeholder="primer apellido"
-              class="form-input"
-              required
-              minlength="3"
-            />
+            <input type="text" name="primerApellido" id="form-primerApellido" placeholder="primer apellido" class="form-input" required minlength="3" />
           </label>
           <label class="form-label" for="form-segundoApellido">
             Segundo apellido:
-            <input
-              type="text"
-              name="segundoApellido"
-              id="form-segundoApellido"
-              placeholder="segundo apellido"
-              class="form-input"
-              required
-              minlength="3"
-            />
+            <input type="text" name="segundoApellido" id="form-segundoApellido" placeholder="segundo apellido" class="form-input" required minlength="3" />
           </label>
         </div>
 
         <label class="form-label" for="form-codigoEdx">
           Código Edx:
-          <input
-            type="text"
-            name="codigoEdx"
-            id="form-codigoEdx"
-            placeholder="Código Edx"
-            class="form-input"
-            minlength="6"
-          />
+          <input type="text" name="codigoEdx" id="form-codigoEdx" placeholder="Código Edx" class="form-input" minlength="6" />
         </label>
 
         <label class="form-label" for="form-fechaNacimiento">
           Fecha de nacimiento:
-          <input
-            type="date"
-            name="fechaNacimiento"
-            id="form-fechaNacimiento"
-            class="form-input"
-            required
-            min="1924-01-01"
-          />
+          <input type="date" name="fechaNacimiento" id="form-fechaNacimiento" class="form-input" required min="1924-01-01" />
         </label>
 
         <label class="form-label" for="form-genero">
           Género:
-          <select
-            name="genero"
-            id="form-genero"
-            class="form-input"
-            required
-          ></select>
+          <select name="genero" id="form-genero" class="form-input" required></select>
         </label>
         <label class="form-label" for="form-identidadGenero">
           Identidad de género:
-          <select
-            name="identidadGenero"
-            id="form-identidadGenero"
-            class="form-input"
-            required
-          ></select>
+          <select name="identidadGenero" id="form-identidadGenero" class="form-input" required></select>
         </label>
         <label class="form-label" for="form-grupoEtnico">
           Grupo Etnico:
-          <select
-            name="grupoEtnico"
-            id="form-grupoEtnico"
-            class="form-input"
-            required
-          ></select>
+          <select name="grupoEtnico" id="form-grupoEtnico" class="form-input" required></select>
         </label>
         <label class="form-label" for="form-discapacidad">
           Tipo de discapacidad:
-          <select
-            name="discapacidad"
-            id="form-discapacidad"
-            class="form-input"
-            required
-          ></select>
+          <select name="discapacidad" id="form-discapacidad" class="form-input" required></select>
         </label>
         <div class="form-div-join">
           <label class="form-label" for="form-correoPonente">
             Correo electrónico:
-            <input
-              type="email"
-              name="correoPonente"
-              id="form-correoPonente"
-              placeholder="jesus@udistrital.edu.co"
-              class="form-input"
-              required
-            />
+            <input type="email" name="correoPonente" id="form-correoPonente" placeholder="jesus@udistrital.edu.co" class="form-input" required />
           </label>
           <label class="form-label" for="form-correoPonenteRepetir">
             Confirme el correo electrónico:
-            <input
-              type="email"
-              name="correoPonenteRepetir"
-              id="form-correoPonenteRepetir"
-              placeholder="jesus@udistrital.edu.co"
-              class="form-input"
-              required
-            />
+            <input type="email" name="correoPonenteRepetir" id="form-correoPonenteRepetir" placeholder="jesus@udistrital.edu.co" class="form-input" required />
           </label>
         </div>
         <div class="form-div-join">
           <label class="form-label" for="form-telefonoPonente">
             Numero de contacto:
-            <input
-              type="number"
-              name="telefonoPonente"
-              id="form-telefonoPonente"
-              placeholder="3013840229"
-              class="form-input"
-              required
-              min="3000000000"
-              max="3999999999"
-            />
+            <input type="number" name="telefonoPonente" id="form-telefonoPonente" placeholder="3013840229" class="form-input" required min="3000000000" max="3999999999" />
           </label>
           <label class="form-label" for="form-telefonoPonenteRepetir">
             Confirme su numero de contacto:
-            <input
-              type="number"
-              name="telefonoPonenteRepetir"
-              id="form-telefonoPonenteRepetir"
-              placeholder="3013840229"
-              class="form-input"
-              required
-              min="3000000000"
-              max="3999999999"
-            />
+            <input type="number" name="telefonoPonenteRepetir" id="form-telefonoPonenteRepetir" placeholder="3013840229" class="form-input" required min="3000000000" max="3999999999" />
           </label>
         </div>
 
         <label class="form-label" for="form-vinculacion">
           Seleccione el tipo de vinculación:
-          <select
-            name="vinculacion"
-            id="form-vinculacion"
-            class="form-input"
-            required
-          ></select>
+          <select name="vinculacion" id="form-vinculacion" class="form-input" required></select>
         </label>
 
-        <label
-          class="form-label"
-          for="form-dependencia"
-          id="form__label-dependencia"
-        >
-        </label>
+        <label class="form-label" for="form-dependencia" id="form__label-dependencia"> </label>
 
-        <label class="form-label-check" for="form-terminos"
-          ><input type="checkbox" name="terminos" id="form-terminos" required />
-          Acepto <a href="" target="_blank">terminos y condiciones</a> para
-          tratar estos datos y confirmo que los mismos son veridicos
-        </label>
+        <label class="form-label-check" for="form-terminos"><input type="checkbox" name="terminos" id="form-terminos" required /> Acepto <a href="" target="_blank">terminos y condiciones</a> para tratar estos datos y confirmo que los mismos son veridicos </label>
 
-        <input
-          type="submit"
-          value="Enviar"
-          class="button"
-          id="btn-submit-nuevaFormacion"
-        />
+        <input type="submit" value="Enviar" class="button" id="btn-submit-nuevaFormacion" />
       </form>
+      <div class="main_div-formNoDisponible main_div-formNoDisponible-disabled">
+        <p>
+          El formulario no se encuentra habilitado, si desea saber que puede hacer contacte a planesticforma@udistrital.edu.co, o si es miembro de la universidad, ingrese a nuestra
+          <a href="https://mesadeayuda.planestic.udistrital.edu.co/open.php" target="_blank">Mesa de Ayuda</a>
+        </p>
+      </div>
     </main>
     <footer>
-      <p>
-        Plan estratégico de Tecnologías de la Información y las Comunicaciones
-      </p>
+      <p>Plan estratégico de Tecnologías de la Información y las Comunicaciones</p>
       <p>PlanEsTIC-UD</p>
       <p>Copyright &copy; 2024</p>
     </footer>
   </body>
 </html>
 
-<script
-  type="module"
-  src="../../../scripts/funcionalidades/Formularios/PreLlenadoFormulario.js"
-></script>
-<script
-  type="module"
-  src="../../../scripts/funcionalidades/Formularios/CapturaCamposFormularios.js"
-></script>
+<script type="module" src="../../../scripts/funcionalidades/Formularios/PreLlenadoFormulario.js"></script>
+<script type="module" src="../../../scripts/funcionalidades/Formularios/CapturaCamposFormularios.js"></script>

@@ -1,5 +1,5 @@
 const formatearFecha = (fecha) => {
-  console.log(fecha);
+  // console.log(fecha);
   let now = new Date(fecha);
   // Obtener el año, mes, día, horas, minutos y segundos
   const year = now.getFullYear();

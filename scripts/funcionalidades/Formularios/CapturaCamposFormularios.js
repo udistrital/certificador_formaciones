@@ -84,81 +84,93 @@ const formularioRegistro = async () => {
 
   let resultadoFormByHash = await obtenerFormByHashMid(codigo);
 
-  console.log(id_cursante, codigo, resultadoFormByHash);
+  console.log(resultadoFormByHash);
+  // console.log(id_cursante, codigo, resultadoFormByHash);
 
-  document.getElementById("form_inscritos").addEventListener("submit", async function (event) {
-    event.preventDefault(); // Evitar que el formulario se envíe de manera predeterminada
+  if (resultadoFormByHash.existe === true) {
+    document.getElementById("form_inscritos").addEventListener("submit", async function (event) {
+      event.preventDefault(); // Evitar que el formulario se envíe de manera predeterminada
 
-    const formData = new FormData(event.target); // Crear un objeto FormData
-    let dataCursante = {
-      usuario_edx: formData.get("codigoEdx"),
-      primer_nombre: formData.get("primerNombre"),
-      segundo_nombre: formData.get("segundoNombre"),
-      primer_apellido: formData.get("primerApellido"),
-      segundo_apellido: formData.get("segundoApellido"),
-      fecha_modificado: formatearFecha(Date.now()),
-      tipo_documento: formData.get("tipoDocumento"),
-      numero_documento: formData.get("numDocumentoPonente"),
-      fecha_nacimiento: formData.get("fechaNacimiento"),
-      genero: formData.get("genero"),
-      identidad_genero: formData.get("identidadGenero"),
-      grupo_etnico: formData.get("grupoEtnico"),
-      tipo_discapacidad: formData.get("discapacidad"),
-      correo: formData.get("correoPonente"),
-      numero_contacto: formData.get("telefonoPonente"),
-      fecha_creado: formatearFecha(Date.now()),
-    };
+      const formData = new FormData(event.target); // Crear un objeto FormData
+      let dataCursante = {
+        usuario_edx: formData.get("codigoEdx"),
+        primer_nombre: formData.get("primerNombre"),
+        segundo_nombre: formData.get("segundoNombre"),
+        primer_apellido: formData.get("primerApellido"),
+        segundo_apellido: formData.get("segundoApellido"),
+        fecha_modificado: formatearFecha(Date.now()),
+        tipo_documento: formData.get("tipoDocumento"),
+        numero_documento: formData.get("numDocumentoPonente"),
+        fecha_nacimiento: formData.get("fechaNacimiento"),
+        genero: formData.get("genero"),
+        identidad_genero: formData.get("identidadGenero"),
+        grupo_etnico: formData.get("grupoEtnico"),
+        tipo_discapacidad: formData.get("discapacidad"),
+        correo: formData.get("correoPonente"),
+        numero_contacto: formData.get("telefonoPonente"),
+        fecha_creado: formatearFecha(Date.now()),
+      };
 
-    let dataRegistro = {
-      cursante: null,
-      formulario: resultadoFormByHash.formulario[0].id_formulario,
-      dependencia: formData.get("dependencia"),
-      vinculacion: formData.get("vinculacion"),
-      instituto: formData.get("instituto"),
-      ponente: 0,
-      fecha_registro: formatearFecha(Date.now()),
-    };
+      let dataRegistro = {
+        cursante: null,
+        formulario: resultadoFormByHash.formulario[0].id_formulario,
+        dependencia: formData.get("dependencia"),
+        vinculacion: formData.get("vinculacion"),
+        instituto: formData.get("instituto"),
+        ponente: 0,
+        fecha_registro: formatearFecha(Date.now()),
+      };
 
-    if (id_cursante === null) {
-      const respuestaInsertaCursante = await insertaCursante(dataCursante);
-      console.log(respuestaInsertaCursante);
-      if (respuestaInsertaCursante.estado === "ok") {
-        notificacion(true, "Se ha registrado como nuevo cursante");
-        dataRegistro.cursante = respuestaInsertaCursante.resultado.id_cursante;
+      if (id_cursante === null) {
+        const respuestaInsertaCursante = await insertaCursante(dataCursante);
+        console.log(respuestaInsertaCursante);
+        if (respuestaInsertaCursante.estado === "ok") {
+          notificacion(true, "Se ha registrado como nuevo cursante");
+          dataRegistro.cursante = respuestaInsertaCursante.resultado.id_cursante;
+          console.log(dataRegistro);
+          let validaExistenciaRegistroCohorte = await listaRegistros(dataRegistro.cursante, dataRegistro.formulario);
+          if (!validaExistenciaRegistroCohorte.existe) {
+            let resultadoInsertaRegistro = await insertaRegistro(dataRegistro);
+            console.log(resultadoInsertaRegistro);
+            if (resultadoInsertaRegistro.estado === "ok") {
+              notificacion(true, "Se registrado el cursante al proceso");
+            } else {
+              notificacion(false, "No se ha podido registrar el cursante al proceso");
+            }
+          }
+          console.log(validaExistenciaRegistroCohorte);
+        } else {
+          notificacion(false, "No se logro registrar al cursante");
+        }
+      } else {
         console.log(dataRegistro);
+
+        dataRegistro.cursante = id_cursante;
         let validaExistenciaRegistroCohorte = await listaRegistros(dataRegistro.cursante, dataRegistro.formulario);
         if (!validaExistenciaRegistroCohorte.existe) {
           let resultadoInsertaRegistro = await insertaRegistro(dataRegistro);
           console.log(resultadoInsertaRegistro);
           if (resultadoInsertaRegistro.estado === "ok") {
-            notificacion(true, "Se registrado el cursante al proceso");
+            notificacion(true, "Se registrado el cursante a la cohorte o modulo");
           } else {
-            notificacion(false, "No se ha podido registrar el cursante al proceso");
+            notificacion(false, "No se ha podido registrar el cursante a la cohorte o modulo");
           }
-        }
-        console.log(validaExistenciaRegistroCohorte);
-      } else {
-        notificacion(false, "No se logro registrar al cursante");
-      }
-    } else {
-      console.log(dataRegistro);
-
-      dataRegistro.cursante = id_cursante;
-      let validaExistenciaRegistroCohorte = await listaRegistros(dataRegistro.cursante, dataRegistro.formulario);
-      if (!validaExistenciaRegistroCohorte.existe) {
-        let resultadoInsertaRegistro = await insertaRegistro(dataRegistro);
-        console.log(resultadoInsertaRegistro);
-        if (resultadoInsertaRegistro.estado === "ok") {
-          notificacion(true, "Se registrado el cursante a la cohorte o modulo");
         } else {
-          notificacion(false, "No se ha podido registrar el cursante a la cohorte o modulo");
+          notificacion(false, "El cursante ya se encuentra registrado en la cohorte o modulo");
         }
-      } else {
-        notificacion(false, "El cursante ya se encuentra registrado en la cohorte o modulo");
       }
+      gotop();
+    });
+
+    console.log(new Date(resultadoFormByHash.formulario[0].fecha_inicial) > Date.now());
+    console.log(new Date(resultadoFormByHash.formulario[0].fecha_final) > Date.now());
+    if (new Date(resultadoFormByHash.formulario[0].fecha_inicial) > Date.now() || new Date(resultadoFormByHash.formulario[0].fecha_final) < Date.now()) {
+      document.querySelector(".main_div-formNoDisponible").classList.toggle("main_div-formNoDisponible-disabled");
+      document.querySelector("#form_inscritos").classList.toggle("main_div-formNoDisponible-disabled");
     }
-    gotop();
-  });
+  } else {
+    notificacion(false, "No existe el formulario");
+  }
 };
 
 const gotop = () => {
