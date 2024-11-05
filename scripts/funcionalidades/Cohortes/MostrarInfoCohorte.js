@@ -112,12 +112,10 @@ const mostarInforCohorte = (listaCohortes) => {
           // }`;
         }
 
-        copiarLinks({ listadoFormularios, listadoSesiones });
+        copiarLinks(listaCohortes[index]);
       }
     });
   });
-
-  console.log(listadoFormularios, listadoSesiones);
 };
 
 export default mostarInforCohorte;

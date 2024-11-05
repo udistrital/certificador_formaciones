@@ -1,15 +1,25 @@
-const notificacion = (estado, texto) => {
-  const articleNotificacion = document.querySelector(".article-notificacion");
-  return (articleNotificacion.innerHTML += `<div
-              class="notificacion notificacion-${
-                estado === true ? "verde" : "roja"
-              }"
-              id="notificacion-roja-formacion"
-            >
-              <span class="material-symbols-outlined"> error </span>
-              <p>${texto}</p>
-              <span></span>
-            </div>`);
+const notificacion = (estado, texto, donde) => {
+  if (donde !== "modal") {
+    const articleNotificacion = document.querySelector(".article-notificacion");
+    return (articleNotificacion.innerHTML += `<div
+      class="notificacion notificacion-${estado === true ? "verde" : "roja"}"
+      id="notificacion-roja-formacion"
+      >
+      <span class="material-symbols-outlined"> error </span>
+      <p>${texto}</p>
+      <span></span>
+      </div>`);
+  } else {
+    const articleNotificacionModal = document.querySelector(".article-notificacion-modal");
+    return (articleNotificacionModal.innerHTML += `<div
+                class="notificacion notificacion-${estado === true ? "verde" : "roja"}"
+                id="notificacion-roja-formacion"
+              >
+                <span class="material-symbols-outlined"> error </span>
+                <p>${texto}</p>
+                <span></span>
+              </div>`);
+  }
 };
 
 export default notificacion;

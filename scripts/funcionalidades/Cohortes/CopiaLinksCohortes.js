@@ -1,63 +1,39 @@
+import notificacion from "../Notificacion.js";
 
-const copiarLinks = (data) => {
-  console.log("entra copia", data, data.listadoSesiones.length);
+const copiarLinks = (cohorte) => {
+  console.log("entra copia", cohorte);
   document.addEventListener("click", (e) => {
-    // console.log(e.target);
+    console.log(e.target);
     let textoACopiar = "";
-    if (
-      e.target === document.getElementById("info-cohorte-copia-link-conexion")
-    ) {
-      console.log("entro a copiar enlace sesion desde cohorte");
-      
-      textoACopiar =
-        data.listadoSesiones.length !== 0
-          ? data.listadoSesiones[0].enlace
-          : "Link de conexion no existe aún";
-      if (textoACopiar === "Link de conexion no existe aún") {
-        alert("No existe un enlace de sesión aún");
-      } else {
-        navigator.clipboard.writeText(textoACopiar).then(() => {
-          alert("Se ha copidado el link");
-        });
-      }
-    } else if (
-      e.target ===
-      document.getElementById("info-cohorte-copia-link-inscripcion")
-    ) {
-      textoACopiar = data.listadoFormularios[0].hash;
-      // console.log(textoACopiar);
+    if (e.target === document.getElementById("info-cohorte-copia-link-conexion")) {
+      textoACopiar = cohorte.link_sesion.length !== 0 ? cohorte.link_sesion[cohorte.link_sesion.length - 1].enlace : alert("No se registra enlace de la sesion");
       navigator.clipboard.writeText(textoACopiar).then(() => {
-        alert("Se ha copidado el link");
+        notificacion(true, "Se ha copidado el enlace de la sesion", "modal");
       });
-    } else if (
-      e.target === document.getElementById("info-cohorte-copia-link-asistencia")
-    ) {
-      textoACopiar = data.listadoFormularios[1].hash;
-      // console.log(textoACopiar);
+    } else if (e.target === document.getElementById("info-cohorte-copia-link-inscripcion")) {
+      textoACopiar = cohorte.link_inscripcion.length !== 0 ? cohorte.link_inscripcion[cohorte.link_inscripcion.length - 1].hash : alert("No se registra enlace de la formulario de inscripcion");
       navigator.clipboard.writeText(textoACopiar).then(() => {
-        alert("Se ha copidado el link");
+        notificacion(true, "Se ha copiado el enlace de formulario de inscripcion", "modal");
       });
-    } else if (
-      e.target === document.getElementById("info-cohorte-copia-link-ponentes")
-    ) {
-      textoACopiar = "ponentes"
+    } else if (e.target === document.getElementById("info-cohorte-copia-link-asistencia")) {
+      textoACopiar = cohorte.link_asistencia.length !== 0 ? cohorte.link_asistencia[cohorte.link_asistencia.length - 1].hash : alert("No se registra enlace de la formulario de asistencia");
       navigator.clipboard.writeText(textoACopiar).then(() => {
-        alert("Se ha copidado el link");
+        notificacion(true, "Se ha copiado el enlace de formulario de asistencia", "modal");
       });
-    } else if (
-      e.target ===
-      document.getElementById("info-cohorte-copia-link-documentacion")
-    ) {
-      textoACopiar = "documentacion"
+    } else if (e.target === document.getElementById("info-cohorte-copia-link-ponentes")) {
+      textoACopiar = cohorte.link_asistencia.length !== 0 ? cohorte.link_asistencia[cohorte.link_asistencia.length - 1].hash : alert("No se registra enlace de la formulario de asistencia");
       navigator.clipboard.writeText(textoACopiar).then(() => {
-        alert("Se ha copidado el link");
+        notificacion(true, "Se ha copiado el enlace de formulario de registro de ponentes", "modal");
       });
-    } else if (
-      e.target === document.getElementById("info-cohorte-copia-link-memorias")
-    ) {
-      textoACopiar = "memorias"
+    } else if (e.target === document.getElementById("info-cohorte-copia-link-documentacion")) {
+      textoACopiar = cohorte.link_asistencia.length !== 0 ? cohorte.link_asistencia[cohorte.link_asistencia.length - 1].hash : alert("No se registra enlace de la formulario de asistencia");
       navigator.clipboard.writeText(textoACopiar).then(() => {
-        alert("Se ha copidado el link");
+        notificacion(true, "Se ha copiado el enlace de formulario de documentacion", "modal");
+      });
+    } else if (e.target === document.getElementById("info-cohorte-copia-link-memorias")) {
+      textoACopiar = cohorte.link_asistencia.length !== 0 ? cohorte.link_asistencia[cohorte.link_asistencia.length - 1].hash : alert("No se registra enlace de la formulario de asistencia");
+      navigator.clipboard.writeText(textoACopiar).then(() => {
+        notificacion(true, "Se ha copiado el enlace de formulario de memorias", "modal");
       });
     }
   });
