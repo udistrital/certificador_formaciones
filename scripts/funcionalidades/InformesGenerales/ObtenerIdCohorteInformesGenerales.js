@@ -1,10 +1,5 @@
-import {
-  redireccionarAsistencias,
-  redireccionarCertificaciones,
-  redireccionarCursantesRegistrados,
-  redireccionarEventosModulos,
-  redireccionarPonentesRegistrados,
-} from "../Cohortes/Redirecciones.js";
+import { redireccionarAsistencias, redireccionarCertificaciones, redireccionarCursantesRegistrados, redireccionarEventosModulos, redireccionarPonentesRegistrados } from "../Cohortes/Redirecciones.js";
+import { copiarEnlacesInformesGenerales } from "./CopiarEnlacesInforGenerales.js";
 import { llenarModalInfoCohorteSeleccionada } from "./LlenarModalInfoCohorteGeneral.js";
 
 export const obtenerIdCohorteInformeGeneral = (li) => {
@@ -18,6 +13,7 @@ export const obtenerIdCohorteInformeGeneral = (li) => {
       //ACA SE CAPTURA EL ID DE LA FORMACION SELECCIONADA
       //   console.log(li[id]);
       llenarModalInfoCohorteSeleccionada(li[id]);
+      copiarEnlacesInformesGenerales(e, li[id]);
     });
   });
 

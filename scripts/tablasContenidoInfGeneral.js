@@ -6,7 +6,7 @@ import { ordenamientos } from "./funcionalidades/InformesGenerales/OrdenamientoI
 const listarGeneralesFetch = async () => {
   let result = await cohortesGeneralesGET();
   llenarTablaInformesGenerales(result);
-  obtenerIdCohorteInformeGeneral(result);
+  // obtenerIdCohorteInformeGeneral(result);
   ordenamientos(result);
 };
 

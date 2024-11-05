@@ -162,5 +162,5 @@ export const llenarModalInfoCohorteSeleccionada = (inforCohorte) => {
     document.getElementById("info-cohorte-copia-link-conexion").style.display = "none";
   }
 
-  copiarEnlacesInformesGenerales(inforCohorte);
+  console.log(inforCohorte);
 };

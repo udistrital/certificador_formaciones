@@ -1,4 +1,3 @@
-import { modelCohorteInfo } from "../../../models/cohorteModel.js";
 
 const copiarLinks = (data) => {
   console.log("entra copia", data, data.listadoSesiones.length);
@@ -8,6 +7,8 @@ const copiarLinks = (data) => {
     if (
       e.target === document.getElementById("info-cohorte-copia-link-conexion")
     ) {
+      console.log("entro a copiar enlace sesion desde cohorte");
+      
       textoACopiar =
         data.listadoSesiones.length !== 0
           ? data.listadoSesiones[0].enlace

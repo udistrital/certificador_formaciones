@@ -1,20 +1,13 @@
 import { mostrarModalInfoCohorte } from "../../modals.js";
-import {
-  notificarNoRegistros,
-  quitaNotificacionNoRegistros,
-} from "../NotificaNoExistenciaRegistros.js";
+import { notificarNoRegistros, quitaNotificacionNoRegistros } from "../NotificaNoExistenciaRegistros.js";
 import { obtenerIdCohorteInformeGeneral } from "./ObtenerIdCohorteInformesGenerales.js";
 
 const llenarTablaInformesGenerales = (li) => {
   console.log(li);
   // debugger;
   const $fargmento = document.createDocumentFragment(),
-    $template = document.getElementById(
-      "template-renglon-formaciones-generales"
-    ).content,
-    $tbodyFormacionesGenerales = document.getElementById(
-      "tbody-table-formaciones-generales"
-    );
+    $template = document.getElementById("template-renglon-formaciones-generales").content,
+    $tbodyFormacionesGenerales = document.getElementById("tbody-table-formaciones-generales");
   $tbodyFormacionesGenerales.innerHTML = "";
 
   if (li.length !== 0) {
@@ -41,20 +34,11 @@ const llenarTablaInformesGenerales = (li) => {
           <span class="material-symbols-outlined index-cursantes" title="Cursantes registrados">
           how_to_reg
           </span>
-          <span class="material-symbols-outlined index-asistencias ${
-              formacion.id_tipo_proceso === "8" ? "icon-disabled" : ""
-            }" title="Asistencia">
+          <span class="material-symbols-outlined index-asistencias ${formacion.id_tipo_proceso === "8" ? "icon-disabled" : ""}" title="Asistencia">
           fact_check
           </span>
-            <span class="material-symbols-outlined index-ponentes ${
-              formacion.id_tipo_proceso !== "11" ? "icon-disabled" : ""
-            }" title="Ponentes registrados">cast_for_education</span> 
-            <span class="material-symbols-outlined index-modulos ${
-              formacion.id_tipo_proceso !== "11" &&
-              formacion.id_tipo_proceso !== "10"
-                ? "icon-disabled"
-                : ""
-            }" title="Modulos de cohorte">stack</span>
+            <span class="material-symbols-outlined index-ponentes ${formacion.id_tipo_proceso !== "11" ? "icon-disabled" : ""}" title="Ponentes registrados">cast_for_education</span> 
+            <span class="material-symbols-outlined index-modulos ${formacion.id_tipo_proceso !== "11" && formacion.id_tipo_proceso !== "10" ? "icon-disabled" : ""}" title="Modulos de cohorte">stack</span>
           
           </td>`;
       {
