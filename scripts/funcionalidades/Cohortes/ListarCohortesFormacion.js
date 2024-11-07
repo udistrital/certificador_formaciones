@@ -17,7 +17,7 @@ const listarCohorterFormacion = (listaCohortes) => {
       console.log(cohorte.nombre_tipo_proceso);
 
       $template.querySelector("tr").innerHTML = `
-                    <td>${cohorte.anio}-${cohorte.cohorte}-${cohorte.id_cohorte}</td>
+                    <td>${cohorte.id_cohorte}) ${cohorte.anio} - ${cohorte.cohorte}</td>
                     <td>${cohorte.anio}</td>
                     <td>${cohorte.fecha_inicial_cohorte}</td>
                     <td>${cohorte.fecha_final_cohorte}</td>

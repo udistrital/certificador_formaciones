@@ -114,12 +114,16 @@ export const ordenamientos = (listadoCohortes) => {
     let filtro = event.target.value.toLowerCase();
 
     let filtrado = listadoCohortes.filter((formacion) => {
+      console.log(formacion);
+
       return (
         formacion.nombre_proceso.toLowerCase().includes(filtro) ||
         formacion.nombre_tipo_proceso.toLowerCase().includes(filtro) ||
         formacion.id_cohorte.toString().toLowerCase().includes(filtro) ||
         formacion.cohorte.toString().toLowerCase().includes(filtro) ||
-        formacion.anio.toString().toLowerCase().includes(filtro)
+        formacion.anio.toString().toLowerCase().includes(filtro) ||
+        formacion.fecha_final_cohorte.toString().toLowerCase().includes(filtro) ||
+        formacion.fecha_inicial_cohorte.toString().toLowerCase().includes(filtro)
       );
     });
     llenarTablaInformesGenerales(filtrado);
