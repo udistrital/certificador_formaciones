@@ -59,30 +59,30 @@ Pasos para clonar y ejecutar el proyecto en local:
 ## Vistas
 
 1. Visual de todas las cohortes existentes de todas las formaciones:  
-   ![alt text](images/cg.png)
+   ![alt text](/doc/images/cg.png)
 2. Visual procesos, (Curso con tutor)
-   ![alt text](images/ctp.png)  
+   ![alt text](/doc/images/ctp.png)  
    2.1 Creacion proceso  
-   ![alt text](images/fct.png)
+   ![alt text](/doc/images/fct.png)
    2.2 Cohortes de proceso  
-   ![alt text](images/ctc.png)
+   ![alt text](/doc/images/ctc.png)
    2.3 Creacion de cohorte
-   ![alt text](images/ctfc.png)
+   ![alt text](/doc/images/ctfc.png)
    2.4 Información cohorte
-   ![alt text](images/ctic.png)
+   ![alt text](/doc/images/ctic.png)
 3. Visual asistencias a cohorte
-   ![alt text](images/asistencia.png)
+   ![alt text](/doc/images/asistencia.png)
 4. Certificados emitidos
-   ![alt text](images/certEmitido.png)
+   ![alt text](/doc/images/certEmitido.png)
 5. Generacion de certificados
-   ![alt text](images/genCert.png)
+   ![alt text](/doc/images/genCert.png)
 6. Visual de certificado de prueba
 7. Visual cursantes registrados
-   ![alt text](images/cursantes.png)
+   ![alt text](/doc/images/cursantes.png)
 8. Visual ponentes registrados
-   ![alt text](images/ponentes.png)
+   ![alt text](/doc/images/ponentes.png)
 9. Visual modulos
-   ![alt text](images/modulos.png)
+   ![alt text](/doc/images/modulos.png)
 
 ## Documentación Técnica
 
