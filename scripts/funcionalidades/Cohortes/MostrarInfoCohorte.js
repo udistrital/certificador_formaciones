@@ -1,5 +1,4 @@
 import copiarLinks from "./CopiaLinksCohortes.js";
-import { modelCohorteInfo } from "../../../models/cohorteModel.js";
 import formulariosGET from "../../Fetching/GET/FormulariosCohorte.js";
 import sesionesGET from "../../Fetching/GET/SesionesCohorte.js";
 

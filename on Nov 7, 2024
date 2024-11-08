@@ -1,0 +1,445 @@
+[33mcommit d977047e7744af2154e33d096d342f3e5b5aea07[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Thu Nov 7 13:28:27 2024 -0500
+
+    inicio de documenacion, cambios en readme
+
+[33mcommit 726454f72ba86d8537481f85d30d4738da97d215[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Tue Nov 5 14:34:26 2024 -0500
+
+    agregando hash a la informacion de las cohortes de las formaciones dentro de la vista, ademas se agregan notificaciones de copia de enlaces en la informacion de las cohortes
+
+[33mcommit c44a0533a7fb351a32386a92fcf1a8532e4ffc3b[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Tue Nov 5 12:09:59 2024 -0500
+
+    agregando hash a formularios de informes generales
+
+[33mcommit ae200089b98f64315b5b902e639cfd1477207804[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Fri Nov 1 15:30:21 2024 -0500
+
+    se crea una capa que valida que el formulario este disponible o no, para inscripciones de aspirantes
+
+[33mcommit 1b65593a9d3af0d84b002b9155014af22af456f4[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Fri Nov 1 14:17:34 2024 -0500
+
+    correccion modulo de formulario de postulacion ponencia, se realiza correccion para que sea llenado a partir de un codigo de formulario
+
+[33mcommit 98d13c864043da5596ca3b5960a7bc9835fde127[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Fri Nov 1 12:22:18 2024 -0500
+
+    correccion modulo de formulario de asistencia, validacion de formulario, cursante, inscripcion, rellenado de formulario
+
+[33mcommit 353be7bef0ed768b8e4e1cbdaa4b0bbbd2cbeb4e[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Thu Oct 31 21:47:44 2024 -0500
+
+    se solucionaron errores al gestionar un formulario de registro de cursantes usando hash
+
+[33mcommit 2fa897a5676d88c6a9eaab97a45b1aaf55a2f0b7[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Thu Oct 31 17:24:26 2024 -0500
+
+    agregando codigo o hash para el llenado de formularios, hace falta formulario de asistencia, postulacion, documentacion y evidencias
+
+[33mcommit c8dc9d75c9b7cf1553884f2d0fce1a3756c6cfcb[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Tue Oct 29 12:53:58 2024 -0500
+
+    prueba de funcionamiento y correccion de error al listar asistencias
+
+[33mcommit ea39e00f289431a54ad174e56e5bb654d429b981[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Mon Oct 28 11:44:21 2024 -0500
+
+    añadiendo fetching a certificaciones, solo get, filtando y configurando cursos mooc
+
+[33mcommit 799240702660044c60efbc678b7595f6482b0791[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Wed Oct 23 13:42:47 2024 -0500
+
+    modificacion ficheros de certificados, se agregan parametros a las url para visualizacion de contenidos
+
+[33mcommit ed511a5d3821e4d4bdb7c96629f23a1e8ec67387[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Wed Oct 2 21:37:33 2024 -0500
+
+    prueba de formularios asistencias y registros en cursos tutor, solucion de error en muestra de notificacion de no existencia de registros
+
+[33mcommit 881ad6fb2d2e9864d6ff7bff18275720d06c66a8[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Wed Oct 2 16:00:06 2024 -0500
+
+    cargue de notificacion, y correccion de algunos errores en asistencias y registros
+
+[33mcommit ca1a30f503e04185fcfb2945808f63d8df2e5dc8[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Mon Sep 30 23:07:29 2024 -0500
+
+    creacion de formularios, modulos, cohortes, visualizacion de informacion de cohorte,
+
+[33mcommit 7db426068b81bb1f92fea8743dd8a057a3690abf[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Mon Sep 9 16:16:33 2024 -0500
+
+    agregando validacion de existencia de cursante, y registro de cohortes, soluciona peticiones a informe generales y muestra de formularios existentes, ademas de las sesiones, cambio de parametro virtual a sesion_virtual
+
+[33mcommit 53861ba3fc7ae2fa693ee7266b4779c8964d533e[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Mon Aug 26 15:18:47 2024 -0500
+
+    cargue de informacion en formularios, y captura de informacion para almacenamiento en el modelo de datos
+
+[33mcommit 1332dab504b8f4b7ac631d45e44a0b5efcfa534a[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Sun Aug 25 21:05:04 2024 -0500
+
+    fetching y reutilizacion de codigo, para paginas de formularios y formularios especificos
+
+[33mcommit 3ee2970c46a7a12140bbefca605968e7b796c113[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Fri Aug 23 12:35:39 2024 -0500
+
+    avance en la implementacion de formularios, se implemento formularios de ponente, documentacion, y memorias para los eventos
+
+[33mcommit 16fd431da2b1ada45f6744addd1f903e2f6ff856[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Mon Aug 12 11:37:57 2024 -0500
+
+    correccion redireccion a paginas de formularios
+
+[33mcommit 5bc847f16ccf7050397afbf74583407a8c81bff0[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Tue Jul 30 15:00:06 2024 -0500
+
+    agregando fetching de informes generales
+
+[33mcommit d04e6f7b01f636603f5a084bc8ce8738666e48ac[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Mon Jul 29 11:53:24 2024 -0500
+
+    agregando insersion y listamiendo de modulos en eventos y diplomados
+
+[33mcommit 208470e1746df766a9bb104b07e8c95d181f0e25[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Sun Jul 28 12:11:04 2024 -0500
+
+    mejora de codigo, escalabilidad y reutizacion, fetching de cohortes, e informacion de las mismas en tutor, mooc, taller/cap
+
+[33mcommit aba52d9ec633506e29f54c15581f1cb104fb7824[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Fri Jul 26 16:10:27 2024 -0500
+
+    listando cohortes en las formaciones
+
+[33mcommit 0b37ce6a1bfa00bc8466b835a06d46e88825ae1f[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Fri Jul 26 13:04:24 2024 -0500
+
+    agregando creacion de cohortes al api
+
+[33mcommit fbd4d47138f512ecfc7d3049a631d7d1316f3748[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Wed Jul 24 11:05:52 2024 -0500
+
+    agregando escalabilidad y reutilizacion en cohortes de todas las formaciones
+
+[33mcommit 5f5c599a37332a1aa4e4643b82facd873a74efaf[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Wed Jul 24 00:49:15 2024 -0500
+
+    agregando escalabilidad y reutilizacion de codigo en cohortes de formaciones
+
+[33mcommit a1d93a88899e6f2eaa554c3d2820ba2c739b4145[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Tue Jul 23 22:48:06 2024 -0500
+
+    mejora de codigo, agregando escalabilidad y reutilizacion de codigo
+
+[33mcommit f44fd2d3bc35ba819409f1655f92e1d26f1b0f13[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Thu Jul 11 17:14:52 2024 -0500
+
+    fetch cursos con tutor
+
+[33mcommit 55ff705acfbd0a688d1965c4b671a52698ce9c7b[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Mon Jul 8 15:16:24 2024 -0500
+
+    accesibilidad verificada
+
+[33mcommit 218c9dc2edc1f308080c70fd4201de77dbfcc4d1[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Mon Jul 8 15:01:22 2024 -0500
+
+    ReCAPTCHA en login correccion de estilos
+
+[33mcommit ccfba23fb04f77c3fac536262ae6c60f6ff2f7a1[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Mon Jul 8 13:34:57 2024 -0500
+
+    creacion de formacion curso con tutor
+
+[33mcommit a4fc3379c88153820b00cc5890c4481b51f4a396[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Mon Jul 8 10:43:00 2024 -0500
+
+    autorizacion de paginas
+
+[33mcommit c961c0eeb02920598f8be023d8d2eb1ecec754e3[m
+Merge: af1ebac 699a0e7
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Mon Jun 24 14:17:48 2024 -0500
+
+    Resolver conflictos durante merge de origin/master
+
+[33mcommit af1ebacae760fd617a2f3f7fd6515272044f0275[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Mon Jun 24 11:34:06 2024 -0500
+
+    modificacion en labels de formularios por accesibilidad
+
+[33mcommit 6033194b1782862ea2c75170782ab55541db067e[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Tue Jun 11 19:12:53 2024 -0500
+
+    cambios 2 sugeridos por jhonny
+
+[33mcommit 699a0e7d2f4bdb84a834fb3e9f8592ad2addd9b6[m
+Author: newkrux <newkrux@gmail.com>
+Date:   Wed Jun 5 15:56:28 2024 -0500
+
+    Initial commit
+
+[33mcommit a22c8928a7e29fa959860560ac7af38680611a7f[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Fri May 24 16:36:32 2024 -0500
+
+    mejorando, agregacion de nombre de la formacion a la navegacion
+
+[33mcommit 6388710795ffcf9487aaf43dbb35e911c2344657[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Fri May 24 15:00:41 2024 -0500
+
+    cambios por jhyonny
+
+[33mcommit 8f9e7f65f38a8c3a017a5b1090f65d29dfa2df19[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Mon May 20 12:18:29 2024 -0500
+
+    agregando vistas de listado de formularios y direccionamiento a los mismos
+
+[33mcommit dd23f32c38d0b2d0c7ab9b40754578a0a7ad6030[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Fri May 17 14:00:36 2024 -0500
+
+    Correccion de error en el menu de navegacion bajo el header
+
+[33mcommit c87a1af18f4de699fd1f092873a4ee56f18d353d[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Fri May 17 11:55:27 2024 -0500
+
+    agregando icono a las vistas
+
+[33mcommit 6d3055769cce8e041c91b550f4425ff0cb37fa1a[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Fri May 17 11:48:39 2024 -0500
+
+    corrigiendo estructura de carpetas y direccionamiento
+
+[33mcommit 8d4522dcd416097bc0cfc39cbcddf519ace2d8c5[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Tue May 14 14:55:19 2024 -0500
+
+    reconfigurando rutas de redireccion en acciones de las cohortes
+
+[33mcommit 31634bfe040e16f2373c9b2fbb429c4db38d7d74[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Tue May 14 14:07:18 2024 -0500
+
+    estructura del proyecto por carpetas
+
+[33mcommit a914c6568276e0d2a654d73b2ca4ae6a860bac1e[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Tue May 14 12:06:14 2024 -0500
+
+    estructurando proyecto, estructurado cursos con tutor
+
+[33mcommit 8398941cd1ce2ac43f48c1485df4520869c2d0f6[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Thu May 9 15:15:20 2024 -0500
+
+    añadido footer y header a cusos con tutor
+
+[33mcommit d11a9002654cf3d51f67f095803a80542b7028c4[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Wed May 8 20:58:24 2024 -0500
+
+    agregando navegacion, menu hamburger, y responsive
+
+[33mcommit d2f769bd6dde34a2269d4572deef4fe11bf72878[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Wed May 8 15:15:06 2024 -0500
+
+    agregando resposive al header y agregando navegacion2
+
+[33mcommit 084d0d1e640a4854691b3187fdebc5183f47f670[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Wed May 8 12:36:06 2024 -0500
+
+    agregando funcion de open sesion controles2
+
+[33mcommit a9ae6250248621dc011b3aba40ab385481610a7c[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Tue May 7 15:20:42 2024 -0500
+
+    modificando a linea grafica actual de planestic
+
+[33mcommit a15375295cf4bef3f58907e1e9eb387c271b5113[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Mon May 6 12:09:30 2024 -0500
+
+    agregando paginas de formularios
+
+[33mcommit 4e3d9c5b1880f6bbe6e1ed0209f52fc5bfe5789d[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Fri Mar 8 12:07:55 2024 -0500
+
+    creacion cursos mooc
+
+[33mcommit 1b35793c4fd432713f72d7de8c6f115b274bbd77[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Thu Mar 7 19:42:16 2024 -0500
+
+    agregando peticiones de usuario, informes generales, cursos con tutor
+
+[33mcommit 26f783b6fc66a2b538726f8a564c96d30c16f338[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Mon Mar 4 12:36:58 2024 -0500
+
+    corrigiendo copia con clic de links
+
+[33mcommit d8030abfdfd66e9fbe73f7688a32ae721dd522a2[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Mon Mar 4 12:13:51 2024 -0500
+
+    adición formularios de registro de aspirantes y de asistencia
+
+[33mcommit 457407c7d5c2a8ca746237d5d93c4c6e1b07063e[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Wed Feb 28 18:42:07 2024 -0500
+
+    solucion error input buscador, error en copiarlink
+
+[33mcommit d90c130d1aad4e7a0e73867ee2690046f669b2d7[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Fri Jan 19 10:07:40 2024 -0500
+
+    formulario registro 2
+
+[33mcommit ef215b299783e42757b8587e248a0cba0a01a29b[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Fri Jan 19 10:05:17 2024 -0500
+
+    formulario registro ponencia
+
+[33mcommit 76f737b8714f32b637f45b2fc2e9cfd4e6b5f752[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Fri Jan 19 10:01:05 2024 -0500
+
+    formulario de postulacion
+
+[33mcommit 737745f6fc3d7ea0c9aa7bac2065d7c2182cc8f4[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Thu Jan 18 15:57:04 2024 -0500
+
+    formulario 1
+
+[33mcommit ee1dc07fabfef25e04a124a5f0e031c7d3bf9023[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Thu Jan 18 10:41:01 2024 -0500
+
+    creacion page y cohortes de diplomados
+
+[33mcommit 83af9eba31e26691bfe19e1a0d15fe8944c89dec[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Thu Dec 28 11:52:49 2023 -0500
+
+    creando filtros a partir del modelo en json creado, visualizacion de informacion de cohorte
+
+[33mcommit 6443dea294a1cb5900151ec553d46c5fe4b308b9[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Thu Dec 21 08:59:30 2023 -0500
+
+    agregando logo de index 2
+
+[33mcommit a0c9a204c9f1ecefc7443f5958b860ab49565186[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Thu Dec 21 08:56:59 2023 -0500
+
+    agregando logo de index
+
+[33mcommit 69b190ce982c8b5ad069a275aa6c4cd0b04f3be5[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Thu Dec 21 08:52:09 2023 -0500
+
+    version 1 fase 1
+
+[33mcommit 1826b252de38b7832e86d103def6f15987b9c28e[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Tue Dec 5 21:24:30 2023 -0500
+
+    finalizando primero wirefranes vanilla js
+
+[33mcommit e4c9787c65a518081a506aac52da8ed077583f33[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Fri Dec 1 09:43:29 2023 -0500
+
+    arreglando algunas ruta 2
+
+[33mcommit 2b1d147fbc00ed7bf31097a1ef7405b10d55295a[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Fri Dec 1 09:36:07 2023 -0500
+
+    arreglando rutas de scripts
+
+[33mcommit 011843c4cf221fc0665a38d91e6cd052d5919a01[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Fri Dec 1 09:31:49 2023 -0500
+
+    arreglando algunas ruta
+
+[33mcommit f4409dccb4832401125fb0016f09af9d399342a8[m
+Merge: dd64f19 3379bef
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Fri Dec 1 09:27:16 2023 -0500
+
+    Merge branch 'main' of https://github.com/JeassonSuarez/certificador_planestic_vanilla
+
+[33mcommit 3379befc7e17fb15806e1ce29b0ba2c04e83b0bd[m
+Author: Jeasson Suarez <66092398+JeassonSuarez@users.noreply.github.com>
+Date:   Fri Dec 1 09:19:13 2023 -0500
+
+    Initial commit
+
+[33mcommit dd64f19cf3a4b991dc159ce1bd631f2b5e6aae51[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Fri Dec 1 09:16:14 2023 -0500
+
+    primera entrega de avances
+
+[33mcommit 0b3620358cef90ecea79d49e1ab1fdaf1e41d8db[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Sat Nov 25 19:08:18 2023 -0500
+
+    pagina de informes generales, falta responsive navegacion pagina informes
+
+[33mcommit d507703f892ef2baaaf393c0ffce09ed81051f0d[m
+Author: jeassons <jeassonsuarez@outlook.es>
+Date:   Thu Nov 23 16:21:27 2023 -0500
+
+    inicio proyecto front certificador planestic login page, header

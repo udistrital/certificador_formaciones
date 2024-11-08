@@ -1,3 +1,7 @@
+/**
+ * esta funcion devuelve un json con las asistencias de un registro a una cohorte
+ */
+
 const fetchingAsistenciaById = async (id) => {
   const requestOptions = {
     method: "GET",
