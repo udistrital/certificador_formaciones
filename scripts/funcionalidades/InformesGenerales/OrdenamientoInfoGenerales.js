@@ -17,6 +17,7 @@ export const ordenamientos = (listadoCohortes) => {
         //ORDENAMIENTO DE MENOR A MAYOR
         listadoCohortes.sort((a, b) => a.id_cohorte - b.id_cohorte);
       }
+      llenarTablaInformesGenerales(listadoCohortes);
     } else if (e.target === d.getElementById("index-sort-tipo")) {
       orderBool = !orderBool;
       console.log("Orden por tipo de proceso");
@@ -43,6 +44,7 @@ export const ordenamientos = (listadoCohortes) => {
           }
         });
       }
+      llenarTablaInformesGenerales(listadoCohortes);
     } else if (e.target === d.getElementById("index-sort-nombre")) {
       orderBool = !orderBool;
       //ORDENAMIENTO DE z A a
@@ -68,6 +70,7 @@ export const ordenamientos = (listadoCohortes) => {
           }
         });
       }
+      llenarTablaInformesGenerales(listadoCohortes);
     } else if (e.target === d.getElementById("index-sort-fechaInicial")) {
       orderBool = !orderBool;
       //ORDENAMIENTO DE MAYOR A MENOR
@@ -77,6 +80,7 @@ export const ordenamientos = (listadoCohortes) => {
         //ORDENAMIENTO DE MENOR A MAYOR
         listadoCohortes.sort((a, b) => new Date(a.fecha_inicial_cohorte) - new Date(b.fecha_inicial_cohorte));
       }
+      llenarTablaInformesGenerales(listadoCohortes);
     } else if (e.target === d.getElementById("index-sort-fechaFinal")) {
       orderBool = !orderBool;
       //ORDENAMIENTO DE MAYOR A MENOR
@@ -86,6 +90,7 @@ export const ordenamientos = (listadoCohortes) => {
         //ORDENAMIENTO DE MENOR A MAYOR
         listadoCohortes.sort((a, b) => new Date(a.fecha_final_cohorte) - new Date(b.fecha_final_cohorte));
       }
+      llenarTablaInformesGenerales(listadoCohortes);
     } else if (e.target === d.getElementById("index-sort-cohorte")) {
       console.log("orden por cohorte");
       orderBool = !orderBool;
@@ -96,6 +101,7 @@ export const ordenamientos = (listadoCohortes) => {
         //ORDENAMIENTO DE MENOR A MAYOR
         listadoCohortes.sort((a, b) => a.cohorte - b.cohorte);
       }
+      llenarTablaInformesGenerales(listadoCohortes);
     } else if (e.target === d.getElementById("index-sort-anio")) {
       console.log("orden por cohorte");
       orderBool = !orderBool;
@@ -106,15 +112,17 @@ export const ordenamientos = (listadoCohortes) => {
         //ORDENAMIENTO DE MENOR A MAYOR
         listadoCohortes.sort((a, b) => a.anio - b.anio);
       }
+      llenarTablaInformesGenerales(listadoCohortes);
     }
-    llenarTablaInformesGenerales(listadoCohortes);
     // obtenerIdCohorteInformeGeneral(listadoCohortes);
   });
   document.getElementById("input-buscador-informes").addEventListener("input", (event) => {
     let filtro = event.target.value.toLowerCase();
+    // console.log(filtro);
+    //
 
     let filtrado = listadoCohortes.filter((formacion) => {
-      console.log(formacion);
+      // console.log(formacion);
 
       return (
         formacion.nombre_proceso.toLowerCase().includes(filtro) ||

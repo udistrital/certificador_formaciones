@@ -1,14 +1,14 @@
 import crearCohorteFnc from "./crearCohorte.js";
 import crearFormacionfnc from "./crearFormacion.js";
+import crearFormularioNuevo from "./funcionalidades/Cohortes/CrearFormularioNuevo.js";
 import formularioModulo from "./funcionalidades/Modulos/CapturaCamposFormularioModulo.js";
 import obtenerParametrosComposForm from "./funcionalidades/Modulos/ObtenerParametrosCamposForm.js";
+import notificacion from "./funcionalidades/Notificacion.js";
 import reload from "./funcionalidades/ReloadPage.js";
 import gotop from "./irTop.js";
 
 const d = document;
-const $closeModalNuevaFormacion = d.getElementById(
-  "close-modal-nueva-formacion"
-);
+const $closeModalNuevaFormacion = d.getElementById("close-modal-nueva-formacion");
 const $modalNuevaFormacion = d.getElementById("modal-nueva-formacion");
 const $openModalNuevaFormacion = d.getElementById("add-nueva-formacion");
 
@@ -23,11 +23,11 @@ const $openModalNuevoModulo = d.getElementById("add-nuevo-modulo");
 const $closeModalInfoCohorte = d.getElementById("close-modal-info-cohorte");
 const $modalinfoCohorte = d.getElementById("modal-info-cohorte");
 
+const $modalNewForm = d.getElementById("modal-newform");
+const $closeModalNewForm = d.getElementById("close-modal-new-form");
+
 d.addEventListener("click", (e) => {
-  if (
-    e.target === $closeModalNuevaFormacion ||
-    e.target === $modalNuevaFormacion
-  ) {
+  if (e.target === $closeModalNuevaFormacion || e.target === $modalNuevaFormacion) {
     $modalNuevaFormacion.classList.toggle("modal-disabled");
   }
   if (e.target === $openModalNuevaFormacion) {
@@ -53,6 +53,10 @@ d.addEventListener("click", (e) => {
     console.log("modal open or close");
     $modalinfoCohorte.classList.toggle("modal-disabled");
   }
+  if (e.target === $closeModalNewForm || e.target === $modalNewForm) {
+    console.log("modal open or close");
+    $modalNewForm.classList.toggle("modal-disabled");
+  }
 });
 
 /** modal de informacion de una cohorte */
@@ -71,15 +75,34 @@ export const mostrarModalInfoCohorte = () => {
   });
 };
 
+export const mostrarModalNewForm = () => {
+  const $openModalNewForm = d.getElementsByClassName("show-select-new-form");
+  Array.from($openModalNewForm).forEach((e, i) => {
+    e.addEventListener("click", (event) => {
+      console.log("echoi");
+      if (event.target === e) {
+        console.log(i);
+        gotop();
+        $modalNewForm.classList.toggle("modal-disabled");
+      }
+    });
+  });
+};
+
+mostrarModalNewForm();
+
 mostrarModalInfoCohorte();
 
 d.addEventListener("submit", async (e) => {
   e.preventDefault();
+  console.log(e.target);
+
   // CON EL SIGUIENTE CODIGO SE HARA LA PETICION AL SERVIDOR PARA ALMACENAR UNA NUEVA FORMACION,
   // UNA VEZ REALIZADO DEPENDE DEL MENSAJE DEL SERVIDOR SE MOSTRARA UNA NOTIFICACION
   const $btnNuevaFormacion = document.getElementById("modal-form-formacion");
   const $btnNuevaCohorte = document.getElementById("modal-form-cohorte");
   const $btnNuevoModulo = document.getElementById("modal-form-modulo");
+  const $btnNuevoFormulario = document.getElementById("modal-form-newformulario");
   if (e.target === $btnNuevaFormacion) {
     $modalNuevaFormacion.classList.toggle("modal-disabled");
     await crearFormacionfnc();
@@ -89,6 +112,10 @@ d.addEventListener("submit", async (e) => {
   } else if (e.target === $btnNuevoModulo) {
     $modalNuevoModulo.classList.toggle("modal-disabled");
     await formularioModulo(e);
+  } else if (e.target === $btnNuevoFormulario) {
+    $modalNewForm.classList.toggle("modal-disabled");
+    await crearFormularioNuevo(e);
+    // notificacion(true, "creando form");
   }
   window.scrollTo({
     top: 0,

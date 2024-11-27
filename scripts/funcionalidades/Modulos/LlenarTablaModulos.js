@@ -1,4 +1,4 @@
-import { mostrarModalInfoCohorte } from "../../modals.js";
+import { mostrarModalInfoCohorte, mostrarModalNewForm } from "../../modals.js";
 import mostarInforCohorte from "../Cohortes/MostrarInfoCohorte.js";
 import obtenerIdCohorte from "../Cohortes/ObtenerIdCohorte.js";
 import { notificarNoRegistros, quitaNotificacionNoRegistros } from "../NotificaNoExistenciaRegistros.js";
@@ -16,7 +16,11 @@ const llenarTablaModulos = (listaModulos, id_cohorte) => {
                     <td style="overflow-x: auto; max-width: 300px;">${modulo.nombre_modulo}</td>
                     <td>${modulo.nombre_proceso}</td>
                     <td>${modulo.nombre_tipo_proceso}</td>
-                    <td class="td-acciones"><span
+                    <td class="td-acciones">
+                    <span class="material-symbols-outlined show-select-new-form index-newform" title="Crear nuevo formulario">
+                    post_add
+                    </span>
+                    <span
                       class="material-symbols-outlined show-info-cohorte"
                       title="Ver link"
                     >
@@ -49,6 +53,7 @@ const llenarTablaModulos = (listaModulos, id_cohorte) => {
   mostarInforCohorte(listaModulos);
   obtenerIdCohorte(listaModulos, id_cohorte);
   mostrarModalInfoCohorte();
+  mostrarModalNewForm();
   quitaNotificacionNoRegistros();
   // } else {
   //   notificarNoRegistros("No se encontraron modulos registrados");

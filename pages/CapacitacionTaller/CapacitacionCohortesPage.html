@@ -439,6 +439,50 @@
             </form>
           </div>
         </article>
+        <article class="article-modal modal-disabled" id="modal-newform">
+          <div class="modal-contenido">
+            <div class="modal-header">
+              <span class="modal-title">Crear nuevo formulario para la cohorte</span>
+              <span class="material-symbols-outlined material-google-icon" id="close-modal-new-form"> cancel </span>
+            </div>
+            <div class="modal-data-cohorte">
+              <form action="" class="modal-contenido-form" id="modal-form-newformulario">
+                <div class="modal-contenido-form-div modal-contenido-form-div-lleno">
+                  <label for="newFormTipoFormacion">Tipo de Formación: <input type="text" name="cursoConTutorFormTipoFormacion" id="newFormTipoFormacion" disabled value=" [Tipo]" /></label>
+                </div>
+                <div class="modal-contenido-form-div modal-contenido-form-div-lleno">
+                  <label for="newFormIdFormacion">Id de Formación: <input type="text" name="cursoConTutorFormIdFormacion" id="newFormIdFormacion" disabled value=" [id formación]" /></label>
+                </div>
+                <div class="modal-contenido-form-div modal-contenido-form-div-lleno">
+                  <label for="newFormNombreFormacion"
+                    >Nombre de formación:
+                    <input type="text" name="cursoConTutorFormNombreFormacion" id="newFormNombreFormacion" disabled value=" [Tipo]" />
+                  </label>
+                </div>
+                <div class="modal-contenido-form-div modal-contenido-form-div-lleno">
+                  <label for="newFormNombreFormacion"
+                    >Identificador de la cohorte:
+                    <input type="text" name="newFormIdCohorte" id="newFormIdCohorte" readonly value=" [Tipo]" />
+                  </label>
+                </div>
+                <label for="input-select-tipo-form" id="label-newform">
+                  Seleccionar tipo de formulario que quiere crear
+                  <select class="form-select-new-form modal-contenido-form-input" id="input-select-tipo-form" name="newFormTipoFormulario" required>
+                    
+                  </select>
+                </label>
+                <div class="modal-contenido-form-div-join">
+                  <div class="modal-contenido-form-div">
+                    <label for="fechaInicialCohorteFormInscripcion">Fecha inicial: <input type="date" name="newFormFechaInicio" id="fechaInicialCohorteFormInscripcion" placeholder="Fecha inicial" class="modal-contenido-form-input" required=""></label>
+                  </div>
+                  <div class="modal-contenido-form-div">
+                    <label for="fechaFinalCohorteFormInscripcion">Fecha final: <input type="date" name="newFormFechaFinal" id="fechaFinalCohorteFormInscripcion" placeholder="Fecha final" class="modal-contenido-form-input" required=""></label>
+                  </div>
+                </div>
+                <input type="submit" value="Crear formulario" class="modal-contenido-button" id="btn-submit-nuevoFormulario" />
+              </form>
+            </div>
+        </article>
         <article class="article-modal modal-disabled" id="modal-info-cohorte">
           <div class="modal-contenido">
             <div class="modal-header">

@@ -116,13 +116,22 @@ const ordenamientos = () => {
 
 document.getElementById("input-buscador-informes").addEventListener("input", (event) => {
   let filtro = event.target.value.toLowerCase();
-  console.log(filtro);
+  console.log(typeof filtro, filtro);
   let filtrado = listaInformesGenerales.filter((formacion) => {
+    console.log(formacion);
+
     return (
-      formacion.nombre.toLowerCase().includes(filtro) || formacion.tipo.toLowerCase().includes(filtro) || formacion.id.toString().toLowerCase().includes(filtro) || formacion.numCohorte.toString().toLowerCase().includes(filtro) || formacion.anio.toString().toLowerCase().includes(filtro)
+      formacion.nombre_proceso.toLowerCase().includes(filtro) ||
+      formacion.nombre_tipo_proceso.toLowerCase().includes(filtro) ||
+      formacion.id_proceso.toString().toLowerCase().includes(filtro) ||
+      formacion.id_cohorte.toString().toLowerCase().includes(filtro) ||
+      formacion.anio.toString().toLowerCase().includes(filtro) ||
+      formacion.fecha_inicial.toString().toLowerCase().includes(filtro) ||
+      formacion.fecha_final.toString().toLowerCase().includes(filtro)
     );
   });
   console.log(filtrado);
+  llenarTablaPageFormularios(filtrado);
   obtenerIdCohorte(filtrado);
 });
 

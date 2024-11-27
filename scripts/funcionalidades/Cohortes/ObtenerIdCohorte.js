@@ -1,7 +1,21 @@
+import llenarModalNewForm from "./LlenarModalNewForm.js";
 import { redireccionarAsistencias, redireccionarCertificaciones, redireccionarConfiguraciones, redireccionarCursantesRegistrados, redireccionarEventosModulos, redireccionarPonentesRegistrados } from "./Redirecciones.js";
 
 const obtenerIdCohorte = (li, id_cohorte) => {
   console.log(li);
+
+  let listaNewForms = document.querySelectorAll(".index-newform");
+  listaNewForms.forEach((formacion, id) => {
+    // console.log(formacion[id]);
+    formacion.addEventListener("click", (e) => {
+      //ACA SE CAPTURA EL ID DE LA FORMACION SELECCIONADA
+      // console.log(li[id]);
+      llenarModalNewForm(li[id]);
+
+      // llenarModalInfoCohorteSeleccionada(li[id]);
+      // copiarEnlacesInformesGenerales(e, li[id]);
+    });
+  });
 
   let listaAsistencias = document.querySelectorAll(".index-asistencias");
   listaAsistencias.forEach((asistencia, id) => {

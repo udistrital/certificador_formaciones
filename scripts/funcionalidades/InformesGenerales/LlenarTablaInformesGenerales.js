@@ -1,4 +1,5 @@
-import { mostrarModalInfoCohorte } from "../../modals.js";
+import { mostrarModalInfoCohorte, mostrarModalNewForm } from "../../modals.js";
+import llenaSelectNewForm from "../LlenaSelectTipoFormulario.js";
 import { notificarNoRegistros, quitaNotificacionNoRegistros } from "../NotificaNoExistenciaRegistros.js";
 import { obtenerIdCohorteInformeGeneral } from "./ObtenerIdCohorteInformesGenerales.js";
 
@@ -21,6 +22,9 @@ const llenarTablaInformesGenerales = (li) => {
           <td>${formacion.fecha_inicial_cohorte}</td>
           <td>${formacion.fecha_final_cohorte}</td>
           <td class="td-acciones td-acciones-index">
+          <span class="material-symbols-outlined show-select-new-form index-newform" title="Crear nuevo formulario">
+          post_add
+          </span>
           <span
           class="material-symbols-outlined show-info-cohorte index-info-cohorte"
           title="Ver link información cohorte"
@@ -57,6 +61,7 @@ const llenarTablaInformesGenerales = (li) => {
 
   $tbodyFormacionesGenerales.appendChild($fargmento);
   mostrarModalInfoCohorte();
+  mostrarModalNewForm();
   obtenerIdCohorteInformeGeneral(li);
 };
 

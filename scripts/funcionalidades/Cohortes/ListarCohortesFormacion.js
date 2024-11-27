@@ -1,4 +1,4 @@
-import { mostrarModalInfoCohorte } from "../../modals.js";
+import { mostrarModalInfoCohorte, mostrarModalNewForm } from "../../modals.js";
 import { notificarNoRegistros, quitaNotificacionNoRegistros } from "../NotificaNoExistenciaRegistros.js";
 import mostarInforCohorte from "./MostrarInfoCohorte.js";
 import obtenerIdCohorte from "./ObtenerIdCohorte.js";
@@ -22,6 +22,9 @@ const listarCohorterFormacion = (listaCohortes) => {
                     <td>${cohorte.fecha_inicial_cohorte}</td>
                     <td>${cohorte.fecha_final_cohorte}</td>
                     <td class="td-acciones">
+                    <span class="material-symbols-outlined show-select-new-form index-newform" title="Crear nuevo formulario">
+                    post_add
+                    </span>
                     <span
                       class="material-symbols-outlined show-info-cohorte"
                       title="Ver link"
@@ -60,6 +63,7 @@ const listarCohorterFormacion = (listaCohortes) => {
     mostarInforCohorte(listaCohortes);
     obtenerIdCohorte(listaCohortes);
     mostrarModalInfoCohorte();
+    mostrarModalNewForm();
     quitaNotificacionNoRegistros();
   } else {
     notificarNoRegistros("No se han encontrado cohortes registradas");

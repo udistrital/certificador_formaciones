@@ -348,6 +348,18 @@ h6 {
   gap: 5px;
 }
 
+#label-newform {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.form-select-new-form {
+  width: 100% !important;
+}
+
 @media only screen and (max-width: 1023px) {
 }
 @media only screen and (min-width: 1024px) {
