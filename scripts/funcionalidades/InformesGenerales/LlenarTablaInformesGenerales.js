@@ -1,4 +1,4 @@
-import { mostrarModalInfoCohorte, mostrarModalNewForm } from "../../modals.js";
+import { mostrarModalInfoCohorte, mostrarModalNewForm, mostrarModalNewSesion } from "../../modals.js";
 import llenaSelectNewForm from "../LlenaSelectTipoFormulario.js";
 import { notificarNoRegistros, quitaNotificacionNoRegistros } from "../NotificaNoExistenciaRegistros.js";
 import { obtenerIdCohorteInformeGeneral } from "./ObtenerIdCohorteInformesGenerales.js";
@@ -22,6 +22,9 @@ const llenarTablaInformesGenerales = (li) => {
           <td>${formacion.fecha_inicial_cohorte}</td>
           <td>${formacion.fecha_final_cohorte}</td>
           <td class="td-acciones td-acciones-index">
+          <span class="material-symbols-outlined show-new-sesion index-newsesion" title="Agregar nueva sesión">
+          video_chat
+          </span>
           <span class="material-symbols-outlined show-select-new-form index-newform" title="Crear nuevo formulario">
           post_add
           </span>
@@ -62,6 +65,7 @@ const llenarTablaInformesGenerales = (li) => {
   $tbodyFormacionesGenerales.appendChild($fargmento);
   mostrarModalInfoCohorte();
   mostrarModalNewForm();
+  mostrarModalNewSesion();
   obtenerIdCohorteInformeGeneral(li);
 };
 

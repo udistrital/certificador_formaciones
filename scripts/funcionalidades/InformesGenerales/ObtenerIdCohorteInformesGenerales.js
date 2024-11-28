@@ -1,4 +1,5 @@
 import llenarModalNewForm from "../Cohortes/LlenarModalNewForm.js";
+import llenarModalNewSesion from "../Cohortes/LlenarModalNewSesion.js";
 import { redireccionarAsistencias, redireccionarCertificaciones, redireccionarCursantesRegistrados, redireccionarEventosModulos, redireccionarPonentesRegistrados } from "../Cohortes/Redirecciones.js";
 import { copiarEnlacesInformesGenerales } from "./CopiarEnlacesInforGenerales.js";
 import { llenarModalInfoCohorteSeleccionada } from "./LlenarModalInfoCohorteGeneral.js";
@@ -14,6 +15,18 @@ export const obtenerIdCohorteInformeGeneral = (li) => {
       //ACA SE CAPTURA EL ID DE LA FORMACION SELECCIONADA
       // console.log(li[id]);
       llenarModalNewForm(li[id]);
+
+      // llenarModalInfoCohorteSeleccionada(li[id]);
+      // copiarEnlacesInformesGenerales(e, li[id]);
+    });
+  });
+  let listaNewSesions = d.querySelectorAll(".index-newsesion");
+  listaNewSesions.forEach((formacion, id) => {
+    // console.log(formacion[id]);
+    formacion.addEventListener("click", (e) => {
+      //ACA SE CAPTURA EL ID DE LA FORMACION SELECCIONADA
+      // console.log(li[id]);
+      llenarModalNewSesion(li[id]);
 
       // llenarModalInfoCohorteSeleccionada(li[id]);
       // copiarEnlacesInformesGenerales(e, li[id]);

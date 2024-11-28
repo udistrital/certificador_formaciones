@@ -16,6 +16,7 @@ const crearFormularioNuevo = async (e) => {
   formData.get("newFormIdModulo") ? (formulario.modulo = formData.get("newFormIdModulo")) : "";
 
   await postNuevoFormulario(formulario);
+  e.target.reset();
 
   // Accediendo a campos individuales
   console.log("Formulario capturado:", formulario);

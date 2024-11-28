@@ -243,6 +243,52 @@
               </form>
             </div>
         </article>
+        <article class="article-modal modal-disabled" id="modal-newsesion">
+          <div class="modal-contenido">
+            <div class="modal-header">
+              <span class="modal-title">Agregar nueva sesión</span>
+              <span class="material-symbols-outlined material-google-icon" id="close-modal-new-sesion"> cancel </span>
+            </div>
+            <div class="modal-data-cohorte">
+              <form action="" class="modal-contenido-form" id="modal-form-newsesion">
+                <div class="modal-contenido-form-div modal-contenido-form-div-lleno">
+                  <label for="newSesionTipoFormacion">Tipo de Formación: <input type="text" name="newSesionTipoFormacion" id="newSesionTipoFormacion" disabled value=" [Tipo]" /></label>
+                </div>
+                <div class="modal-contenido-form-div modal-contenido-form-div-lleno">
+                  <label for="newSesionIdFormacion">Id de Formación: <input type="text" name="newSesionIdFormacion" id="newSesionIdFormacion" disabled value=" [id formación]" /></label>
+                </div>
+                <div class="modal-contenido-form-div modal-contenido-form-div-lleno">
+                  <label for="newSesionNombreFormacion"
+                    >Nombre de formación:
+                    <input type="text" name="newSesionNombreFormacion" id="newSesionNombreFormacion" disabled value=" [Tipo]" />
+                  </label>
+                </div>
+                <div class="modal-contenido-form-div modal-contenido-form-div-lleno">
+                  <label for="newSesionIdCohorte"
+                    >Identificador de la cohorte:
+                    <input type="text" name="newSesionIdCohorte" id="newSesionIdCohorte" readonly value=" [Tipo]" />
+                  </label>
+                </div>
+                <p class="texto-title-form-region">Modalidad</p>
+                <div class="modal-contenido-form-div">
+                  <label for="newSesionlinkCursoOConexion">Link de conexión: <input type="text" name="newSesionlinkCursoOConexion" id="newSesionlinkCursoOConexion" placeholder="Link de conexion / curso" class="modal-contenido-form-input" required /></label>
+                </div>
+  
+                <div class="modal-contenido-form-div-join">
+                  <div class="modal-contenido-form-div">
+                    <label for="newSesionFechaConexion">Fecha de conexión: <input type="date" name="newSesionFechaConexion" id="newSesionFechaConexion" placeholder="Fecha de conexión" class="modal-contenido-form-input" required /></label>
+                  </div>
+                  <div class="modal-contenido-form-div">
+                    <label for="newSesionHoraConexion">Hora de conexión: <input type="time" name="newSesionHoraConexion" id="newSesionHoraConexion" placeholder="Hora de conexión" class="modal-contenido-form-input" required /></label>
+                  </div>
+                </div>
+                <div class="modal-contenido-form-div modal-contenido-form-div-check">
+                  <label for="newSesionModalidad">Modalidad virtual <input type="checkbox" name="newSesionModalidad" id="newSesionModalidad" class="modal-contenido-form-input-check" checked /></label>
+                </div>
+                <input type="submit" value="Agregar sesión" class="modal-contenido-button" id="btn-submit-nuevaSesion" />
+              </form>
+            </div>
+        </article>
         <article class="article-modal modal-disabled" id="modal-info-cohorte">
           <div class="modal-contenido">
             <div class="modal-header">

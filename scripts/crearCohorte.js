@@ -100,8 +100,8 @@ const crearCohorteFnc = async () => {
     dataForm.sesion = {
       creador: parseInt(idUsuario),
       cohorte: null,
-      fecha_inicial: formatearFecha(fechaConexion),
-      fecha_final: formatearFecha(fechaConexion),
+      fecha_inicial: formatearFecha(fechaConexion + "T" + horaConexion + ":00"),
+      fecha_final: formatearFecha(fechaConexion + "T" + horaConexion + ":00"),
       sesion_virtual: modalidad === "on" ? 1 : 0,
       enlace: linkCursoOConexion,
       activo: true,
@@ -118,7 +118,7 @@ const crearCohorteFnc = async () => {
       creador: parseInt(idUsuario),
       cohorte: null,
       tipo_formulario: 3,
-      hash:Math.random().toString(36).substr(2) + Date.now().toString(36),
+      hash: Math.random().toString(36).substr(2) + Date.now().toString(36),
       fecha_inicial: formatearFecha(fechaInicialCohorteFormInscripcion),
       fecha_final: formatearFecha(fechaFinalCohorteFormInscripcion),
     };

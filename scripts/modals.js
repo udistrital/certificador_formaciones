@@ -1,6 +1,7 @@
 import crearCohorteFnc from "./crearCohorte.js";
 import crearFormacionfnc from "./crearFormacion.js";
 import crearFormularioNuevo from "./funcionalidades/Cohortes/CrearFormularioNuevo.js";
+import crearSesionNueva from "./funcionalidades/Cohortes/CrearSesionNueva.js";
 import formularioModulo from "./funcionalidades/Modulos/CapturaCamposFormularioModulo.js";
 import obtenerParametrosComposForm from "./funcionalidades/Modulos/ObtenerParametrosCamposForm.js";
 import notificacion from "./funcionalidades/Notificacion.js";
@@ -25,6 +26,9 @@ const $modalinfoCohorte = d.getElementById("modal-info-cohorte");
 
 const $modalNewForm = d.getElementById("modal-newform");
 const $closeModalNewForm = d.getElementById("close-modal-new-form");
+
+const $modalNewSesion = d.getElementById("modal-newsesion");
+const $closeModalNewSesion = d.getElementById("close-modal-new-sesion");
 
 d.addEventListener("click", (e) => {
   if (e.target === $closeModalNuevaFormacion || e.target === $modalNuevaFormacion) {
@@ -57,6 +61,10 @@ d.addEventListener("click", (e) => {
     console.log("modal open or close");
     $modalNewForm.classList.toggle("modal-disabled");
   }
+  if (e.target === $closeModalNewSesion || e.target === $modalNewSesion) {
+    console.log("modal open or close");
+    $modalNewSesion.classList.toggle("modal-disabled");
+  }
 });
 
 /** modal de informacion de una cohorte */
@@ -88,6 +96,21 @@ export const mostrarModalNewForm = () => {
     });
   });
 };
+export const mostrarModalNewSesion = () => {
+  const $openModalNewSesion = d.getElementsByClassName("show-new-sesion");
+  Array.from($openModalNewSesion).forEach((e, i) => {
+    e.addEventListener("click", (event) => {
+      console.log("echoi");
+      if (event.target === e) {
+        console.log(i);
+        gotop();
+        $modalNewSesion.classList.toggle("modal-disabled");
+      }
+    });
+  });
+};
+
+mostrarModalNewSesion();
 
 mostrarModalNewForm();
 
@@ -103,6 +126,7 @@ d.addEventListener("submit", async (e) => {
   const $btnNuevaCohorte = document.getElementById("modal-form-cohorte");
   const $btnNuevoModulo = document.getElementById("modal-form-modulo");
   const $btnNuevoFormulario = document.getElementById("modal-form-newformulario");
+  const $btnNuevaSesion = document.getElementById("modal-form-newsesion");
   if (e.target === $btnNuevaFormacion) {
     $modalNuevaFormacion.classList.toggle("modal-disabled");
     await crearFormacionfnc();
@@ -116,6 +140,11 @@ d.addEventListener("submit", async (e) => {
     $modalNewForm.classList.toggle("modal-disabled");
     await crearFormularioNuevo(e);
     // notificacion(true, "creando form");
+  } else if (e.target === $btnNuevaSesion) {
+    $modalNewSesion.classList.toggle("modal-disabled");
+
+    await crearSesionNueva(e);
+    // notificacion(true, "creando sesion");
   }
   window.scrollTo({
     top: 0,

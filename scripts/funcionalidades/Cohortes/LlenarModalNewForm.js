@@ -8,7 +8,9 @@ const llenarModalNewForm = async (cohorte) => {
   document.getElementById("newFormIdFormacion").value = cohorte.id_proceso;
   document.getElementById("newFormNombreFormacion").value = cohorte.nombre_proceso;
   document.getElementById("newFormIdCohorte").value = cohorte.id_cohorte;
-  document.getElementById("newFormIdModulo").value = cohorte.id_modulo;
+  if (cohorte.id_modulo) {
+    document.getElementById("newFormIdModulo").value = cohorte.id_modulo;
+  }
 };
 
 export default llenarModalNewForm;

@@ -1,4 +1,4 @@
-import { mostrarModalInfoCohorte, mostrarModalNewForm } from "../../modals.js";
+import { mostrarModalInfoCohorte, mostrarModalNewForm, mostrarModalNewSesion } from "../../modals.js";
 import { notificarNoRegistros, quitaNotificacionNoRegistros } from "../NotificaNoExistenciaRegistros.js";
 import mostarInforCohorte from "./MostrarInfoCohorte.js";
 import obtenerIdCohorte from "./ObtenerIdCohorte.js";
@@ -22,6 +22,8 @@ const listarCohorterFormacion = (listaCohortes) => {
                     <td>${cohorte.fecha_inicial_cohorte}</td>
                     <td>${cohorte.fecha_final_cohorte}</td>
                     <td class="td-acciones">
+                    ${window.location.pathname.includes("CursoMoocCohortesPage") ? "" : '<span class="material-symbols-outlined show-new-sesion index-newsesion" title="Agregar nueva sesión">video_chat</span>'}
+                    
                     <span class="material-symbols-outlined show-select-new-form index-newform" title="Crear nuevo formulario">
                     post_add
                     </span>
@@ -64,6 +66,7 @@ const listarCohorterFormacion = (listaCohortes) => {
     obtenerIdCohorte(listaCohortes);
     mostrarModalInfoCohorte();
     mostrarModalNewForm();
+    mostrarModalNewSesion();
     quitaNotificacionNoRegistros();
   } else {
     notificarNoRegistros("No se han encontrado cohortes registradas");
