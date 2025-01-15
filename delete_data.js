@@ -24,7 +24,7 @@ const deleteForm = (id) => {
     // "https://pruebascrud.formaciones.planestic.udistrital.edu.co/v1/sesion.php",
     // "https://pruebascrud.formaciones.planestic.udistrital.edu.co/v1/modulo.php",
     // "https://pruebascrud.formaciones.planestic.udistrital.edu.co/v1/cohorte.php",
-    // "https://pruebascrud.formaciones.planestic.udistrital.edu.co/v1/proceso.php",
+    "https://pruebascrud.formaciones.planestic.udistrital.edu.co/v1/proceso.php",
     requestOptions
   )
     .then((response) => response.text())
@@ -32,8 +32,8 @@ const deleteForm = (id) => {
     .catch((error) => console.error(error));
 };
 
-let id = 60;
+let id = 125;
 const interval = setInterval(() => {
   deleteForm(id);
   id++;
-}, 100);
+}, 2000);

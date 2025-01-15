@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/images/iconos/pt-favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" href="../../styles/header.css" />
+    <link rel="stylesheet" href="../../styles/informes.css" />
+    <link rel="stylesheet" href="../../styles/navegacion.css" />
+    <link rel="stylesheet" href="../../styles/table.css" />
+    <link rel="stylesheet" href="../../styles/footer.css" />
+    <link rel="stylesheet" href="../../index.css" />
+    <link rel="stylesheet" href="../../styles/certificados.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <title>Certificado de prueba</title>
+  </head>
+  <body>
+    <header class="header">
+      <a href="../../index.html" class="header__link">
+        <figure class="link__figure">
+          <img src="../../images/UD-PlanEsTIC.png" alt="PlanesTIC y Universclassad Distrital Francisco José de Caldas" class="figure__img" height="80" />
+        </figure>
+      </a>
+
+      <div class="header__sesion">
+        <div class="sesion__controles">
+          <span class="controles__icono">JP</span>
+          <div class="controles__text">
+            <span class="texto_nombreusuario">nombre usuario</span>
+            <span class="texto_rol">rol</span>
+          </div>
+          <span class="material-symbols-outlined dowm controles__dowm"> expand_more </span>
+        </div>
+        <ul class="sesion__acciones sesion__acciones--disabled">
+          <li>
+            <a href="../formularios/formCambioClave.html"><span class="material-symbols-outlined"> password </span>Cambio de clave</a>
+          </li>
+          <li id="header__cerrarSesion">
+            <a href="#"><span class="material-symbols-outlined"> logout </span>Cerrar sesión </a>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <nav class="nav nav--disabled">
+      <ul class="nav__ul">
+        <li class="ul__li">
+          <a href="../../index.html" class="li__a">
+            <span class="li__span"><span class="material-symbols-outlined"> feed </span>Informes</span>
+          </a>
+        </li>
+        <li class="ul__li">
+          <span class="li__span"> <span class="material-symbols-outlined"> edit </span>Tipo formación </span>
+          <ul class="li__ul">
+            <li>
+              <a href="CursoConTutorPage.html">Curso con tutor</a>
+            </li>
+            <li><a href="../Mooc/CursoMoocPage.html">Curso MOOC</a></li>
+            <li>
+              <a href="../CapacitacionTaller/CapacitacionTaller.html">Capacitación o Taller</a>
+            </li>
+            <li><a href="../Diplomado/DiplomadosPage.html">Diplomado</a></li>
+            <li><a href="../Eventos/EventosPage.html">Evento</a></li>
+          </ul>
+        </li>
+        <li class="ul__li">
+          <span class="material-symbols-outlined"> assignment </span>
+          Formularios
+          <ul class="li__ul">
+            <li>
+              <a href="../formularios/formsInscripcion/PageFormsInscripciones.html">Formularios de inscripción</a>
+            </li>
+            <li>
+              <a href="../formularios/formsAsistencias/PageFormsAsistencias.html">Formularios de asistencias</a>
+            </li>
+            <li>
+              <a href="../formularios/formsPostulaciones/PageFormsPostulaciones.html">Formularios de ponentes</a>
+            </li>
+            <li>
+              <a href="../formularios/formsDocumentacion/PageFormsDocumentacion.html">Formularios de documentación</a>
+            </li>
+            <li>
+              <a href="../formularios/formsEvidencias/PageFormsEvidencias.html">Formularios de memorias/evidencias</a>
+            </li>
+          </ul>
+        </li>
+        <li class="ul__li"><span class="material-symbols-outlined"> search </span>Consulta</li>
+        <li class="ul__li"><span class="material-symbols-outlined"> monitoring </span>Estadisticas</li>
+      </ul>
+    </nav>
+    <button class="nav__menu">
+      <span class="material-symbols-outlined menu__icon"> menu </span>
+    </button>
+    <!--  -->
+    <!--  -->
+    <main class="main main-contenido-informes">
+      <template id="template-historial-enlace">
+        <a href="#" target="_blank">Enlace dinámico</a>
+      </template>
+      <section class="section section-historial-nav">
+        <article class="historial-nav-article">
+          <span style="color: var(--gris-historial-inicio)">historial</span>
+        </article>
+      </section>
+      <section class="section section-nav">
+        <article class="nav-article">
+          <ul class="nav-article-ul">
+            <li class="nav-article-ul-li-cert" id="link-cert-emitidos">Certificados emitidos</li>
+            <li class="nav-article-ul-li-cert" id="link-gen-certificados">Generación de Certificados</li>
+            <li class="nav-article-ul-li-cert" id="link-prueba-certificados">Emitir un certificado de prueba</li>
+          </ul>
+        </article>
+      </section>
+      <section class="section-iframe-certprueba"></section>
+    </main>
+    <footer class="footer">
+      <section class="footer__section footer__section--data">
+        <article class="section__article">
+          <span>
+            <p class="article__title">Universidad Distrital Francisco José de Caldas</p>
+            <p class="article__title">NIT. 899.999.230-7</p>
+          </span>
+
+          <br />
+
+          <p>Institución de Educación Superior sujeta a inspección y vigilancia por</p>
+          <p>el Ministerio de Educación Nacional.</p>
+          <p>Acuerdo de creación Nº 10 de 1948 del Concejo de Bogotá.</p>
+          <p>Acreditación Institucional de Alta Calidad - Resolución Nº 23096 del 15 de diciembre de</p>
+          <p>2016.</p>
+
+          <br /><br />
+        </article>
+        <article class="section__article">
+          <p class="article__title">PlanEsTIC - UD</p>
+          <br />
+          <p>Plan Estratégico en Tecnologías de la Información y la Comunicación</p>
+          <p>Resolución No. 053 - 2013</p>
+          <p>Acuerdo No. 001 de 2013</p>
+        </article>
+      </section>
+    </footer>
+    <button class="nav-menu-top">
+      <span class="material-symbols-outlined menu__icon"> arrow_upward </span>
+    </button>
+  </body>
+  <script src="../../scripts/header.js" type="module"></script>
+  <script src="../../scripts/navegacion.js" type="module"></script>
+  <script src="../../scripts/irTop.js" type="module"></script>
+  <script src="../../scripts/CerrarSesion.js" type="module"></script>
+  <script src="../../scripts/autorizacion.js" type="module"></script>
+  <script type="module" src="../../scripts/certificados.js"></script>
+</html>

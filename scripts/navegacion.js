@@ -71,6 +71,8 @@ const llenarHistorial = () => {
         ? `Certificados emitidos ${nombreFormacion ? nombreFormacion : ""}`
         : link.includes("GenerarCertificadosPage")  
         ? `Generar certificados ${nombreFormacion ? nombreFormacion : ""}`
+        : link.includes("CertificadoPrueba")  
+        ? `Certificado prueba ${nombreFormacion ? nombreFormacion : ""}`
         : link.includes("CursoConTutorCohortesPage")  
         ? `Cohortes curso con tutor ${nombreFormacion ? nombreFormacion : ""}`
         : link.includes("CursoMoocCohortesPage") 

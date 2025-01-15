@@ -22,11 +22,11 @@ const llenaTablaNoCertificados = (noCertificados, nombre_tipo_proceso) => {
               <td>${formacion.tipo_documento}</td>
               <td>${formacion.numero_documento}</td>
               <td>${formacion.correo_electronico}</td>
-              <td>${formacion.numero_contacto}</td>
+              <td>${formacion.telefono}</td>
               <td>${formacion.vinculacion}</td>
               <td>${formacion.dependencia}</td>
               <td>${formacion.fecha_registro}</td>
-              <td>${formacion.ultima_asistencia}</td>
+              <td>${formacion.numero_asistencia}</td>
               <td class="td-acciones td-acciones-index">
               ${nombre_tipo_proceso !== "Curso MOOC" ? '<span class="material-symbols-outlined" title="Generar certificado"> badge </span>' : "Sin acciones por ejecutar"}
               </td>`;
