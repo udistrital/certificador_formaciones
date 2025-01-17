@@ -27,6 +27,19 @@ export const obtenerParametrosUrl = async () => {
 
   if (window.location.pathname.includes("GenerarCertificadosPage")) {
     generarCertificados(id_proceso, id_cohorte, id_modulo);
+
+    document.getElementById("certificados-generacion__selectedAll").addEventListener("click", (e) => {
+      let $checks = document.querySelectorAll(".check-gen-certificados");
+      Array.from($checks).forEach((check) => {
+        if (check.checked) {
+          check.checked = false; // Desmarcar el checkbox
+        } else {
+          check.checked = true; // Marcar el checkbox
+        }
+
+        console.log(check.getAttribute("checked"));
+      });
+    });
   } else if (window.location.pathname.includes("CertificadosEmitidosPage")) {
     document.getElementById("exportar_certificados").addEventListener("click", async (e) => {
       console.log("Exportar ");

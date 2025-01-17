@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="../../styles/footer.css" />
     <link rel="stylesheet" href="../../index.css" />
     <link rel="stylesheet" href="../../styles/certificados.css" />
+    <link rel="stylesheet" href="../../styles/notificacion.css" />
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <title>Generarción de certificados</title>
   </head>
@@ -111,7 +113,19 @@
         </article>
       </section>
       <article>
-        <button class="asistencias-boton-exportar btn"><span class="material-symbols-outlined"> checklist </span>Seleccionar todos los registros</button>
+        <button class="asistencias-boton-exportar btn" id="certificados-generacion__selectedAll"><span class="material-symbols-outlined"> checklist </span>Seleccionar todos los registros</button>
+      </article>
+      <article class="article-notificacion">
+        <div class="notificacion notificacion-verde notificacion-disabled" id="notificacion-verde-cohorte">
+          <span class="material-symbols-outlined"> check_circle </span>
+          <p>Se ha creado la cohorte correctamente</p>
+          <span></span>
+        </div>
+        <div class="notificacion notificacion-roja notificacion-disabled" id="notificacion-roja-cohorte">
+          <span class="material-symbols-outlined"> error </span>
+          <p>No se ha podido crear la cohorte</p>
+          <span></span>
+        </div>
       </article>
       <section class="section section-table">
         <table>

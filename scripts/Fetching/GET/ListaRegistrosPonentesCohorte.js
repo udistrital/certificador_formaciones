@@ -6,7 +6,7 @@ const listaRegistrosPonentesCohorte = async (id_cohorte, id_proceso) => {
 
   try {
     const response = await fetch(
-      `https://pruebascrud.formaciones.planestic.udistrital.edu.co/v1/registro_ponencia.php?id_cohorte=${id_cohorte}&id_proceso=${id_proceso}`,
+      `https://pruebascrud.formaciones.planestic.udistrital.edu.co/mid/registro_ponente.php?id_cohorte=${id_cohorte}&id_proceso=${id_proceso}`,
       // `https://pruebascrud.formaciones.planestic.udistrital.edu.co/v1/cohorte.php`,
       requestOptions
     );

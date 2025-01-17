@@ -16,7 +16,11 @@ const llenaTablaNoCertificados = (noCertificados, nombre_tipo_proceso) => {
     noCertificados.noCertificados.forEach((formacion) => {
       $template.querySelector("tr").innerHTML = `
               <td>
-                ${nombre_tipo_proceso !== "Curso MOOC" ? '<label for="check-gen-certificados" id="label-check-gen-certificados"><span style="display: none">check</span><input type="checkbox" name="check-gen-certificados" id="check-gen-certificados" /></label>' : "No seleccionable"}
+                ${
+                  nombre_tipo_proceso !== "Curso MOOC"
+                    ? '<label for="check-gen-certificados" id="label-check-gen-certificados"><span style="display: none">check</span><input type="checkbox" name="check-gen-certificados" id="check-gen-certificados" class="check-gen-certificados"/></label>'
+                    : "No seleccionable"
+                }
               </td>
               <td>${formacion.nombre_inscrito}</td>
               <td>${formacion.tipo_documento}</td>
@@ -28,7 +32,7 @@ const llenaTablaNoCertificados = (noCertificados, nombre_tipo_proceso) => {
               <td>${formacion.fecha_registro}</td>
               <td>${formacion.numero_asistencia}</td>
               <td class="td-acciones td-acciones-index">
-              ${nombre_tipo_proceso !== "Curso MOOC" ? '<span class="material-symbols-outlined" title="Generar certificado"> badge </span>' : "Sin acciones por ejecutar"}
+              ${nombre_tipo_proceso !== "Curso MOOC" ? '<span class="material-symbols-outlined index-noCertificado" title="Generar certificado"> badge </span>' : "Sin acciones por ejecutar"}
               </td>`;
       {
         /* <span class="material-symbols-outlined index-configuracion" title="Configurarción">

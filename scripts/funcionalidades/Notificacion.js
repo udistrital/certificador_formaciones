@@ -1,6 +1,9 @@
 const notificacion = (estado, texto, donde) => {
   if (donde !== "modal") {
     const articleNotificacion = document.querySelector(".article-notificacion");
+    setTimeout(() => {
+      return (articleNotificacion.innerHTML = ``);
+    }, 5000);
     return (articleNotificacion.innerHTML += `<div
       class="notificacion notificacion-${estado === true ? "verde" : "roja"}"
       id="notificacion-roja-formacion"

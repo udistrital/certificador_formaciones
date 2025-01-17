@@ -244,13 +244,14 @@ h6 {
   padding: 0 0 0 5px;
 }
 
-#check-gen-certificados {
+.check-gen-certificados {
   outline: 1px solid var(--rojoprincipal);
   border-radius: 50%;
   padding: 10px;
+  cursor: pointer;
 }
 
-#check-gen-certificados:checked {
+.check-gen-certificados:checked {
   background-color: var(--rojoprincipal);
 }
 

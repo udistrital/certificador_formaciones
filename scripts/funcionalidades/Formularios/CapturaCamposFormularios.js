@@ -319,7 +319,7 @@ const formularioPostulacion = async () => {
 
         console.log(validaExistenciaRegistroCohorte);
 
-        if (validaExistenciaRegistroCohorte.existe === true) {
+        if (validaExistenciaRegistroCohorte.registradoCohorte.length === 0) {
           const tipoDocumentoById = await fetchingTipoDocumentoById(dataCursante.tipo_documento);
           const codigo_abreviacion = tipoDocumentoById[0].codigo_abreviacion;
           let filtraCursante = validaExistenciaRegistroCohorte.registradoCohorte.filter((registro) => {
